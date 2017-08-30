@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeeplus.modules.lu.dao.AreasDao">
+
+	<sql id="areasColumns">
+		a.id AS "id",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag",
+		a.parent_id AS "parent.id",
+		a.parent_ids AS "parentIds",
+		a.name AS "name",
+		a.sort AS "sort",
+		a.cid AS "cid",
+		a.customertype AS "customertype"
+	</sql>
+
+	<sql id="areasJoins">
+	</sql>
+
+	<select id="get" resultType="Areas">
+		SELECT
+			<include refid="areasColumns"/>
+		FROM areas a
+		<include refid="areasJoins"/>
+		WHERE a.id = #{id}
+	</select>
+
+	<select id="findList" resultType="Areas">
+		SELECT
+			<include refid="areasColumns"/>
+		FROM areas a
+		<include refid="areasJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="parent != null and parent.id != null and parent.id != ''">
+				AND a.parent_id = #{parent.id}
+			</if>
+			<if test="cid != null and cid != ''">
+				AND a.cid = #{cid}
+			</if>
+			<if test="customertype != null and customertype != ''">
+				AND a.customertype = #{customertype}
+			</if>
+			<if test="parentIds != null and parentIds != ''">
+				AND a.parent_ids LIKE
+					<if test="dbName == 'oracle'">'%'||#{parentIds}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{parentIds}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{parentIds},'%')</if>
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name LIKE
+					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+			<if test="cid !=null and cid != ''">
+				AND a.cid = #{cid}
+			</if>
+		</where>
+		ORDER BY a.create_date DESC
+	</select>
+
+	<select id="findAllList" resultType="Areas">
+		SELECT
+			<include refid="areasColumns"/>
+		FROM areas a
+		<include refid="areasJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>
+		ORDER BY a.sort ASC
+	</select>
+
+	<select id="findByParentIdsLike" resultType="Areas">
+		SELECT
+			a.id,
+			a.parent_id AS "parent.id",
+			a.parent_ids
+		FROM areas a
+		<include refid="areasJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			AND a.parent_ids LIKE #{parentIds}
+		</where>
+		ORDER BY a.sort ASC
+	</select>
+
+	<insert id="insert">
+		INSERT INTO areas(
+			id,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag,
+			parent_id,
+			parent_ids,
+			name,
+			sort,
+			cid,
+			customertype
+		) VALUES (
+			#{id},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{delFlag},
+			#{parent.id},
+			#{parentIds},
+			#{name},
+			#{sort},
+			#{cid},
+			#{customertype}
+		)
+	</insert>
+
+	<update id="update">
+		UPDATE areas SET
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{remarks},
+			parent_id = #{parent.id},
+			parent_ids = #{parentIds},
+			name = #{name},
+			sort = #{sort},
+			cid = #{cid},
+			customertype = #{customertype}
+		WHERE id = #{id}
+	</update>
+
+	<update id="updateParentIds">
+		UPDATE areas SET
+			parent_id = #{parent.id},
+			parent_ids = #{parentIds}
+		WHERE id = #{id}
+	</update>
+
+	<!--物理删除-->
+	<update id="delete">
+		DELETE FROM areas
+		WHERE id = #{id} OR parent_ids LIKE
+		<if test="dbName == 'oracle'">#{id}||'%'</if>
+		<if test="dbName == 'mssql'">#{id}+'%'</if>
+		<if test="dbName == 'mysql'">concat(#{id},'%')</if>
+	</update>
+
+	<!--逻辑删除-->
+	<update id="deleteByLogic">
+		UPDATE areas SET
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id} OR parent_ids LIKE
+		<if test="dbName == 'oracle'">#{id}||'%'</if>
+		<if test="dbName == 'mssql'">#{id}+'%'</if>
+		<if test="dbName == 'mysql'">concat(#{id},'%')</if>
+	</update>
+
+	<!-- 根据实体名称和字段名称和字段值获取唯一记录 -->
+	<select id="findUniqueByProperty" resultType="Areas" statementType="STATEMENT">
+		select * FROM areas  where ${propertyName} = '${value}' and parent_id='0'
+	</select>
+
+	<select id="getAreasById" parameterType="java.lang.String" resultType="Areas">
+		SELECT
+		a.id AS "id",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag",
+		a.parent_id AS "parent.id",
+		a.parent_ids AS "parentIds",
+		a.name AS "name",
+		a.sort AS "sort",
+		a.customertype AS "customertype",
+		s.name as "createName",
+		c.name as cid
+		FROM
+		`areas` a
+		LEFT JOIN customers c ON a.cid = c.CID
+		LEFT JOIN sys_user s ON a.create_by = s.id
+		WHERE a.id = #{id}
+		ORDER BY a.sort ASC
+	</select>
+
+	<select id="getAllAreasCustomersByCreateIdAndCustomerType" parameterType="java.util.Map" resultType="com.jeeplus.modules.lu.entity.AreasCustomers">
+		SELECT
+			a.id AS "id",
+			a.create_by AS "createBy.id",
+			a.create_date AS "createDate",
+			a.update_by AS "updateBy.id",
+			a.update_date AS "updateDate",
+			a.remarks AS "remarks",
+			a.del_flag AS "delFlag",
+			a.parent_id AS "parent.id",
+			a.parent_ids AS "parentIds",
+			a. NAME AS "name",
+			a.sort AS "sort",
+			a.customertype AS "customertype",
+			s. NAME AS "createName",
+			c.CID AS cid,
+			c.`Name` AS cname,
+			c.Point AS point,
+			c.Address AS address
+		FROM
+			`areas` a
+		LEFT JOIN sys_user s ON a.create_by = s.id
+		LEFT JOIN customers c ON a.id = c.AreaID
+		WHERE
+			c.CreateBy = #{createId}
+		AND c.CustomerType = #{customerType}
+		ORDER BY
+			c.CreateTime DESC
+	</select>
+
+	<select id="getAllAreasCustomersByCustomerType" parameterType="java.lang.String" resultType="com.jeeplus.modules.lu.entity.AreasCustomers">
+		SELECT
+			a.id AS "id",
+			a.create_by AS "createBy.id",
+			a.create_date AS "createDate",
+			a.update_by AS "updateBy.id",
+			a.update_date AS "updateDate",
+			a.remarks AS "remarks",
+			a.del_flag AS "delFlag",
+			a.parent_id AS "parent.id",
+			a.parent_ids AS "parentIds",
+			a. NAME AS "name",
+			a.sort AS "sort",
+			a.customertype AS "customertype",
+			s. NAME AS "createName",
+			c.CID AS cid,
+			c.`Name` AS cname,
+			c.Phone as phone,
+			c.Point AS point,
+			c.Address AS address
+		FROM
+			`areas` a
+		LEFT JOIN sys_user s ON a.create_by = s.id
+		LEFT JOIN customers c ON a.id = c.AreaID
+		WHERE
+			c.CustomerType = #{customerType}
+		ORDER BY
+			c.CreateTime DESC
+	</select>
+
+	<select id="getAllAreasToAreasCustomers" resultType="com.jeeplus.modules.lu.entity.AreasCustomers">
+		SELECT
+			a.id AS "id",
+			a.create_by AS "createBy.id",
+			a.create_date AS "createDate",
+			a.update_by AS "updateBy.id",
+			a.update_date AS "updateDate",
+			a.remarks AS "remarks",
+			a.del_flag AS "delFlag",
+			a.parent_id AS "parent.id",
+			a.parent_ids AS "parentIds",
+			a. NAME AS "name",
+			a.sort AS "sort",
+			a.customertype AS "customertype"
+		FROM
+			`areas` a
+		ORDER BY
+			a.sort ASC
+	</select>
+
+</mapper>

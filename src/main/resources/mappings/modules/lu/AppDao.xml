@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeeplus.modules.app.dao.AppDao">
+    
+	<select id="selectAlarmrecord" parameterType="map" resultType="com.jeeplus.modules.lu.entity.AlarmsDefences">
+		Select d.name as defencesName ,a.AlarmType as typeName,a.AlarmTime as date,a.State from alarms a LEFT JOIN defences d on a.CustomerID = d.CustomerID
+		WHERE a.CustomerID=#{cid} AND (a.AlarmTime BETWEEN #{startdate} AND #{enddate})
+	</select>
+
+	<select id="getdefence" parameterType="string" resultType="com.jeeplus.modules.app.entity.DefencesDevice">
+		SELECT a.DID as defenceid , a.Code as defencecode , a.Name as defencename, a.DefenceType as defencetype, b.devicetype as devicetype,
+		b.masterid as masterid, b.state as state FROM defences a LEFT JOIN devices b on a.CustomerID = b.customerid
+		WHERE a.CustomerID = #{cid}
+	</select>
+</mapper>

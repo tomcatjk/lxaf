@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeeplus.modules.lu.dao.ServiceRecordsDao">
+    
+	<sql id="serviceRecordsColumns">
+		a.id AS "id",
+		a.serverid AS "serverid",
+		a.devicecode AS "devicecode",
+		a.deviceid AS "deviceid",
+		a.creator AS "creator",
+		a.createtime AS "createtime",
+		a.state AS "state",
+		a.remark AS "remark",
+		a.rated AS "rated",
+		a.star AS "star"
+	</sql>
+	
+	<sql id="serviceRecordsJoins">
+	</sql>
+	
+    
+	<select id="get" resultType="ServiceRecords" >
+		SELECT 
+			<include refid="serviceRecordsColumns"/>
+		FROM servicerecords a
+		<include refid="serviceRecordsJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="ServiceRecords" >
+		SELECT 
+			<include refid="serviceRecordsColumns"/>
+		FROM servicerecords a
+		<include refid="serviceRecordsJoins"/>
+		<where>
+			
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="serverid != null and serverid != ''">
+				AND a.serverid = #{serverid}
+			</if>
+			<if test="devicecode != null and devicecode != ''">
+				AND a.devicecode = #{devicecode}
+			</if>
+			<if test="deviceid != null and deviceid != ''">
+				AND a.deviceid = #{deviceid}
+			</if>
+			<if test="creator != null and creator != ''">
+				AND a.creator = #{creator}
+			</if>
+			<if test="createtime != null and createtime != ''">
+				AND a.createtime = #{createtime}
+			</if>
+			<if test="state != null and state != ''">
+				AND a.state = #{state}
+			</if>
+			<if test="remark != null and remark != ''">
+				AND a.remark = #{remark}
+			</if>
+			<if test="rated != null and rated != ''">
+				AND a.rated = #{rated}
+			</if>
+			<if test="star != null and star != ''">
+				AND a.star = #{star}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="ServiceRecords" >
+		SELECT 
+			<include refid="serviceRecordsColumns"/>
+		FROM servicerecords a
+		<include refid="serviceRecordsJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO servicerecords(
+			serverid,
+			devicecode,
+			deviceid,
+			creator,
+			createtime,
+			state,
+			remark,
+			rated,
+			star
+		) VALUES (
+			#{serverid},
+			#{devicecode},
+			#{deviceid},
+			#{creator},
+			#{createtime},
+			#{state},
+			#{remark},
+			#{rated},
+			#{star}
+		)
+	</insert>
+
+	<insert id="insertServiceRecords">
+		INSERT INTO servicerecords(
+		serverid,
+		devicecode,
+		deviceid,
+		creator,
+		createtime,
+		state,
+		remark,
+		rated,
+		star
+		) VALUES (
+		#{serverid},
+		#{devicecode},
+		#{deviceid},
+		#{creator},
+		#{createtime},
+		#{state},
+		#{remark},
+		#{rated},
+		#{star}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE servicerecords SET 	
+			serverid = #{serverid},
+			devicecode = #{devicecode},
+			deviceid = #{deviceid},
+			creator = #{creator},
+			createtime = #{createtime},
+			state = #{state},
+			remark = #{remark},
+			rated = #{rated},
+			star = #{star}
+		WHERE id = #{id}
+	</update>
+
+	<update id="updateById" parameterType="com.jeeplus.modules.lu.entity.ServiceRecords">
+		UPDATE servicerecords SET
+		serverid = #{serverid},
+		devicecode = #{devicecode},
+		deviceid = #{deviceid},
+		creator = #{creator},
+		createtime = #{createtime},
+		state = #{state},
+		remark = #{remark},
+		rated = #{rated},
+		star = #{star}
+		WHERE id = #{id}
+	</update>
+	
+	
+	<!--物理删除-->
+	<update id="delete">
+		DELETE FROM servicerecords
+		WHERE id = #{id}
+	</update>
+	
+	<!--逻辑删除-->
+	<update id="deleteByLogic">
+		UPDATE servicerecords SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+	
+	<!-- 根据实体名称和字段名称和字段值获取唯一记录 -->
+	<select id="findUniqueByProperty" resultType="ServiceRecords" statementType="STATEMENT">
+		select * FROM servicerecords  where ${propertyName} = '${value}'
+	</select>
+
+	<select id="findServiceRecordsByserverIDAndState" resultType="ServiceRecords" parameterType="java.util.Map">
+		SELECT
+			*
+		FROM
+			servicerecords s
+		WHERE
+			s.ServerID = #{serverID}
+		AND s.State = #{state}
+	</select>
+</mapper>

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeeplus.modules.lu.dao.ServicePersonsDao">
+    
+	<sql id="servicePersonsColumns">
+		a.id AS "id",
+		a.loginname AS "loginname",
+		a.pwd AS "pwd",
+		a.name AS "name",
+		a.tel AS "tel",
+		a.score AS "score",
+		a.signcount AS "signcount",
+		a.servercount AS "servercount",
+		a.remark AS "rmark",
+		a.devicecode AS "devicecode",
+		a.longitude AS "longitude",
+		a.latitude AS "latitude",
+		a.state AS "state"
+	</sql>
+	
+	<sql id="servicePersonsJoins">
+	</sql>
+	
+    
+	<select id="get" resultType="ServicePersons" >
+		SELECT 
+			<include refid="servicePersonsColumns"/>
+		FROM servicepersons a
+		<include refid="servicePersonsJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="ServicePersons" >
+		SELECT 
+			<include refid="servicePersonsColumns"/>
+		FROM servicepersons a
+		<include refid="servicePersonsJoins"/>
+		<where>
+			
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="loginname != null and loginname != ''">
+				AND a.loginname = #{loginname}
+			</if>
+			<if test="pwd != null and pwd != ''">
+				AND a.pwd = #{pwd}
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+			<if test="tel != null and tel != ''">
+				AND a.tel = #{tel}
+			</if>
+			<if test="score != null and score != ''">
+				AND a.score = #{score}
+			</if>
+			<if test="signcount != null and signcount != ''">
+				AND a.signcount = #{signcount}
+			</if>
+			<if test="servercount != null and servercount != ''">
+				AND a.servercount = #{servercount}
+			</if>
+			<if test="rmark != null and rmark != ''">
+				AND a.remark = #{rmark}
+			</if>
+			<if test="devicecode != null and devicecode != ''">
+				AND a.devicecode = #{devicecode}
+			</if>
+			<if test="longitude != null and longitude != ''">
+				AND a.longitude = #{longitude}
+			</if>
+			<if test="latitude != null and latitude != ''">
+				AND a.latitude = #{latitude}
+			</if>
+			<if test="state != null and state != ''">
+				AND a.state = #{state}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="ServicePersons" >
+		SELECT 
+			<include refid="servicePersonsColumns"/>
+		FROM servicepersons a
+		<include refid="servicePersonsJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO servicepersons(
+			id,
+			loginname,
+			pwd,
+			name,
+			tel,
+			score,
+			signcount,
+			servercount,
+			remark,
+			devicecode,
+			longitude,
+			latitude,
+			state
+		) VALUES (
+			#{id},
+			#{loginname},
+			#{pwd},
+			#{name},
+			#{tel},
+			#{score},
+			#{signcount},
+			#{servercount},
+			#{rmark},
+			#{devicecode},
+			#{longitude},
+			#{latitude},
+			#{state}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE servicepersons SET 	
+			loginname = #{loginname},
+			pwd = #{pwd},
+			name = #{name},
+			tel = #{tel},
+			score = #{score},
+			signcount = #{signcount},
+			servercount = #{servercount},
+			remark = #{rmark},
+			devicecode = #{devicecode},
+			longitude = #{longitude},
+			latitude = #{latitude},
+			state = #{state}
+		WHERE id = #{id}
+	</update>
+
+	<update id="updateById">
+		UPDATE servicepersons SET
+		loginname = #{loginname},
+		pwd = #{pwd},
+		name = #{name},
+		tel = #{tel},
+		score = #{score},
+		signcount = #{signcount},
+		servercount = #{servercount},
+		remark = #{rmark},
+		devicecode = #{devicecode},
+		longitude = #{longitude},
+		latitude = #{latitude},
+		state = #{state}
+		WHERE id = #{id}
+	</update>
+
+
+	<!--物理删除-->
+	<update id="delete">
+		DELETE FROM servicepersons
+		WHERE id = #{id}
+	</update>
+	
+	<!--逻辑删除-->
+	<update id="deleteByLogic">
+		UPDATE servicepersons SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+	
+	<!-- 根据实体名称和字段名称和字段值获取唯一记录 -->
+	<select id="findUniqueByProperty" resultType="ServicePersons" statementType="STATEMENT">
+		select * FROM servicepersons  where ${propertyName} = '${value}'
+	</select>
+
+	<select id="findServicePersonsByState" parameterType="java.lang.Integer" resultType="com.jeeplus.modules.lu.entity.ServicePersonsPart">
+		SELECT
+			s.id AS id,
+			s. NAME AS name
+		FROM
+			ServicePersons s
+		WHERE
+			State = #{state};
+	</select>
+	
+</mapper>

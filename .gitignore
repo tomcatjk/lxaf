@@ -1,0 +1,10 @@
+.settings/
+.svn/
+.classpath
+.project
+target/
+*.class
+out/
+build/
+classes/
+*.rar

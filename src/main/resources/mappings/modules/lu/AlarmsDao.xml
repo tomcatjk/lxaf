@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeeplus.modules.lu.dao.AlarmsDao">
+    
+	<sql id="alarmsColumns">
+		a.aid AS "aid",
+		a.customerid AS "customerid",
+		a.masterid AS "masterid",
+		a.defenceid AS "defenceid",
+		a.middefence AS "middefence",
+		a.alarmtype AS "alarmtype",
+		a.alarmtime AS "alarmtime",
+		a.state AS "state",
+		a.servicename AS "servicename",
+		a.servicetime AS "servicetime",
+		a.result AS "result",
+		a.remark AS "remark",
+		a.finishtime AS "finishtime",
+		a.RecordTime AS recordTime,
+		a.DisarmState AS disarmState
+	</sql>
+	
+	<sql id="alarmsJoins">
+	</sql>
+	
+    
+	<select id="get" resultType="Alarms" >
+		SELECT 
+			<include refid="alarmsColumns"/>
+		FROM alarms a
+		<include refid="alarmsJoins"/>
+		WHERE a.aid = #{id}
+	</select>
+	
+	<select id="findList" resultType="Alarms" >
+		SELECT 
+			<include refid="alarmsColumns"/>
+		FROM alarms a
+		<include refid="alarmsJoins"/>
+		<where>
+			
+			<if test="aid != null and aid != ''">
+				AND a.aid = #{aid}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="Alarms" >
+		SELECT 
+			<include refid="alarmsColumns"/>
+		FROM alarms a
+		<include refid="alarmsJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO alarms(
+			aid,
+			customerid,
+			masterid,
+			defenceid,
+			middefence,
+			alarmtype,
+			alarmtime,
+			state,
+			servicename,
+			servicetime,
+			result,
+			remark,
+			finishtime
+		) VALUES (
+			#{aid},
+			#{customerid},
+			#{masterid},
+			#{defenceid},
+			#{middefence},
+			#{alarmtype},
+			#{alarmtime},
+			#{state},
+			#{servicename},
+			#{servicetime},
+			#{result},
+			#{remark},
+			#{finishtime}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE alarms SET 	
+			aid = #{aid},
+			customerid = #{customerid},
+			masterid = #{masterid},
+			defenceid = #{defenceid},
+			middefence = #{middefence},
+			alarmtype = #{alarmtype},
+			alarmtime = #{alarmtime},
+			state = #{state},
+			servicename = #{servicename},
+			servicetime = #{servicetime},
+			result = #{result},
+			remark = #{remark},
+			finishtime = #{finishtime}
+		WHERE id = #{id}
+	</update>
+
+	<update id="updateByAid" parameterType="com.jeeplus.modules.lu.entity.Alarms">
+		UPDATE alarms SET
+		aid = #{aid},
+		customerid = #{customerid},
+		masterid = #{masterid},
+		defenceid = #{defenceid},
+		middefence = #{middefence},
+		alarmtype = #{alarmtype},
+		alarmtime = #{alarmtime},
+		state = #{state},
+		servicename = #{servicename},
+		servicetime = #{servicetime},
+		result = #{result},
+		remark = #{remark},
+		finishtime = #{finishtime},
+		RecordTime = #{recordTime},
+		DisarmState = #{disarmState}
+		WHERE aid = #{aid}
+	</update>
+	
+	
+	<!--物理删除-->
+	<update id="delete">
+		DELETE FROM alarms
+		WHERE aid = #{aid}
+	</update>
+	
+	<!--逻辑删除-->
+	<update id="deleteByLogic">
+		UPDATE alarms SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE aid = #{aid}
+	</update>
+	
+	
+	<!--&lt;!&ndash; 根据实体名称和字段名称和字段值获取唯一记录 &ndash;&gt;-->
+	<select id="findUniqueByProperty" resultType="Alarms" statementType="STATEMENT">
+		select * FROM alarms  where ${propertyName} = '${value}'
+	</select>
+	
+	<!--报警统计-->
+	<select id="findAlarmsAll" resultType="com.jeeplus.modules.lu.entity.AlarmsCount">
+		select c.name,
+		sum(case a.AlarmType when 0 then 1 else 0 end) as magnetometer,
+		sum(case a.AlarmType when 1 then 1 else 0 end) as red,
+		sum(case a.AlarmType when 2 then 1 else 0 end) as smoke,
+		sum(case a.AlarmType when 3 then 1 else 0 end) as personal,
+		sum(case a.AlarmType when 4 then 1 else 0 end) as low
+		from customers c left join alarms a
+		on c.CID=a.CustomerID GROUP BY c.name
+		ORDER BY c.CreateTime DESC
+	</select>
+
+	<!--查询报警信息详单-->
+	<select id="findAlarmsDefencesAll" resultType="com.jeeplus.modules.lu.entity.AlarmsDefences">
+		Select a.aid as id,c.name as customersName ,d.name as defencesName ,a.AlarmType as typeName,a.AlarmTime as date,a.State,a.Remark from alarms a LEFT JOIN
+		customers c on a.CustomerID=c.CID LEFT JOIN defences d on a.DefenceID = d.DID ORDER BY a.AlarmTime DESC
+	</select>
+
+	<!--根据时间查询报警详单-->
+	<select id="findAlarmsDefencesByTime" parameterType="java.util.Map" resultType="com.jeeplus.modules.lu.entity.AlarmsDefences">
+		Select a.aid,c.name as customersName ,d.name as defencesName ,a.AlarmType as typeName,a.AlarmTime as date,a.State,a.Remark from alarms a LEFT JOIN
+		customers c on a.CustomerID=c.CID LEFT JOIN defences d on a.DefenceID = d.DID
+		<where>
+			1 = 1
+			<if test="startTime!=null and startTime !=''">
+				and a.AlarmTime <![CDATA[ > ]]> #{startTime}
+			</if>
+			<if test="endTime!=null and endTime != ''">
+				AND a.AlarmTime <![CDATA[ < ]]>  #{endTime}
+			</if>
+		</where>
+	</select>
+
+
+	<!--根据登录名查询报警统计-->
+	<select id="findAlarmsByName" parameterType="java.lang.String" resultType="com.jeeplus.modules.lu.entity.AlarmsCount">
+		select c.name,
+		sum(case a.AlarmType when 0 then 1 else 0 end) as magnetometer,
+		sum(case a.AlarmType when 1 then 1 else 0 end) as red,
+		sum(case a.AlarmType when 2 then 1 else 0 end) as smoke,
+		sum(case a.AlarmType when 3 then 1 else 0 end) as personal,
+		sum(case a.AlarmType when 4 then 1 else 0 end) as low
+		from customers c left join alarms a
+		on c.CID=a.CustomerID
+		WHERE c.name LIKE CONCAT('%',#{name},'%') GROUP BY c.CID
+	</select>
+
+	<select id="getAlarmsInfoAcd" resultType="com.jeeplus.modules.lu.entity.AlarmsInfoAcd">
+		SELECT
+			a.AID AS aid,
+			c.`Name` AS cname,
+			c.Phone AS phone,
+			d.`Name` AS dname,
+			a.AlarmType AS alarmType,
+			a.AlarmTime AS alarmTime,
+			c.Point AS point,
+			a.State AS state,
+			a.RecordTime AS recordTime,
+			a.DisarmState AS disarmState,
+			a.ServiceName AS serviceName,
+            c.Address AS address
+		FROM
+			`alarms` a
+		LEFT JOIN customers c ON c.CID = a.CustomerID
+		LEFT JOIN defences d ON d.DID = a.DefenceID
+		WHERE
+		a.State = #{state}
+		<if test="cid != null and cid != ''">
+			AND a.CustomerID = #{cid}
+		</if>
+		ORDER BY
+			a.AlarmTime DESC
+        <if test="currentPage != null">
+          LIMIT #{currentPage},#{pageSize}
+        </if>
+	</select>
+
+	<!--报警统计-->
+	<select id="getAlarmsCount"  resultType="com.jeeplus.modules.lu.entity.AlarmsCount">
+		select c.name,
+		sum(case a.AlarmType when 1100 then 1 else 0 end) as WARNING1,
+		sum(case a.AlarmType when 1101 then 1 else 0 end) as WARNING2,
+		sum(case a.AlarmType when 1102 then 1 else 0 end) as WARNING3,
+		sum(case a.AlarmType when 1440 then 1 else 0 end) as WARNING4,
+		sum(case a.AlarmType when 1141 then 1 else 0 end) as WARNING5,
+		sum(case a.AlarmType when 1142 then 1 else 0 end) as WARNING6,
+		sum(case a.AlarmType when 1143 then 1 else 0 end) as WARNING7,
+		sum(case a.AlarmType when 1144 then 1 else 0 end) as WARNING8,
+		sum(case a.AlarmType when 1145 then 1 else 0 end) as WARNING9,
+		sum(case a.AlarmType when 3102 then 1 else 0 end) as WARNING10,
+		sum(case a.AlarmType when 3140 then 1 else 0 end) as WARNING11,
+		sum(case a.AlarmType when 3141 then 1 else 0 end) as WARNING12,
+		sum(case a.AlarmType when 3142 then 1 else 0 end) as WARNING13,
+		sum(case a.AlarmType when 3143 then 1 else 0 end) as WARNING14,
+		sum(case a.AlarmType when 3144 then 1 else 0 end) as WARNING15,
+		sum(case a.AlarmType when 3145 then 1 else 0 end) as WARNING16,
+		sum(case a.AlarmType when 1110 then 1 else 0 end) as WARNING17,
+		sum(case a.AlarmType when 1113 then 1 else 0 end) as WARNING18,
+		sum(case a.AlarmType when 1114 then 1 else 0 end) as WARNING19,
+		sum(case a.AlarmType when 1115 then 1 else 0 end) as WARNING20,
+		sum(case a.AlarmType when 1116 then 1 else 0 end) as WARNING21,
+		sum(case a.AlarmType when 1117 then 1 else 0 end) as WARNING22,
+		sum(case a.AlarmType when 1118 then 1 else 0 end) as WARNING23,
+		sum(case a.AlarmType when 1120 then 1 else 0 end) as WARNING24,
+		sum(case a.AlarmType when 1121 then 1 else 0 end) as WARNING25,
+		sum(case a.AlarmType when 1122 then 1 else 0 end) as WARNING26,
+		sum(case a.AlarmType when 1123 then 1 else 0 end) as WARNING27,
+		sum(case a.AlarmType when 1130 then 1 else 0 end) as WARNING28,
+		sum(case a.AlarmType when 1131 then 1 else 0 end) as WARNING29,
+		sum(case a.AlarmType when 1132 then 1 else 0 end) as WARNING30,
+		sum(case a.AlarmType when 1133 then 1 else 0 end) as WARNING31,
+		sum(case a.AlarmType when 1134 then 1 else 0 end) as WARNING32,
+		sum(case a.AlarmType when 1135 then 1 else 0 end) as WARNING33,
+		sum(case a.AlarmType when 1136 then 1 else 0 end) as WARNING34,
+		sum(case a.AlarmType when 1137 then 1 else 0 end) as WARNING35,
+		sum(case a.AlarmType when 1138 then 1 else 0 end) as WARNING36,
+		sum(case a.AlarmType when 1111 then 1 else 0 end) as WARNING37,
+		sum(case a.AlarmType when 1112 then 1 else 0 end) as WARNING38,
+		sum(case a.AlarmType when 1300 then 1 else 0 end) as WARNING39,
+		sum(case a.AlarmType when 3301 then 1 else 0 end) as WARNING40,
+		sum(case a.AlarmType when 1301 then 1 else 0 end) as WARNING41,
+		sum(case a.AlarmType when 1302 then 1 else 0 end) as WARNING42,
+		sum(case a.AlarmType when 3302 then 1 else 0 end) as WARNING43,
+		sum(case a.AlarmType when 1303 then 1 else 0 end) as WARNING44,
+		sum(case a.AlarmType when 1304 then 1 else 0 end) as WARNING45,
+		sum(case a.AlarmType when 1305 then 1 else 0 end) as WARNING46,
+		sum(case a.AlarmType when 1306 then 1 else 0 end) as WARNING47,
+		sum(case a.AlarmType when 1307 then 1 else 0 end) as WARNING48,
+		sum(case a.AlarmType when 1308 then 1 else 0 end) as WARNING49,
+		sum(case a.AlarmType when 1309 then 1 else 0 end) as WARNING50,
+		sum(case a.AlarmType when 1320 then 1 else 0 end) as WARNING51,
+		sum(case a.AlarmType when 1321 then 1 else 0 end) as WARNING52,
+		sum(case a.AlarmType when 1322 then 1 else 0 end) as WARNING53,
+		sum(case a.AlarmType when 1331 then 1 else 0 end) as WARNING54,
+		sum(case a.AlarmType when 3331 then 1 else 0 end) as WARNING55,
+		sum(case a.AlarmType when 1351 then 1 else 0 end) as WARNING56,
+		sum(case a.AlarmType when 1352 then 1 else 0 end) as WARNING57,
+		sum(case a.AlarmType when 1354 then 1 else 0 end) as WARNING58,
+		sum(case a.AlarmType when 1384 then 1 else 0 end) as WARNING59,
+		sum(case a.AlarmType when 3384 then 1 else 0 end) as WARNING60,
+		sum(case a.AlarmType when 1381 then 1 else 0 end) as WARNING61,
+		sum(case a.AlarmType when 3381 then 1 else 0 end) as WARNING62,
+		sum(case a.AlarmType when 1701 then 1 else 0 end) as WARNING63,
+		sum(case a.AlarmType when 1702 then 1 else 0 end) as WARNING64
+		from customers c left join alarms a
+		on c.CID=a.CustomerID
+		WHERE
+		1 = 1
+		<if test="name != null and name !=''">
+			AND c.name LIKE CONCAT('%',#{name},'%')
+		</if>
+		<if test="id != null and id !='' and id != '1'.toString()">
+			AND  c.CreateBy =#{id}
+		</if>
+		GROUP BY c.name
+		ORDER BY c.CreateTime DESC
+	</select>
+
+</mapper>

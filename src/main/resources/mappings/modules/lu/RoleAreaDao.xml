@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeeplus.modules.lu.dao.RoleAreaDao">
+    
+	<sql id="roleAreaColumns">
+		a.id AS "id",
+		a.role_id AS "roleId",
+		a.area_id AS "areaId"
+	</sql>
+	
+	<sql id="roleAreaJoins">
+	</sql>
+	
+    
+	<select id="get" resultType="RoleArea" >
+		SELECT 
+			<include refid="roleAreaColumns"/>
+		FROM role_area a
+		<include refid="roleAreaJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="RoleArea" >
+		SELECT 
+			<include refid="roleAreaColumns"/>
+		FROM role_area a
+		<include refid="roleAreaJoins"/>
+		<where>
+			1=1
+			<if test="id != null and id != ''">
+				AND a.id LIKE 
+					<if test="dbName == 'oracle'">'%'||#{id}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{id}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{id},'%')</if>
+			</if>
+			<if test="roleId != null and roleId != ''">
+				AND a.role_id = #{roleId}
+			</if>
+			<if test="areaId != null and areaId != ''">
+				AND a.area_id = #{areaId}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="RoleArea" >
+		SELECT 
+			<include refid="roleAreaColumns"/>
+		FROM role_area a
+		<include refid="roleAreaJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO role_area(
+			id,
+			role_id,
+			area_id
+		) VALUES (
+			#{id},
+			#{roleId},
+			#{areaId}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE role_area SET 	
+			role_id = #{roleId},
+			area_id = #{areaId}
+		WHERE id = #{id}
+	</update>
+	
+	
+	<!--物理删除-->
+	<update id="delete">
+		DELETE FROM role_area
+		WHERE id = #{id}
+	</update>
+	
+	<!--逻辑删除-->
+	<update id="deleteByLogic">
+		UPDATE role_area SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+	
+	<!-- 根据实体名称和字段名称和字段值获取唯一记录 -->
+	<select id="findUniqueByProperty" resultType="RoleArea" statementType="STATEMENT">
+		select * FROM role_area  where ${propertyName} = '${value}'
+	</select>
+	
+</mapper>

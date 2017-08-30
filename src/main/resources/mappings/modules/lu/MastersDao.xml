@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeeplus.modules.lu.dao.MastersDao">
+    
+	<sql id="mastersColumns">
+		a.mid AS "mid",
+		a.code AS "code",
+		a.name AS "name",
+		a.sim AS "sim",
+		a.customerid AS "customerid",
+		a.maintype AS "maintype",
+		a.version AS "version",
+		a.state AS "state",
+		a.createtime AS "createtime"
+	</sql>
+	
+	<sql id="mastersJoins">
+	</sql>
+	
+    
+	<select id="get" resultType="Masters" >
+		SELECT 
+			<include refid="mastersColumns"/>
+		FROM masters a
+		<include refid="mastersJoins"/>
+		WHERE a.mid = #{id}
+	</select>
+	
+	<select id="findList" resultType="Masters" >
+		SELECT 
+			<include refid="mastersColumns"/>
+		FROM masters a
+		<include refid="mastersJoins"/>
+		<where>
+			
+			<if test="name != null and name != ''">
+				AND a.name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+
+
+	
+	<select id="findAllList" resultType="Masters" >
+		SELECT 
+			<include refid="mastersColumns"/>
+		FROM masters a
+		<include refid="mastersJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO masters(
+			mid,
+			code,
+			name,
+			sim,
+			customerid,
+			maintype,
+			version,
+			state,
+			createtime
+		) VALUES (
+			#{mid},
+			#{code},
+			#{name},
+			#{sim},
+			#{customerid},
+			#{maintype},
+			#{version},
+			#{state},
+			now()
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE masters SET 	
+			mid = #{mid},
+			code = #{code},
+			name = #{name},
+			sim = #{sim},
+			customerid = #{customerid},
+			maintype = #{maintype},
+			version = #{version},
+			state = #{state},
+			createtime = #{createtime}
+		WHERE mid = #{mid}
+	</update>
+
+	<update id="updateByMid">
+		UPDATE masters SET
+		mid = #{mid},
+		code = #{code},
+		name = #{name},
+		sim = #{sim},
+		customerid = #{customerid},
+		maintype = #{maintype},
+		version = #{version},
+		state = #{state},
+		createtime = #{createtime}
+		WHERE mid = #{mid}
+	</update>
+	
+	
+	<!--物理删除-->
+	<update id="delete">
+		DELETE FROM masters
+		WHERE mid = #{mid}
+	</update>
+	
+	<!--逻辑删除-->
+	<update id="deleteByLogic">
+		UPDATE masters SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE mid = #{mid}
+	</update>
+	
+	
+	<!-- 根据实体名称和字段名称和字段值获取唯一记录 -->
+	<select id="findUniqueByProperty" resultType="Masters" statementType="STATEMENT">
+		select * FROM masters  where ${propertyName} = '${value}'
+	</select>
+
+	<!--查询主机页面内容-->
+	<select id="findMaters" resultType="Masters">
+		SELECT m.mid,m.code,m.name,m.SIM,m.MainType,m.Version,m.State,m.CreateTime,c.`Name` AS customerid
+		FROM `masters` m left join customers c on m.CustomerID=c.CID
+	</select>
+
+	<select id="findMatersByCustomerid" parameterType="java.lang.String" resultType="Masters">
+		SELECT
+			m.mid,
+			m. CODE,
+			m. NAME,
+			m.SIM,
+			m.MainType,
+			m.Version,
+			m.State,
+			m.CreateTime,
+			c.cid as customerid
+		FROM
+			`masters` m
+		LEFT JOIN customers c ON m.CustomerID = c.CID
+		WHERE m.CustomerID = #{customerid}
+		ORDER BY m.createtime DESC
+	</select>
+
+	<select id="findPageByCustomerid" resultType="Masters" >
+		SELECT
+		m.mid,
+		m. CODE,
+		m. NAME,
+		m.SIM,
+		m.MainType,
+		m.Version,
+		m.State,
+		m.CreateTime,
+		c.cid as customerid
+		FROM
+		`masters` m
+		LEFT JOIN customers c ON m.CustomerID = c.CID
+		<where>
+			m.CustomerID = #{customerid}
+			<if test="name != null and name != ''">
+				AND m.name LIKE concat('%',#{name},'%')
+			</if>
+		</where>
+		ORDER BY m.createtime DESC
+	</select>
+
+	<select id="getMastersListByCid" parameterType="java.lang.String" resultType="com.jeeplus.modules.lu.entity.MastersPart">
+		SELECT
+			m.mid,
+			m. CODE,
+			m. NAME,
+			m.SIM,
+			m.CustomerId,
+			m.MainType,
+			m.Version,
+			m.State,
+			m.CreateTime
+		FROM
+			`masters` m
+		WHERE
+			m.CustomerID = #{cid}
+		ORDER BY m.createtime DESC
+	</select>
+
+	<!--查询一条记录-->
+	<select id="findOneMaters" parameterType="java.lang.String" resultType="Masters">
+		SELECT m.mid,m.code,m.name,m.SIM,m.MainType,m.Version,m.State,m.CreateTime,c.`Name` AS customerid
+		FROM `masters` m left join customers c on m.CustomerID=c.CID
+		WHERE m.mid=#{mid}
+	</select>
+	<!--编辑-->
+
+	<update id="updatemasters" parameterType="map" >
+		UPDATE masters m SET m.SIM=#{sim},m.Version=#{version},m.State=#{state}
+		WHERE m.CustomerID=#{customerid} AND m.MID=#{mid}
+	</update>
+</mapper>

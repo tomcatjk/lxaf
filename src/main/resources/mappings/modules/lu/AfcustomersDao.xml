@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeeplus.modules.lu.dao.AfcustomersDao">
+    
+	<sql id="afcustomersColumns">
+		a.code AS "code",
+		a.name AS "name",
+		a.age AS "age",
+		a.gender AS "gender",
+		a.phone AS "phone",
+		a.address AS "address",
+		a.latitude AS "latitude",
+		a.longitude AS "longitude",
+		a.imgurl AS "imgurl"
+	</sql>
+	
+	<sql id="afcustomersJoins">
+	</sql>
+	
+    
+	<select id="get" resultType="Afcustomers" >
+		SELECT 
+			<include refid="afcustomersColumns"/>
+		FROM afcustomers a
+		<include refid="afcustomersJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="Afcustomers" >
+		SELECT 
+			<include refid="afcustomersColumns"/>
+		FROM afcustomers a
+		<include refid="afcustomersJoins"/>
+		<where>
+			
+			<if test="code != null and code != ''">
+				AND a.code = #{code}
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+			<if test="age != null and age != ''">
+				AND a.age = #{age}
+			</if>
+			<if test="gender != null and gender != ''">
+				AND a.gender = #{gender}
+			</if>
+			<if test="phone != null and phone != ''">
+				AND a.phone = #{phone}
+			</if>
+			<if test="address != null and address != ''">
+				AND a.address = #{address}
+			</if>
+			<if test="latitude != null and latitude != ''">
+				AND a.latitude = #{latitude}
+			</if>
+			<if test="longitude != null and longitude != ''">
+				AND a.longitude = #{longitude}
+			</if>
+			<if test="imgurl != null and imgurl != ''">
+				AND a.imgurl = #{imgurl}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="Afcustomers" >
+		SELECT 
+			<include refid="afcustomersColumns"/>
+		FROM afcustomers a
+		<include refid="afcustomersJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO afcustomers(
+			code,
+			name,
+			age,
+			gender,
+			phone,
+			address,
+			latitude,
+			longitude,
+			imgurl
+		) VALUES (
+			#{code},
+			#{name},
+			#{age},
+			#{gender},
+			#{phone},
+			#{address},
+			#{latitude},
+			#{longitude},
+			#{imgurl}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE afcustomers SET 	
+			code = #{code},
+			name = #{name},
+			age = #{age},
+			gender = #{gender},
+			phone = #{phone},
+			address = #{address},
+			latitude = #{latitude},
+			longitude = #{longitude},
+			imgurl = #{imgurl}
+		WHERE id = #{id}
+	</update>
+	
+	
+	<!--物理删除-->
+	<update id="delete">
+		DELETE FROM afcustomers
+		WHERE id = #{id}
+	</update>
+	
+	<!--逻辑删除-->
+	<update id="deleteByLogic">
+		UPDATE afcustomers SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+	
+	<!-- 根据实体名称和字段名称和字段值获取唯一记录 -->
+	<select id="findUniqueByProperty" resultType="Afcustomers" statementType="STATEMENT">
+		select * FROM afcustomers  where ${propertyName} = '${value}'
+	</select>
+	
+</mapper>

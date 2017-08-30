@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeeplus.modules.lu.dao.DefencesDao">
+    
+	<sql id="defencesColumns">
+		a.did AS "did",
+		a.code AS "code",
+		a.name AS "name",
+		a.defencetype AS "defencetype",
+		a.isline AS "isline",
+		a.isside AS "isside",
+		a.state AS "state",
+		a.masterid AS "masterid",
+		a.mastercode AS "mastercode",
+		a.customerid AS "customerid"
+	</sql>
+	
+	<sql id="defencesJoins">
+	</sql>
+	
+    
+	<select id="get" resultType="Defences" >
+		SELECT 
+			<include refid="defencesColumns"/>
+		FROM defences a
+		<include refid="defencesJoins"/>
+		WHERE a.id = #{id}
+	</select>
+
+
+	<select id="getDefencesbyDid" parameterType="java.lang.String" resultType="com.jeeplus.modules.lu.entity.DefencesPart" >
+		SELECT
+			a.did AS "did",
+			a. CODE AS "code",
+			a. NAME AS "name",
+			a.customerid AS "customerid"
+		FROM defences a
+		WHERE a.did = #{did}
+	</select>
+
+	<select id="getDefencesListByMasterId" parameterType="java.lang.String" resultType="com.jeeplus.modules.lu.entity.DefencesPart" >
+		SELECT
+			a.did AS "did",
+			a. CODE AS "code",
+			a. NAME AS "name",
+			a.customerid AS "customerid"
+		FROM
+			defences a
+		WHERE
+			a.MasterID = #{masterId}
+		AND did NOT IN (
+			SELECT
+				defenceid
+			FROM
+				`devices`
+		)
+		ORDER BY
+			`Code`
+	</select>
+	
+	<select id="findList" resultType="Defences" >
+		SELECT 
+			<include refid="defencesColumns"/>
+		FROM defences a
+		<include refid="defencesJoins"/>
+		<where>
+			
+			<if test="name != null and name != ''">
+				AND a.name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="Defences" >
+		SELECT 
+			<include refid="defencesColumns"/>
+		FROM defences a
+		<include refid="defencesJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO defences(
+			did,
+			code,
+			name,
+			defencetype,
+			isline,
+			isside,
+			state,
+			masterid,
+			mastercode,
+			customerid
+		) VALUES (
+			#{did},
+			#{code},
+			#{name},
+			#{defencetype},
+			#{isline},
+			#{isside},
+			#{state},
+			#{masterid},
+			#{mastercode},
+			#{customerid}
+		)
+	</insert>
+
+	<insert id="insert2">
+		INSERT INTO defences(
+		did,
+		code,
+		`name`,
+		customerid
+		) VALUES (
+		#{did},
+		#{code},
+		#{name},
+		#{customerid}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE defences SET
+			did = #{did},
+			code = #{code},
+			name = #{name},
+			defencetype = #{defencetype},
+			isline = #{isline},
+			isside = #{isside},
+			state = #{state},
+			masterid = #{masterid},
+			mastercode = #{mastercode},
+			customerid = #{customerid}
+		WHERE did = #{did}
+	</update>
+	
+	
+	<!--物理删除-->
+	<update id="delete">
+		DELETE FROM defences
+		WHERE id = #{id}
+	</update>
+	
+	<!--逻辑删除-->
+	<update id="deleteByLogic">
+		UPDATE defences SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+	
+	<!-- 根据实体名称和字段名称和字段值获取唯一记录 -->
+	<select id="findUniqueByProperty" resultType="Defences" statementType="STATEMENT">
+		select * FROM defences  where ${propertyName} = '${value}'
+	</select>
+
+	<update id="updatedefences" parameterType="map" >
+		UPDATE defences SET Code=#{defencencode},Name=#{defencename},DefenceType=#{defencetype},State=#{State}
+		WHERE customerid=#{customerid} AND masterid=#{mid}
+	</update>
+</mapper>

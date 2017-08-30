@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeeplus.modules.test.dao.my.WorkerCopyDao">
+    
+	<sql id="workerCopyColumns">
+		a.id AS "id",
+		a.name AS "name",
+		a.code AS "code",
+		a.company AS "company",
+		a.email AS "email",
+		a.phone AS "phone",
+		a.photo AS "photo",
+		a.create_date AS "createDate",
+		a.create_user AS "createUser",
+		a.delete_flag AS "deleteFlag",
+		a.update_date AS "updateDate",
+		a.update_user AS "updateUser",
+		a.delete_user AS "deleteUser",
+		a.password AS "password"
+	</sql>
+	
+	<sql id="workerCopyJoins">
+	</sql>
+	
+    <resultMap type="WorkerCopy" id="WorkerCopyResult" autoMapping="true">
+    	<result column="photo" property="photo"   typeHandler="com.jeeplus.common.mapper.ConvertBlobTypeHandler"/>
+    </resultMap>
+    
+	<select id="get" resultMap="WorkerCopyResult" >
+		SELECT 
+			<include refid="workerCopyColumns"/>
+		FROM worker_copy a
+		<include refid="workerCopyJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultMap="WorkerCopyResult" >
+		SELECT 
+			<include refid="workerCopyColumns"/>
+		FROM worker_copy a
+		<include refid="workerCopyJoins"/>
+		<where>
+			
+			<if test="name != null and name != ''">
+				AND a.name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultMap="WorkerCopyResult" >
+		SELECT 
+			<include refid="workerCopyColumns"/>
+		FROM worker_copy a
+		<include refid="workerCopyJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO worker_copy(
+			name,
+			code,
+			company,
+			email,
+			phone,
+			photo,
+			create_date,
+			create_user,
+			delete_flag,
+			update_date,
+			update_user,
+			delete_user,
+			password
+		) VALUES (
+			#{name},
+			#{code},
+			#{company},
+			#{email},
+			#{phone},
+			#{photo},
+			#{createDate},
+			#{createUser},
+			#{deleteFlag},
+			#{updateDate},
+			#{updateUser},
+			#{deleteUser},
+			#{password}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE worker_copy SET 	
+			name = #{name},
+			code = #{code},
+			company = #{company},
+			email = #{email},
+			phone = #{phone},
+			photo = #{photo},
+			create_user = #{createUser},
+			delete_flag = #{deleteFlag},
+			update_date = #{updateDate},
+			update_user = #{updateUser},
+			delete_user = #{deleteUser},
+			password = #{password}
+		WHERE id = #{id}
+	</update>
+	
+	
+	<!--物理删除-->
+	<update id="delete">
+		DELETE FROM worker_copy
+		WHERE id = #{id}
+	</update>
+	
+	<!--逻辑删除-->
+	<update id="deleteByLogic">
+		UPDATE worker_copy SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+	
+	<!-- 根据实体名称和字段名称和字段值获取唯一记录 -->
+	<select id="findUniqueByProperty" resultType="WorkerCopy" statementType="STATEMENT">
+		select * FROM worker_copy  where ${propertyName} = '${value}'
+	</select>
+	
+</mapper>

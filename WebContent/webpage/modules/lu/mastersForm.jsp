@@ -1,0 +1,197 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ include file="/webpage/include/taglib.jsp"%>
+<html>
+<head>
+	<title>记录主机信息管理</title>
+	<meta name="decorator" content="default"/>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/static/jedate/jedate.js"></script>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/jqueryesayform/css/platform-1.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/jqueryesayform/js/easyform/easyform.css">
+
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/jqueryesayform/css/tab.css">
+	<script src="${pageContext.request.contextPath}/static/jqueryesayform/js/easyform/easyform.js"></script>
+	<style>
+		.formtips{
+			color: red;
+		}
+	</style>
+	<script type="text/javascript">
+		var validateForm;
+		function doSubmit(){//回调函数，在编辑和保存动作时，供openDialog调用提交表单。
+			var isTrue = true;
+			var url = "${ctx}/lu/masters/save";
+			var obj = $("#reg-form").serialize();
+			$.ajaxSetup({
+				async : false
+			});
+
+			$("#reg-form :input.requiredClass").trigger('blur');
+			var numError = $('#reg-form .onErrorMasters').length;
+
+			if(numError){
+				return false;
+			}
+
+			$.ajax({
+				type : "post",
+				url : url,
+				data : obj,
+				success : function(data) {
+					if(data != null && data != ''){
+
+					}else {
+						isTrue = false;
+					}
+				},
+				error : function () {
+					isTrue = false;
+				}
+			});
+			return isTrue;
+		}
+
+		$(document).ready(function() {
+			validateForm = $("#reg-form").validate({
+				submitHandler: function(form){
+					loading('正在提交，请稍等...');
+					form.submit();
+				},
+				errorContainer: "#messageBox",
+				errorPlacement: function(error, element) {
+					$("#messageBox").text("输入有误，请先更正。");
+					if (element.is(":checkbox")||element.is(":radio")||element.parent().is(".input-append")){
+						error.appendTo(element.parent().parent());
+					} else {
+						error.insertAfter(element);
+					}
+				}
+			});
+
+		});
+	</script>
+</head>
+<body class="hideScroll">
+		<form id="reg-form" modelAttribute="masters" action="${ctx}/lu/masters/save" method="post" class="form-horizontal">
+			<input type="hidden" value="${masters.mid}" id="mid" name="mid">
+			<input type="hidden" value="${masters.state}" id="state" name="state">
+			<input type="hidden"  name="customerid" id="customerid"    value="${masters.customerid}"/>
+			<sys:message content="${message}"/>
+			<table class="table table-bordered  table-condensed dataTables-example dataTable no-footer">
+				<tbody>
+					<tr>
+						<input type="hidden" name="masterFlag" value="${masterFlag}">
+						<td class="width-15 active"><label class="pull-right"><font color="red">*</font>编号：</label></td>
+						<td class="width-35">
+							<input type="text" name="code" id="code" class="form-control requiredClass" value="${masters.code}"/>
+						</td>
+						<td class="width-15 active"><label class="pull-right"><font color="red">*</font>主机名称：</label></td>
+						<td class="width-35">
+							<input type="text" name="name" id="name" class="form-control requiredClass" value="${masters.name}"/>
+						</td>
+					</tr>
+					<tr>
+						<td class="width-15 active"><label class="pull-right"><font color="red">*</font>SIM卡号：</label></td>
+						<td class="width-35">
+							<input type="text" name="sim" id="sim" class="form-control " value="${masters.sim}"></td>
+						</td>
+						<td class="width-15 active"><label class="pull-right"><font color="red">*</font>状态：</label></td>
+						<td class="width-35">
+							<select class="form-control requiredClass" name="state" id="state">
+									<c:forEach items="${mastersStateNameMap}" var="mastersStateName">
+										<option value="${mastersStateName.key}">${mastersStateName.value}</option>
+									</c:forEach>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td class="width-15 active"><label class="pull-right">主机型号：</label></td>
+						<td class="width-35">
+							<input type="text"  name="maintype" id="maintype"   class="form-control" value="${masters.maintype}"/>
+						</td>
+						<td class="width-15 active"><label class="pull-right">版本：</label></td>
+						<td class="width-35">
+							<input type="text"  name="version" id="version"   class="form-control" value="${masters.version}"/>
+						</td>
+					</tr>
+					<tr style="display: none">
+						<td class="width-15 active"><label class="pull-right"><font color="red">*</font>创建时间：</label></td>
+						<td class="width-35">
+							<input type="text"  name="createtime" id="createtime" placeholder="请选择"  readonly  class="form-control required"/>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+	</form>
+	<%--初始化时间插件--%>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			/*获取当前系统时间并转化为指定格式*/
+			var date = new Date();
+			var mon = date.getMonth() + 1;
+			var day = date.getDate();
+			var hour = date.getHours();
+			var minutes = date.getMinutes();
+			var seconds = date.getSeconds();
+			var nowDay = date.getFullYear() + "-" + (mon<10?"0"+mon:mon) + "-" +(day<10?"0"+day:day) + " " +
+					(hour<10?"0"+hour:hour) + ":" + (minutes<10?"0"+minutes:minutes) + ":" + (seconds<10?"0"+seconds:seconds);
+			/*创建时间*/
+			jeDate({
+				dateCell:"#createtime",
+				format:"YYYY-MM-DD hh:mm:ss",
+				isinitVal:true, /*初始值*/
+				isTime:true, //isClear:false,
+				minDate:nowDay, //最小时间
+				maxDate:nowDay,                  //最大时间
+				okfun:function(val){}
+			})
+		});
+	</script>
+
+	<%--masterForm表单验证--%>
+	<script>
+		$(function () {
+			//文本框失去焦点后
+			$('#reg-form :input').blur(function(){
+				var $parent = $(this).parent();
+				$parent.find(".formtips").remove();
+				//验证编号
+				if( $(this).is('#code') ){
+					if( this.value==""){
+						var errorMsg = '请输入编号.';
+						$parent.append('<span class="formtips onErrorMasters">'+errorMsg+'</span>');
+					}
+				}
+
+				//验证主机名称
+				if( $(this).is('#name') ){
+					if( this.value=="" ){
+						var errorMsg = '请输入主机名称.';
+						$parent.append('<span class="formtips onErrorMasters">'+errorMsg+'</span>');
+					}
+				}
+
+				//验证sim卡号
+				if( $(this).is('#sim') ){
+					if( this.value==""){
+						var errorMsg = '请输入sim卡号.';
+						$parent.append('<span class="formtips onErrorMasters">'+errorMsg+'</span>');
+					}
+				}
+
+				//验证主机状态
+				if( $(this).is('#state') ){
+					if( this.value==""){
+						var errorMsg = '请选择主机状态.';
+						$parent.append('<span class="formtips onErrorMasters">'+errorMsg+'</span>');
+					}
+				}
+
+			}).keyup(function(){
+				$(this).triggerHandler("blur");
+			}).focus(function(){
+				$(this).triggerHandler("blur");
+			});//end blur
+		})
+	</script>
+</body>
+</html>

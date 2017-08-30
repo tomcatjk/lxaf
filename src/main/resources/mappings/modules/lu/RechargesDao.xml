@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeeplus.modules.lu.dao.RechargesDao">
+    
+	<sql id="rechargesColumns">
+		a.rid AS "id",
+		a.customerid AS "customerid",
+		a.userid As"userid",
+		a.price AS "price",
+		a.remark AS "remark",
+		a.receiver AS "receiver",
+		a.state AS "state",
+		a.createtime AS "createtime",
+		s.name AS "userName",
+		c.name AS "customerName"
+	</sql>
+	
+	<sql id="rechargesJoins">
+		LEFT JOIN sys_user s on a.userid = s.id
+		LEFT JOIN customers c on a.CustomerID = c.cid
+	</sql>
+	
+    
+	<select id="get" resultType="Recharges" >
+		SELECT 
+			<include refid="rechargesColumns"/>
+		FROM recharges a
+		<include refid="rechargesJoins"/>
+		WHERE a.rid = #{rid}
+	</select>
+	
+	<select id="findList" resultType="Recharges" >
+		SELECT 
+			<include refid="rechargesColumns"/>
+		FROM recharges a
+		<include refid="rechargesJoins"/>
+		<where>
+			a.userid=#{userid}
+			<if test="rid != null and rid != ''">
+				AND a.rid = #{rid}
+			</if>
+
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="Recharges" >
+		SELECT 
+			<include refid="rechargesColumns"/>
+		FROM recharges a
+		<include refid="rechargesJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO recharges(
+			rid,
+			customerid,
+			price,
+			remark,
+			receiver,
+			state,
+			createtime
+		) VALUES (
+			#{rid},
+			#{customerid},
+			#{price},
+			#{remark},
+			#{receiver},
+			#{state},
+			#{createtime}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE recharges SET 	
+			rid = #{rid},
+			customerid = #{customerid},
+			price = #{price},
+			remark = #{remark},
+			receiver = #{receiver},
+			state = #{state},
+			createtime = #{createtime}
+		WHERE rid = #{rid}
+	</update>
+	
+	
+	<!--物理删除-->
+	<update id="delete">
+		DELETE FROM recharges
+		WHERE rid = #{rid}
+	</update>
+	
+	<!--逻辑删除-->
+	<update id="deleteByLogic">
+		UPDATE recharges SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE rid = #{rid}
+	</update>
+	
+	
+	<!-- 根据实体名称和字段名称和字段值获取唯一记录 -->
+	<select id="findUniqueByProperty" resultType="Recharges" statementType="STATEMENT">
+		select * FROM recharges  where ${propertyName} = '${value}'
+	</select>
+	
+</mapper>

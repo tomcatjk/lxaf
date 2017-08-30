@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeeplus.modules.lu.dao.AlarmsDao2">
+    
+	<sql id="alarmsColumns">
+		a.aid AS "aid",
+		a.customerid AS "customerid",
+		a.masterid AS "masterid",
+		a.defenceid AS "defenceid",
+		a.middefence AS "middefence",
+		a.alarmtype AS "alarmtype",
+		a.alarmtime AS "alarmtime",
+		a.state AS "state",
+		a.servicename AS "servicename",
+		a.servicetime AS "servicetime",
+		a.result AS "result",
+		a.remark AS "remark",
+		a.finishtime AS "finishtime",
+		a.RecordTime AS recordTime,
+		a.DisarmState AS disarmState
+	</sql>
+	
+	<sql id="alarmsJoins">
+	</sql>
+	
+    
+	<select id="get" resultType="Alarms" >
+		SELECT 
+			<include refid="alarmsColumns"/>
+		FROM alarms a
+		<include refid="alarmsJoins"/>
+		WHERE a.aid = #{id}
+	</select>
+	
+	<select id="findList" resultType="Alarms" >
+		SELECT 
+			<include refid="alarmsColumns"/>
+		FROM alarms a
+		<include refid="alarmsJoins"/>
+		<where>
+			
+			<if test="aid != null and aid != ''">
+				AND a.aid = #{aid}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="Alarms" >
+		SELECT 
+			<include refid="alarmsColumns"/>
+		FROM alarms a
+		<include refid="alarmsJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO alarms(
+			aid,
+			customerid,
+			masterid,
+			defenceid,
+			middefence,
+			alarmtype,
+			alarmtime,
+			state,
+			servicename,
+			servicetime,
+			result,
+			remark,
+			finishtime
+		) VALUES (
+			#{aid},
+			#{customerid},
+			#{masterid},
+			#{defenceid},
+			#{middefence},
+			#{alarmtype},
+			#{alarmtime},
+			#{state},
+			#{servicename},
+			#{servicetime},
+			#{result},
+			#{remark},
+			#{finishtime}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE alarms SET 	
+			aid = #{aid},
+			customerid = #{customerid},
+			masterid = #{masterid},
+			defenceid = #{defenceid},
+			middefence = #{middefence},
+			alarmtype = #{alarmtype},
+			alarmtime = #{alarmtime},
+			state = #{state},
+			servicename = #{servicename},
+			servicetime = #{servicetime},
+			result = #{result},
+			remark = #{remark},
+			finishtime = #{finishtime}
+		WHERE id = #{id}
+	</update>
+
+	<update id="updateByAid" parameterType="com.jeeplus.modules.lu.entity.Alarms">
+		UPDATE alarms SET
+		aid = #{aid},
+		customerid = #{customerid},
+		masterid = #{masterid},
+		defenceid = #{defenceid},
+		middefence = #{middefence},
+		alarmtype = #{alarmtype},
+		alarmtime = #{alarmtime},
+		state = #{state},
+		servicename = #{servicename},
+		servicetime = #{servicetime},
+		result = #{result},
+		remark = #{remark},
+		finishtime = #{finishtime},
+		RecordTime = #{recordTime},
+		DisarmState = #{disarmState}
+		WHERE aid = #{aid}
+	</update>
+	
+	
+	<!--物理删除-->
+	<update id="delete">
+		DELETE FROM alarms
+		WHERE aid = #{aid}
+	</update>
+	
+	<!--逻辑删除-->
+	<update id="deleteByLogic">
+		UPDATE alarms SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE aid = #{aid}
+	</update>
+	
+	
+	<!--&lt;!&ndash; 根据实体名称和字段名称和字段值获取唯一记录 &ndash;&gt;-->
+	<select id="findUniqueByProperty" resultType="Alarms" statementType="STATEMENT">
+		select * FROM alarms  where ${propertyName} = '${value}'
+	</select>
+	
+	<!--报警统计-->
+	<select id="findAlarmsAll" resultType="com.jeeplus.modules.lu.entity.AlarmsCount">
+		select c.name,
+		sum(case a.AlarmType when 0 then 1 else 0 end) as magnetometer,
+		sum(case a.AlarmType when 1 then 1 else 0 end) as red,
+		sum(case a.AlarmType when 2 then 1 else 0 end) as smoke,
+		sum(case a.AlarmType when 3 then 1 else 0 end) as personal,
+		sum(case a.AlarmType when 4 then 1 else 0 end) as low
+		from customers c left join alarms a
+		on c.CID=a.CustomerID GROUP BY c.name
+	</select>
+
+	<!--查询报警信息详单-->
+	<select id="findAlarmsDefencesAll" resultType="com.jeeplus.modules.lu.entity.AlarmsDefences">
+		Select a.aid as id,c.name as customersName ,d.name as defencesName ,a.AlarmType as typeName,a.AlarmTime as date,a.State,a.Remark from alarms a LEFT JOIN
+		customers c on a.CustomerID=c.CID LEFT JOIN defences d on a.DefenceID = d.DID
+	</select>
+
+	<!--根据时间查询报警详单-->
+	<select id="findAlarmsDefencesByTime" parameterType="java.util.Map" resultType="com.jeeplus.modules.lu.entity.AlarmsDefences">
+		Select a.aid,c.name as customersName ,d.name as defencesName ,a.AlarmType as typeName,a.AlarmTime as date,a.State,a.Remark from alarms a LEFT JOIN
+		customers c on a.CustomerID=c.CID LEFT JOIN defences d on a.DefenceID = d.DID
+		<where>
+			1 = 1
+			<if test="startTime!=null and startTime !=''">
+				and a.AlarmTime <![CDATA[ > ]]> #{startTime}
+			</if>
+			<if test="endTime!=null and endTime != ''">
+				AND a.AlarmTime <![CDATA[ < ]]>  #{endTime}
+			</if>
+		</where>
+	</select>
+
+
+	<!--根据登录名查询报警统计-->
+	<select id="findAlarmsByName" parameterType="java.lang.String" resultType="com.jeeplus.modules.lu.entity.AlarmsCount">
+		select c.name,
+		sum(case a.AlarmType when 0 then 1 else 0 end) as magnetometer,
+		sum(case a.AlarmType when 1 then 1 else 0 end) as red,
+		sum(case a.AlarmType when 2 then 1 else 0 end) as smoke,
+		sum(case a.AlarmType when 3 then 1 else 0 end) as personal,
+		sum(case a.AlarmType when 4 then 1 else 0 end) as low
+		from customers c left join alarms a
+		on c.CID=a.CustomerID
+		WHERE c.name LIKE CONCAT('%',#{name},'%') GROUP BY c.CID
+	</select>
+
+	<select id="getAlarmsInfoAcd" resultType="com.jeeplus.modules.lu.entity.AlarmsInfoAcd">
+		SELECT
+			a.AID AS aid,
+			c.`Name` AS cname,
+			c.Phone AS phone,
+			d.`Name` AS dname,
+			a.AlarmType AS alarmType,
+			a.AlarmTime AS alarmTime,
+			c.Point AS point,
+			a.State AS state,
+			a.RecordTime AS recordTime,
+			a.DisarmState AS disarmState,
+			a.ServiceName AS serviceName,
+            c.Address AS address
+		FROM
+			`alarms` a
+		LEFT JOIN customers c ON c.CID = a.CustomerID
+		LEFT JOIN defences d ON d.DID = a.DefenceID
+		WHERE
+		a.State = #{state}
+		<if test="cid != null and cid != ''">
+			AND a.CustomerID = #{cid}
+		</if>
+		ORDER BY
+			a.AlarmTime DESC
+        <if test="currentPage != null">
+          LIMIT #{currentPage},#{pageSize}
+        </if>
+	</select>
+
+</mapper>

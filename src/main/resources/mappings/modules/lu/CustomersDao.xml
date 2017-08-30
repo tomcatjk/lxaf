@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeeplus.modules.lu.dao.CustomersDao">
+    
+	<sql id="customersColumns">
+		a.cid AS "cid",
+		a.name AS "name",
+		a.customertype AS "customertype",
+		a.areaid AS "areaid",
+		a.point AS "point",
+		a.address AS "address",
+		a.contacts AS "contacts",
+		a.phone AS "phone",
+		a.qualityperson AS "qualityperson",
+		a.installperson AS "installperson",
+		a.preparer AS "preparer",
+		a.installtime AS "installtime",
+		a.duetime AS "duetime",
+		a.remark AS "remark",
+		a.createtime AS "createtime"
+	</sql>
+	
+	<sql id="customersJoins">
+	</sql>
+	
+    
+	<select id="get" resultType="Customers" >
+		SELECT 
+			<include refid="customersColumns"/>
+		FROM customers a
+		<include refid="customersJoins"/>
+		WHERE a.cid = #{cid}
+	</select>
+	
+	<select id="findList" resultType="Customers" >
+		SELECT
+			<include refid="customersColumns"/>
+		FROM customers a
+		<include refid="customersJoins"/>
+		<where>
+			1 = 1
+			<if test="name != null and name != ''">
+				AND a.name LIKE
+					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+			<if test="parentCid != null and parentCid != ''">
+				AND a.parentCid = #{parentCid}
+			</if>
+		</where>
+		ORDER BY a.createTime DESC
+	</select>
+
+	<select id="findAllList" resultType="Customers" >
+		SELECT 
+			<include refid="customersColumns"/>
+		FROM customers a
+		<include refid="customersJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO customers(
+			cid,
+			name,
+			customertype,
+			areaid,
+			point,
+			address,
+			contacts,
+			phone,
+			qualityperson,
+			installperson,
+			preparer,
+			installtime,
+			duetime,
+			remark,
+			createtime,
+			CreateBy,
+			ParentCid
+		) VALUES (
+			#{cid},
+			#{name},
+			#{customertype},
+			#{areaid},
+			#{point},
+			#{address},
+			#{contacts},
+			#{phone},
+			#{qualityperson},
+			#{installperson},
+			#{preparer},
+			#{installtime},
+			#{duetime},
+			#{remark},
+			#{createtime},
+			#{createid},
+			#{parentCid}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE customers SET 	
+			cid = #{cid},
+			name = #{name},
+			customertype = #{customertype},
+			areaid = #{areaid},
+			point = #{point},
+			address = #{address},
+			contacts = #{contacts},
+			phone = #{phone},
+			qualityperson = #{qualityperson},
+			installperson = #{installperson},
+			preparer = #{preparer},
+			installtime = #{installtime},
+			duetime = #{duetime},
+			remark = #{remark},
+			createtime = #{createtime}
+		WHERE cid = #{cid}
+	</update>
+
+	<update id="updateByCid">
+		UPDATE customers SET
+		cid = #{cid},
+		name = #{name},
+		customertype = #{customertype},
+		areaid = #{areaid},
+		point = #{point},
+		address = #{address},
+		contacts = #{contacts},
+		phone = #{phone},
+		qualityperson = #{qualityperson},
+		installperson = #{installperson},
+		preparer = #{preparer},
+		installtime = #{installtime},
+		duetime = #{duetime},
+		remark = #{remark},
+		createtime = #{createtime}
+		WHERE cid = #{cid}
+	</update>
+	
+	
+	<!--物理删除-->
+	<update id="delete">
+		DELETE FROM customers
+		WHERE cid = #{cid}
+	</update>
+	
+	<!--逻辑删除-->
+	<update id="deleteByLogic">
+		UPDATE customers SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE cid = #{cid}
+	</update>
+	
+	
+	<!-- 根据实体名称和字段名称和字段值获取唯一记录 -->
+	<select id="findUniqueByProperty" resultType="Customers" statementType="STATEMENT">
+		select * FROM customers  where ${propertyName} = '${value}'
+	</select>
+
+	<select id="getCustomersByCid" parameterType="java.lang.String" resultType="Customers">
+		SELECT
+			c.cid,
+			c. NAME,
+			c.CustomerType,
+			c.AreaID,
+			c.Point,
+			c.Address,
+			c.Contacts,
+			c.Phone,
+			c.QualityPerson,
+			c.InstallPerson,
+			c.Preparer,
+			c.InstallTime,
+			c.DueTime,
+			c.Remark,
+			c.CreateTime,
+			a.`name` AS areaName,
+			s.name as cname
+		FROM
+			Customers c
+		LEFT JOIN areas a ON c.cid = a.cid
+		LEFT JOIN sys_user s ON s.CustomerID = c.cid
+		WHERE
+			c.cid = #{cid}
+			ORDER BY c.createtime DESC
+	</select>
+
+	<!--根据登录的用户查询区域列表-->
+	<select id="findAllAreas" parameterType="java.lang.String" resultType="Areas">
+		select a.name from (select id from areas where cid=#{cid}) d , areas a where a.parent_ids like CONCAT('%',d.id,'%')
+		union
+		SELECT name from areas where areas.cid =#{cid};
+	</select>
+
+	<!--根据登录的用户获取区域id-->
+	<select id="findOneAreasID" parameterType="java.lang.String" resultType="java.lang.String">
+		SELECT DISTINCT(c.AreaID) FROM `customers` c,sys_user s
+		 where c.CID=s.CustomerID and s.CustomerID=#{customersID}
+	</select>
+
+	<!--查询所有客户类别-->
+	<select id="findAllCustomersType" resultType="com.jeeplus.modules.lu.entity.CustomersAlarms">
+		SELECT DISTINCT(c.CustomerType) as customersType FROM `customers` c ;
+	</select>
+
+	<!--根据选择的时间查询-->
+	<select id="findCustomersByDate" parameterType="java.util.Map" resultType="Customers">
+		SELECT * from customers c
+		<where>
+			1 = 1
+			<if test="startTime!=null and startTime !=''">
+				and c.DueTime <![CDATA[ > ]]> #{startTime}
+			</if>
+			<if test="endTime!=null and endTime != ''">
+				AND c.DueTime <![CDATA[ < ]]>  #{endTime}
+			</if>
+		</where>
+	</select>
+
+	<select id="selectByCreateBy" parameterType="string" resultType="Customers">
+		SELECT * FROM customers  WHERE CreateBy=#{id}
+	</select>
+
+	<select id="getCustomers" resultType="Customers">
+		SELECT
+		c.cid AS "cid",
+		c.name AS "name",
+		c.customertype AS "customertype",
+		c.areaid AS "areaid",
+		c.point AS "point",
+		c.address AS "address",
+		c.contacts AS "contacts",
+		c.phone AS "phone",
+		c.qualityperson AS "qualityperson",
+		c.installperson AS "installperson",
+		c.preparer AS "preparer",
+		c.installtime AS "installtime",
+		c.duetime AS "duetime",
+		c.remark AS "remark",
+		c.createtime AS "createtime",
+		a.`name` AS areaName,
+		s.name as createid
+		FROM customers c
+		LEFT JOIN areas a ON c.areaid = a.id
+		LEFT JOIN sys_user s ON s.id = c.CreateBy
+		WHERE
+			c.ParentCid = #{cid}
+			AND c.CreateBy = #{createid}
+			AND c.CustomerType = #{customertype}
+			<if test="name !=null and name != ''">
+				AND c.name LIKE concat('%',#{name},'%')
+			</if>
+			<if test="startTime !=null and startTime != ''">
+				and c.DueTime &gt;= #{startTime}
+			</if>
+			<if test="endTime !=null and endTime != ''">
+				AND c.DueTime &lt;=  #{endTime}
+			</if>
+		ORDER BY c.createtime DESC
+	</select>
+
+	<!--客户统计查询-->
+	<select id="getCustomersAlarms" resultType="com.jeeplus.modules.lu.entity.CustomersAlarms">
+		SELECT
+		aa.*, bb.*
+		FROM
+		(
+		SELECT
+		COUNT(mm.mid) AS masterNum,
+		cc.cid AS id,
+		cc.name,
+		cc.customerType,
+		cc.qualityPerson,
+		cc.installPerson,
+		cc.installTime,
+		cc.createTime
+		FROM
+		customers cc
+		LEFT JOIN masters mm ON cc.cid = mm.customerId
+		WHERE
+		1=1
+		<if test="id != null and id !='' and id != '1'.toString()">
+			AND  cc.CreateBy =#{id}
+		</if>
+		<if test="name != null and name != ''">
+			and cc.name like CONCAT('%',#{name},'%')
+		</if>
+		<if test="customertype!=null and customertype != ''">
+			and cc.CustomerType = #{customertype}
+		</if>
+		GROUP BY
+		cc.cid
+		) aa
+		LEFT JOIN (
+		SELECT
+		c.CID AS cid2,
+		sum(
+		CASE d.devicetype
+		WHEN 1 THEN
+		1
+		ELSE
+		0
+		END
+		) AS DEVICETYPE1,
+		sum(
+		CASE d.devicetype
+		WHEN 2 THEN
+		1
+		ELSE
+		0
+		END
+		) AS DEVICETYPE2,
+		sum(
+		CASE d.devicetype
+		WHEN 3 THEN
+		1
+		ELSE
+		0
+		END
+		) AS DEVICETYPE3,
+		sum(
+		CASE d.devicetype
+		WHEN 4 THEN
+		1
+		ELSE
+		0
+		END
+		) AS DEVICETYPE4,
+		sum(
+		CASE d.devicetype
+		WHEN 5 THEN
+		1
+		ELSE
+		0
+		END
+		) AS DEVICETYPE5,
+		sum(
+		CASE d.devicetype
+		WHEN 6 THEN
+		1
+		ELSE
+		0
+		END
+		) AS DEVICETYPE6,
+		sum(
+		CASE d.devicetype
+		WHEN 7 THEN
+		1
+		ELSE
+		0
+		END
+		) AS DEVICETYPE7
+		FROM
+		`devices` d
+		LEFT JOIN masters m ON d.masterid = m.MID
+		LEFT JOIN customers c ON m.CustomerID = c.CID
+		GROUP BY
+		c.CID
+		) bb ON aa.id = bb.cid2
+		ORDER BY
+		aa.createTime DESC
+	</select>
+</mapper>

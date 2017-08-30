@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeeplus.modules.lu.dao.DevicesDao">
+    
+	<sql id="devicesColumns">
+		a.did AS "did",
+		a.name AS "name",
+		a.devicetype AS "devicetype",
+		a.devicemodel AS "devicemodel",
+		a.defenceid AS "defenceid",
+		a.masterid AS "masterid",
+		a.customerid AS "customerid",
+		a.createtime AS "createtime",
+		a.state AS "state"
+	</sql>
+	
+	<sql id="devicesJoins">
+	</sql>
+	
+    
+	<select id="get" resultType="Devices" >
+		SELECT 
+			<include refid="devicesColumns"/>
+		FROM devices a
+		<include refid="devicesJoins"/>
+		WHERE a.id = #{id}
+	</select>
+
+	<select id="findPageByCustomerid" resultType="Devices" >
+		SELECT
+		a.did AS "did",
+		a. NAME AS "name",
+		a.devicetype AS "devicetype",
+		a.devicemodel AS "devicemodel",
+		d.`Name` AS "defenceid",
+		m.`Name` AS "masterid",
+		c.`Name` AS "customerid",
+		a.createtime AS "createtime",
+		d.state AS "state",
+		s.name as "createid"
+		FROM
+		devices a
+		LEFT JOIN defences d ON d.DID = a.defenceid
+		LEFT JOIN masters m ON m.MID = a.masterid
+		LEFT JOIN customers c ON c.CID = a.customerid
+		LEFT JOIN sys_user s ON s.id = a.createid
+		<where>
+			a.customerid = #{customerid}
+			<if test="name != null and name != ''">
+				AND a.name LIKE concat('%',#{name},'%')
+			</if>
+		</where>
+		ORDER BY a.createtime DESC
+	</select>
+	
+	<select id="findList" resultType="Devices" >
+		SELECT 
+			<include refid="devicesColumns"/>
+		FROM devices a
+		<include refid="devicesJoins"/>
+		<where>
+			
+			<if test="name != null and name != ''">
+				AND a.name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="Devices" >
+		SELECT 
+			<include refid="devicesColumns"/>
+		FROM devices a
+		<include refid="devicesJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO devices(
+			did,
+			name,
+			devicetype,
+			devicemodel,
+			defenceid,
+			masterid,
+			customerid,
+			createtime,
+			state,
+			createid
+		) VALUES (
+			#{did},
+			#{name},
+			#{devicetype},
+			#{devicemodel},
+			#{defenceid},
+			#{masterid},
+			#{customerid},
+			#{createtime},
+			#{state},
+			#{createid}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE devices SET 	
+			did = #{did},
+			name = #{name},
+			devicetype = #{devicetype},
+			devicemodel = #{devicemodel},
+			defenceid = #{defenceid},
+			masterid = #{masterid},
+			customerid = #{customerid},
+			createtime = #{createtime},
+			state = #{state}
+		WHERE id = #{id}
+	</update>
+
+	<update id="updateByDid">
+		UPDATE devices SET
+		did = #{did},
+		name = #{name},
+		devicetype = #{devicetype},
+		devicemodel = #{devicemodel},
+		defenceid = #{defenceid},
+		masterid = #{masterid},
+		customerid = #{customerid},
+		createtime = #{createtime},
+		state = #{state}
+		WHERE did = #{did}
+	</update>
+
+	<!--物理删除-->
+	<update id="delete">
+		DELETE FROM devices
+		WHERE did = #{did}
+	</update>
+	
+	<!--逻辑删除-->
+	<update id="deleteByLogic">
+		UPDATE devices SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+	
+	<!-- 根据实体名称和字段名称和字段值获取唯一记录 -->
+	<select id="findUniqueByProperty" resultType="Devices" statementType="STATEMENT">
+		select * FROM devices  where ${propertyName} = '${value}'
+	</select>
+
+
+	<!--设备统计-->
+	<select id="totalDevicesCustomers" resultType="com.jeeplus.modules.lu.entity.DevicesCustomers">
+		SELECT
+			d.did AS id,
+			d.devicemodel,
+			d. NAME AS devicesName,
+			d.devicetype AS devicesType,
+			c.`Name` AS customersName,
+			d.state,
+			c.InstallTime AS installTime,
+			c.DueTime AS dueTime,
+			c.InstallPerson AS installPerson,
+			c.QualityPerson AS qualityPerson
+		FROM
+			`devices` d
+		LEFT JOIN customers c ON d.customerid = c.CID
+		WHERE c.InstallTime IS NOT NULL
+		ORDER BY c.InstallTime DESC
+	</select>
+
+	<!--根据所属客户或者设备类型查询不同的客户id-->
+	<select id="totalDevicesCustomersBySelect" parameterType="java.util.Map" resultType="com.jeeplus.modules.lu.entity.DevicesCustomers">
+		SELECT d.did as id,d.devicemodel,d.name as devicesName,d.devicetype as devicesType ,c.`Name` as customersName,d.state,c.InstallTime as installTime,
+		c.DueTime as dueTime,c.InstallPerson as installPerson,c.QualityPerson as qualityPerson
+		FROM `devices` d left JOIN customers c on d.customerid=c.CID
+		<where>
+			1=1
+			<if test="customeridList!=null and customeridList!=''">
+				AND d.customerid in
+				<foreach item="item" index="index" collection="customeridList"
+						 open="(" separator="," close=")">
+					#{item}
+				</foreach>
+			</if>
+			<if test="devicesType!=null and devicesType!= ''">
+				and d.devicemodel =#{devicesModel}
+			</if>
+		</where>
+	</select>
+
+	<!--查询所有设备类别-->
+	<select id="findAllDevicesType" resultType="com.jeeplus.modules.lu.entity.DevicesCustomers">
+		  SELECT DISTINCT(d.devicetype) as devicestype from devices d
+	</select>
+
+	<!--根据客户名查询客户id-->
+	<select id="findCustomersidByCustomerName" parameterType="java.lang.String" resultType="java.lang.String">
+		select DISTINCT(c.CID) from customers c where c.`Name`=#{name}
+	</select>
+
+	<!--查询所有设备类型-->
+	<select id="findAllCustomersType" resultType="com.jeeplus.modules.lu.entity.DevicesCustomers">
+		SELECT DISTINCT(c.`Name`) as customersName
+		FROM `devices` d left JOIN customers c on d.customerid=c.CID WHERE c.name is not null ORDER BY d.createTime;
+	</select>
+
+	<!--d.customerid = #{customerid}
+		AND d.devicetype = #{devicetype}-->
+	<select id="findByCidAndDevicetypeAndPage" resultType="java.util.Map">
+		SELECT
+			d.defenceid AS deviceid,
+			d.`name` AS devicename,
+			d.devicetype AS devicetype,
+			m.`Name` AS typename,
+			d.devicemodel AS devicemode,
+			d.createtime AS createtime,
+			m.state AS state
+		FROM
+			devices d
+		LEFT JOIN masters m ON d.masterid = m.MID
+		WHERE
+			d.devicetype = #{devicetype}
+			AND d.createid = #{userid}
+		LIMIT #{pageBegin},
+		 #{pageEnd}
+	</select>
+
+	<select id="findByDeviceid" resultType="java.util.Map">
+		SELECT
+			d.defenceid AS deviceid,
+			d.`name` AS devicename,
+			d.devicetype AS devicetype,
+			m.`Name` AS devicetype,
+			d.devicemodel AS devicemode,
+			def.`Code` AS defencecode,
+			def.`Name` AS defencename,
+			def.DefenceType AS defenceType,
+			d.createtime AS createtime,
+			d.state AS state,
+			m.Version AS version,
+			m.SIM AS sim
+		FROM
+			devices d
+		LEFT JOIN masters m ON d.masterid = m.MID
+		LEFT JOIN defences def ON d.defenceid = def.DID
+		WHERE
+			d.did = #{did}
+	</select>
+
+	<update id="updatedevices" parameterType="map" >
+		UPDATE devices SET name=#{devicename},devicetype=#{devicetype},devicemodel=#{devicemode},state=#{state}
+		WHERE customerid=#{customerid} AND masterid=#{mid} AND did=#{devicerid}
+	</update>
+</mapper>
