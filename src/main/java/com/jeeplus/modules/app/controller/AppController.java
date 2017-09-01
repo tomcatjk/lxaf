@@ -13,17 +13,12 @@ import com.jeeplus.modules.sys.service.SystemService;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.commons.collections.map.HashedMap;
-import org.apache.cxf.binding.corba.wsdl.Object;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -136,10 +131,9 @@ public class AppController {
             Customers customers = customersService.findUniqueByProperty("cid", user.getCustomerID());
             user.setName(username);
             user.setPhone(tel);
-            customers.setAddress(address);
-            customersService.editByCid(customers);
-            userDao.update(user);
             try {
+                customers.setAddress(address);
+                customersService.editByCid(customers);
                 userDao.update(user);
             }catch (Exception e){
                 data.put("result", "fail");
@@ -285,7 +279,7 @@ public class AppController {
                 action = "SetGarrison";
             }
 
-            String strURL = "http://localhost/api/fenceapi.ashx?action=" + action + "&DeviceCode=" + deviceCode;
+            /*String strURL = "http://localhost/api/fenceapi.ashx?action=" + action + "&DeviceCode=" + deviceCode;
             URL url = new URL(strURL);
             HttpURLConnection httpConn = (HttpURLConnection)
                     url.openConnection();
@@ -293,14 +287,55 @@ public class AppController {
             httpConn.connect();
             httpConn.disconnect();
 
+            */
+           /* String url = "http://192.168.0.108:8111/Service?wsdl";
+            String[] params = new String[]{deviceCode};
+
+            String svrResult = CallMethod(url, action, params);
+
+            System.out.println(svrResult);*/
+
             data.put("result", "success");
             data.put("data", "");
+
         }catch (Exception e){
             data.put("result", "fail");
             data.put("data", "主机暂未连接，布防命令已保存，联机后下发");
         }
         return data.toString();
     }
+   /* private String CallMethod(String url, String method, Object[] args) {
+        String result = null;
+
+        if(StringUtils.isEmpty(url))
+        {
+            return "url地址为空";
+        }
+
+        if(StringUtils.isEmpty(method))
+        {
+            return "method地址为空";
+        }
+
+        Call rpcCall = null;
+
+
+        try {
+            //实例websevice调用实例
+            Service webService = new Service();
+            rpcCall = (Call) webService.createCall();
+            rpcCall.setTargetEndpointAddress(new java.net.URL(url));
+            rpcCall.setOperationName(method);
+
+            //执行webservice方法
+            result = (String) rpcCall.invoke(args);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+
+    }*/
 
     @Autowired
     AppService appService;
@@ -316,25 +351,18 @@ public class AppController {
     @ResponseBody
     @RequestMapping(value = "alarmtype")
     public String alarmtype(){
-        JSONObject jsonObject=new JSONObject();
-        jsonObject.put("name","水浸");
-        jsonObject.put("value",1);
-        JSONObject jsonObject1=new JSONObject();
-        jsonObject1.put("name","火警");
-        jsonObject1.put("value",2);
-        JSONObject jsonObject2=new JSONObject();
-        jsonObject2.put("name","sos");
-        jsonObject2.put("value",3);
         JSONArray jsonArray=new JSONArray();
-        jsonArray.add(jsonObject);
-        jsonArray.add(jsonObject1);
-        jsonArray.add(jsonObject2);
-        System.out.println(jsonArray);
+        for(AlarmTypeName alarmTypeNameObject : AlarmTypeName.values()){
+            JSONObject jsonObject=new JSONObject();
+            jsonObject.put("name",alarmTypeNameObject.getAlarmTypeName());
+            jsonObject.put("value",alarmTypeNameObject.getAlarmType());
+            jsonArray.add(jsonObject);
+        }
         return jsonArray.toString();
     }
 
     /**
-     * 报警记录
+     *
      * @param userid
      * @param cid
      * @param startdate
@@ -354,12 +382,23 @@ public class AppController {
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
         Map map=new HashMap();
         map.put("cid",cid);
+        map.put("alarmtype",alarmtype);
+        map.put("pageBegin", (page - 1) * 10);
+        map.put("pageEnd", page * 10);
         map.put("startdate",sdf.format(startdate));
         map.put("enddate",sdf.format(enddate));
         System.out.println("map"+map);
-        List list=appService.selectAlarmrecord(map);
-        System.out.println("list"+list+"json"+JSONArray.fromObject(list).toString());
-        return JSONArray.fromObject(list).toString();
+        List<AlarmsDefences> list=appService.selectAlarmrecord(map);
+        JSONArray jsonArray=new JSONArray();
+        for (AlarmsDefences alarmsDefences:list){
+            JSONObject jsonObject=new JSONObject();
+            jsonObject.put("defencename",alarmsDefences.getDefencesName());
+            jsonObject.put("alarmtypename",alarmsDefences.getTypeName());
+            jsonObject.put("alarmtime",sdf.format(alarmsDefences.getDate()));
+            jsonObject.put("statename",alarmsDefences.getState());
+            jsonArray.add(jsonObject);
+        }
+        return jsonArray.toString();
     }
 
     /**
@@ -411,7 +450,10 @@ public class AppController {
                              @RequestParam(value = "cid")String cid,
                              @RequestParam(value = "masterid",required = false)String masterid){
         System.out.println("userid"+userid+"cid"+cid+"masterid"+masterid);
-        List<DefencesDevice> list=appService.getdefence(cid);
+        Map map=new HashMap();
+        map.put("cid",cid);
+        map.put("masterid",masterid);
+        List<DefencesDevice> list=appService.getDefences(map);
         System.out.println("list"+list);
         for (DefencesDevice defencesDevice:list){
             int defencetype=defencesDevice.getDefencetype();
@@ -494,7 +536,6 @@ public class AppController {
             sim="";
         }
         try {
-
             Map map=new HashMap();
             map.put("mid",masterid);
             map.put("customerid",cid);
@@ -502,6 +543,7 @@ public class AppController {
             map.put("version",version);
             map.put("state",state);
             mastersService.updatemasters(map);
+
             Map map1=new HashMap();
             map1.put("mid",masterid);
             map1.put("customerid",cid);
@@ -512,6 +554,7 @@ public class AppController {
             map1.put("state",state);
             map1.put("userid",userid);
             devicesService.updatedevices(map1);
+
             Map map2=new HashMap();
             map2.put("mid",masterid);
             map2.put("customerid",cid);

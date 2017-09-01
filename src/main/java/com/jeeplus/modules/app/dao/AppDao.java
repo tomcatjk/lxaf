@@ -19,4 +19,6 @@ public interface AppDao {
    public List selectAlarmrecord(Map map);
 
    public List getdefence(String cid);
+
+   public List getDefences(Map map);
 }

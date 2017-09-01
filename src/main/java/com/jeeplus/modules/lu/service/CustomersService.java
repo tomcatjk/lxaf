@@ -1,18 +1,17 @@
 package com.jeeplus.modules.lu.service;
 
-import java.util.List;
-
+import com.jeeplus.common.persistence.Page;
+import com.jeeplus.common.service.CrudService;
+import com.jeeplus.modules.lu.dao.CustomersDao;
 import com.jeeplus.modules.lu.entity.Areas;
 import com.jeeplus.modules.lu.entity.CustomerTypeName;
+import com.jeeplus.modules.lu.entity.Customers;
 import com.jeeplus.modules.lu.entity.CustomersAlarms;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.jeeplus.common.persistence.Page;
-import com.jeeplus.common.service.CrudService;
-import com.jeeplus.modules.lu.entity.Customers;
-import com.jeeplus.modules.lu.dao.CustomersDao;
+import java.util.List;
 
 /**
  * 客户表Service
@@ -66,7 +65,7 @@ public class CustomersService extends CrudService<CustomersDao, Customers> {
 		return areaID;
 	}
 
-	@Transactional(readOnly = true)
+	@Transactional(readOnly = false)
 	public void editByCid(Customers customers){
 		dao.updateByCid(customers);
 	}

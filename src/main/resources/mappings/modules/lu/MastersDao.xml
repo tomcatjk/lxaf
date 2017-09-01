@@ -187,7 +187,7 @@
 		ORDER BY m.createtime DESC
 	</select>
 
-	<select id="getMastersListByCid" parameterType="java.lang.String" resultType="com.jeeplus.modules.lu.entity.MastersPart">
+	<select id="getMastersListByCid" parameterType="java.lang.String" resultType="com.jeeplus.modules.lu.entity.Masters">
 		SELECT
 			m.mid,
 			m. CODE,

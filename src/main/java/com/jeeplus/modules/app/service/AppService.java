@@ -28,5 +28,9 @@ public class AppService {
 
 	public List getdefence(String cid){
 		return appDao.getdefence(cid);
-	};
+	}
+
+	public List getDefences(Map map){
+		return appDao.getDefences(map);
+	}
 }

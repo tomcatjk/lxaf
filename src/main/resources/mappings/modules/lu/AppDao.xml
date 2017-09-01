@@ -3,13 +3,31 @@
 <mapper namespace="com.jeeplus.modules.app.dao.AppDao">
     
 	<select id="selectAlarmrecord" parameterType="map" resultType="com.jeeplus.modules.lu.entity.AlarmsDefences">
-		Select d.name as defencesName ,a.AlarmType as typeName,a.AlarmTime as date,a.State from alarms a LEFT JOIN defences d on a.CustomerID = d.CustomerID
-		WHERE a.CustomerID=#{cid} AND (a.AlarmTime BETWEEN #{startdate} AND #{enddate})
+		Select d.name as defencesName ,a.AlarmType as typeName,a.AlarmTime as date,a.State from alarms a LEFT JOIN defences d on  a.DefenceID = d.DID
+		WHERE
+		a.CustomerID=#{cid}
+		AND
+		(a.AlarmTime BETWEEN #{startdate} AND #{enddate})
+		<if test="alarmtype != null">
+			AND a.AlarmType = #{alarmtype}
+		</if>
+		limit #{pageBegin},#{pageEnd}
 	</select>
 
 	<select id="getdefence" parameterType="string" resultType="com.jeeplus.modules.app.entity.DefencesDevice">
 		SELECT a.DID as defenceid , a.Code as defencecode , a.Name as defencename, a.DefenceType as defencetype, b.devicetype as devicetype,
 		b.masterid as masterid, b.state as state FROM defences a LEFT JOIN devices b on a.CustomerID = b.customerid
 		WHERE a.CustomerID = #{cid}
+	</select>
+
+	<select id="getDefences" parameterType="map" resultType="com.jeeplus.modules.app.entity.DefencesDevice">
+		SELECT a.DID as defenceid , a.Code as defencecode , a.Name as defencename, a.DefenceType as defencetype, b.devicetype as devicetype,
+		b.masterid as masterid, b.state as state FROM defences a LEFT JOIN devices b on a.CustomerID = b.customerid
+		WHERE
+		a.CustomerID = #{cid}
+		<if test="masterid !=null">
+			AND b.masterid = #{masterid}
+		</if>
+
 	</select>
 </mapper>
