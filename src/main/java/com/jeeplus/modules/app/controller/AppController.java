@@ -1,5 +1,6 @@
 package com.jeeplus.modules.app.controller;
 
+import com.alibaba.druid.sql.visitor.functions.Isnull;
 import com.jeeplus.modules.app.entity.DefencesDevice;
 import com.jeeplus.modules.app.service.AppService;
 import com.jeeplus.modules.lu.entity.*;
@@ -10,8 +11,10 @@ import com.jeeplus.modules.lu.service.MastersService;
 import com.jeeplus.modules.sys.dao.UserDao;
 import com.jeeplus.modules.sys.entity.User;
 import com.jeeplus.modules.sys.service.SystemService;
+import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import org.apache.axis.utils.StringUtils;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +27,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.apache.axis.client.Call;
+import org.apache.axis.client.Service;
+import websvr.SetGarrison;
+
+import javax.xml.bind.JAXBElement;
 
 /**
  * Created by BUWAN on 2017/6/19.
@@ -158,10 +166,12 @@ public class AppController {
     public String getdevice(@RequestParam(value="userid")String userid,
                              @RequestParam(value="cid")String cid,
                              @RequestParam(value="devicetype")int devicetype,
-                             @RequestParam(value="page")int page) {
+                             @RequestParam(value="page",required = false)Integer page) {
+        if(page == 0 || page ==null){
+            page = 1;
+        }
         JSONObject data = new JSONObject();
         Map paramMap =  new HashedMap();
-        paramMap.put("userid", userid);
         paramMap.put("customerid", cid);
         paramMap.put("devicetype", devicetype);
         paramMap.put("pageBegin", (page - 1) * 10);
@@ -169,12 +179,17 @@ public class AppController {
         List<Map> deviceList = devicesService.findByCidAndDevicetypeAndPage(paramMap);
         int state = 0;
         for(int i = 0; i < deviceList.size(); i++){
-            if(deviceList.get(i).get("devicemode") == null){
-                deviceList.get(i).put("devicemode", "");
+            if (deviceList.get(i).get("state") != null) {
+                if (deviceList.get(i).get("devicemode") == null) {
+                    deviceList.get(i).put("devicemode", "");
+                }
+                deviceList.get(i).put("createtime", deviceList.get(i).get("createtime").toString().substring(0,10));
+
+                state = Integer.parseInt(deviceList.get(i).get("state").toString());
+                deviceList.get(i).put("statename", DeviceStateName.getByState(state).getDeviceStateName());
+            }else {
+                continue;
             }
-            deviceList.get(i).put("createtime", deviceList.get(i).get("createtime").toString().substring(0,10));
-            state = Integer.parseInt(deviceList.get(i).get("state").toString());
-            deviceList.get(i).put("statename", DeviceStateName.getByState(state).getDeviceStateName());
         }
         data.put("more", true);
         data.put("list", deviceList);
@@ -193,11 +208,11 @@ public class AppController {
     @RequestMapping(value = "loaddevice")
     public String loaddevice(@RequestParam(value="userid")String userid,
                             @RequestParam(value="cid")String cid,
-                            @RequestParam(value="deviceid")String deviceid,
-                            @RequestParam(value="devicetype")int devicetype) {
+                            @RequestParam(value="deviceid")String did,
+                            @RequestParam(value="devicetype")Integer devicetype) {
         JSONObject data = new JSONObject();
         Map paramMap =  new HashedMap();
-        paramMap.put("did", deviceid);
+        paramMap.put("did", did);
         paramMap.put("devicetype", devicetype);
         Map objectMap = devicesService.findByDeviceid(paramMap);
         if(objectMap != null){
@@ -276,7 +291,7 @@ public class AppController {
             }else if(tag == 2){
                 action = "SetDisarm";
             }else{
-                action = "SetGarrison";
+                action = "SetSolved";
             }
 
             /*String strURL = "http://localhost/api/fenceapi.ashx?action=" + action + "&DeviceCode=" + deviceCode;
@@ -286,17 +301,17 @@ public class AppController {
             httpConn.setRequestMethod("GET");
             httpConn.connect();
             httpConn.disconnect();
-
             */
-           /* String url = "http://192.168.0.108:8111/Service?wsdl";
+         /*   String url = "http://192.168.0.108:1806/Service";
             String[] params = new String[]{deviceCode};
 
             String svrResult = CallMethod(url, action, params);
 
-            System.out.println(svrResult);*/
+            System.out.println(svrResult);
 
             data.put("result", "success");
-            data.put("data", "");
+            data.put("data", "");*/
+         
 
         }catch (Exception e){
             data.put("result", "fail");
@@ -319,14 +334,12 @@ public class AppController {
 
         Call rpcCall = null;
 
-
         try {
             //实例websevice调用实例
             Service webService = new Service();
             rpcCall = (Call) webService.createCall();
             rpcCall.setTargetEndpointAddress(new java.net.URL(url));
             rpcCall.setOperationName(method);
-
             //执行webservice方法
             result = (String) rpcCall.invoke(args);
 
@@ -375,19 +388,27 @@ public class AppController {
     @RequestMapping(value = "alarmrecord")
     public String alarmrecord(@RequestParam(value = "userid") String userid,
                               @RequestParam(value = "cid") String cid,
-                              @RequestParam(value = "startdate") Date startdate,
-                              @RequestParam(value = "enddate") Date enddate,
+                              @RequestParam(value = "startdate" , required =  false ) String startdate,
+                              @RequestParam(value = "enddate" , required =  false) String enddate,
                               @RequestParam(value = "page") int page,
-                              @RequestParam(value = "alarmtype",required = false) int alarmtype){
+                              @RequestParam(value = "alarmtype" , required = false) Integer alarmtype){
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
         Map map=new HashMap();
         map.put("cid",cid);
         map.put("alarmtype",alarmtype);
         map.put("pageBegin", (page - 1) * 10);
         map.put("pageEnd", page * 10);
-        map.put("startdate",sdf.format(startdate));
-        map.put("enddate",sdf.format(enddate));
+        if(startdate == null || startdate==""){
+            map.put("startdate",null);
+        }else{
+            map.put("startdate",startdate);
+        }
         System.out.println("map"+map);
+        if (enddate == null || enddate ==""){
+            map.put("enddate",null);
+        }else {
+            map.put("enddate",enddate);
+        }
         List<AlarmsDefences> list=appService.selectAlarmrecord(map);
         JSONArray jsonArray=new JSONArray();
         for (AlarmsDefences alarmsDefences:list){
@@ -474,7 +495,31 @@ public class AppController {
         System.out.println(JSONArray.fromObject(list).toString());
         return JSONArray.fromObject(list).toString();
     }
-
+    /**
+     * 新增保存防区信息接口
+     */
+    @ResponseBody
+    @RequestMapping("updateDefence")
+    public String updateDef(@RequestParam("defenceid") String defenceid,
+                            @RequestParam("defencename") String defencename,
+                            @RequestParam("defencetypename") String defencetypename){
+        int defencetype=DefenceTypeName.getByName(defencetypename).getDefenceType();
+        System.out.println(DefenceTypeName.getByName(defencetypename).getDefenceType());
+        Map map=new HashMap();
+        map.put("defencename",defencename);
+        map.put("defencetype",defencetype);
+        map.put("defenceid",defenceid);
+        int row=appService.updateDefence(map);
+        JSONObject jsonObject=new JSONObject();
+        if (row == 1) {
+            jsonObject.put("result","success");
+            jsonObject.put("data","更新成功");
+        }else {
+            jsonObject.put("result","fail");
+            jsonObject.put("data","更新失败");
+        }
+        return jsonObject.toString();
+    }
     /**
      * 新增修改设备
      * @param userid
@@ -494,19 +539,19 @@ public class AppController {
      */
     @ResponseBody
     @RequestMapping(value = "updatemaster")
-    public String updatemaster(@RequestParam(value = "userid")String userid,
-                               @RequestParam(value = "cid") String cid,
-                               @RequestParam(value = "devicerid") String devicerid,
-                               @RequestParam(value = "devicetype") Integer devicetype,
-                               @RequestParam(value = "devicename") String devicename,
-                               @RequestParam(value = "version") String version,
-                               @RequestParam(value = "state") Integer state,
-                               @RequestParam(value = "defencencode") String defencencode,
-                               @RequestParam(value = "defencename") String defencename,
-                               @RequestParam(value = "defencetype") Integer defencetype,
-                               @RequestParam(value = "devicemode") String devicemode,
-                               @RequestParam(value = "masterid") String masterid,
-                               @RequestParam(value = "sim") String sim){
+    public String updatemaster(@RequestParam(value = "userid",required = false)String userid,
+                               @RequestParam(value = "cid",required = false) String cid,
+                               @RequestParam(value = "devicerid",required = false) String devicerid,
+                               @RequestParam(value = "devicetype",required = false) Integer devicetype,
+                               @RequestParam(value = "devicename",required = false) String devicename,
+                               @RequestParam(value = "version",required = false) String version,
+                               @RequestParam(value = "state",required = false) Integer state,
+                               @RequestParam(value = "defencencode",required = false) String defencencode,
+                               @RequestParam(value = "defencename",required = false) String defencename,
+                               @RequestParam(value = "defencetype",required = false) Integer defencetype,
+                               @RequestParam(value = "devicemode",required = false) String devicemode,
+                               @RequestParam(value = "masterid",required = false) String masterid,
+                               @RequestParam(value = "sim",required = false) String sim){
         if(userid==null){
             userid="";
         }

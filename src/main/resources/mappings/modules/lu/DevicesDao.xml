@@ -238,10 +238,8 @@
 			devices d
 		LEFT JOIN masters m ON d.masterid = m.MID
 		WHERE
-			d.devicetype = #{devicetype}
-			AND d.createid = #{userid}
-		LIMIT #{pageBegin},
-		 #{pageEnd}
+			d.devicetype = #{devicetype} AND d.customerid = #{customerid}
+			limit #{pageBegin},#{pageEnd}
 	</select>
 
 	<select id="findByDeviceid" resultType="java.util.Map">
@@ -257,13 +255,14 @@
 			d.createtime AS createtime,
 			d.state AS state,
 			m.Version AS version,
-			m.SIM AS sim
+			m.SIM AS sim,
+			d.masterid AS masterid
 		FROM
 			devices d
 		LEFT JOIN masters m ON d.masterid = m.MID
 		LEFT JOIN defences def ON d.defenceid = def.DID
 		WHERE
-			d.did = #{did}
+			d.defenceid = #{did}
 	</select>
 
 	<update id="updatedevices" parameterType="map" >

@@ -2,19 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48e8464c-4ae8-491d-8a95-fbc32110f6fc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/lib/axis.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/lib/commons-discovery-0.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/lib/jaxrpc.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/analyzer_2012_u6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/analyzer_2012_u6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LXAFPlatform.iml" afterPath="$PROJECT_DIR$/LXAFPlatform.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/mypackage/Service.wsdl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/websvr/Service.wsdl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/websvr/globalweather.asmx" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/dao/AppDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/dao/AppDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/service/AppService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/service/AppService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/CustomersService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/CustomersService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/jeeplus.properties" afterPath="$PROJECT_DIR$/src/main/resources/jeeplus.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AppDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AppDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/MastersDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/MastersDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/DevicesDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/DevicesDao.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <ignored path="$PROJECT_DIR$/build/classes/" />
@@ -31,47 +27,69 @@
       <file leaf-file-name="AppController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="333" column="32" lean-forward="true" selection-start-line="333" selection-start-column="32" selection-end-line="333" selection-end-column="32" />
+            <state relative-caret-position="30">
+              <caret line="396" column="0" lean-forward="false" selection-start-line="396" selection-start-column="0" selection-end-line="396" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="docComment;class#AppController#0" expanded="false" />
+                <element signature="e#1438#1449#0" expanded="false" />
+                <element signature="docComment;method#login#0;class#AppController#0" expanded="false" />
+                <element signature="e#1888#1901#0" expanded="false" />
+                <element signature="method#login#0;class#AppController#0" expanded="false" />
+                <element signature="docComment;method#changepwd#0;class#AppController#0" expanded="false" />
+                <element signature="e#3250#3263#0" expanded="false" />
+                <element signature="method#changepwd#0;class#AppController#0" expanded="false" />
+                <element signature="docComment;method#updateuser#0;class#AppController#0" expanded="false" />
+                <element signature="e#4231#4244#0" expanded="false" />
+                <element signature="method#updateuser#0;class#AppController#0" expanded="false" />
+                <element signature="docComment;method#getdevice#0;class#AppController#0" expanded="false" />
+                <element signature="e#5429#5442#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MastersService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/MastersService.java">
+      <file leaf-file-name="DefencesService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/DefencesService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="43">
-              <caret line="64" column="45" lean-forward="false" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="45" />
-              <folding>
-                <element signature="e#1754#1755#0" expanded="true" />
-                <element signature="e#1803#1804#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1230">
+              <caret line="72" column="36" lean-forward="false" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MastersDao.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/MastersDao.xml">
+      <file leaf-file-name="DevicesService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/DevicesService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="195" column="25" lean-forward="false" selection-start-line="195" selection-start-column="25" selection-end-line="195" selection-end-column="25" />
+            <state relative-caret-position="2310">
+              <caret line="106" column="23" lean-forward="false" selection-start-line="106" selection-start-column="23" selection-end-line="106" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DevicesDao.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/DevicesDao.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7740">
+              <caret line="258" column="34" lean-forward="false" selection-start-line="258" selection-start-column="34" selection-end-line="258" selection-end-column="34" />
               <folding>
-                <marker date="1504265708350" expanded="true" signature="547:664" ph="SELECT FROM masters" />
-                <marker date="1504265708350" expanded="true" signature="1664:1916" ph="INSERT INTO masters... " />
-                <marker date="1504265708350" expanded="true" signature="1954:2201" ph="UPDATE maste... " />
-                <marker date="1504265708350" expanded="true" signature="2243:2479" ph="UPDATE maste... " />
-                <marker date="1504265708350" expanded="true" signature="2532:2572" ph="DELETE FROM " />
-                <marker date="1504265708350" expanded="true" signature="2630:2703" ph="UPDATE maste... " />
-                <marker date="1504265708350" expanded="true" signature="2836:2893" ph="select * FRO... masters" />
-                <marker date="1504265708350" expanded="true" signature="2972:3132" ph="SELECT m.mid... masters" />
-                <marker date="1504265708350" expanded="true" signature="3239:3506" ph="SELECT m.mid... masters" />
-                <marker date="1504265708350" expanded="true" signature="3579:3948" ph="SELECT m.mid... masters" />
-                <marker date="1504265708350" expanded="true" signature="4082:4290" ph="SELECT m.mid... masters" />
-                <marker date="1504265708350" expanded="true" signature="4403:4584" ph="SELECT m.mid... masters" />
-                <marker date="1504265708350" expanded="true" signature="4660:4783" ph="UPDATE maste... " />
+                <marker date="1504753210995" expanded="true" signature="579:695" ph="SELECT FROM devices" />
+                <marker date="1504753210995" expanded="true" signature="768:1416" ph="SELECT a.did... devices" />
+                <marker date="1504753210995" expanded="true" signature="2414:2735" ph="INSERT INTO devices... " />
+                <marker date="1504753210995" expanded="true" signature="2773:3050" ph="UPDATE devic... " />
+                <marker date="1504753210995" expanded="true" signature="3092:3360" ph="UPDATE devic... " />
+                <marker date="1504753210995" expanded="true" signature="3410:3450" ph="DELETE FROM " />
+                <marker date="1504753210995" expanded="true" signature="3508:3579" ph="UPDATE devic... " />
+                <marker date="1504753210995" expanded="true" signature="3712:3769" ph="select * FRO... devices" />
+                <marker date="1504753210995" expanded="true" signature="3895:4301" ph="SELECT d.did... devices" />
+                <marker date="1504753210995" expanded="true" signature="5266:5325" ph="SELECT DISTI... devices" />
+                <marker date="1504753210995" expanded="true" signature="5468:5530" ph="select DISTI... customers" />
+                <marker date="1504753210995" expanded="true" signature="5658:5810" ph="SELECT DISTI... devices" />
+                <marker date="1504753210995" expanded="true" signature="5970:6307" ph="SELECT d.def... devices" />
+                <marker date="1504753210995" expanded="true" signature="5970:6340" ph="SELECT d.def... devices" />
+                <marker date="1504753210995" expanded="true" signature="6412:6924" ph="SELECT d.def... devices" />
+                <marker date="1504753210995" expanded="true" signature="6989:7166" ph="UPDATE devic... " />
               </folding>
             </state>
           </provider>
@@ -80,16 +98,9 @@
       <file leaf-file-name="AppService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/service/AppService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-              <folding>
-                <element signature="e#614#615#0" expanded="true" />
-                <element signature="e#657#658#0" expanded="true" />
-                <element signature="e#695#696#0" expanded="true" />
-                <element signature="e#731#732#0" expanded="true" />
-                <element signature="e#767#768#0" expanded="true" />
-                <element signature="e#804#805#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="660">
+              <caret line="36" column="36" lean-forward="false" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -97,8 +108,8 @@
       <file leaf-file-name="AppDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/dao/AppDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="26" />
+            <state relative-caret-position="570">
+              <caret line="24" column="35" lean-forward="false" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -107,63 +118,63 @@
       <file leaf-file-name="AppDao.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AppDao.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="636">
-              <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+            <state relative-caret-position="540">
+              <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="37" />
               <folding>
-                <marker date="1504249806369" expanded="true" signature="322:494" ph="Select d.nam... " />
-                <marker date="1504249806369" expanded="true" signature="322:657" ph="Select d.nam... " />
-                <marker date="1504249806369" expanded="true" signature="780:1052" ph="SELECT a.DID... defences" />
-                <marker date="1504249806369" expanded="true" signature="1173:1447" ph="SELECT a.DID... defences" />
+                <marker date="1504667220862" expanded="true" signature="322:769" ph="Select d.nam... " />
+                <marker date="1504667220862" expanded="true" signature="322:773" ph="Select d.nam... " />
+                <marker date="1504667220862" expanded="true" signature="892:1164" ph="SELECT a.DID... defences" />
+                <marker date="1504667220862" expanded="true" signature="1229:1320" ph="UPDATE defen... " />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomersService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/CustomersService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="67" column="18" lean-forward="false" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="18" />
-              <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>新ze</find>
-      <find>新zen</find>
-      <find>新zeng</find>
-      <find>新增xi</find>
-      <find>新增xiu</find>
-      <find>新增xiug</find>
-      <find>新增xiuga</find>
-      <find>新增xiugai</find>
-      <find>新增修改</find>
-      <find>devicerid</find>
-      <find>updatedevices</find>
-      <find>insertDevices</find>
-      <find>VE</find>
-      <find>VELUES</find>
-      <find>VELUE</find>
-      <find>VELU</find>
-      <find>VEL</find>
-      <find>V</find>
-      <find>I</find>
-      <find>INs</find>
-      <find>IN</find>
-      <find>INS</find>
-      <find>INSERT</find>
-      <find>INSERT</find>
-      <find>updatedefences</find>
-      <find>新增</find>
-      <find>setdefence</find>
-      <find>findMastersListByCid</find>
-      <find>getMastersListByCid</find>
+      <find>selectAlarmrecord</find>
+      <find>i</find>
+      <find>is</find>
+      <find>isb</find>
+      <find>isbl</find>
+      <find>isblan</find>
       <find>布防</find>
+      <find>防区</find>
+      <find>alarmr</find>
+      <find>getDefences</find>
+      <find>getdevice</find>
+      <find>报警</find>
+      <find>alarmrecord</find>
+      <find>loaddevice</find>
+      <find>&quot;devicetype&quot; -&gt; &quot;1&quot;</find>
+      <find>updatedefence</find>
+      <find>getdefenc</find>
+      <find>getdefence</find>
+      <find>延时防区</find>
+      <find>encodingFilter</find>
+      <find>updateDefence</find>
+      <find>load</find>
+      <find>updatem</find>
+      <find>updatemasters</find>
+      <find>updatedevices</find>
+      <find>updatedefences</find>
+      <find>update</find>
+      <find>limit</find>
+      <find>findByCidAndDevicetypeAndPage</find>
+      <find>findByDeviceid</find>
     </findStrings>
+    <dirStrings>
+      <dir>D:\projects\LXAFPlatform</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -180,15 +191,21 @@
         <option value="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/CustomersDao.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/common/service/CrudService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/CustomersService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/dao/AppDao.java" />
-        <option value="$PROJECT_DIR$/WebContent/WEB-INF/lib/spring-web-4.0.8.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AppDao.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/DevicesDao.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/service/AppService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/MastersDao.xml" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/lib/spring-webmvc-4.0.8.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/lib/spring-webmvc-4.0.8.RELEASE.jar!/org/springframework/web/servlet/FrameworkServlet.class" />
+        <option value="$PROJECT_DIR$/src/main/java/websvr/SetElectricalResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/websvr/sdf.java" />
+        <option value="$PROJECT_DIR$/src/main/java/websvr/SetGarrison.java" />
+        <option value="$PROJECT_DIR$/src/main/java/websvr1/Service.wsdl" />
+        <option value="$PROJECT_DIR$/src/main/java/websvr/Service.wsdl" />
+        <option value="$PROJECT_DIR$/src/main/java/websvr/websvrtest.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AppDao.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/dao/AppDao.java" />
+        <option value="$PROJECT_DIR$/WebContent/WEB-INF/lib/spring-web-4.0.8.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/service/AppService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/DevicesDao.xml" />
       </list>
     </option>
   </component>
@@ -208,8 +225,27 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1932" />
+    <option name="width" value="1936" />
     <option name="height" value="1056" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Internationalization issues</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>LossyEncoding</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -226,7 +262,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -262,22 +297,8 @@
               <option name="myItemId" value="WebContent" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebContent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemId" value="webpage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -298,8 +319,18 @@
               <option name="myItemId" value="WEB-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
+              <option name="myItemId" value="LXAFPlatform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LXAFPlatform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebContent" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -322,6 +353,58 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LXAFPlatform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LXAFPlatform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="websvr1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LXAFPlatform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LXAFPlatform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="websvr" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -477,6 +560,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
@@ -488,9 +572,14 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.20878136" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/WebContent/WEB-INF/lib/commons-discovery-0.2.jar!/" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="SearchEverywhereHistoryKey" value="SetDisarm&#9;PSI&#9;JAVA://com.jeeplus.modules.lu.entity.Alarms#setDisarmState" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projects\LXAFPlatform\src\main\java\com\jeeplus\modules\app\controller" />
+      <recent name="D:\projects\LXAFPlatform\src\main\java" />
+      <recent name="D:\projects\LXAFPlatform\src\main\java\websvr" />
       <recent name="D:\projects\LXAFPlatform\WebContent\WEB-INF\lib" />
     </key>
   </component>
@@ -507,6 +596,46 @@
     </option>
   </component>
   <component name="RunManager" selected="Tomcat Server.Unnamed">
+    <configuration default="false" name="sdf" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="websvr.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="websvr.sdf" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="LXAFPlatform" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="websvrtest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="websvr.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="websvr.websvrtest" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="LXAFPlatform" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
       <deployment />
       <server-settings />
@@ -922,9 +1051,17 @@
         </option>
       </method>
     </configuration>
-    <list size="1">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.Unnamed" />
+      <item index="1" class="java.lang.String" itemvalue="Application.sdf" />
+      <item index="2" class="java.lang.String" itemvalue="Application.websvrtest" />
     </list>
+    <recent_temporary>
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Application.websvrtest" />
+        <item index="1" class="java.lang.String" itemvalue="Application.sdf" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -940,15 +1077,20 @@
       <option name="presentableId" value="Default" />
       <updated>1504143269965</updated>
       <workItem from="1504143271265" duration="25606000" />
-      <workItem from="1504227308821" duration="35301000" />
+      <workItem from="1504227308821" duration="50509000" />
+      <workItem from="1504504318827" duration="15389000" />
+      <workItem from="1504575223207" duration="25270000" />
+      <workItem from="1504658863948" duration="27261000" />
+      <workItem from="1504746430268" duration="9157000" />
+      <workItem from="1504834186312" duration="41000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60907000" />
+    <option name="totallyTimeSpent" value="153233000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -963,28 +1105,28 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3802817" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39869988" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41928494" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23344018" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24626866" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -996,82 +1138,59 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
+        <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/CustomersService.java</url>
           <line>68</line>
-          <properties class="com.jeeplus.modules.lu.service.CustomersService" method="editByCid">
-            <option name="EMULATED" value="true" />
-          </properties>
+          <properties class="com.jeeplus.modules.lu.service.CustomersService" method="editByCid" />
           <option name="timeStamp" value="14" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java</url>
-          <line>96</line>
-          <properties />
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java</url>
-          <line>127</line>
-          <properties />
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java</url>
-          <line>197</line>
-          <properties />
-          <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java</url>
-          <line>240</line>
+          <line>255</line>
           <properties />
           <option name="timeStamp" value="49" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java</url>
-          <line>353</line>
+          <line>366</line>
           <properties />
           <option name="timeStamp" value="52" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java</url>
-          <line>411</line>
-          <properties />
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java</url>
-          <line>428</line>
+          <line>449</line>
           <properties />
           <option name="timeStamp" value="55" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java</url>
-          <line>509</line>
+          <line>431</line>
           <properties />
-          <option name="timeStamp" value="64" />
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java</url>
+          <line>136</line>
+          <properties />
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java</url>
+          <line>105</line>
+          <properties />
+          <option name="timeStamp" value="103" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java</url>
-          <line>333</line>
+          <line>554</line>
           <properties />
-          <option name="timeStamp" value="68" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java</url>
-          <line>324</line>
-          <properties />
-          <option name="timeStamp" value="71" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java</url>
-          <line>330</line>
-          <properties />
-          <option name="timeStamp" value="72" />
+          <option name="timeStamp" value="105" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="73" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="112" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1080,121 +1199,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/CustomersService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="67" column="18" lean-forward="false" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/license.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/common/persistence/Page.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/common/websocket/onchat/ChatServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="60" column="7" lean-forward="true" selection-start-line="60" selection-start-column="7" selection-end-line="60" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/echarts/web/ChinaWeatherDataBeanController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="45" column="13" lean-forward="false" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/AfcustomersController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="42" column="13" lean-forward="false" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/sys/web/AreaController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="37" column="13" lean-forward="false" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/echarts/web/BarController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/modules/gen/config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-360">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/errors.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/jeeplus2.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-810">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/sys/web/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="549" column="29" lean-forward="false" selection-start-line="549" selection-start-column="29" selection-end-line="549" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/sys/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="22" column="40" lean-forward="false" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/jeeplus.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/common/persistence/CrudDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
@@ -1213,7 +1217,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-178">
           <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1221,28 +1224,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="692">
           <caret line="148" column="26" lean-forward="true" selection-start-line="132" selection-start-column="8" selection-end-line="148" selection-end-column="26" />
-          <folding>
-            <marker date="1504142467471" expanded="true" signature="755:879" ph="SELECT FROM customers" />
-            <marker date="1504142467471" expanded="true" signature="943:1447" ph="SELECT FROM customers" />
-            <marker date="1504142467471" expanded="true" signature="1850:2378" ph="INSERT INTO customers... " />
-            <marker date="1504142467471" expanded="true" signature="2416:2859" ph="UPDATE custo... " />
-            <marker date="1504142467471" expanded="true" signature="2901:3327" ph="UPDATE custo... " />
-            <marker date="1504142467471" expanded="true" signature="3380:3422" ph="DELETE FROM " />
-            <marker date="1504142467471" expanded="true" signature="3480:3555" ph="UPDATE custo... " />
-            <marker date="1504142467471" expanded="true" signature="3690:3749" ph="select * FRO... customers" />
-            <marker date="1504142467471" expanded="true" signature="3853:4289" ph="SELECT c.cid... Customers" />
-            <marker date="1504142467471" expanded="true" signature="4406:4521" ph="select a.nam... id" />
-            <marker date="1504142467471" expanded="true" signature="4406:4578" ph="select a.nam... " />
-            <marker date="1504142467471" expanded="true" signature="4426:4463" ph="select id fr... areas" />
-            <marker date="1504142467471" expanded="true" signature="4532:4578" ph="SELECT name areas" />
-            <marker date="1504142467471" expanded="true" signature="4709:4824" ph="SELECT DISTI... customers" />
-            <marker date="1504142467471" expanded="true" signature="4951:5018" ph="SELECT DISTI... customers" />
-            <marker date="1504142467471" expanded="true" signature="5497:5542" ph="SELECT * FRO... customers" />
-            <marker date="1504142467471" expanded="true" signature="5608:6596" ph="SELECT c.cid... customers" />
-            <marker date="1504142467471" expanded="true" signature="6719:8119" ph="SELECT aa.*,... COUNT" />
-            <marker date="1504142467471" expanded="true" signature="6752:7309" ph="SELECT COUNT... customers" />
-            <marker date="1504142467471" expanded="true" signature="7333:8061" ph="SELECT c.CID... devices" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1250,7 +1231,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="111" column="7" lean-forward="true" selection-start-line="111" selection-start-column="7" selection-end-line="111" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1265,7 +1245,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
           <caret line="37" column="9" lean-forward="false" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1273,68 +1252,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2343">
           <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/entity/DefencesDevice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AppDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="636">
-          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding>
-            <marker date="1504249806369" expanded="true" signature="322:494" ph="Select d.nam... " />
-            <marker date="1504249806369" expanded="true" signature="322:657" ph="Select d.nam... " />
-            <marker date="1504249806369" expanded="true" signature="780:1052" ph="SELECT a.DID... defences" />
-            <marker date="1504249806369" expanded="true" signature="1173:1447" ph="SELECT a.DID... defences" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/DefencesService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="73" column="58" lean-forward="false" selection-start-line="73" selection-start-column="44" selection-end-line="73" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/DevicesDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="271" column="13" lean-forward="true" selection-start-line="271" selection-start-column="13" selection-end-line="271" selection-end-column="13" />
-          <folding>
-            <marker date="1504255980026" expanded="true" signature="579:695" ph="SELECT FROM devices" />
-            <marker date="1504255980026" expanded="true" signature="768:1416" ph="SELECT a.did... devices" />
-            <marker date="1504255980026" expanded="true" signature="2414:2735" ph="INSERT INTO devices... " />
-            <marker date="1504255980026" expanded="true" signature="2773:3050" ph="UPDATE devic... " />
-            <marker date="1504255980026" expanded="true" signature="3092:3360" ph="UPDATE devic... " />
-            <marker date="1504255980026" expanded="true" signature="3410:3450" ph="DELETE FROM " />
-            <marker date="1504255980026" expanded="true" signature="3508:3579" ph="UPDATE devic... " />
-            <marker date="1504255980026" expanded="true" signature="3712:3769" ph="select * FRO... devices" />
-            <marker date="1504255980026" expanded="true" signature="3895:4301" ph="SELECT d.did... devices" />
-            <marker date="1504255980026" expanded="true" signature="5266:5325" ph="SELECT DISTI... devices" />
-            <marker date="1504255980026" expanded="true" signature="5468:5530" ph="select DISTI... customers" />
-            <marker date="1504255980026" expanded="true" signature="5658:5810" ph="SELECT DISTI... devices" />
-            <marker date="1504255980026" expanded="true" signature="5970:6340" ph="SELECT d.def... devices" />
-            <marker date="1504255980026" expanded="true" signature="6412:6891" ph="SELECT d.def... devices" />
-            <marker date="1504255980026" expanded="true" signature="6956:7133" ph="UPDATE devic... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/DevicesService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="98" column="5" lean-forward="true" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1342,60 +1259,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1036">
           <caret line="24" column="8" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/CustomersService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="1320">
           <caret line="67" column="18" lean-forward="false" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="18" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/service/AppService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-          <folding>
-            <element signature="e#614#615#0" expanded="true" />
-            <element signature="e#657#658#0" expanded="true" />
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#731#732#0" expanded="true" />
-            <element signature="e#767#768#0" expanded="true" />
-            <element signature="e#804#805#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/dao/AppDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/MastersDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="195" column="25" lean-forward="false" selection-start-line="195" selection-start-column="25" selection-end-line="195" selection-end-column="25" />
-          <folding>
-            <marker date="1504265708350" expanded="true" signature="547:664" ph="SELECT FROM masters" />
-            <marker date="1504265708350" expanded="true" signature="1664:1916" ph="INSERT INTO masters... " />
-            <marker date="1504265708350" expanded="true" signature="1954:2201" ph="UPDATE maste... " />
-            <marker date="1504265708350" expanded="true" signature="2243:2479" ph="UPDATE maste... " />
-            <marker date="1504265708350" expanded="true" signature="2532:2572" ph="DELETE FROM " />
-            <marker date="1504265708350" expanded="true" signature="2630:2703" ph="UPDATE maste... " />
-            <marker date="1504265708350" expanded="true" signature="2836:2893" ph="select * FRO... masters" />
-            <marker date="1504265708350" expanded="true" signature="2972:3132" ph="SELECT m.mid... masters" />
-            <marker date="1504265708350" expanded="true" signature="3239:3506" ph="SELECT m.mid... masters" />
-            <marker date="1504265708350" expanded="true" signature="3579:3948" ph="SELECT m.mid... masters" />
-            <marker date="1504265708350" expanded="true" signature="4082:4290" ph="SELECT m.mid... masters" />
-            <marker date="1504265708350" expanded="true" signature="4403:4584" ph="SELECT m.mid... masters" />
-            <marker date="1504265708350" expanded="true" signature="4660:4783" ph="UPDATE maste... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1403,7 +1274,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="309">
           <caret line="406" column="0" lean-forward="false" selection-start-line="406" selection-start-column="0" selection-end-line="406" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1411,26 +1281,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="159">
           <caret line="474" column="0" lean-forward="false" selection-start-line="474" selection-start-column="0" selection-end-line="474" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/WebContent/WEB-INF/lib/spring-web-4.0.8.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/MastersService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="64" column="45" lean-forward="false" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="45" />
-          <folding>
-            <element signature="e#1754#1755#0" expanded="true" />
-            <element signature="e#1803#1804#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1438,16 +1288,287 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="337" column="30" lean-forward="false" selection-start-line="337" selection-start-column="30" selection-end-line="337" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/websvr/Service4.wsdl" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/MastersDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5850">
+          <caret line="195" column="25" lean-forward="false" selection-start-line="195" selection-start-column="25" selection-end-line="195" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/websvr/globalweather.asmx" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/mypackage/Service.wsdl" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/Alarms.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/websvr/Service1.wsdl" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/websvr/SetElectricalResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="34" column="13" lean-forward="false" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/websvr/SetDisarm.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="3" column="2" lean-forward="true" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/websvr/SetGarrisonResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/websvr/Service.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-90">
+          <caret line="73" column="7" lean-forward="false" selection-start-line="73" selection-start-column="7" selection-end-line="73" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/websvr/sdf.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/websvr/package-info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/websvr/SetGarrison.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/websvr/IService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-236">
+          <caret line="22" column="17" lean-forward="false" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/websvr/SetGarrison.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="60" column="30" lean-forward="true" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/websvr/ObjectFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="28" column="28" lean-forward="false" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/websvr/Service.wsdl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="2061" lean-forward="false" selection-start-line="0" selection-start-column="2060" selection-end-line="0" selection-end-column="2061" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/websvr1/Service.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/websvr/websvrtest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/websvr1/ServiceLocator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1230">
+          <caret line="48" column="26" lean-forward="false" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/websvr1/Service.wsdl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="0" column="10530" lean-forward="false" selection-start-line="0" selection-start-column="10504" selection-end-line="0" selection-end-column="10530" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/entity/DefencesDevice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="48" column="15" lean-forward="false" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/jre/lib/rt.jar!/sun/reflect/DelegatingMethodAccessorImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="155" column="19" lean-forward="false" selection-start-line="155" selection-start-column="19" selection-end-line="155" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/jeeplus.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/DeviceTypeName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-106">
+          <caret line="26" column="18" lean-forward="false" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/DefenceTypeName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-300">
+          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/dao/AppDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="24" column="35" lean-forward="false" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/service/AppService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="36" column="36" lean-forward="false" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/common/persistence/interceptor/PaginationInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/MastersService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-25">
+          <caret line="59" column="35" lean-forward="true" selection-start-line="59" selection-start-column="35" selection-end-line="59" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/WebContent/WEB-INF/lib/spring-web-4.0.8.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/DevicesService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2310">
+          <caret line="106" column="23" lean-forward="false" selection-start-line="106" selection-start-column="23" selection-end-line="106" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AppDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="37" />
+          <folding>
+            <marker date="1504667220862" expanded="true" signature="322:769" ph="Select d.nam... " />
+            <marker date="1504667220862" expanded="true" signature="322:773" ph="Select d.nam... " />
+            <marker date="1504667220862" expanded="true" signature="892:1164" ph="SELECT a.DID... defences" />
+            <marker date="1504667220862" expanded="true" signature="1229:1320" ph="UPDATE defen... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/DefencesService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1230">
+          <caret line="72" column="36" lean-forward="false" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/WebContent/WEB-INF/lib/spring-webmvc-4.0.8.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="465" column="0" lean-forward="false" selection-start-line="465" selection-start-column="0" selection-end-line="465" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/DevicesDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7740">
+          <caret line="258" column="34" lean-forward="false" selection-start-line="258" selection-start-column="34" selection-end-line="258" selection-end-column="34" />
+          <folding>
+            <marker date="1504753210995" expanded="true" signature="579:695" ph="SELECT FROM devices" />
+            <marker date="1504753210995" expanded="true" signature="768:1416" ph="SELECT a.did... devices" />
+            <marker date="1504753210995" expanded="true" signature="2414:2735" ph="INSERT INTO devices... " />
+            <marker date="1504753210995" expanded="true" signature="2773:3050" ph="UPDATE devic... " />
+            <marker date="1504753210995" expanded="true" signature="3092:3360" ph="UPDATE devic... " />
+            <marker date="1504753210995" expanded="true" signature="3410:3450" ph="DELETE FROM " />
+            <marker date="1504753210995" expanded="true" signature="3508:3579" ph="UPDATE devic... " />
+            <marker date="1504753210995" expanded="true" signature="3712:3769" ph="select * FRO... devices" />
+            <marker date="1504753210995" expanded="true" signature="3895:4301" ph="SELECT d.did... devices" />
+            <marker date="1504753210995" expanded="true" signature="5266:5325" ph="SELECT DISTI... devices" />
+            <marker date="1504753210995" expanded="true" signature="5468:5530" ph="select DISTI... customers" />
+            <marker date="1504753210995" expanded="true" signature="5658:5810" ph="SELECT DISTI... devices" />
+            <marker date="1504753210995" expanded="true" signature="5970:6307" ph="SELECT d.def... devices" />
+            <marker date="1504753210995" expanded="true" signature="5970:6340" ph="SELECT d.def... devices" />
+            <marker date="1504753210995" expanded="true" signature="6412:6924" ph="SELECT d.def... devices" />
+            <marker date="1504753210995" expanded="true" signature="6989:7166" ph="UPDATE devic... " />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="333" column="32" lean-forward="true" selection-start-line="333" selection-start-column="32" selection-end-line="333" selection-end-column="32" />
+        <state relative-caret-position="30">
+          <caret line="396" column="0" lean-forward="false" selection-start-line="396" selection-start-column="0" selection-end-line="396" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#AppController#0" expanded="false" />
+            <element signature="e#1438#1449#0" expanded="false" />
+            <element signature="docComment;method#login#0;class#AppController#0" expanded="false" />
+            <element signature="e#1888#1901#0" expanded="false" />
+            <element signature="method#login#0;class#AppController#0" expanded="false" />
+            <element signature="docComment;method#changepwd#0;class#AppController#0" expanded="false" />
+            <element signature="e#3250#3263#0" expanded="false" />
+            <element signature="method#changepwd#0;class#AppController#0" expanded="false" />
+            <element signature="docComment;method#updateuser#0;class#AppController#0" expanded="false" />
+            <element signature="e#4231#4244#0" expanded="false" />
+            <element signature="method#updateuser#0;class#AppController#0" expanded="false" />
+            <element signature="docComment;method#getdevice#0;class#AppController#0" expanded="false" />
+            <element signature="e#5429#5442#0" expanded="false" />
           </folding>
         </state>
       </provider>

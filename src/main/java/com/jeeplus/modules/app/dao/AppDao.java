@@ -21,4 +21,6 @@ public interface AppDao {
    public List getdefence(String cid);
 
    public List getDefences(Map map);
+
+   public int updateDefence(Map map);
 }

@@ -33,4 +33,7 @@ public class AppService {
 	public List getDefences(Map map){
 		return appDao.getDefences(map);
 	}
+
+	@Transactional(readOnly = false)
+	public int updateDefence(Map map){return appDao.updateDefence(map);}
 }
