@@ -34,8 +34,7 @@ public class AlarmsDefencesService extends CrudService<AlarmsDefencesDao, Alarms
 	public Page<AlarmsDefences> find1(Page<AlarmsDefences> page, AlarmsDefences alarmsDefences){
 		alarmsDefences.setPage(page);
 		page.setList(alarmsDefencesDao.findAlarmsDefencesByTime(alarmsDefences));
-		List<AlarmsDefences> list=page.getList();
-		for(AlarmsDefences alarmsDefencesTemp : list){
+		for(AlarmsDefences alarmsDefencesTemp : page.getList()){
 			alarmsDefencesTemp.setTypeName(AlarmTypeName.getByType(Integer.parseInt(alarmsDefencesTemp.getTypeName())).getAlarmTypeName());
 			alarmsDefencesTemp.setState(AlarmStateName.getByState(Integer.parseInt(alarmsDefencesTemp.getState())).getAlarmStateName());
 		}

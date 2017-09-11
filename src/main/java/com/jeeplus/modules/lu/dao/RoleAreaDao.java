@@ -15,5 +15,6 @@ import com.jeeplus.modules.lu.entity.RoleArea;
 @MyBatisDao
 public interface RoleAreaDao extends CrudDao<RoleArea> {
 
+    void save2(RoleArea roleArea);
 	
 }

@@ -5,6 +5,7 @@ package com.jeeplus.modules.lu.web;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -214,6 +215,19 @@ public class RoleAreaController extends BaseController {
 		model.addAttribute("roleArea", roleArea);
 
 		return "modules/lu/roleAreaAuth";
+	}
+
+	@RequestMapping(value = "roleAreaSave")
+	public String roleAreaSave(RoleArea roleArea){
+		roleAreaService.delete(roleArea);
+		for(String areaIdTemp : roleArea.getAreaIds().split(",")){
+			RoleArea roleAreaTemp = new RoleArea();
+			roleAreaTemp.setId(UUID.randomUUID().toString());
+			roleAreaTemp.setRoleId(roleArea.getRoleId());
+			roleAreaTemp.setAreaId(areaIdTemp);
+			roleAreaService.save2(roleAreaTemp);
+		}
+		return "redirect:" + adminPath + "/sys/role/?repage";
 	}
 
 }

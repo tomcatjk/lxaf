@@ -6,6 +6,7 @@ package com.jeeplus.modules.lu.dao;
 import com.jeeplus.common.persistence.TreeDao;
 import com.jeeplus.common.persistence.annotation.MyBatisDao;
 import com.jeeplus.modules.lu.entity.Areas;
+import com.jeeplus.modules.sys.entity.User;
 
 import java.util.List;
 import java.util.Map;
@@ -20,10 +21,12 @@ public interface AreasDao extends TreeDao<Areas> {
 
 	Areas getAreasById(String id);
 
-	List getAllAreasToAreasCustomers();
+	void deleteAreas(User user);
 
-	List getAllAreasCustomersByCreateIdAndCustomerType(Map map);
+	List getAreasCustomers(Map map);
 
-	List getAllAreasCustomersByCustomerType(String customerType);
+	List getAreasToAreasCustomers(User user);
+
+	List getAreasToRoleArea(Areas areas);
 
 }

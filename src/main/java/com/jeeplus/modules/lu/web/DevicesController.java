@@ -87,9 +87,8 @@ public class DevicesController extends BaseController {
 	 */
 	@RequiresPermissions("lu:devicescustomer:list")
 	@RequestMapping(value = "customerdevices")
-	public String customerList(Devices devices,DevicesCustomers devicesCustomers, HttpServletRequest request, HttpServletResponse response, Model model) {
-		User user=UserUtils.getUser();
-		devicesCustomers.setId(user.getId());
+	public String customerList(DevicesCustomers devicesCustomers, HttpServletRequest request, HttpServletResponse response, Model model) {
+		devicesCustomers.setCustomerId(UserUtils.getUser().getCustomerID());
 		Page<DevicesCustomers> page = devicesCustomersService.find(new Page<DevicesCustomers>(request, response), devicesCustomers);
 		String devicesType = request.getParameter("devicesTypes");
 		String customerType = request.getParameter("customerself");
@@ -279,8 +278,18 @@ public class DevicesController extends BaseController {
 			cell.setCellValue("质检人");
 			cell.setCellStyle(style);
 
-
-			List<DevicesCustomers> list = devicesService.totalDevicesCustomers();
+			DevicesCustomers devicesCustomersParameter = new DevicesCustomers();
+			devicesCustomersParameter.setCustomerId(UserUtils.getUser().getCustomerID());
+			List<DevicesCustomers> list = devicesCustomersService.findList(devicesCustomersParameter);
+			for(DevicesCustomers devicesCustomersTemp : list){
+				if(devicesCustomersTemp.getDevicesType() != null){
+					devicesCustomersTemp.setDevicesType(DeviceTypeName.getByType(Integer.parseInt(devicesCustomersTemp.getDevicesType())).getDeviceTypeName());
+				}
+				//设置设备状态
+				if(devicesCustomersTemp.getState() != null){
+					devicesCustomersTemp.setState(DeviceStateName.getByState(Integer.parseInt(devicesCustomersTemp.getState())).getDeviceStateName());
+				}
+			}
 
 			for(int i=0;i<list.size();i++){
 				row =sheet.createRow((int)i+1);

@@ -8,10 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jeeplus.common.utils.*;
-import com.jeeplus.modules.lu.entity.AreasCustomers;
+import com.jeeplus.modules.lu.entity.*;
 import com.jeeplus.modules.lu.service.AreasService;
+import com.jeeplus.modules.lu.service.RoleAreaService;
 import com.jeeplus.modules.lu.service.ServicePersonsService;
+import com.jeeplus.modules.sys.entity.Role;
 import com.jeeplus.modules.sys.entity.User;
+import com.jeeplus.modules.sys.security.SystemAuthorizingRealm;
+import com.jeeplus.modules.sys.service.SystemService;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.web.util.SavedRequest;
@@ -62,7 +66,14 @@ public class LoginController extends BaseController{
 	@Autowired
 	private ServicePersonsService servicePersonsService;
 
-	
+	@Autowired
+	private SystemAuthorizingRealm systemRealm;
+
+	@Autowired
+	private RoleAreaService roleAreaService;
+
+	@Autowired
+	private SystemService systemService;
 	
 	/**
 	 * 管理登录
@@ -123,6 +134,11 @@ public class LoginController extends BaseController{
 	 */
 	@RequestMapping(value = "${adminPath}/login", method = RequestMethod.POST)
 	public String loginFail(HttpServletRequest request, HttpServletResponse response, Model model) {
+		//----------khb 20170901 begin------------
+		// 清除当前用户缓存
+//		UserUtils.clearCache();
+//		systemRealm.clearAllCachedAuthorizationInfo();
+		//----------khb 20170901 end------------
 		Principal principal = UserUtils.getPrincipal();
 		
 		// 如果已经登录，则跳转到管理首页
@@ -342,130 +358,53 @@ public class LoginController extends BaseController{
 	@RequestMapping(value = "${adminPath}/home")
 	public String home(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
 		User user = UserUtils.getUser();
-		List<List<AreasCustomers>> listAll = new ArrayList<List<AreasCustomers>>();
-		//获得所有的区域
-		List<AreasCustomers> list = areasService.findAllAreasToAreasCustomers();
-		//企业客户
-		List<AreasCustomers> enterpriseList = areasService.findAllAreasToAreasCustomers();
-		AreasCustomers enterprise = new AreasCustomers();
-		enterprise.setId(UUID.randomUUID().toString());
-		enterprise.setName("企业客户");
-		enterprise.setParentId("0");
-		enterprise.setParentIds("0,");
-		for(int i = 0; i < enterpriseList.size(); i++){
-			if("0".equals(enterpriseList.get(i).getParentId())){
-				enterpriseList.get(i).setParentId(enterprise.getId());
-
+		user.setRoleid(systemService.getUserObject(UserUtils.getUser()).getRoleid());
+		List<List<AreasCustomers>> list = new ArrayList<List<AreasCustomers>>();
+		Map mapParameter = new HashMap();
+		mapParameter.put("cid",user.getCustomerID());
+		RoleArea roleAreaParameter = new RoleArea();
+		roleAreaParameter.setRoleId(user.getRoleid());
+		List<RoleArea> roleAreaList = new ArrayList<RoleArea>();
+		Role userRole = systemService.findRole(user);
+		if(userRole != null) {
+			if (user.getCustomerID().equals(userRole.getCustomerid())) {
+				roleAreaList = roleAreaService.findList(roleAreaParameter);
+			} else {
+				user.setRoleid("");
+				Areas areasParameter = new Areas();
+				areasParameter.setCid(user.getCustomerID());
+				roleAreaList = areasService.findAreasToRoleArea(areasParameter);
+			}
+			for (CustomerTypeName customerTypeNameTemp : CustomerTypeName.values()) {
+				List<AreasCustomers> areasCustomersesList = areasService.findAreasToAreasCustomers(user);
+				AreasCustomers areasCustomers = new AreasCustomers();
+				areasCustomers.setId(UUID.randomUUID().toString());
+				areasCustomers.setName(customerTypeNameTemp.getCustomerTypeName());
+				areasCustomers.setParentId("0");
+				areasCustomers.setParentIds("0,");
+				for (AreasCustomers areasCustomersTemp : areasCustomersesList) {
+					if ("0".equals(areasCustomersTemp.getParentId())) {
+						areasCustomersTemp.setParentId(areasCustomers.getId());
+					}
+				}
+				areasCustomersesList.add(areasCustomers);
+				mapParameter.put("customerType", customerTypeNameTemp.getCustomerType());
+				for (RoleArea roleArea : roleAreaList) {
+					mapParameter.put("areaId", roleArea.getAreaId());
+					for (AreasCustomers areasCustomersTemp : (List<AreasCustomers>) areasService.findAreasCustomers(mapParameter)) {
+						areasCustomersTemp.setName(areasCustomersTemp.getCname());
+						areasCustomersTemp.setParentId(areasCustomersTemp.getId());
+						areasCustomersTemp.setParentIds(areasCustomersTemp.getParentIds().concat(areasCustomersTemp.getParentId()));
+						areasCustomersTemp.setId(UUID.randomUUID().toString());
+						areasCustomersesList.add(areasCustomersTemp);
+					}
+				}
+				list.add(areasCustomersesList);
 			}
 		}
-		enterpriseList.add(enterprise);
-		//个体客户
-		List<AreasCustomers> individualList = areasService.findAllAreasToAreasCustomers();
-		AreasCustomers individual = new AreasCustomers();
-		individual.setId(UUID.randomUUID().toString());
-		individual.setName("个体客户");
-		individual.setParentId("0");
-		individual.setParentIds("0,");
-		for(int i = 0; i < individualList.size(); i++){
-			if("0".equals(individualList.get(i).getParentId())){
-				individualList.get(i).setParentId(individual.getId());
-			}
-		}
-		individualList.add(individual);
-		//政府客户
-		List<AreasCustomers> governmentList = areasService.findAllAreasToAreasCustomers();
-		AreasCustomers government = new AreasCustomers();
-		government.setId(UUID.randomUUID().toString());
-		government.setName("政府客户");
-		government.setParentId("0");
-		government.setParentIds("0,");
-		for(int i = 0; i < governmentList.size(); i++){
-			if("0".equals(governmentList.get(i).getParentId())){
-				governmentList.get(i).setParentId(government.getId());
-			}
-		}
-		governmentList.add(government);
-
-		if(!user.getCustomerID().equals("0")){
-			Map map = new HashMap();
-			map.put("createId",user.getId());
-			//获得区域下的客户
-			//获取企业客户
-			map.put("customerType","1");
-			List<AreasCustomers> listOfCustomerType1 = areasService.findAllAreasCustomersByCreateIdAndCustomerType(map);
-			for(AreasCustomers areasCustomers : listOfCustomerType1){
-				areasCustomers.setName(areasCustomers.getCname());
-				areasCustomers.setParentId(areasCustomers.getId());
-				areasCustomers.setParentIds(areasCustomers.getParentIds().concat(areasCustomers.getParentId()));
-				areasCustomers.setId(UUID.randomUUID().toString());
-				enterpriseList.add(areasCustomers);
-			}
-			//获取个体客户
-			map.put("customerType","2");
-			List<AreasCustomers> listOfCustomerType2 = areasService.findAllAreasCustomersByCreateIdAndCustomerType(map);
-			for(AreasCustomers areasCustomers : listOfCustomerType2){
-				areasCustomers.setName(areasCustomers.getCname());
-				areasCustomers.setParentId(areasCustomers.getId());
-				areasCustomers.setParentIds(areasCustomers.getParentIds().concat(areasCustomers.getParentId()));
-				areasCustomers.setId(UUID.randomUUID().toString());
-				individualList.add(areasCustomers);
-			}
-			//获取政府客户
-			map.put("customerType","3");
-			List<AreasCustomers> listOfCustomerType3 = areasService.findAllAreasCustomersByCreateIdAndCustomerType(map);
-			for(AreasCustomers areasCustomers : listOfCustomerType3){
-				areasCustomers.setName(areasCustomers.getCname());
-				areasCustomers.setParentId(areasCustomers.getId());
-				areasCustomers.setParentIds(areasCustomers.getParentIds().concat(areasCustomers.getParentId()));
-				areasCustomers.setId(UUID.randomUUID().toString());
-				governmentList.add(areasCustomers);
-			}
-			listAll.add(enterpriseList);
-			listAll.add(individualList);
-			listAll.add(governmentList);
-
-		}else{
-			//获得区域下的客户
-			//获取企业客户
-			List<AreasCustomers> listOfCustomerType1 = areasService.findAllAreasCustomersByCustomerType("1");
-			for(AreasCustomers areasCustomers : listOfCustomerType1){
-				areasCustomers.setName(areasCustomers.getCname());
-				areasCustomers.setParentId(areasCustomers.getId());
-				areasCustomers.setParentIds(areasCustomers.getParentIds().concat(areasCustomers.getParentId()));
-				areasCustomers.setId(UUID.randomUUID().toString());
-				enterpriseList.add(areasCustomers);
-			}
-			//获取个体客户
-			List<AreasCustomers> listOfCustomerType2 = areasService.findAllAreasCustomersByCustomerType("2");
-			for(AreasCustomers areasCustomers : listOfCustomerType2){
-				areasCustomers.setName(areasCustomers.getCname());
-				areasCustomers.setParentId(areasCustomers.getId());
-				areasCustomers.setParentIds(areasCustomers.getParentIds().concat(areasCustomers.getParentId()));
-				areasCustomers.setId(UUID.randomUUID().toString());
-				individualList.add(areasCustomers);
-			}
-			//获取政府客户
-			List<AreasCustomers> listOfCustomerType3 = areasService.findAllAreasCustomersByCustomerType("3");
-			for(AreasCustomers areasCustomers : listOfCustomerType3){
-
-				areasCustomers.setName(areasCustomers.getCname());
-				areasCustomers.setParentId(areasCustomers.getId());
-				areasCustomers.setParentIds(areasCustomers.getParentIds().concat(areasCustomers.getParentId()));
-				areasCustomers.setId(UUID.randomUUID().toString());
-				governmentList.add(areasCustomers);
-			}
-			listAll.add(enterpriseList);
-			listAll.add(individualList);
-			listAll.add(governmentList);
-
-		}
-
-//		List ServicePersonsPartList = servicePersonsService.getServicePersonsByState(0);
-
-		model.addAttribute("list", listAll);
-//		model.addAttribute("ServicePersonsPartListJson", JSONArray.fromObject(ServicePersonsPartList));
-//		model.addAttribute("userTempList", userTempList);
+		model.addAttribute("list", list);
 		return "modules/sys/sysHome";
 		
 	}
+
 }

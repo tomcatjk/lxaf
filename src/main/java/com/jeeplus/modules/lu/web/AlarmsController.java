@@ -15,9 +15,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.ConstraintViolationException;
 
 import com.jeeplus.modules.lu.dao.AlarmsDao;
+import com.jeeplus.modules.lu.dao.AlarmsDefencesDao;
 import com.jeeplus.modules.lu.entity.*;
 import com.jeeplus.modules.lu.service.*;
+import com.jeeplus.modules.sys.entity.Role;
 import com.jeeplus.modules.sys.entity.User;
+import com.jeeplus.modules.sys.service.SystemService;
 import com.jeeplus.modules.sys.utils.UserUtils;
 import net.sf.json.JSONArray;
 import org.apache.poi.hssf.usermodel.*;
@@ -73,6 +76,18 @@ public class AlarmsController extends BaseController {
 
     @Autowired
     private AlarmsDao alarmsDao;
+
+    @Autowired
+    private AlarmsDefencesDao alarmsDefencesDao;
+
+    @Autowired
+    private SystemService systemService;
+
+    @Autowired
+    private RoleAreaService roleAreaService;
+
+    @Autowired
+    private AreasService areasService;
 	
 	@ModelAttribute
 	public Alarms get(@RequestParam(required=false) String id) {
@@ -99,17 +114,40 @@ public class AlarmsController extends BaseController {
 		paramMap.put("state", state);
 		paramMap.put("pageSize", pageSize);
 		paramMap.put("currentPage", null);
-		int total = 0;
-        if("0".equals(user.getCustomerID())){
-			total = alarmsService.findAlarmsInfoAcd(paramMap).size();
-			paramMap.put("currentPage", (currentPage-1) * pageSize);
-            list = alarmsService.findAlarmsInfoAcd(paramMap);
-        }else{
-			paramMap.put("cid", user.getCustomerID());
-			total = alarmsService.findAlarmsInfoAcd(paramMap).size();
-			paramMap.put("currentPage", (currentPage-1) * pageSize);
-			list = alarmsService.findAlarmsInfoAcd(paramMap);
+        int total = 0;
+
+        user.setRoleid(systemService.getUserObject(UserUtils.getUser()).getRoleid());
+        paramMap.put("cid",user.getCustomerID());
+        RoleArea roleAreaParameter = new RoleArea();
+        roleAreaParameter.setRoleId(user.getRoleid());
+        List<RoleArea> roleAreaList = new ArrayList<RoleArea>();
+        Role userRole = systemService.findRole(user);
+        if(userRole != null) {
+            if (user.getCustomerID().equals(userRole.getCustomerid())) {
+                roleAreaList = roleAreaService.findList(roleAreaParameter);
+            } else {
+                user.setRoleid("");
+                Areas areasParameter = new Areas();
+                areasParameter.setCid(user.getCustomerID());
+                roleAreaList = areasService.findAreasToRoleArea(areasParameter);
+            }
+            paramMap.put("roleAreaList", roleAreaList);
+            total += alarmsService.findAlarmsInfoAcd(paramMap).size();
+            paramMap.put("currentPage", (currentPage-1) * pageSize);
+            list.addAll(alarmsService.findAlarmsInfoAcd(paramMap));
         }
+
+//        if("0".equals(user.getCustomerID())){
+//			total = alarmsService.findAlarmsInfoAcd(paramMap).size();
+//			paramMap.put("currentPage", (currentPage-1) * pageSize);
+//            list = alarmsService.findAlarmsInfoAcd(paramMap);
+//        }else{
+//			paramMap.put("cid", user.getCustomerID());
+//			total = alarmsService.findAlarmsInfoAcd(paramMap).size();
+//			paramMap.put("currentPage", (currentPage-1) * pageSize);
+//			list = alarmsService.findAlarmsInfoAcd(paramMap);
+//        }
+
         Map resultMap = new HashMap();
 		resultMap.put("currentPage", currentPage);
 		resultMap.put("endPage", total % pageSize == 0 ? total / pageSize : total / pageSize + 1);
@@ -217,8 +255,7 @@ public class AlarmsController extends BaseController {
     @RequiresPermissions("lu:ararmsde:list")
     @RequestMapping(value = "alarmsdef")
     public String alarmsDefenceslist(AlarmsDefences alarmsDefences, HttpServletRequest request, HttpServletResponse response, Model model) {
-        User user=UserUtils.getUser();
-    	alarmsDefences.setId(user.getId());
+        alarmsDefences.setCustomerId(UserUtils.getUser().getCustomerID());
     	Page<AlarmsDefences> page= alarmsDefencesService.find1(new Page<AlarmsDefences>(request, response),alarmsDefences);
         String startDate = request.getParameter("startTime");
         String endDate = request.getParameter("endTime");
@@ -247,8 +284,8 @@ public class AlarmsController extends BaseController {
     @RequiresPermissions("lu:count:list")
     @RequestMapping(value = "count")
     public String CountList(Alarms alarms,AlarmsCount alarmsCount, HttpServletRequest request, HttpServletResponse response, Model model) {
-        User user=UserUtils.getUser();
-		alarmsCount.setId(user.getId());
+        alarmsCount.setCustomerid(UserUtils.getUser().getCustomerID());
+//        alarmsCount.setCreateid(UserUtils.getUser().getId());
         if(alarms.getCustomerid()!=null&&alarms.getCustomerid()!=""){
             alarmsCount.setName(alarms.getCustomerid());
         }
@@ -341,42 +378,45 @@ public class AlarmsController extends BaseController {
             style.setAlignment(HSSFCellStyle.ALIGN_CENTER);//创建一个居中格式
 
             HSSFCell cell = row.createCell((short) 0);
-            cell.setCellValue("报警id");
-            cell.setCellStyle(style);
-            cell = row.createCell((short)1);
             cell.setCellValue("客户名");
             cell.setCellStyle(style);
-            cell = row.createCell((short)2);
+            cell = row.createCell((short)1);
             cell.setCellValue("防区名");
             cell.setCellStyle(style);
-            cell = row.createCell((short)3);
+            cell = row.createCell((short)2);
             cell.setCellValue("报警类型");
             cell.setCellStyle(style);
-            cell = row.createCell((short)4);
+            cell = row.createCell((short)3);
             cell.setCellValue("处理结果");
             cell.setCellStyle(style);
-            cell = row.createCell((short)5);
+            cell = row.createCell((short)4);
             cell.setCellValue("备注");
             cell.setCellStyle(style);
-            sheet.addMergedRegion(new Region(0,(short)5,0,(short)6));
-            cell = row.createCell((short)7);
+            sheet.addMergedRegion(new Region(0,(short)4,0,(short)5));
+            cell = row.createCell((short)6);
             cell.setCellValue("报警时间");
             cell.setCellStyle(style);
-            sheet.addMergedRegion(new Region(0,(short)7,0,(short)8));
+            sheet.addMergedRegion(new Region(0,(short)6,0,(short)7));
             // 第五步，写入实体数据
-			List<AlarmsDefences> list = alarmsService.findAlarmsDefencesAll();
+
+            AlarmsDefences alarmsDefencesParameter = new AlarmsDefences();
+            alarmsDefencesParameter.setCustomerId(UserUtils.getUser().getCustomerID());
+			List<AlarmsDefences> list = alarmsDefencesDao.findAlarmsDefencesByTime(alarmsDefencesParameter);
+            for(AlarmsDefences alarmsDefencesTemp : list){
+                alarmsDefencesTemp.setTypeName(AlarmTypeName.getByType(Integer.parseInt(alarmsDefencesTemp.getTypeName())).getAlarmTypeName());
+                alarmsDefencesTemp.setState(AlarmStateName.getByState(Integer.parseInt(alarmsDefencesTemp.getState())).getAlarmStateName());
+            }
 
             for(int i=0;i<list.size();i++){
                 row =sheet.createRow((int)i+1);
                 AlarmsDefences alarmsDefences = list.get(i);
                 //创建单元格并赋值
-                row.createCell((short)0).setCellValue(alarmsDefences.getId());
-                row.createCell((short)1).setCellValue(alarmsDefences.getCustomersName());
-                row.createCell((short)2).setCellValue(alarmsDefences.getDefencesName());
-                row.createCell((short)3).setCellValue(alarmsDefences.getTypeName());
-                row.createCell((short)4).setCellValue(alarmsDefences.getState());
-                row.createCell((short)5).setCellValue(alarmsDefences.getRemark());
-                cell = row.createCell((short)7);
+                row.createCell((short)0).setCellValue(alarmsDefences.getCustomersName());
+                row.createCell((short)1).setCellValue(alarmsDefences.getDefencesName());
+                row.createCell((short)2).setCellValue(alarmsDefences.getTypeName());
+                row.createCell((short)3).setCellValue(alarmsDefences.getState());
+                row.createCell((short)4).setCellValue(alarmsDefences.getRemark());
+                cell = row.createCell((short)6);
                 cell.setCellValue(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(alarmsDefences.getDate()));
             }
             //第六步，将文件存在指定位置
@@ -416,10 +456,6 @@ public class AlarmsController extends BaseController {
             HSSFRow row = sheet.createRow((int)0);
             HSSFCellStyle style = wb.createCellStyle();
             style.setAlignment(HSSFCellStyle.ALIGN_CENTER);
-
-            User user=UserUtils.getUser();
-            AlarmsCount alarmsCountTemp = new AlarmsCount();
-            alarmsCountTemp.setId(user.getId());
 
             HSSFCell cell = row.createCell((short) 0);
             cell.setCellValue("客户名");
@@ -617,6 +653,9 @@ public class AlarmsController extends BaseController {
             cell.setCellValue("探测器防拆报警");
             cell.setCellStyle(style);
 
+            AlarmsCount alarmsCountTemp = new AlarmsCount();
+            alarmsCountTemp.setCustomerid(UserUtils.getUser().getCustomerID());
+//            alarmsCountTemp.setCreateid(UserUtils.getUser().getId());
             List<AlarmsCount> list = alarmsDao.getAlarmsCount(alarmsCountTemp);
 
             for(int i=0;i<list.size();i++){

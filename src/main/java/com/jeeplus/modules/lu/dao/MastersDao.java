@@ -3,7 +3,6 @@
  */
 package com.jeeplus.modules.lu.dao;
 
-import com.github.abel533.echarts.style.LineStyle;
 import com.jeeplus.common.persistence.CrudDao;
 import com.jeeplus.common.persistence.annotation.MyBatisDao;
 import com.jeeplus.modules.lu.entity.Masters;
@@ -18,10 +17,6 @@ import java.util.Map;
  */
 @MyBatisDao
 public interface MastersDao extends CrudDao<Masters> {
-    /**
-     * 修改页面的内容
-     */
-    Masters findOneMaters(String mid);
 
     List getMastersListByCid(String cid);
 

@@ -272,8 +272,14 @@ public class MastersController extends BaseController {
 		return "redirect:"+Global.getAdminPath()+"/lu/masters/?repage";
     }
 
-	@RequestMapping(value = "obuPath")
-	public void obuPath() {
-
+	@RequestMapping(value = "masterExist")
+	@ResponseBody
+	public String masterExist(Masters masters){
+		Masters mastersTemp = mastersService.findUniqueByProperty("code", masters.getCode());
+		if(mastersTemp != null){
+			return "exist";
+		}else{
+			return "notExist";
+		}
 	}
 }

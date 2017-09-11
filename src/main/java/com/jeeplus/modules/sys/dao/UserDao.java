@@ -35,13 +35,7 @@ public interface UserDao extends CrudDao<User> {
 	 * @return
 	 */
 	public List<User> findUserByOfficeId(User user);
-	
-	/**
-	 * 查询全部用户数目
-	 * @return
-	 */
-	public long findAllCount(User user);
-	
+
 	/**
 	 * 更新用户密码
 	 * @param user
@@ -104,37 +98,17 @@ public interface UserDao extends CrudDao<User> {
 	 * 
 	 */
 	public List<User> searchUsers(User user);
-	
+
 	/**
-	 * 
+	 *
 	 */
-	
+
 	public List<User>  findListByOffice(User user);
 
 	/**
 	 * 根据customersID查询客户名
 	 */
 	public String finUserCustomers(String customersID);
-
-	/**
-	 * 根据客户名查询customersID
-	 */
-	public String findCustomersUser(String name);
-	/**
-	 * 查询所有客户类别
-	 */
-	public List<Customers> findAllDistinctType(User user);
-
-
-	/**
-	 * 插入数据
-	 */
-	public void insertUser(User user);
-
-    /**
-     * 根据客户名查出customersID
-     */
-    public String findCustomersID(String name);
 
     /**
      * 导出页面数据
@@ -147,14 +121,6 @@ public interface UserDao extends CrudDao<User> {
 	public void createAgentl(User user);
 
     /**
-     * 查询所有不同用户角色
-     */
-    public List<Role> findAllUserRoleTypees();
-
-    /*根据roleName去查询角色id*/
-    public String findRoleNameById(String name);
-
-    /**
      * 根据用户id查询角色名
      */
     public String findRoleNameByUserId(String id);
@@ -165,4 +131,6 @@ public interface UserDao extends CrudDao<User> {
 	void updateUserRole(User user);
 
 	List getUserPage(User user);
+
+	User getUserObject(User user);
 }

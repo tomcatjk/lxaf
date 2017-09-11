@@ -180,7 +180,13 @@ public class UserUtils {
 	 * @return
 	 */
 	public static Menu getTopMenu(){
-		Menu topMenu =  getMenuList().get(0);
+		Menu topMenu = new Menu();
+		try {
+			  topMenu = getMenuList().get(0);
+		}catch (Exception e){
+
+		}
+
 		return topMenu;
 	}
 	/**

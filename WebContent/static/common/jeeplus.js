@@ -347,7 +347,11 @@ function openDialogEdit(title,url,width,height,target){
 			}
 
 		},
+		btn2: function (index, layero) {
+			submitFrom();
+		},
 		cancel: function(index){
+			submitFrom();
 		}
 	});
 
@@ -392,7 +396,11 @@ function openDialogAdd(title,url,width,height,target){
 				}, 100);//延时0.1秒，对应360 7.1版本bug
 			}
 		},
+		btn2: function (index, layero) {
+			submitFrom();
+		},
 		cancel: function(index){
+			submitFrom();
 		}
 	});
 

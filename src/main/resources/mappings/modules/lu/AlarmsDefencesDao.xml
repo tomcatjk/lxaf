@@ -2,24 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jeeplus.modules.lu.dao.AlarmsDefencesDao">
 
-	<!--查询报警信息详单-->
-	<select id="findList" resultType="com.jeeplus.modules.lu.entity.AlarmsDefences">
-		Select a.aid as id,c.name as customersName ,d.name as defencesName ,a.AlarmType as typeName,a.AlarmTime as date,a.State,a.Remark from alarms a LEFT JOIN
-		customers c on a.CustomerID=c.CID LEFT JOIN defences d on a.DefenceID = d.DID
-		WHERE
-		1=1
-		<if test="id != null and id !='' and id != '1'.toString()">
-			AND  c.CreateBy =#{id}
-		</if>
-		<choose>
-			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
-				ORDER BY ${page.orderBy}
-			</when>
-			<otherwise>
-			</otherwise>
-		</choose>
-	</select>
-
 	<!--根据时间查询报警详单-->
 	<select id="findAlarmsDefencesByTime"  resultType="com.jeeplus.modules.lu.entity.AlarmsDefences">
 		SELECT
@@ -42,8 +24,8 @@
 			<if test="endTime!=null and endTime != ''">
 				AND a.AlarmTime <![CDATA[ < ]]>  #{endTime}
 			</if>
-			<if test="id != null and id !='' and id != '1'.toString()">
-				AND  c.CreateBy =#{id}
+			<if test="customerId != null and customerId != ''">
+				AND  c.ParentCid =#{customerId}
 			</if>
 		</where>
 		ORDER BY a.AlarmTime DESC

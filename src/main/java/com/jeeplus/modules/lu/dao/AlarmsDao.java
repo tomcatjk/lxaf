@@ -17,18 +17,6 @@ import java.util.Map;
 @MyBatisDao
 public interface AlarmsDao extends CrudDao<Alarms> {
 
-    /**
-     * 报警信息统计
-     * @param
-     * @return
-     */
-    List<AlarmsCount> findAlarmsAll( );
-
-    /**
-     * 查询报警信息详单
-     */
-    List<AlarmsDefences> findAlarmsDefencesAll();
-
     List getAlarmsInfoAcd(Map map);
 
     void updateByAid(Alarms alarms);

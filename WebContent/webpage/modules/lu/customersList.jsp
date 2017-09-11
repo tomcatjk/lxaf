@@ -5,9 +5,14 @@
 	<title>记录客户信息管理</title>
 	<meta name="decorator" content="default"/>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/static/jedate/jedate.js"></script>
-	<script src="${ctxStatic}/common/jeeplus.js?16=1" type="text/javascript"></script>
+	<script src="${ctxStatic}/common/jeeplus.js?16=3" type="text/javascript"></script>
 	<script src="${ctxStatic}/lianxun/layui/src/layui.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="${ctxStatic}/lianxun/layui/src/css/layui.css" media="all">
+	<script type="text/javascript">
+		function submitFrom() {
+			document.getElementById('searchForm').submit()
+		}
+	</script>
 </head>
 <body class="gray-bg">
 	<div class="wrapper wrapper-content">

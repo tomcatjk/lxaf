@@ -159,19 +159,6 @@
 		select * FROM alarms  where ${propertyName} = '${value}'
 	</select>
 	
-	<!--报警统计-->
-	<select id="findAlarmsAll" resultType="com.jeeplus.modules.lu.entity.AlarmsCount">
-		select c.name,
-		sum(case a.AlarmType when 0 then 1 else 0 end) as magnetometer,
-		sum(case a.AlarmType when 1 then 1 else 0 end) as red,
-		sum(case a.AlarmType when 2 then 1 else 0 end) as smoke,
-		sum(case a.AlarmType when 3 then 1 else 0 end) as personal,
-		sum(case a.AlarmType when 4 then 1 else 0 end) as low
-		from customers c left join alarms a
-		on c.CID=a.CustomerID GROUP BY c.name
-		ORDER BY c.CreateTime DESC
-	</select>
-
 	<!--查询报警信息详单-->
 	<select id="findAlarmsDefencesAll" resultType="com.jeeplus.modules.lu.entity.AlarmsDefences">
 		Select a.aid as id,c.name as customersName ,d.name as defencesName ,a.AlarmType as typeName,a.AlarmTime as date,a.State,a.Remark from alarms a LEFT JOIN
@@ -227,9 +214,14 @@
 		LEFT JOIN defences d ON d.DID = a.DefenceID
 		WHERE
 		a.State = #{state}
-		<if test="cid != null and cid != ''">
+		<!-- <if test="cid != null and cid != ''">
 			AND a.CustomerID = #{cid}
-		</if>
+		</if> -->
+		AND c.AreaID IN
+		<foreach item="roleArea" index="index" collection="roleAreaList"
+				 open="(" separator="," close=")">
+			#{roleArea.areaId}
+		</foreach>
 		ORDER BY
 			a.AlarmTime DESC
         <if test="currentPage != null">
@@ -307,12 +299,10 @@
 		from customers c left join alarms a
 		on c.CID=a.CustomerID
 		WHERE
-		1 = 1
+		c.ParentCid =#{customerid}
+		<!--AND c.CreateBy = #{createid} -->
 		<if test="name != null and name !=''">
 			AND c.name LIKE CONCAT('%',#{name},'%')
-		</if>
-		<if test="id != null and id !='' and id != '1'.toString()">
-			AND  c.CreateBy =#{id}
 		</if>
 		GROUP BY c.name
 		ORDER BY c.CreateTime DESC

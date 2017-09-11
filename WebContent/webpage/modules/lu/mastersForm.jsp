@@ -159,6 +159,13 @@
 					if( this.value==""){
 						var errorMsg = '请输入编号.';
 						$parent.append('<span class="formtips onErrorMasters">'+errorMsg+'</span>');
+					}else if(this.value != "${masters.code}"){
+						$.get("${ctx}/lu/masters/masterExist?code=" + this.value, function (data) {
+							if(data == "exist"){
+								var errorMsg = '主机编号已存在.';
+								$parent.append('<span class="formtips onErrorMasters">'+errorMsg+'</span>');
+							}
+						});
 					}
 				}
 

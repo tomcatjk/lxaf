@@ -65,7 +65,7 @@ public class RoleController extends BaseController {
 	@RequestMapping(value = {"list", ""})
 	public String list(Role role, HttpServletRequest request, HttpServletResponse response, Model model) {
 		/*List<Role> list = systemService.findRole(role);*/
-
+        role.setCustomerid(UserUtils.getUser().getCustomerID());
 		Page<Role> page=systemService.find(new Page<Role>(request, response), role);
 		List<Role> list = page.getList();
 		for(int i =0;i<list.size();i++){

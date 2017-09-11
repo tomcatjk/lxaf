@@ -5,8 +5,9 @@
 	<title>主机信息管理</title>
 	<meta name="decorator" content="default"/>
 	<script type="text/javascript">
-		$(document).ready(function() {
-		});
+		function submitFrom() {
+			document.getElementById('searchForm').submit()
+		}
 	</script>
 </head>
 <body class="gray-bg">

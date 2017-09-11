@@ -6,6 +6,7 @@ package com.jeeplus.modules.sys.dao;
 import com.jeeplus.common.persistence.CrudDao;
 import com.jeeplus.common.persistence.annotation.MyBatisDao;
 import com.jeeplus.modules.sys.entity.Role;
+import com.jeeplus.modules.sys.entity.User;
 
 import java.util.List;
 
@@ -42,9 +43,13 @@ public interface RoleDao extends CrudDao<Role> {
 	/**
 	 * 查询role表数据
 	 */
-	public List<Role> findALlRole(Role roel);
+	List<Role> findAllRole(Role roel);
 
 	List getRoles(String cid);
 
 	String getRoleId(String userId);
+
+	void deleteRole(User user);
+
+	Role getRole(User user);
 }

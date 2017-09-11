@@ -132,7 +132,7 @@
 		<table class="table table-bordered  table-condensed dataTables-example dataTable no-footer">
 		   <tbody>
 				<tr>
-					<td class="width-15 active"><label class="pull-right">设备名称：</label></td>
+					<td class="width-15 active"><label class="pull-right"><font color="red">*</font>设备名称：</label></td>
 					<td class="width-35">
 						<form:input path="name" id="name" htmlEscape="false" class="form-control requiredClass"/>
 					</td>
@@ -146,9 +146,9 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="width-15 active"><label class="pull-right">所属主机：</label></td>
+					<td class="width-15 active"><label class="pull-right"><font color="red">*</font>所属主机：</label></td>
 					<td class="width-35">
-							<select name="masterid" id="masterSelect" style='width: 250px; height: 30px;'></select>
+							<select name="masterid" id="masterSelect" style='width: 250px; height: 30px;' class="form-control requiredClass"></select>
 					</td>
 					<td></td>
 					<td><input type="hidden" name="customerid" value="${devices.customerid}"></td>
@@ -178,6 +178,14 @@
 				if( $(this).is('#name') ){
 					if( this.value==""){
 						var errorMsg = '请输入设备名称.';
+						$parent.append('<span class="formtips onErrorDevices">'+errorMsg+'</span>');
+					}
+				}
+
+				//验证用户名
+				if( $(this).is('#masterSelect') ){
+					if( this.value=="" ){
+						var errorMsg = '请先创建主机.';
 						$parent.append('<span class="formtips onErrorDevices">'+errorMsg+'</span>');
 					}
 				}

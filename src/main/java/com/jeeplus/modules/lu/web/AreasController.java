@@ -63,10 +63,10 @@ public class AreasController extends BaseController {
 	}
 	
 	/**
-	 * 显示区域列表页面
+	 * 区域列表页面
 	 */
 	/**
-	 * 显示区域列表页面
+	 * 区域列表页面
 	 */
 	@RequiresPermissions("lu:areas:list")
 	@RequestMapping(value = {"list", ""})
@@ -89,7 +89,7 @@ public class AreasController extends BaseController {
 	}
 
 	/**
-	 * 查看，增加，编辑显示区域表单页面
+	 * 查看，增加，编辑区域表单页面
 	 */
 	@RequiresPermissions(value={"lu:areas:view","lu:areas:add","lu:areas:edit"},logical=Logical.OR)
 	@RequestMapping(value = "form")
@@ -117,7 +117,7 @@ public class AreasController extends BaseController {
 	}
 
 	/**
-	 * 保存显示区域
+	 * 保存区域
 	 */
 	@RequiresPermissions(value={"lu:areas:add","lu:areas:edit"},logical=Logical.OR)
 	@RequestMapping(value = "save")
@@ -135,18 +135,18 @@ public class AreasController extends BaseController {
 		}else{//新增表单保存
 			areasService.save(areas);//保存
 		}
-		addMessage(redirectAttributes, "保存显示区域成功");
+		addMessage(redirectAttributes, "保存区域成功");
 		return "redirect:"+Global.getAdminPath()+"/lu/areas/?repage";
 	}
 	
 	/**
-	 * 删除显示区域
+	 * 删除区域
 	 */
 	@RequiresPermissions("lu:areas:del")
 	@RequestMapping(value = "delete")
 	public String delete(Areas areas, RedirectAttributes redirectAttributes) {
 		areasService.delete(areas);
-		addMessage(redirectAttributes, "删除显示区域成功");
+		addMessage(redirectAttributes, "删除区域成功");
 		return "redirect:"+Global.getAdminPath()+"/lu/areas/?repage";
 	}
 
@@ -155,7 +155,9 @@ public class AreasController extends BaseController {
 	@RequestMapping(value = "treeData")
 	public List<Map<String, Object>> treeData(@RequestParam(required=false) String extId, HttpServletResponse response) {
 		List<Map<String, Object>> mapList = Lists.newArrayList();
-		List<Areas> list = areasService.findList(new Areas());
+		Areas areas = new Areas();
+		areas.setCid(UserUtils.getUser().getCustomerID());
+		List<Areas> list = areasService.findList(areas);
 		for (int i=0; i<list.size(); i++){
 			Areas e = list.get(i);
 			if (StringUtils.isBlank(extId) || (extId!=null && !extId.equals(e.getId()) && e.getParentIds().indexOf(","+extId+",")==-1)){

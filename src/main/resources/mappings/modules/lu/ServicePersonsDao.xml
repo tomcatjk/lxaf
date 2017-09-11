@@ -11,7 +11,7 @@
 		a.score AS "score",
 		a.signcount AS "signcount",
 		a.servercount AS "servercount",
-		a.remark AS "rmark",
+		a.remark AS "remark",
 		a.devicecode AS "devicecode",
 		a.longitude AS "longitude",
 		a.latitude AS "latitude",
@@ -64,8 +64,8 @@
 			<if test="servercount != null and servercount != ''">
 				AND a.servercount = #{servercount}
 			</if>
-			<if test="rmark != null and rmark != ''">
-				AND a.remark = #{rmark}
+			<if test="remark != null and remark != ''">
+				AND a.remark = #{remark}
 			</if>
 			<if test="devicecode != null and devicecode != ''">
 				AND a.devicecode = #{devicecode}
@@ -130,7 +130,7 @@
 			#{score},
 			#{signcount},
 			#{servercount},
-			#{rmark},
+			#{remark},
 			#{devicecode},
 			#{longitude},
 			#{latitude},
@@ -147,7 +147,7 @@
 			score = #{score},
 			signcount = #{signcount},
 			servercount = #{servercount},
-			remark = #{rmark},
+			remark = #{remark},
 			devicecode = #{devicecode},
 			longitude = #{longitude},
 			latitude = #{latitude},
@@ -164,7 +164,7 @@
 		score = #{score},
 		signcount = #{signcount},
 		servercount = #{servercount},
-		remark = #{rmark},
+		remark = #{remark},
 		devicecode = #{devicecode},
 		longitude = #{longitude},
 		latitude = #{latitude},

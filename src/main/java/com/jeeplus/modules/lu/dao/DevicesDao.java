@@ -17,11 +17,6 @@ import java.util.Map;
 public interface DevicesDao extends CrudDao<Devices> {
 
     /**
-     * 设备统计
-     */
-	List<DevicesCustomers> totalDevicesCustomers();
-
-    /**
      * 根据客户名查询客户id
      */
     List<String> findCustomersidByCustomerName(String name);

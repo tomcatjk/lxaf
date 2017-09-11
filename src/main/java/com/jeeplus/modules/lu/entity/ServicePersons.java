@@ -22,7 +22,7 @@ public class ServicePersons extends DataEntity<ServicePersons> {
 	private String score;		// score
 	private Integer signcount;		// signcount
 	private Integer servercount;		// servercount
-	private String rmark;		// rmark
+	private String remark;		// remark
 	private String devicecode;		// devicecode
 	private Integer longitude;		// longitude
 	private Integer latitude;		// latitude
@@ -99,13 +99,13 @@ public class ServicePersons extends DataEntity<ServicePersons> {
 		this.servercount = servercount;
 	}
 	
-	@ExcelField(title="rmark", align=2, sort=8)
-	public String getRmark() {
-		return rmark;
+	@ExcelField(title="remark", align=2, sort=8)
+	public String getRemark() {
+		return remark;
 	}
 
-	public void setRmark(String rmark) {
-		this.rmark = rmark;
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
 	
 	@ExcelField(title="devicecode", align=2, sort=9)

@@ -9,8 +9,8 @@
 		FROM `devices` d left JOIN customers c on d.customerid=c.CID
 		WHERE
 		1=1
-		<if test="id != null and id !='' and id != '1'.toString()">
-			AND  c.CreateBy =#{id}
+		<if test="customerId != null and customerId != ''">
+			AND  c.ParentCid =#{customerId}
 		</if>
 		ORDER BY d.createtime DESC
 	</select>
@@ -31,8 +31,8 @@
 			<if test="devicesType!=null and devicesType!= ''">
 				and d.devicetype =#{devicesType}
 			</if>
-			<if test="id != null and id !='' and id != '1'.toString()">
-				AND  c.CreateBy =#{id}
+			<if test="customerId != null and customerId != ''">
+				AND  c.ParentCid =#{customerId}
 			</if>
 		</where>
 		ORDER BY d.createtime DESC

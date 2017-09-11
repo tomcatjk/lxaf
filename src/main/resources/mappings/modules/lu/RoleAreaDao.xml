@@ -89,7 +89,7 @@
 	<!--物理删除-->
 	<update id="delete">
 		DELETE FROM role_area
-		WHERE id = #{id}
+		WHERE role_id = #{roleId}
 	</update>
 	
 	<!--逻辑删除-->
@@ -104,5 +104,17 @@
 	<select id="findUniqueByProperty" resultType="RoleArea" statementType="STATEMENT">
 		select * FROM role_area  where ${propertyName} = '${value}'
 	</select>
+
+	<insert id="save2">
+		INSERT INTO role_area(
+		id,
+		role_id,
+		area_id
+		) VALUES (
+		#{id},
+		#{roleId},
+		#{areaId}
+		)
+	</insert>
 	
 </mapper>

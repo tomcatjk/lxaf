@@ -45,20 +45,6 @@ public class AlarmsService extends CrudService<AlarmsDao, Alarms> {
 		super.delete(alarms);
 	}
 
-    /**
-     * 查询报警信息详单
-     */
-    public List<AlarmsDefences> findAlarmsDefencesAll(){
-        List<AlarmsDefences> list = alarmsDao.findAlarmsDefencesAll();
-		for(AlarmsDefences alarmsDefencesTemp : list){
-			if(alarmsDefencesTemp.getTypeName() != null){
-				alarmsDefencesTemp.setTypeName(AlarmTypeName.getByType(Integer.parseInt(alarmsDefencesTemp.getTypeName())).getAlarmTypeName());
-				alarmsDefencesTemp.setState(AlarmStateName.getByState(Integer.parseInt(alarmsDefencesTemp.getState())).getAlarmStateName());
-			}
-		}
-        return list;
-    }
-
 	@Transactional(readOnly = false)
 	public List findAlarmsInfoAcd(Map map) {
 		List<AlarmsInfoAcd> AlarmsInfoAcdTemp = alarmsDao.getAlarmsInfoAcd(map);
@@ -76,18 +62,6 @@ public class AlarmsService extends CrudService<AlarmsDao, Alarms> {
 	public void updateByAid(Alarms alarms){
 		dao.updateByAid(alarms);
 	}
-
-    /**
-     * 报警统计
-     * @param page
-     * @param alarmsCount
-     * @return
-     */
-    public Page<AlarmsCount> find(Page<AlarmsCount> page, AlarmsCount alarmsCount) {
-        alarmsCount.setPage(page);
-        page.setList(alarmsDao.findAlarmsAll());
-        return page;
-    }
 
 	public Page<AlarmsCount> findAlarmsCount(Page<AlarmsCount> page, AlarmsCount alarmsCount){
 		alarmsCount.setPage(page);

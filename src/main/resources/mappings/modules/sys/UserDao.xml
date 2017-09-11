@@ -130,11 +130,13 @@
 	<select id="get" resultType="User">
 		SELECT
 		<include refid="userColumns"/>
-		<!--,ur.role_id AS roleid
-		 ,
-			ro.office_id AS "roleList.officeList.id" -->
+		,ur.role_id AS roleid
+		<!--,
+           ro.office_id AS "roleList.officeList.id" -->
 		FROM sys_user a
-		<include refid="userJoins"/><!-- 
+		<include refid="userJoins"/>
+		LEFT JOIN sys_user_role ur ON ur.user_id = a.id
+		<!--
 		LEFT JOIN sys_role_office ro ON ro.role_id = r.id -->
 		WHERE a.id = #{id}
 	</select>
@@ -443,6 +445,7 @@
 	<select id="findUniqueByProperty"  resultType="User" statementType="STATEMENT">
 		select * from sys_user where ${propertyName} = '${value}'
 	</select>
+
 	<!-- 添加好友 -->
 	<insert id="insertFriend">
 		INSERT INTO sys_user_friend(
@@ -503,16 +506,6 @@
 	<!--根据客户名查询所属客户id-->
 	<select id="findCustomersUser" parameterType="java.lang.String" resultType="java.lang.String">
 		select DISTINCT(s.CustomerID) from sys_user s LEFT JOIN customers c on s.CustomerID=c.CID WHERE c.`Name` =#{name}
-	</select>
-	<!--查询所有不同客户类别-->
-	<select id="findAllDistinctType" resultType="Customers">
-		SELECT DISTINCT(c.name) from customers c
-		WHERE
-		1 = 1
-		<if test="id != null and id !='' and id != '1'.toString()">
-			AND  c.CreateBy =#{id}
-		</if>
-		ORDER BY c.CreateTime DESC
 	</select>
 
 	<!--插入数据-->
@@ -582,7 +575,7 @@
 		FROM
 			sys_user a
 		WHERE
-			a.CustomerID IN (
+		(a.CustomerID IN (
 				SELECT
 					CID
 				FROM
@@ -590,6 +583,8 @@
 				WHERE
 					ParentCid = #{customerID}
 			)
+		OR a.CustomerId = #{customerID})
+		AND a.id != #{id}
 		<if test="loginName != null and loginName != ''">
 			AND a.login_name like CONCAT('%', #{loginName}, '%')
 		</if>
@@ -601,5 +596,37 @@
 		</if>
 		ORDER BY
 			a.create_date DESC
+	</select>
+
+	<select id="getUserObject" resultType="User">
+		SELECT
+		a.id,
+		a.company_id AS "company.id",
+		a.office_id AS "office.id",
+		a.login_name,
+		a.password,
+		a.no,
+		a.name,
+		a.email,
+		a.phone,
+		a.mobile,
+		a.user_type,
+		a.login_ip,
+		a.login_date,
+		a.remarks,
+		a.login_flag,
+		a.photo,
+		a.qrcode,
+		a.sign,
+		a.create_by AS "createBy.id",
+		a.create_date,
+		a.update_by AS "updateBy.id",
+		a.update_date,
+		a.del_flag,
+		a.CustomerID as "customerID",
+		ur.role_id AS roleid
+		FROM sys_user a
+		LEFT JOIN sys_user_role ur ON ur.user_id = a.id
+		WHERE a.id = #{id}
 	</select>
 </mapper>

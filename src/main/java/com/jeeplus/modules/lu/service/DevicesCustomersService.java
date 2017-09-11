@@ -28,8 +28,7 @@ public class DevicesCustomersService extends CrudService<DevicesCustomersDao, De
     DevicesCustomersDao devicesCustomersDao;
 	public Page<DevicesCustomers> find(Page<DevicesCustomers> page, DevicesCustomers devicesCustomers){
 		page=super.findPage(page,devicesCustomers);
-		List<DevicesCustomers> list=page.getList();
-		for(DevicesCustomers devicesCustomersTemp : list){
+		for(DevicesCustomers devicesCustomersTemp : page.getList()){
 			if(devicesCustomersTemp.getDevicesType() != null){
 				devicesCustomersTemp.setDevicesType(DeviceTypeName.getByType(Integer.parseInt(devicesCustomersTemp.getDevicesType())).getDeviceTypeName());
 			}
@@ -43,8 +42,7 @@ public class DevicesCustomersService extends CrudService<DevicesCustomersDao, De
 	public Page<DevicesCustomers> find1(Page<DevicesCustomers> page, DevicesCustomers devicesCustomers){
 		devicesCustomers.setPage(page);
 		page.setList(devicesCustomersDao.totalDevicesCustomersBySelect(devicesCustomers));
-		List<DevicesCustomers> list =page.getList();
-		for(DevicesCustomers devicesCustomersTemp : list){
+		for(DevicesCustomers devicesCustomersTemp : page.getList()){
 			//设置类型
 			if(devicesCustomersTemp.getDevicesType()==null){
 				devicesCustomersTemp.setDevicesType("");

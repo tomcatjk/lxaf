@@ -10,7 +10,8 @@ public enum DeviceTypeName {
     DEVICETYPE4("遥控器", 4),
     DEVICETYPE5("紧急按钮", 5),
     DEVICETYPE6("地涝设备", 6),
-    DEVICETYPE7("天然气设备", 7);
+    DEVICETYPE7("天然气设备", 7),
+    DEVICETYPE8("智能设备", 8);
 
 
     private String deviceTypeName;

@@ -91,8 +91,7 @@ public class CustomersController extends BaseController {
 	@RequiresPermissions("lu:customersalarms:list")
 	@RequestMapping(value = "listcustomer")
 	public String listCustomersAlarms(Customers customers,CustomersAlarms customersAlarms, HttpServletRequest request, HttpServletResponse response, Model model) {
-		User user=UserUtils.getUser();
-		customersAlarms.setId(user.getId());
+		customersAlarms.setCustomerId(UserUtils.getUser().getCustomerID());
 		Page<CustomersAlarms> page = customersService.findCustomersAlarms(new Page<CustomersAlarms>(request, response), customersAlarms);
 		String customerType = request.getParameter("customersTypeStr");
 		customers.setCustomerTypeStr(customerType);
@@ -155,41 +154,11 @@ public class CustomersController extends BaseController {
 	 */
 	@RequiresPermissions(value="lu:customers:add")
 	@RequestMapping(value = "formadd")
-	public String formAdd(Customers customers, Model model,HttpServletRequest request) {
-		/*根据点击不同的页面加载不同的客户类别*/
-		if(customers.getCustomertype()!=null){
-			CustomerTypeName customerTypeName = CustomerTypeName.getByType(customers.getCustomertype());
-			customers.setCustomerTypeStr(customerTypeName.getCustomerTypeName());
-		}
-		/*获取登录的用户*/
-		User user =  UserUtils.getUser();
-        /*查区域管理员登录区域和普通用户登录区域*/
-		List<Areas> listAreas = new ArrayList<Areas>();
-		if("0".equals(user.getCustomerID())){
-			User user1 = new User();
-			listAreas = customersService.findAllAreas(user1.getCustomerID());
-		}else{
-			listAreas = customersService.findAllAreas(user.getCustomerID());
-		}
-        /*获取一个areaid*/
-        String areaid = customersService.findOneAreasID(user.getCustomerID());
-
+	public String formAdd(Customers customers, Model model) {
+		customers.setCustomerTypeStr(CustomerTypeName.getByType(customers.getCustomertype()).getCustomerTypeName());
 		model.addAttribute("customertype",customers.getCustomertype());
 		model.addAttribute("customerTypeStr",customers.getCustomerTypeStr());
-        model.addAttribute("areaid",areaid);
-		model.addAttribute("listAreas",listAreas);
 		return "modules/lu/customersFormAdd";
-	}
-	/**
-	 * 客户iframe跳转
-	 */
-	@RequiresPermissions("lu:customers:iframe")
-	@RequestMapping(value = "formiframe")
-	public String formIframe(Customers customers,String masterFlag, Model model) {
-		model.addAttribute("customertype",customers.getCustomertype());
-		model.addAttribute("cid",customers.getCid());
-		model.addAttribute("masterFlag",masterFlag == null ? "0" : masterFlag);
-		return "modules/lu/iframeForm";
 	}
 
 	/**
@@ -359,7 +328,7 @@ public class CustomersController extends BaseController {
 			cell = row.createCell((short)21);
 
 			CustomersAlarms customersAlarmsParamer = new CustomersAlarms();
-			customersAlarmsParamer.setId(UserUtils.getUser().getId());
+			customersAlarmsParamer.setCustomerId(UserUtils.getUser().getCustomerID());
 			List<CustomersAlarms> list = customersDao.getCustomersAlarms(customersAlarmsParamer);
 			for(CustomersAlarms customersAlarmsTemp : list){
 				customersAlarmsTemp.setCustomersType(CustomerTypeName.getByType(customersAlarmsTemp.getCustomertype()).getCustomerTypeName());

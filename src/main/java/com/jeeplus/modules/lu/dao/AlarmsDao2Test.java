@@ -27,7 +27,7 @@ public class AlarmsDao2Test {
 
     @Test
     public void findAlarmsAll() throws Exception {
-        System.out.println(dao.findAlarmsAll().size());
+//        System.out.println(dao.findAlarmsAll().size());
 //        System.out.println(dao2.findAlarmsAll().size());
 
     }

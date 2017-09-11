@@ -32,8 +32,10 @@
 	<select id="findList" resultType="Areas">
 		SELECT
 			<include refid="areasColumns"/>
+			,c. NAME AS "createName"
 		FROM areas a
 		<include refid="areasJoins"/>
+		LEFT JOIN customers c ON a.cid = c.CID
 		<where>
 			a.del_flag = #{DEL_FLAG_NORMAL}
 			<if test="parent != null and parent.id != null and parent.id != ''">
@@ -56,9 +58,6 @@
 					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
 					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
 					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
-			</if>
-			<if test="cid !=null and cid != ''">
-				AND a.cid = #{cid}
 			</if>
 		</where>
 		ORDER BY a.create_date DESC
@@ -190,67 +189,45 @@
 		ORDER BY a.sort ASC
 	</select>
 
-	<select id="getAllAreasCustomersByCreateIdAndCustomerType" parameterType="java.util.Map" resultType="com.jeeplus.modules.lu.entity.AreasCustomers">
+	<update id="deleteAreas">
+		DELETE FROM areas
+		WHERE cid = #{customerID}
+	</update>
+
+	<select id="getAreasCustomers" parameterType="java.util.Map" resultType="com.jeeplus.modules.lu.entity.AreasCustomers">
 		SELECT
-			a.id AS "id",
-			a.create_by AS "createBy.id",
-			a.create_date AS "createDate",
-			a.update_by AS "updateBy.id",
-			a.update_date AS "updateDate",
-			a.remarks AS "remarks",
-			a.del_flag AS "delFlag",
-			a.parent_id AS "parent.id",
-			a.parent_ids AS "parentIds",
-			a. NAME AS "name",
-			a.sort AS "sort",
-			a.customertype AS "customertype",
-			s. NAME AS "createName",
-			c.CID AS cid,
-			c.`Name` AS cname,
-			c.Point AS point,
-			c.Address AS address
+		a.id AS "id",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag",
+		a.parent_id AS "parent.id",
+		a.parent_ids AS "parentIds",
+		a. NAME AS "name",
+		a.sort AS "sort",
+		a.customertype AS "customertype",
+		s. NAME AS "createName",
+		c.CID AS cid,
+		c.`Name` AS cname,
+		c.Phone as phone,
+		c.Point AS point,
+		c.Address AS address
 		FROM
-			`areas` a
-		LEFT JOIN sys_user s ON a.create_by = s.id
+		`areas` a
+		LEFT JOIN sys_user s ON a.cid = s.customerID
 		LEFT JOIN customers c ON a.id = c.AreaID
 		WHERE
-			c.CreateBy = #{createId}
+		c.parentCid = #{cid}
 		AND c.CustomerType = #{customerType}
+		AND c.AreaID = #{areaId}
+		GROUP BY c.CID
 		ORDER BY
-			c.CreateTime DESC
+		c.CreateTime DESC
 	</select>
 
-	<select id="getAllAreasCustomersByCustomerType" parameterType="java.lang.String" resultType="com.jeeplus.modules.lu.entity.AreasCustomers">
-		SELECT
-			a.id AS "id",
-			a.create_by AS "createBy.id",
-			a.create_date AS "createDate",
-			a.update_by AS "updateBy.id",
-			a.update_date AS "updateDate",
-			a.remarks AS "remarks",
-			a.del_flag AS "delFlag",
-			a.parent_id AS "parent.id",
-			a.parent_ids AS "parentIds",
-			a. NAME AS "name",
-			a.sort AS "sort",
-			a.customertype AS "customertype",
-			s. NAME AS "createName",
-			c.CID AS cid,
-			c.`Name` AS cname,
-			c.Phone as phone,
-			c.Point AS point,
-			c.Address AS address
-		FROM
-			`areas` a
-		LEFT JOIN sys_user s ON a.create_by = s.id
-		LEFT JOIN customers c ON a.id = c.AreaID
-		WHERE
-			c.CustomerType = #{customerType}
-		ORDER BY
-			c.CreateTime DESC
-	</select>
-
-	<select id="getAllAreasToAreasCustomers" resultType="com.jeeplus.modules.lu.entity.AreasCustomers">
+	<select id="getAreasToAreasCustomers" resultType="com.jeeplus.modules.lu.entity.AreasCustomers">
 		SELECT
 			a.id AS "id",
 			a.create_by AS "createBy.id",
@@ -266,8 +243,25 @@
 			a.customertype AS "customertype"
 		FROM
 			`areas` a
+		LEFT JOIN role_area r ON a.id = r.area_id
+		WHERE
+			1=1
+			<if test="roleid != null and roleid != ''">
+				AND r.role_id = #{roleid}
+			</if>
+			<if test="customerID != null and customerID != ''">
+				AND a.cid = #{customerID}
+			</if>
 		ORDER BY
 			a.sort ASC
 	</select>
 
+	<select id="getAreasToRoleArea" resultType="com.jeeplus.modules.lu.entity.RoleArea">
+		SELECT
+			id AS areaId
+		FROM
+			areas
+		WHERE
+			cid = #{cid}
+	</select>
 </mapper>

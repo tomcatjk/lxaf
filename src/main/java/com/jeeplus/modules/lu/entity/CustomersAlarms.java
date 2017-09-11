@@ -33,6 +33,16 @@ public class CustomersAlarms extends DataEntity<CustomersAlarms> {
     private int DEVICETYPE6;
     private int DEVICETYPE7;
 
+    private String customerId;
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
     public int getCustomertype() {
         return customertype;
     }

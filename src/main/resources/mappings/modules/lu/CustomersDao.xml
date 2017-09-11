@@ -186,51 +186,13 @@
 			c.DueTime,
 			c.Remark,
 			c.CreateTime,
-			a.`name` AS areaName,
-			s.name as cname
+			a.`name` AS areaName
 		FROM
 			Customers c
-		LEFT JOIN areas a ON c.cid = a.cid
-		LEFT JOIN sys_user s ON s.CustomerID = c.cid
+		LEFT JOIN areas a ON c.AreaID = a.id
 		WHERE
 			c.cid = #{cid}
 			ORDER BY c.createtime DESC
-	</select>
-
-	<!--根据登录的用户查询区域列表-->
-	<select id="findAllAreas" parameterType="java.lang.String" resultType="Areas">
-		select a.name from (select id from areas where cid=#{cid}) d , areas a where a.parent_ids like CONCAT('%',d.id,'%')
-		union
-		SELECT name from areas where areas.cid =#{cid};
-	</select>
-
-	<!--根据登录的用户获取区域id-->
-	<select id="findOneAreasID" parameterType="java.lang.String" resultType="java.lang.String">
-		SELECT DISTINCT(c.AreaID) FROM `customers` c,sys_user s
-		 where c.CID=s.CustomerID and s.CustomerID=#{customersID}
-	</select>
-
-	<!--查询所有客户类别-->
-	<select id="findAllCustomersType" resultType="com.jeeplus.modules.lu.entity.CustomersAlarms">
-		SELECT DISTINCT(c.CustomerType) as customersType FROM `customers` c ;
-	</select>
-
-	<!--根据选择的时间查询-->
-	<select id="findCustomersByDate" parameterType="java.util.Map" resultType="Customers">
-		SELECT * from customers c
-		<where>
-			1 = 1
-			<if test="startTime!=null and startTime !=''">
-				and c.DueTime <![CDATA[ > ]]> #{startTime}
-			</if>
-			<if test="endTime!=null and endTime != ''">
-				AND c.DueTime <![CDATA[ < ]]>  #{endTime}
-			</if>
-		</where>
-	</select>
-
-	<select id="selectByCreateBy" parameterType="string" resultType="Customers">
-		SELECT * FROM customers  WHERE CreateBy=#{id}
 	</select>
 
 	<select id="getCustomers" resultType="Customers">
@@ -257,7 +219,7 @@
 		LEFT JOIN sys_user s ON s.id = c.CreateBy
 		WHERE
 			c.ParentCid = #{cid}
-			AND c.CreateBy = #{createid}
+			<!-- AND c.CreateBy = #{createid} -->
 			AND c.CustomerType = #{customertype}
 			<if test="name !=null and name != ''">
 				AND c.name LIKE concat('%',#{name},'%')
@@ -291,8 +253,8 @@
 		LEFT JOIN masters mm ON cc.cid = mm.customerId
 		WHERE
 		1=1
-		<if test="id != null and id !='' and id != '1'.toString()">
-			AND  cc.CreateBy =#{id}
+		<if test="customerId != null and customerId != ''">
+			AND  cc.ParentCid = #{customerId}
 		</if>
 		<if test="name != null and name != ''">
 			and cc.name like CONCAT('%',#{name},'%')

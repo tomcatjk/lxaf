@@ -6,6 +6,7 @@ package com.jeeplus.modules.lu.service;
 import java.util.List;
 import java.util.Map;
 
+import com.jeeplus.modules.sys.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -57,15 +58,21 @@ public class AreasService extends TreeService<AreasDao, Areas> {
 		super.delete(areas);
 	}
 
-	public List findAllAreasToAreasCustomers(){
-		return areasDao.getAllAreasToAreasCustomers();
+	@Transactional(readOnly = false)
+	public void deleteAreas(User user){
+		areasDao.deleteAreas(user);
 	}
 
-	public List findAllAreasCustomersByCreateIdAndCustomerType(Map map){
-		return areasDao.getAllAreasCustomersByCreateIdAndCustomerType(map);
+	public List findAreasCustomers(Map map){
+		return areasDao.getAreasCustomers(map);
 	}
 
-	public List findAllAreasCustomersByCustomerType(String customerType){
-		return areasDao.getAllAreasCustomersByCustomerType(customerType);
+	public List findAreasToAreasCustomers(User user){
+		return areasDao.getAreasToAreasCustomers(user);
 	}
+
+	public List findAreasToRoleArea(Areas areas){
+		return areasDao.getAreasToRoleArea(areas);
+	}
+
 }

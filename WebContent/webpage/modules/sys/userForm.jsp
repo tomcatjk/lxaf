@@ -71,7 +71,7 @@
 		      <tr>
 				  <td class="active"><label class="pull-right"><font color="red">*</font>用户角色:</label></td>
 				  <td>
-					  <select  class="form-control" name="roleid" id="roleid">
+					  <select  class="form-control requiredClass" name="roleid" id="roleid">
 						  <c:forEach items="${roleList}" var="userrole">
 							  <c:choose>
 								  <c:when test="${user != null && user.roleid == userrole.id}">
@@ -131,8 +131,8 @@
 			  <tr>
 				  <td class="active"><label class="pull-right">备注:</label></td>
 				  <td class="width-35" colspan="6" >
-                    <textarea rows="3" name="remarks" id="remarks" value="${user.remarks}" class="form-control "
-							  data-easyform="null;"></textarea>
+                    <textarea rows="3" name="remarks" id="remarks" value="" class="form-control "
+							  data-easyform="null;">${user.remarks}</textarea>
 				  </td>
 			  </tr>
 			</tbody>
@@ -159,6 +159,21 @@
 				if( $(this).is('#loginName') ){
 					if( this.value=="" ){
 						var errorMsg = '请输入用户名.';
+						$parent.append('<span class="formtips onErrorMasters">'+errorMsg+'</span>');
+					}else if(this.value != "${user.loginName}"){
+						$.get("${ctx}/sys/user/userExist?loginName=" + this.value, function (data) {
+							if(data == "exist"){
+								var errorMsg = '用户名已存在.';
+								$parent.append('<span class="formtips onErrorMasters">'+errorMsg+'</span>');
+							}
+						});
+					}
+				}
+
+				//验证用户名
+				if( $(this).is('#roleid') ){
+					if( this.value=="" ){
+						var errorMsg = '请先创建用户角色.';
 						$parent.append('<span class="formtips onErrorMasters">'+errorMsg+'</span>');
 					}
 				}

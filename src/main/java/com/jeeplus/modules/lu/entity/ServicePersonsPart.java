@@ -22,7 +22,7 @@ public class ServicePersonsPart{
 	private String score;		// score
 	private Integer signcount;		// signcount
 	private Integer servercount;		// servercount
-	private String rmark;		// rmark
+	private String remark;		// remark
 	private String devicecode;		// devicecode
 	private Integer longitude;		// longitude
 	private Integer latitude;		// latitude
@@ -100,12 +100,12 @@ public class ServicePersonsPart{
 		this.servercount = servercount;
 	}
 
-	public String getRmark() {
-		return rmark;
+	public String getRemark() {
+		return remark;
 	}
 
-	public void setRmark(String rmark) {
-		this.rmark = rmark;
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
 
 	public String getDevicecode() {

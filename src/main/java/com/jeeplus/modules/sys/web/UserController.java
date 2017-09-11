@@ -13,6 +13,7 @@ import javax.validation.ConstraintViolationException;
 import com.jeeplus.common.utils.*;
 import com.jeeplus.modules.lu.entity.Customers;
 import com.jeeplus.modules.lu.entity.LoginTypeName;
+import com.jeeplus.modules.lu.service.AreasService;
 import com.jeeplus.modules.lu.service.CustomersService;
 import com.jeeplus.modules.sys.entity.User;
 import org.apache.poi.hssf.usermodel.*;
@@ -55,11 +56,15 @@ public class UserController extends BaseController {
 
     @Autowired
     private SystemService systemService;
+
     @Autowired
     private UserDao userDao;
 
     @Autowired
     private CustomersService customersService;
+
+    @Autowired
+    private AreasService areasService;
 
     @ModelAttribute
     public User get(@RequestParam(required=false) String id) {
@@ -80,6 +85,7 @@ public class UserController extends BaseController {
     @RequestMapping(value = {"list", ""})
     public String list(User user, HttpServletRequest request, HttpServletResponse response, Model model) {
         user.setCustomerID(UserUtils.getUser().getCustomerID());
+        user.setId(UserUtils.getUser().getId());
         Page<User> page = systemService.findUserPage(new Page<User>(request, response), user);
         model.addAttribute("loginTypeMapList",LoginTypeName.getLoginTypeMapList());
         model.addAttribute("page", page);
@@ -113,9 +119,10 @@ public class UserController extends BaseController {
     @ResponseBody
     @RequestMapping(value = "save", method = RequestMethod.POST)
     public String save(User userTemp, HttpServletRequest request) {
+        String idTemp = request.getParameter("id");
         User user = new User();
-        if(user.getId() != null && !"123".equals(user.getId())){
-            user = systemService.getUser(userTemp.getId());
+        if(idTemp != null && !"123".equals(idTemp)){
+            user = systemService.getUser(idTemp);
         }
         user.setName(request.getParameter("name"));
         user.setLoginName(request.getParameter("loginName"));
@@ -153,6 +160,8 @@ public class UserController extends BaseController {
         }else if (User.isAdmin(user.getId())){
             addMessage(redirectAttributes, "删除用户失败, 不允许删除超级管理员用户");
         }else{
+//            systemService.deleteRole(user);
+//            areasService.deleteAreas(user);
             systemService.deleteUser(user);
             addMessage(redirectAttributes, "删除用户成功");
         }
@@ -177,6 +186,8 @@ public class UserController extends BaseController {
             }else if (User.isAdmin(user.getId())){
                 addMessage(redirectAttributes, "删除用户失败, 不允许删除超级管理员用户");
             }else{
+//                systemService.deleteRole(user);
+//                areasService.deleteAreas(user);
                 systemService.deleteUser(user);
                 addMessage(redirectAttributes, "删除用户成功");
             }
@@ -615,6 +626,17 @@ public class UserController extends BaseController {
             j.setMsg("因未知原因导致短信发送失败，请联系管理员。");
         }
         return j;
+    }
+
+    @RequestMapping(value = "userExist")
+    @ResponseBody
+    public String verifyUser(User user){
+        User userTemp = systemService.findUserByLoginName(user);
+        if(userTemp != null){
+            return "exist";
+        }else{
+            return "notExist";
+        }
     }
 
 //	@InitBinder

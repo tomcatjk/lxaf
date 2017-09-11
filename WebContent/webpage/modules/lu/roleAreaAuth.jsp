@@ -26,7 +26,7 @@
 					for(var i=0; i<nodes.length; i++) {
 						ids.push(nodes[i].id);
 					}
-					$("#areaIds").val(ids);
+                    $("#areaIds").val(ids);
 					loading('正在提交，请稍等...');
 					form.submit();
 				},
@@ -94,8 +94,9 @@
 	</script>
 </head>
 <body>
-	<form:form id="inputForm" modelAttribute="role" action="${ctx}/lu/roleArea/areaList" method="post" class="form-horizontal">
+	<form:form id="inputForm" modelAttribute="role" action="${ctx}/lu/roleArea/roleAreaSave" method="post" class="form-horizontal">
 		<%--<form:hidden path="id"/>--%>
+        <input type="hidden" name="roleId" value="${roleArea.roleId}">
 		<%--<input  name="office.id" type="hidden" value="${role.office.id}">--%>
 		<%--<input  name="office.name" type="hidden" value="${role.office.name}">--%>
 		<%--<input  name="name" type="hidden" value="${role.name}">--%>

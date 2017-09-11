@@ -25,9 +25,18 @@ public class AlarmsDefences extends DataEntity<AlarmsDefences> {
     //备注
     private String remark;
 
-
     private String startTime;
     private String endTime;
+
+    private String customerId;
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
 
     public String getStartTime() {
         return startTime;

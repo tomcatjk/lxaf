@@ -1,6 +1,5 @@
 package com.jeeplus.modules.app.controller;
 
-import com.alibaba.druid.sql.visitor.functions.Isnull;
 import com.jeeplus.modules.app.entity.DefencesDevice;
 import com.jeeplus.modules.app.service.AppService;
 import com.jeeplus.modules.lu.entity.*;
@@ -11,10 +10,8 @@ import com.jeeplus.modules.lu.service.MastersService;
 import com.jeeplus.modules.sys.dao.UserDao;
 import com.jeeplus.modules.sys.entity.User;
 import com.jeeplus.modules.sys.service.SystemService;
-import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-import org.apache.axis.utils.StringUtils;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,15 +20,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.apache.axis.client.Call;
-import org.apache.axis.client.Service;
-import websvr.SetGarrison;
-
-import javax.xml.bind.JAXBElement;
 
 /**
  * Created by BUWAN on 2017/6/19.
@@ -503,7 +494,7 @@ public class AppController {
     public String updateDef(@RequestParam("defenceid") String defenceid,
                             @RequestParam("defencename") String defencename,
                             @RequestParam("defencetypename") String defencetypename){
-        int defencetype=DefenceTypeName.getByName(defencetypename).getDefenceType();
+        int defencetype= DefenceTypeName.getByName(defencetypename).getDefenceType();
         System.out.println(DefenceTypeName.getByName(defencetypename).getDefenceType());
         Map map=new HashMap();
         map.put("defencename",defencename);

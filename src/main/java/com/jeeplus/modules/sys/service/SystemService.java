@@ -418,24 +418,15 @@ public class SystemService extends BaseService implements InitializingBean {
 		return true;
 	}
 
-
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		// TODO Auto-generated method stub
 		
 	}
 
-	/**
-	 * 查询role中的数据
-	 */
-	public List<Role> findALlRole(Role role){
-		List<Role> list = roleDao.findALlRole(role);
-		return list;
-	}
-
 	public Page<Role> find(Page<Role> page,Role role){
 		role.setPage(page);
-		page.setList(roleDao.findALlRole(role));
+		page.setList(roleDao.findAllRole(role));
 		return page;
 	}
 
@@ -456,5 +447,22 @@ public class SystemService extends BaseService implements InitializingBean {
 			userTemp.setRoleName(userDao.findRoleNameByUserId(userTemp.getId()));
 		}
 		return page;
+	}
+
+	@Transactional(readOnly = false)
+	public void deleteRole(User user){
+		roleDao.deleteRole(user);
+	}
+
+	public User getUserObject(User user){
+		return userDao.getUserObject(user);
+	}
+
+	public Role findRole(User user){
+		return roleDao.getRole(user);
+	}
+
+	public User findUserByLoginName(User user){
+		return userDao.findUniqueByProperty("login_name", user.getLoginName());
 	}
 }

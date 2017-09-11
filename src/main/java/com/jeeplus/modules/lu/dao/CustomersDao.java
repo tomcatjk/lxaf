@@ -15,12 +15,6 @@ import java.util.List;
  */
 @MyBatisDao
 public interface CustomersDao extends CrudDao<Customers> {
-    /**
-     * 根据登录的用户查询区域列表
-     */
-    List<Areas> findAllAreas(String cid);
-
-    String findOneAreasID(String customersID);
 
     Customers getCustomersByCid(String cid);
 

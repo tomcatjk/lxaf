@@ -235,7 +235,7 @@
 	</sql>
 
 	<!--查询Role表中数据-->
-	<select id="findALlRole" parameterType="Role" resultType="Role">
+	<select id="findAllRole" parameterType="Role" resultType="Role">
 		SELECT
 			<include refid="roleBean"/>
 		FROM sys_role a LEFT JOIN sys_user u on a.create_by = u.id
@@ -257,6 +257,7 @@
 			<if test="dbName == 'oracle'">'%'||#{enname}||'%'</if>
 			<if test="dbName == 'mysql'">CONCAT('%', #{enname}, '%')</if>
 		</if>
+        AND a.CustomerId = #{customerid}
 		<!-- 数据范围过滤 -->
 		${sqlMap.dsf}
 		ORDER BY  a.name
@@ -276,5 +277,19 @@
 			`sys_user_role`
 		WHERE
 			user_id = #{userId}
+	</select>
+
+	<delete id="deleteRole">
+		DELETE FROM sys_role
+		WHERE customerId = #{customerID}
+	</delete>
+
+	<select id="getRole" resultType="Role">
+		SELECT
+			CustomerID AS customerid
+		FROM
+			`sys_role`
+		WHERE
+			id = #{roleid}
 	</select>
 </mapper>

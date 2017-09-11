@@ -8,6 +8,16 @@ import com.jeeplus.common.persistence.DataEntity;
 public class AlarmsCount extends DataEntity<AlarmsCount> {
     private String customerid;		// 客户ID
 
+    private String createid;
+
+    public String getCreateid() {
+        return createid;
+    }
+
+    public void setCreateid(String createid) {
+        this.createid = createid;
+    }
+
     public String getCustomerid() {
         return customerid;
     }

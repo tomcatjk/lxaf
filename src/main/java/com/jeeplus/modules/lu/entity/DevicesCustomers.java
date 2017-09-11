@@ -48,6 +48,16 @@ public class DevicesCustomers extends DataEntity<DevicesCustomers> {
     //质检人
     private String qualityPerson;
 
+    private String customerId;
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
     public String getId() {
         return id;
     }

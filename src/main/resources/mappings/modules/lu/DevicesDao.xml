@@ -166,27 +166,6 @@
 		select * FROM devices  where ${propertyName} = '${value}'
 	</select>
 
-
-	<!--设备统计-->
-	<select id="totalDevicesCustomers" resultType="com.jeeplus.modules.lu.entity.DevicesCustomers">
-		SELECT
-			d.did AS id,
-			d.devicemodel,
-			d. NAME AS devicesName,
-			d.devicetype AS devicesType,
-			c.`Name` AS customersName,
-			d.state,
-			c.InstallTime AS installTime,
-			c.DueTime AS dueTime,
-			c.InstallPerson AS installPerson,
-			c.QualityPerson AS qualityPerson
-		FROM
-			`devices` d
-		LEFT JOIN customers c ON d.customerid = c.CID
-		WHERE c.InstallTime IS NOT NULL
-		ORDER BY c.InstallTime DESC
-	</select>
-
 	<!--根据所属客户或者设备类型查询不同的客户id-->
 	<select id="totalDevicesCustomersBySelect" parameterType="java.util.Map" resultType="com.jeeplus.modules.lu.entity.DevicesCustomers">
 		SELECT d.did as id,d.devicemodel,d.name as devicesName,d.devicetype as devicesType ,c.`Name` as customersName,d.state,c.InstallTime as installTime,
@@ -238,8 +217,10 @@
 			devices d
 		LEFT JOIN masters m ON d.masterid = m.MID
 		WHERE
-			d.devicetype = #{devicetype} AND d.customerid = #{customerid}
-			limit #{pageBegin},#{pageEnd}
+			d.devicetype = #{devicetype}
+			AND d.createid = #{userid}
+		LIMIT #{pageBegin},
+		 #{pageEnd}
 	</select>
 
 	<select id="findByDeviceid" resultType="java.util.Map">
@@ -255,14 +236,13 @@
 			d.createtime AS createtime,
 			d.state AS state,
 			m.Version AS version,
-			m.SIM AS sim,
-			d.masterid AS masterid
+			m.SIM AS sim
 		FROM
 			devices d
 		LEFT JOIN masters m ON d.masterid = m.MID
 		LEFT JOIN defences def ON d.defenceid = def.DID
 		WHERE
-			d.defenceid = #{did}
+			d.did = #{did}
 	</select>
 
 	<update id="updatedevices" parameterType="map" >

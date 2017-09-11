@@ -1,17 +1,18 @@
 package com.jeeplus.modules.lu.service;
 
-import com.jeeplus.common.persistence.Page;
-import com.jeeplus.common.service.CrudService;
-import com.jeeplus.modules.lu.dao.CustomersDao;
+import java.util.List;
+
 import com.jeeplus.modules.lu.entity.Areas;
 import com.jeeplus.modules.lu.entity.CustomerTypeName;
-import com.jeeplus.modules.lu.entity.Customers;
 import com.jeeplus.modules.lu.entity.CustomersAlarms;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import com.jeeplus.common.persistence.Page;
+import com.jeeplus.common.service.CrudService;
+import com.jeeplus.modules.lu.entity.Customers;
+import com.jeeplus.modules.lu.dao.CustomersDao;
 
 /**
  * 客户表Service
@@ -48,21 +49,6 @@ public class CustomersService extends CrudService<CustomersDao, Customers> {
 
 	public Customers findCustomersByCid(String cid){
 		return customersDao.getCustomersByCid(cid);
-	}
-
-	/**
-	 * 根据登录的用户查询区域列表
-	 */
-	public List<Areas> findAllAreas(String cid){
-		List<Areas> list = customersDao.findAllAreas(cid);
-		return list;
-	}
-	/**
-	 *获取一个areasID
-	 */
-	public String findOneAreasID(String customersID){
-		String  areaID = customersDao.findOneAreasID(customersID);
-		return areaID;
 	}
 
 	@Transactional(readOnly = false)

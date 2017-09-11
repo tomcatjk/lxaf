@@ -70,19 +70,6 @@ public class DevicesService extends CrudService<DevicesDao, Devices> {
 	}
 
 	/**
-	 * 设备统计
-	 */
-	public List<DevicesCustomers> totalDevicesCustomers(){
-		List<DevicesCustomers> list = devicesDao.totalDevicesCustomers();
-		for(DevicesCustomers devicesCustomersTemp : list){
-			if(devicesCustomersTemp.getDevicesType() != null){
-				devicesCustomersTemp.setDevicesType(DeviceTypeName.getByType(Integer.parseInt(devicesCustomersTemp.getDevicesType())).getDeviceTypeName());
-			}
-		}
-		return list;
-	}
-
-	/**
 	 * 通过客户名查询客户id
 	 */
 	public List<String> findCustomersidByCustomerName(String name){

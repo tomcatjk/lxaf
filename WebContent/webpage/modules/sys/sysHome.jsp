@@ -40,7 +40,6 @@
 
 
     <script type="text/javascript">
-        <%--客户及区域 start--%>
         $(document).ready(function() {
             var datas = ${fns:toJson(list)};
             var html = '';
@@ -69,7 +68,6 @@
             }
 
         }
-        <%--客户及区域 end--%>
 
         function addRow(list, tpl, data, pid, root){
             for (var i=0; i<data.length; i++){
@@ -212,14 +210,13 @@
             if(flag == 1){
                 whichOne = 0;
                 findAlarms(1);
-                t = setTimeout("showImg(flag)",50*1000);
+                t = setTimeout("showImg(flag)",30*1000);
             }else{
                 clearTimeout(t);
             }
         }
 
-        var count1 = 0;
-        var count2 = 0;
+        var countTemp = 0;
 
         var whichOne = 0;
         var endPage = 0;
@@ -242,126 +239,76 @@
             html += "<th>报警时间</th>";
             html += "<th>操作</th>";
             html += "</tr>";
-            var html2 = html;
 
             $.ajaxSetup({
                 async : false
             });
 
-            if(whichOne == 0) {
-                $.post(url + "&state=1", function (resultMap) {
-                    var alarmsInfoAcdList = resultMap[0].alarmsInfoAcdList;
-                    var currentPage = resultMap[0].currentPage;
-                    endPage = resultMap[0].endPage;
-                    count1 = 0;
-                    $.each(alarmsInfoAcdList, function (index, alarmsInfoAcd) {
-                        count1++;
-                        html += "<tr>";
-                        html += "<td onclick=clickPoint(" + alarmsInfoAcd.point + ",'" + alarmsInfoAcd.address + "','" + alarmsInfoAcd.cname + "','" + alarmsInfoAcd.phone +"')><a href='#2' style='color: blue;'> " + alarmsInfoAcd.cname + "</a></td>"
-                        html += "<td>" + alarmsInfoAcd.phone + "</td>";
-                        html += "<td>" + alarmsInfoAcd.dname + "</td>";
-                        html += "<td>" + alarmsInfoAcd.alarmTypeName + "</td>";
-                        html += "<td>" + alarmsInfoAcd.alarmTime + "</td>";
-                        html += "<td>";
+            $.post(url + "&state=" + (whichOne + 1), function (resultMap) {
+                var alarmsInfoAcdList = resultMap[0].alarmsInfoAcdList;
+                var currentPage = resultMap[0].currentPage;
+                endPage = resultMap[0].endPage;
+                countTemp = 0;
+                $.each(alarmsInfoAcdList, function (index, alarmsInfoAcd) {
+                    countTemp++;
+                    html += "<tr>";
+                    html += "<td onclick=clickPoint(" + alarmsInfoAcd.point + ",'" + alarmsInfoAcd.address + "','" + alarmsInfoAcd.cname + "','" + alarmsInfoAcd.phone +"')><a href='#2' style='color: blue;'> " + alarmsInfoAcd.cname + "</a></td>"
+                    html += "<td>" + alarmsInfoAcd.phone + "</td>";
+                    html += "<td>" + alarmsInfoAcd.dname + "</td>";
+                    html += "<td>" + alarmsInfoAcd.alarmTypeName + "</td>";
+                    html += "<td>" + alarmsInfoAcd.alarmTime + "</td>";
+                    html += "<td>";
+                    if(whichOne == 0) {
                         html += "<button class='layui-btn layui-btn-small' onclick=openWindow(" + alarmsInfoAcd.point + ",'" + alarmsInfoAcd.aid + "')>处理</button>";
-                        html += "</td>";
-                        html += "</tr>";
-                    });
-                    html += "</table>";
-                    html += "<button class='layui-btn layui-btn-primary layui-btn-small' onclick=findAlarms(" + 1 + ")>首页</button>";
-                    html += "<button class='layui-btn layui-btn-primary layui-btn-small' onclick=findAlarms(" + (currentPage - 1) + ")><i class='layui-icon'></i></button>";
-                    if (currentPage + 2 <= endPage) {
-                        for (var i = currentPage - 2, count = 1; i <= endPage; i++, count ++) {
-                            if(i < 1) i = 1;
-                            if(count > 5) break;
-                            if (currentPage != i) {
-                                html += "<button id='pageClassId" + i + "' class='layui-btn layui-btn-primary layui-btn-small' onclick=findAlarms('" + i + "')>" + i + "</button>";
-                            } else {
-                                html += "<button id='pageClassId" + i + "' class='layui-btn layui-btn-small' onclick=findAlarms('" + i + "')>" + i + "</button>";
-                            }
-                        }
-                    }else {
-                        for (var i = endPage - 4; i <= endPage; i++) {
-                            if(i < 1) i = 1;
-                            if (currentPage != i) {
-                                html += "<button id='pageClassId" + i + "' class='layui-btn layui-btn-primary layui-btn-small' onclick=findAlarms('" + i + "')>" + i + "</button>";
-                            } else {
-                                html += "<button id='pageClassId" + i + "' class='layui-btn layui-btn-small' onclick=findAlarms('" + i + "')>" + i + "</button>";
-                            }
-                        }
                     }
-                    html += "<button class='layui-btn layui-btn-primary layui-btn-small' onclick=findAlarms(" + (currentPage + 1) + ")><i class='layui-icon'></i></button>";
-                    html += "<button class='layui-btn layui-btn-primary layui-btn-small' onclick=findAlarms(" + endPage + ")>末页</button>";
-                    html += "<button class='layui-btn layui-btn-primary layui-btn-small'>共" + endPage + "页</button>";
-                    if (count1 == 0) {
-                        html = "</br>&nbsp;&nbsp;&nbsp;<span style='background-color: white;font-size: 20px;'>没有待处理的报警信息</span></br>";
+                    if(whichOne == 1){
+                        html += "<button class='layui-btn layui-btn-small' onclick=openWindow2('" + alarmsInfoAcd.aid + "')>完成</button>";
                     }
+                    html += "</td>";
+                    html += "</tr>";
                 });
-                //播放报警信息
-                if (count1 > 0) {
-                    PlayMedia();
+                html += "</table>";
+                html += "<button class='layui-btn layui-btn-primary layui-btn-small' onclick=findAlarms(" + 1 + ")>首页</button>";
+                html += "<button class='layui-btn layui-btn-primary layui-btn-small' onclick=findAlarms(" + (currentPage - 1) + ")><i class='layui-icon'></i></button>";
+                if (currentPage + 2 <= endPage) {
+                    for (var i = currentPage - 2, count = 1; i <= endPage; i++, count ++) {
+                        if(i < 1) i = 1;
+                        if(count > 5) break;
+                        if (currentPage != i) {
+                            html += "<button id='pageClassId" + i + "' class='layui-btn layui-btn-primary layui-btn-small' onclick=findAlarms('" + i + "')>" + i + "</button>";
+                        } else {
+                            html += "<button id='pageClassId" + i + "' class='layui-btn layui-btn-small' onclick=findAlarms('" + i + "')>" + i + "</button>";
+                        }
+                    }
+                }else {
+                    for (var i = endPage - 4; i <= endPage; i++) {
+                        if(i < 1) i = 1;
+                        if (currentPage != i) {
+                            html += "<button id='pageClassId" + i + "' class='layui-btn layui-btn-primary layui-btn-small' onclick=findAlarms('" + i + "')>" + i + "</button>";
+                        } else {
+                            html += "<button id='pageClassId" + i + "' class='layui-btn layui-btn-small' onclick=findAlarms('" + i + "')>" + i + "</button>";
+                        }
+                    }
                 }
-            }
-
-            if(whichOne == 1) {
-                $.post(url + "&state=2", function (resultMap) {
-                    var alarmsInfoAcdList = resultMap[0].alarmsInfoAcdList;
-                    var currentPage = resultMap[0].currentPage;
-                    endPage = resultMap[0].endPage;
-                    count2 = 0;
-                    $.each(alarmsInfoAcdList, function (index, alarmsInfoAcd) {
-                        count2++;
-                        html2 += "<tr>"
-                        html2 += "<td onclick=clickPoint(" + alarmsInfoAcd.point + ",'" + alarmsInfoAcd.address + "','" + alarmsInfoAcd.cname + "','" + alarmsInfoAcd.phone +"')><a href='#2' style='color: blue;'>" + alarmsInfoAcd.cname + "</a></td>"
-                        html2 += "<td>" + alarmsInfoAcd.phone + "</td>";
-                        html2 += "<td>" + alarmsInfoAcd.dname + "</td>";
-                        html2 += "<td>" + alarmsInfoAcd.alarmTypeName + "</td>";
-                        html2 += "<td>" + alarmsInfoAcd.alarmTime + "</td>";
-                        html2 += "<td>";
-                        html2 += "<button class='layui-btn layui-btn-small' onclick=openWindow2('" + alarmsInfoAcd.aid + "')>完成</button>";
-                        html2 += "</td>";
-                        html2 += "</tr>";
-                    });
-                    html2 += "</table>";
-                    html2 += "<button class='layui-btn layui-btn-primary layui-btn-small' onclick=findAlarms(" + 1 + ")>首页</button>";
-                    html2 += "<button class='layui-btn layui-btn-primary layui-btn-small' onclick=findAlarms(" + (currentPage - 1) + ")><i class='layui-icon'></i></button>";
-                    if (currentPage + 2 <= endPage) {
-                        for (var i = currentPage - 2, count = 1; i <= endPage; i++, count ++) {
-                            if(i < 1) i = 1;
-                            if(count > 5) break;
-                            if (currentPage != i) {
-                                html2 += "<button id='pageClassId" + i + "' class='layui-btn layui-btn-primary layui-btn-small' onclick=findAlarms('" + i + "')>" + i + "</button>";
-                            } else {
-                                html2 += "<button id='pageClassId" + i + "' class='layui-btn layui-btn-small' onclick=findAlarms('" + i + "')>" + i + "</button>";
-                            }
-                        }
-                    }else {
-                        for (var i = endPage - 4; i <= endPage; i++) {
-                            if(i < 1) i = 1;
-                            if (currentPage != i) {
-                                html2 += "<button id='pageClassId" + i + "' class='layui-btn layui-btn-primary layui-btn-small' onclick=findAlarms('" + i + "')>" + i + "</button>";
-                            } else {
-                                html2 += "<button id='pageClassId" + i + "' class='layui-btn layui-btn-small' onclick=findAlarms('" + i + "')>" + i + "</button>";
-                            }
-                        }
-                    }
-                    html2 += "<button class='layui-btn layui-btn-primary layui-btn-small' onclick=findAlarms(" + (currentPage + 1) + ")><i class='layui-icon'></i></button>";
-                    html2 += "<button class='layui-btn layui-btn-primary layui-btn-small' onclick=findAlarms(" + endPage + ")>末页</button>";
-                    html2 += "<button class='layui-btn layui-btn-primary layui-btn-small'>共" + endPage + "页</button>";
-                    if (count2 == 0) {
-                        html2 = "</br>&nbsp;&nbsp;&nbsp;<span style='background-color: white;font-size: 20px;'>没有已处理的报警信息</span></br>";
-                    }
-                });
+                html += "<button class='layui-btn layui-btn-primary layui-btn-small' onclick=findAlarms(" + (currentPage + 1) + ")><i class='layui-icon'></i></button>";
+                html += "<button class='layui-btn layui-btn-primary layui-btn-small' onclick=findAlarms(" + endPage + ")>末页</button>";
+                html += "<button class='layui-btn layui-btn-primary layui-btn-small'>共" + endPage + "页</button>";
+                if (whichOne == 0 && countTemp == 0) {
+                    html = "</br>&nbsp;&nbsp;&nbsp;<span style='background-color: white;font-size: 20px;'>没有待处理的报警信息</span></br>";
+                }
+                if (whichOne == 1 && countTemp == 0) {
+                    html = "</br>&nbsp;&nbsp;&nbsp;<span style='background-color: white;font-size: 20px;'>没有已处理的报警信息</span></br>";
+                }
+            });
+            //播放报警信息
+            if (whichOne == 0 && countTemp > 0) {
+                PlayMedia();
             }
 
             var html12 = "&nbsp;<button id='clickPending' class='layui-btn layui-btn-warm layui-btn-small' onclick='clickPending()'>待处理</button>&nbsp;&nbsp;";
             html12 += "<button id='clickProcessed' class='layui-btn layui-btn-primary layui-btn-small' onclick='clickProcessed()'>已处理</button>";
             html12 += "<div style='display: inline'>";
-            if(whichOne == 0) {
-                html12 += html;
-            }else{
-                html12 += html2;
-            }
+            html12 += html;
             html12 += "</div>";
             $(".extbkboxb").html(html12);
 
@@ -427,14 +374,14 @@
                     $("#openMap").height(0);
                     $("#worker").hide();
                 }
-
             });
         }
 
         var addServiceName = function () {
             var aid = $(".aidClass").val();
-            if(aid == null || aid == '') return;
+            if(aid == null || aid == '') return false;
             var servicePersonsId = $(".serviceNameClass").val();
+            if(servicePersonsId == null || servicePersonsId == '') return false;
             var url = "${ctx}/lu/alarms/addServicePersonForAlarms?aid=" + aid + "&servicePersonsId=" + servicePersonsId;
             $.post(url,function (date) {
                 if(date == 'ok'){
