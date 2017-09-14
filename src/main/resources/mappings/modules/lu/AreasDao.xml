@@ -213,16 +213,28 @@
 		c.`Name` AS cname,
 		c.Phone as phone,
 		c.Point AS point,
-		c.Address AS address
+		c.Address AS address,
+		sum(
+		CASE
+		WHEN m.IsOnline = '1' THEN
+			1
+		ELSE
+			0
+		END
+	) > 0 isOnline
 		FROM
 		`areas` a
 		LEFT JOIN sys_user s ON a.cid = s.customerID
 		LEFT JOIN customers c ON a.id = c.AreaID
+		LEFT JOIN masters m ON c.CID = m.CustomerID
 		WHERE
 		c.parentCid = #{cid}
 		AND c.CustomerType = #{customerType}
 		AND c.AreaID = #{areaId}
-		GROUP BY c.CID
+		<if test="showSign != null and showSign != 2">
+			AND IsOnline = #{showSign}
+		</if>
+		GROUP BY m.CustomerID
 		ORDER BY
 		c.CreateTime DESC
 	</select>

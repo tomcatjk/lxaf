@@ -24,11 +24,8 @@
         </sourceRoots>
       </configuration>
     </facet>
-    <facet type="Spring" name="Spring">
-      <configuration />
-    </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/build/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
@@ -1326,7 +1323,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="analyzer-2012_u6" level="project" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -1354,7 +1350,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0.62" level="application_server_libraries" />
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0.76" level="application_server_libraries" />
+    <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0.73" level="application_server_libraries" />
   </component>
 </module>

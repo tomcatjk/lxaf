@@ -42,6 +42,7 @@ import com.jeeplus.modules.oa.service.OaNotifyService;
 import com.jeeplus.modules.sys.security.FormAuthenticationFilter;
 import com.jeeplus.modules.sys.security.SystemAuthorizingRealm.Principal;
 import com.jeeplus.modules.sys.utils.UserUtils;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * 登录Controller
@@ -357,11 +358,21 @@ public class LoginController extends BaseController{
 	 */
 	@RequestMapping(value = "${adminPath}/home")
 	public String home(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
+		List list = getAreasCustomers("2");
+		model.addAttribute("list", list);
+		return "modules/sys/sysHome";
+
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "${adminPath}/getAreasCustomers")
+	public List getAreasCustomers(String showSign){
 		User user = UserUtils.getUser();
 		user.setRoleid(systemService.getUserObject(UserUtils.getUser()).getRoleid());
 		List<List<AreasCustomers>> list = new ArrayList<List<AreasCustomers>>();
 		Map mapParameter = new HashMap();
 		mapParameter.put("cid",user.getCustomerID());
+		mapParameter.put("showSign", showSign);
 		RoleArea roleAreaParameter = new RoleArea();
 		roleAreaParameter.setRoleId(user.getRoleid());
 		List<RoleArea> roleAreaList = new ArrayList<RoleArea>();
@@ -402,9 +413,7 @@ public class LoginController extends BaseController{
 				list.add(areasCustomersesList);
 			}
 		}
-		model.addAttribute("list", list);
-		return "modules/sys/sysHome";
-		
+		return list;
 	}
 
 }

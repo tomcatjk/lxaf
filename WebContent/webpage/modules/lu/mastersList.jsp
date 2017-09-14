@@ -67,6 +67,7 @@
 				<th >主机型号</th>
 				<th >版本</th>
 				<th >状态</th>
+				<th >是否上线</th>
 				<th >创建时间</th>
 				<th>操作</th>
 			</tr>
@@ -92,6 +93,9 @@
 				</td>
 				<td>
 					${masters.stateStr}
+				</td>
+				<td>
+					${masters.isOnline == "1" ? "上线" : "离线"}
 				</td>
 				<td>
 					<fmt:formatDate value="${masters.createtime}" pattern="yyyy-MM-dd "/>

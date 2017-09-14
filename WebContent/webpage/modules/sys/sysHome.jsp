@@ -40,14 +40,21 @@
 
 
     <script type="text/javascript">
+
+        var showSign = 0;
+        var datas = ${fns:toJson(list)};
+
         $(document).ready(function() {
-            var datas = ${fns:toJson(list)};
+            areasCustomer();
+        });
+
+        var areasCustomer = function () {
             var html = '';
             for(var i=0;i<datas.length;i++){
                 doData(datas[i],"#treeTableList"+i);
                 $("#treeTableList"+i).treeTable({expandLevel : 5});
             }
-        });
+        }
 
         function doData(data,target){
             var ids = [], rootIds = [];
@@ -502,6 +509,48 @@
             clickPoint(x1,y1,addressTemp,cnameTemp,phoneTemp);
         }
     </script>
+
+    <%-- 客户在线离线 --%>
+    <script>
+        $.ajaxSetup({
+            async : false
+        });
+
+        var exeCount = 0;
+        var isOnline = function (showSignTemp) {
+            exeCount++;
+            console.log(exeCount);
+            if(showSignTemp == 1){
+                $("#b1").attr('class','layui-btn layui-btn-warm layui-btn-small');
+                $("#b0").attr('class','layui-btn layui-btn-primary layui-btn-small');
+                $("#b2").attr('class','layui-btn layui-btn-primary layui-btn-small');
+            }else if(showSignTemp == 0){
+                $("#b1").attr('class','layui-btn layui-btn-primary layui-btn-small');
+                $("#b0").attr('class','layui-btn layui-btn-warm layui-btn-small');
+                $("#b2").attr('class','layui-btn layui-btn-primary layui-btn-small');
+            }else {
+                $("#b1").attr('class','layui-btn layui-btn-primary layui-btn-small');
+                $("#b0").attr('class','layui-btn layui-btn-primary layui-btn-small');
+                $("#b2").attr('class','layui-btn layui-btn-warm layui-btn-small');
+            }
+
+            showSign = showSignTemp;
+
+            $.get("${ctx}/getAreasCustomers?showSign=" + showSign, function (data) {
+                for(var i=0;i<6;i++){
+                    $("#treeTableList"+i).html('');
+                }
+                datas = data;
+                areasCustomer();
+            });
+
+//            if(exeCount < 2) {
+//                isOnline(showSignTemp);
+//            }else{
+//                exeCount = 0;
+//            }
+        }
+    </script>
 </head>
 <body>
 <%--右下角报警框--%>
@@ -530,6 +579,13 @@
             <thead>
             <tr>
                 <th>区域及客户</th>
+            </tr>
+            <tr>
+                <th>
+                    <button id="b1" onclick="isOnline(1)" class="layui-btn layui-btn-primary layui-btn-small">上线</button>&nbsp;
+                    <button id="b0" onclick="isOnline(0)" class="layui-btn layui-btn-primary layui-btn-small">离线</button>&nbsp;
+                    <button id="b2" onclick="isOnline(2)" class='layui-btn layui-btn-warm layui-btn-small'>全部</button>
+                </th>
             </tr>
             </thead>
             <tbody id="treeTableList0"></tbody>

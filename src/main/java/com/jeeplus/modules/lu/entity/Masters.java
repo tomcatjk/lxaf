@@ -28,7 +28,17 @@ public class Masters extends DataEntity<Masters> {
 	private String state;		// 状态
 	private String stateStr; //状态
 	private Date createtime;		// 创建时间
-	
+
+	private String isOnline;
+
+	public String getIsOnline() {
+		return isOnline;
+	}
+
+	public void setIsOnline(String isOnline) {
+		this.isOnline = isOnline;
+	}
+
 	public Masters() {
 		super();
 	}

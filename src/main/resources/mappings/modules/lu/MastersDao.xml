@@ -174,7 +174,8 @@
 		m.Version,
 		m.State,
 		m.CreateTime,
-		c.cid as customerid
+		c.cid as customerid,
+		m.IsOnline AS isOnline
 		FROM
 		`masters` m
 		LEFT JOIN customers c ON m.CustomerID = c.CID
