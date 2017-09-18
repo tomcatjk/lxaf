@@ -12,6 +12,8 @@ import com.jeeplus.modules.sys.entity.User;
 import com.jeeplus.modules.sys.service.SystemService;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import org.apache.axis.client.Call;
+import org.apache.axis.client.Service;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.xml.namespace.QName;
+import javax.xml.rpc.ParameterMode;
+import javax.xml.rpc.ServiceException;
+import javax.xml.rpc.encoding.XMLType;
+import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
@@ -267,16 +274,15 @@ public class AppController {
      */
     @ResponseBody
     @RequestMapping(value = "setdefence")
-    public String deldevice(@RequestParam(value="userid")String userid,
+    public String setdefence(@RequestParam(value="userid")String userid,
                             @RequestParam(value="cid")String cid,
                             @RequestParam(value="tag")int tag) {
         JSONObject data = new JSONObject();
         Devices paramDevices = new Devices();
         try {
             List<Masters> mastersList = mastersService.findMastersListByCid(cid);
-            Masters masters = mastersList.get(0);
             String action = "";
-            String deviceCode = masters.getCode();
+            String deviceCode = "";
             if(tag == 1){
                 action = "SetGarrison";
             }else if(tag == 2){
@@ -284,25 +290,10 @@ public class AppController {
             }else{
                 action = "SetSolved";
             }
-
-            /*String strURL = "http://localhost/api/fenceapi.ashx?action=" + action + "&DeviceCode=" + deviceCode;
-            URL url = new URL(strURL);
-            HttpURLConnection httpConn = (HttpURLConnection)
-                    url.openConnection();
-            httpConn.setRequestMethod("GET");
-            httpConn.connect();
-            httpConn.disconnect();
-            */
-         /*   String url = "http://192.168.0.108:1806/Service";
-            String[] params = new String[]{deviceCode};
-
-            String svrResult = CallMethod(url, action, params);
-
-            System.out.println(svrResult);
-
-            data.put("result", "success");
-            data.put("data", "");*/
-         
+            for(Masters mastersTemp : mastersList){
+                deviceCode = mastersTemp.getCode();
+                setFun(action, deviceCode);
+            }
 
         }catch (Exception e){
             data.put("result", "fail");
@@ -310,36 +301,30 @@ public class AppController {
         }
         return data.toString();
     }
-   /* private String CallMethod(String url, String method, Object[] args) {
-        String result = null;
 
-        if(StringUtils.isEmpty(url))
-        {
-            return "url地址为空";
-        }
+    public void setFun(String action, String DeviceCode) throws RemoteException, ServiceException {
+        String url = "http://localhost:1806/Service?wsdl";
+        String namespace = "http://tempuri.org/";
+        String methodName = action;
+        String soapActionURI = "http://tempuri.org/IService/" + action;
 
-        if(StringUtils.isEmpty(method))
-        {
-            return "method地址为空";
-        }
+        Service service = new Service();
+        Call call;
+        call = (Call) service.createCall();
 
-        Call rpcCall = null;
+        call.setTargetEndpointAddress(url);
+        call.setUseSOAPAction(true);
+        call.setSOAPActionURI(soapActionURI);
+        call.setOperationName(new QName(namespace, methodName));
 
-        try {
-            //实例websevice调用实例
-            Service webService = new Service();
-            rpcCall = (Call) webService.createCall();
-            rpcCall.setTargetEndpointAddress(new java.net.URL(url));
-            rpcCall.setOperationName(method);
-            //执行webservice方法
-            result = (String) rpcCall.invoke(args);
+        call.addParameter(new QName(namespace, "DeviceCode"), XMLType.XSD_STRING, ParameterMode.IN);
+        call.setReturnType(XMLType.XSD_STRING);
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result;
-
-    }*/
+        String[] str = new String[1];
+        str[0] = DeviceCode;
+        Object obj = call.invoke(str);
+        System.out.println(obj);
+    }
 
     @Autowired
     AppService appService;

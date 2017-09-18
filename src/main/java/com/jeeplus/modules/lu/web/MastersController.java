@@ -153,6 +153,7 @@ public class MastersController extends BaseController {
 				mastersService.save(t);//保存
 			}else{//新增表单保存
 				masters.setMid(UUID.randomUUID().toString());
+				masters.setIsOnline("0");
 				mastersService.save(masters);//保存
 				Defences defences = new Defences();
 				defences.setCustomerid(masters.getCustomerid());

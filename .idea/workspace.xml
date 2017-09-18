@@ -2,17 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48e8464c-4ae8-491d-8a95-fbc32110f6fc" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/analyzer_2012_u6.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/LXAFPlatform_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/LXAFPlatform_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/lib/axis.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/lib/commons-discovery-0.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/lib/jaxrpc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/lib/saaj.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/lib/wsdl4j-1.5.1.jar" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/libsigar-amd64-freebsd-6.so" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/libsigar-amd64-linux.so" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/libsigar-amd64-solaris.so" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/libsigar-ia64-hpux-11.sl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/libsigar-ia64-linux.so" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/libsigar-pa-hpux-11.sl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/libsigar-ppc-aix-5.so" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/libsigar-ppc-linux.so" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/libsigar-ppc64-aix-5.so" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/libsigar-ppc64-linux.so" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/libsigar-s390x-linux.so" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/libsigar-sparc-solaris.so" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/libsigar-sparc64-solaris.so" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/libsigar-universal-macosx.dylib" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/libsigar-universal64-macosx.dylib" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/libsigar-x86-freebsd-5.so" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/libsigar-x86-freebsd-6.so" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/libsigar-x86-linux.so" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/libsigar-x86-solaris.so" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/sigar-amd64-winnt.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/sigar-x86-winnt.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/sigar-x86-winnt.lib" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LXAFPlatform.iml" afterPath="$PROJECT_DIR$/LXAFPlatform.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/webpage/modules/lu/mastersList.jsp" afterPath="$PROJECT_DIR$/WebContent/webpage/modules/lu/mastersList.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/webpage/modules/lu/customersForm.jsp" afterPath="$PROJECT_DIR$/WebContent/webpage/modules/lu/customersForm.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/webpage/modules/lu/customersFormAdd.jsp" afterPath="$PROJECT_DIR$/WebContent/webpage/modules/lu/customersFormAdd.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/webpage/modules/sys/sysHome.jsp" afterPath="$PROJECT_DIR$/WebContent/webpage/modules/sys/sysHome.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/DeviceTypeName.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/DeviceTypeName.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/Masters.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/Masters.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/sys/web/LoginController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/sys/web/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AreasDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AreasDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/MastersController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/MastersController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/MastersDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/MastersDao.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -34,91 +57,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/sys/web/LoginController.java">
+      <file leaf-file-name="AppController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6324">
-              <caret line="414" column="9" selection-start-line="414" selection-start-column="9" selection-end-line="414" selection-end-column="9" />
+            <state relative-caret-position="310">
+              <caret line="294" column="43" selection-start-line="294" selection-start-column="43" selection-end-line="294" selection-end-column="43" />
               <folding>
-                <element signature="imports" expanded="false" />
+                <element signature="docComment;class#AppController#0" expanded="false" />
+                <element signature="docComment;method#login#0;class#AppController#0" expanded="false" />
+                <element signature="method#login#0;class#AppController#0" expanded="false" />
+                <element signature="docComment;method#changepwd#0;class#AppController#0" expanded="false" />
+                <element signature="method#changepwd#0;class#AppController#0" expanded="false" />
+                <element signature="docComment;method#updateuser#0;class#AppController#0" expanded="false" />
+                <element signature="method#updateuser#0;class#AppController#0" expanded="false" />
+                <element signature="docComment;method#getdevice#0;class#AppController#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AreasService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/AreasService.java">
+      <file leaf-file-name="customersFormAdd.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/lu/customersFormAdd.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="66" column="41" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="41" />
-              <folding>
-                <element signature="n#!!doc" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#827#828#0" expanded="false" />
-                <element signature="e#854#855#0" expanded="false" />
-                <element signature="e#1121#1122#0" expanded="false" />
-                <element signature="e#1160#1161#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AreasDao.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AreasDao.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3876">
-              <caret line="228" column="51" selection-start-line="228" selection-start-column="51" selection-end-line="228" selection-end-column="51" />
-              <folding>
-                <marker date="1505295169328" expanded="true" signature="665:774" ph="SELECT FROM areas" />
-                <marker date="1505295169328" expanded="true" signature="832:1900" ph="SELECT ,c. N... " />
-                <marker date="1505295169328" expanded="true" signature="1961:2127" ph="SELECT FROM areas" />
-                <marker date="1505295169328" expanded="true" signature="2196:2421" ph="SELECT a.id,... areas" />
-                <marker date="1505295169328" expanded="true" signature="2458:2858" ph="INSERT INTO areas... " />
-                <marker date="1505295169328" expanded="true" signature="2895:3166" ph="UPDATE areas... " />
-                <marker date="1505295169328" expanded="true" signature="3212:3305" ph="UPDATE areas... " />
-                <marker date="1505295169328" expanded="true" signature="3355:3553" ph="DELETE FROM " />
-                <marker date="1505295169328" expanded="true" signature="3615:3845" ph="UPDATE areas... " />
-                <marker date="1505295169328" expanded="true" signature="3978:4051" ph="select * FRO... areas" />
-                <marker date="1505295169328" expanded="true" signature="4146:4678" ph="SELECT a.id areas" />
-                <marker date="1505295169328" expanded="true" signature="4720:4765" ph="DELETE FROM " />
-                <marker date="1505295169328" expanded="true" signature="4901:5848" ph="SELECT a.id areas" />
-                <marker date="1505295169328" expanded="true" signature="5961:6599" ph="SELECT a.id areas" />
-                <marker date="1505295169328" expanded="true" signature="6700:6762" ph="SELECT id AS... areas" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sysHome.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/sys/sysHome.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="546" column="32" selection-start-line="546" selection-start-column="32" selection-end-line="546" selection-end-column="32" />
-              <folding>
-                <marker date="1505352943797" expanded="true" signature="9675:9687" ph="..." />
-                <marker date="1505352943797" expanded="true" signature="12714:12720" ph="&amp;nbsp;" />
-                <marker date="1505352943797" expanded="true" signature="12720:12726" ph="&amp;nbsp;" />
-                <marker date="1505352943797" expanded="true" signature="12726:12732" ph="&amp;nbsp;" />
-                <marker date="1505352943797" expanded="true" signature="12745:12785" ph="..." />
-                <marker date="1505352943797" expanded="true" signature="12918:12924" ph="&amp;nbsp;" />
-                <marker date="1505352943797" expanded="true" signature="12924:12930" ph="&amp;nbsp;" />
-                <marker date="1505352943797" expanded="true" signature="12930:12936" ph="&amp;nbsp;" />
-                <marker date="1505352943797" expanded="true" signature="12949:12989" ph="..." />
-                <marker date="1505352943797" expanded="true" signature="13191:13197" ph="&amp;nbsp;" />
-                <marker date="1505352943797" expanded="true" signature="13309:13315" ph="&amp;nbsp;" />
-                <marker date="1505352943797" expanded="true" signature="13315:13321" ph="&amp;nbsp;" />
-                <marker date="1505352943797" expanded="true" signature="13504:13519" ph="..." />
-                <marker date="1505352943797" expanded="true" signature="14837:14843" ph="&amp;nbsp;" />
-                <marker date="1505352943797" expanded="true" signature="14888:14894" ph="&amp;nbsp;" />
-                <marker date="1505352943797" expanded="true" signature="14954:14981" ph="..." />
-                <marker date="1505352943797" expanded="true" signature="15317:15323" ph="&amp;nbsp;" />
-                <marker date="1505352943797" expanded="true" signature="15323:15329" ph="&amp;nbsp;" />
-                <marker date="1505352943797" expanded="true" signature="15329:15335" ph="&amp;nbsp;" />
-                <marker date="1505352943797" expanded="true" signature="15400:15406" ph="&amp;nbsp;" />
-                <marker date="1505352943797" expanded="true" signature="17002:17008" ph="&amp;nbsp;" />
-                <marker date="1505352943797" expanded="true" signature="17045:17051" ph="&amp;nbsp;" />
-                <marker date="1505352943797" expanded="true" signature="17172:17178" ph="&amp;nbsp;" />
-              </folding>
+            <state relative-caret-position="143">
+              <caret line="456" column="27" selection-start-line="456" selection-start-column="27" selection-end-line="456" selection-end-column="27" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -195,17 +158,21 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/dao/AppDao.java" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/lib/spring-web-4.0.8.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/service/AppService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/DevicesDao.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/jeeplus.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/DeviceTypeName.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/AreasService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/Masters.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/MastersDao.xml" />
         <option value="$PROJECT_DIR$/WebContent/webpage/modules/lu/mastersList.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AreasDao.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/sys/web/LoginController.java" />
         <option value="$PROJECT_DIR$/WebContent/webpage/modules/sys/sysHome.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/WebServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/MastersController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/MastersDao.xml" />
+        <option value="$PROJECT_DIR$/WebContent/webpage/modules/lu/customersFormAdd.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/webpage/modules/lu/customersForm.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java" />
       </list>
     </option>
   </component>
@@ -230,9 +197,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+    <option name="x" value="-7" />
     <option name="width" value="1604" />
-    <option name="height" value="876" />
+    <option name="height" value="867" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -278,9 +245,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -288,10 +254,6 @@
               <option name="myItemId" value="LXAFPlatform" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -300,338 +262,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebContent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webpage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebContent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebContent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jeeplus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jeeplus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jeeplus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jeeplus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jeeplus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jeeplus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jeeplus" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -659,6 +289,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -669,12 +300,13 @@
     <property name="project.structure.side.proportion" value="0.20878136" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
-    <property name="SearchEverywhereHistoryKey" value="masterslist&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/mastersList.jsp&#10;masters.java&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/entity/Masters.java&#10;mastersdao.xml&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/MastersDao.xml&#10;syshome&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/sys/sysHome.jsp&#10;areasdao.xml&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/AreasDao.xml&#10;areadao.xml&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/sys/AreaDao.xml&#10;loginc&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/sys/web/LoginController.java&#10;devicetypenam&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/entity/DeviceTypeName.java&#10;jeep&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform_test2/LXAFPlatform/src/main/resources/jeeplus.properties&#10;jeepl&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform_test/LXAFPlatform/src/main/resources/jeeplus.properties&#10;SetDisarm&#9;PSI&#9;JAVA://com.jeeplus.modules.lu.entity.Alarms#setDisarmState" />
+    <property name="SearchEverywhereHistoryKey" value="customersform&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/customersFormAdd.jsp&#10;customerform&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/customersForm.jsp&#10;customersadd&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/customersFormAdd.jsp&#10;jeeplus.js&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/static/common/jeeplus.js&#10;customerlist.jsp&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/customersList.jsp&#10;mastersdaoxml&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/MastersDao.xml&#10;masterscont&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/web/MastersController.java&#10;alarmsdao.xml&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/AlarmsDao.xml&#10;alarmty&#9;PSI&#9;JAVA://com.jeeplus.modules.lu.entity.AlarmTypeName&#10;appc&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/app/controller/AppController.java&#10;mastersdao.xml&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/MastersDao.xml&#10;masterscontr&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/web/MastersController.java&#10;masterslist&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/mastersList.jsp&#10;masters.java&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/entity/Masters.java&#10;syshome&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/sys/sysHome.jsp&#10;areasdao.xml&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/AreasDao.xml&#10;areadao.xml&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/sys/AreaDao.xml&#10;loginc&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/sys/web/LoginController.java&#10;devicetypenam&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/entity/DeviceTypeName.java&#10;jeep&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform_test2/LXAFPlatform/src/main/resources/jeeplus.properties&#10;jeepl&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform_test/LXAFPlatform/src/main/resources/jeeplus.properties&#10;SetDisarm&#9;PSI&#9;JAVA://com.jeeplus.modules.lu.entity.Alarms#setDisarmState" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\node-v8.2.1-win-x64\node.exe" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/node-v8.2.1-win-x64/node" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\buwan\idea\lianxun_testdev\LXAFPlatform\WebContent\WEB-INF\lib" />
       <recent name="D:\projects\LXAFPlatform\src\main\java\com\jeeplus\modules\app\controller" />
       <recent name="D:\projects\LXAFPlatform\src\main\java" />
       <recent name="D:\projects\LXAFPlatform\src\main\java\websvr" />
@@ -1367,28 +999,31 @@
       <workItem from="1505097642844" duration="1406000" />
       <workItem from="1505267006756" duration="168000" />
       <workItem from="1505267587857" duration="14997000" />
-      <workItem from="1505350147684" duration="3161000" />
+      <workItem from="1505350147684" duration="20029000" />
+      <workItem from="1505437855976" duration="70000" />
+      <workItem from="1505459995570" duration="1428000" />
+      <workItem from="1505696288735" duration="12981000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="173522000" />
+    <option name="totallyTimeSpent" value="204869000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1604" height="876" extended-state="0" />
+    <frame x="-7" y="0" width="1604" height="867" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46327683" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25178826" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41928494" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41928494" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1400,7 +1035,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19491525" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19599427" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1413,6 +1048,42 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.07909604" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12570621" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41928494" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21363637" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -1439,25 +1110,19 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java</url>
-          <line>255</line>
-          <properties />
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java</url>
-          <line>366</line>
+          <line>351</line>
           <properties />
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java</url>
-          <line>136</line>
+          <line>143</line>
           <properties />
           <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java</url>
-          <line>105</line>
+          <line>112</line>
           <properties />
           <option name="timeStamp" value="103" />
         </line-breakpoint>
@@ -1465,7 +1130,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="121" />
+      <option name="time" value="126" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1474,98 +1139,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/jre/lib/rt.jar!/sun/reflect/DelegatingMethodAccessorImpl.class" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/lang/Object.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/DefenceTypeName.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-300">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/common/persistence/interceptor/PaginationInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/WebContent/WEB-INF/lib/spring-web-4.0.8.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/WebContent/WEB-INF/lib/spring-webmvc-4.0.8.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="465" column="0" selection-start-line="465" selection-start-column="0" selection-end-line="465" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5491">
-          <caret line="433" column="7" selection-start-line="433" selection-start-column="7" selection-end-line="433" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;class#AppController#0" expanded="false" />
-            <element signature="e#1426#1427#0" expanded="false" />
-            <element signature="e#1474#1475#0" expanded="false" />
-            <element signature="docComment;method#login#0;class#AppController#0" expanded="false" />
-            <element signature="method#login#0;class#AppController#0" expanded="false" />
-            <element signature="docComment;method#changepwd#0;class#AppController#0" expanded="false" />
-            <element signature="method#changepwd#0;class#AppController#0" expanded="false" />
-            <element signature="docComment;method#updateuser#0;class#AppController#0" expanded="false" />
-            <element signature="method#updateuser#0;class#AppController#0" expanded="false" />
-            <element signature="docComment;method#getdevice#0;class#AppController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/DevicesDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4267">
-          <caret line="251" column="9" selection-start-line="251" selection-start-column="9" selection-end-line="251" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/service/AppService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="36" column="36" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/dao/AppDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AppDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/dao/AfcustomersDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/dao/AlarmsDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/dao/AlarmsDefencesDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1671,13 +1244,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/AlarmsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-68">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/CustomersService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-103">
@@ -1697,6 +1263,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-51">
           <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1728,13 +1295,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/jeeplus.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/RoleAreaService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1763,20 +1323,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/MastersController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="80" column="54" selection-start-line="80" selection-start-column="54" selection-end-line="80" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/MastersDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="177" column="30" selection-start-line="177" selection-start-column="30" selection-end-line="177" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/Masters.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1784,18 +1330,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/MastersService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="55" column="61" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/lu/mastersList.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
           <caret line="66" column="30" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1803,87 +1341,196 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
           <caret line="266" column="2" selection-start-line="266" selection-start-column="2" selection-end-line="266" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/AreasService.java">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="66" column="41" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="41" />
+        <state relative-caret-position="155">
+          <caret line="119" column="25" selection-start-line="119" selection-start-column="25" selection-end-line="119" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/static/ace/assets/js/fuelux/fuelux.tree.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-372">
+          <caret line="90" column="10" selection-start-line="90" selection-start-column="10" selection-end-line="90" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/static/treeTable/jquery.treeTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/MastersService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
           <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#827#828#0" expanded="false" />
-            <element signature="e#854#855#0" expanded="false" />
-            <element signature="e#1121#1122#0" expanded="false" />
-            <element signature="e#1160#1161#0" expanded="false" />
+            <element signature="e#1153#1154#0" expanded="false" />
+            <element signature="e#1179#1180#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/WebServiceTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/common/service/CrudService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/sys/sysHome.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="50" column="31" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AreasDao.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3876">
+        <state relative-caret-position="251">
           <caret line="228" column="51" selection-start-line="228" selection-start-column="51" selection-end-line="228" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/AreasService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="66" column="41" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="41" />
           <folding>
-            <marker date="1505295169328" expanded="true" signature="665:774" ph="SELECT FROM areas" />
-            <marker date="1505295169328" expanded="true" signature="832:1900" ph="SELECT ,c. N... " />
-            <marker date="1505295169328" expanded="true" signature="1961:2127" ph="SELECT FROM areas" />
-            <marker date="1505295169328" expanded="true" signature="2196:2421" ph="SELECT a.id,... areas" />
-            <marker date="1505295169328" expanded="true" signature="2458:2858" ph="INSERT INTO areas... " />
-            <marker date="1505295169328" expanded="true" signature="2895:3166" ph="UPDATE areas... " />
-            <marker date="1505295169328" expanded="true" signature="3212:3305" ph="UPDATE areas... " />
-            <marker date="1505295169328" expanded="true" signature="3355:3553" ph="DELETE FROM " />
-            <marker date="1505295169328" expanded="true" signature="3615:3845" ph="UPDATE areas... " />
-            <marker date="1505295169328" expanded="true" signature="3978:4051" ph="select * FRO... areas" />
-            <marker date="1505295169328" expanded="true" signature="4146:4678" ph="SELECT a.id areas" />
-            <marker date="1505295169328" expanded="true" signature="4720:4765" ph="DELETE FROM " />
-            <marker date="1505295169328" expanded="true" signature="4901:5848" ph="SELECT a.id areas" />
-            <marker date="1505295169328" expanded="true" signature="5961:6599" ph="SELECT a.id areas" />
-            <marker date="1505295169328" expanded="true" signature="6700:6762" ph="SELECT id AS... areas" />
+            <element signature="e#1596#1597#0" expanded="false" />
+            <element signature="e#1641#1642#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/sys/web/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6324">
+        <state relative-caret-position="481">
           <caret line="414" column="9" selection-start-line="414" selection-start-column="9" selection-end-line="414" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/jeeplus.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AlarmsDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="213" column="37" selection-start-line="213" selection-start-column="37" selection-end-line="213" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/lu/customersList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="44" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/lu/customersForm.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="231" column="47" selection-start-line="231" selection-start-column="47" selection-end-line="231" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/static/common/jeeplus.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/sys/sysHome.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/MastersDao.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="546" column="32" selection-start-line="546" selection-start-column="32" selection-end-line="546" selection-end-column="32" />
+        <state relative-caret-position="238">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding>
-            <marker date="1505352943797" expanded="true" signature="9675:9687" ph="..." />
-            <marker date="1505352943797" expanded="true" signature="12714:12720" ph="&amp;nbsp;" />
-            <marker date="1505352943797" expanded="true" signature="12720:12726" ph="&amp;nbsp;" />
-            <marker date="1505352943797" expanded="true" signature="12726:12732" ph="&amp;nbsp;" />
-            <marker date="1505352943797" expanded="true" signature="12745:12785" ph="..." />
-            <marker date="1505352943797" expanded="true" signature="12918:12924" ph="&amp;nbsp;" />
-            <marker date="1505352943797" expanded="true" signature="12924:12930" ph="&amp;nbsp;" />
-            <marker date="1505352943797" expanded="true" signature="12930:12936" ph="&amp;nbsp;" />
-            <marker date="1505352943797" expanded="true" signature="12949:12989" ph="..." />
-            <marker date="1505352943797" expanded="true" signature="13191:13197" ph="&amp;nbsp;" />
-            <marker date="1505352943797" expanded="true" signature="13309:13315" ph="&amp;nbsp;" />
-            <marker date="1505352943797" expanded="true" signature="13315:13321" ph="&amp;nbsp;" />
-            <marker date="1505352943797" expanded="true" signature="13504:13519" ph="..." />
-            <marker date="1505352943797" expanded="true" signature="14837:14843" ph="&amp;nbsp;" />
-            <marker date="1505352943797" expanded="true" signature="14888:14894" ph="&amp;nbsp;" />
-            <marker date="1505352943797" expanded="true" signature="14954:14981" ph="..." />
-            <marker date="1505352943797" expanded="true" signature="15317:15323" ph="&amp;nbsp;" />
-            <marker date="1505352943797" expanded="true" signature="15323:15329" ph="&amp;nbsp;" />
-            <marker date="1505352943797" expanded="true" signature="15329:15335" ph="&amp;nbsp;" />
-            <marker date="1505352943797" expanded="true" signature="15400:15406" ph="&amp;nbsp;" />
-            <marker date="1505352943797" expanded="true" signature="17002:17008" ph="&amp;nbsp;" />
-            <marker date="1505352943797" expanded="true" signature="17045:17051" ph="&amp;nbsp;" />
-            <marker date="1505352943797" expanded="true" signature="17172:17178" ph="&amp;nbsp;" />
+            <marker date="1505702350214" expanded="true" signature="547:664" ph="SELECT FROM masters" />
+            <marker date="1505702350214" expanded="true" signature="1664:1967" ph="INSERT INTO masters... " />
+            <marker date="1505702350214" expanded="true" signature="2005:2252" ph="UPDATE maste... " />
+            <marker date="1505702350214" expanded="true" signature="2294:2530" ph="UPDATE maste... " />
+            <marker date="1505702350214" expanded="true" signature="2583:2623" ph="DELETE FROM " />
+            <marker date="1505702350214" expanded="true" signature="2681:2754" ph="UPDATE maste... " />
+            <marker date="1505702350214" expanded="true" signature="2887:2944" ph="select * FRO... masters" />
+            <marker date="1505702350214" expanded="true" signature="3023:3183" ph="SELECT m.mid... masters" />
+            <marker date="1505702350214" expanded="true" signature="3290:3557" ph="SELECT m.mid... masters" />
+            <marker date="1505702350214" expanded="true" signature="3630:4025" ph="SELECT m.mid... masters" />
+            <marker date="1505702350214" expanded="true" signature="4163:4371" ph="SELECT m.mid... masters" />
+            <marker date="1505702350214" expanded="true" signature="4447:4570" ph="UPDATE maste... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/MastersController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="154" column="50" selection-start-line="154" selection-start-column="50" selection-end-line="154" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/AlarmsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/AlarmTypeName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/lu/customersFormAdd.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="456" column="27" selection-start-line="456" selection-start-column="27" selection-end-line="456" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="294" column="43" selection-start-line="294" selection-start-column="43" selection-end-line="294" selection-end-column="43" />
+          <folding>
+            <element signature="docComment;class#AppController#0" expanded="false" />
+            <element signature="docComment;method#login#0;class#AppController#0" expanded="false" />
+            <element signature="method#login#0;class#AppController#0" expanded="false" />
+            <element signature="docComment;method#changepwd#0;class#AppController#0" expanded="false" />
+            <element signature="method#changepwd#0;class#AppController#0" expanded="false" />
+            <element signature="docComment;method#updateuser#0;class#AppController#0" expanded="false" />
+            <element signature="method#updateuser#0;class#AppController#0" expanded="false" />
+            <element signature="docComment;method#getdevice#0;class#AppController#0" expanded="false" />
           </folding>
         </state>
       </provider>

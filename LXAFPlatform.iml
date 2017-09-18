@@ -1351,5 +1351,10 @@
       </library>
     </orderEntry>
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0.73" level="application_server_libraries" />
+    <orderEntry type="library" name="saaj" level="project" />
+    <orderEntry type="library" name="axis" level="project" />
+    <orderEntry type="library" name="commons-discovery-0.2" level="project" />
+    <orderEntry type="library" name="jaxrpc" level="project" />
+    <orderEntry type="library" name="wsdl4j-1.5.1" level="project" />
   </component>
 </module>

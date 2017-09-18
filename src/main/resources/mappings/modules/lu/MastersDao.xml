@@ -78,7 +78,9 @@
 			maintype,
 			version,
 			state,
-			createtime
+			createtime,
+			IsOnline,
+			EndTime
 		) VALUES (
 			#{mid},
 			#{code},
@@ -88,6 +90,8 @@
 			#{maintype},
 			#{version},
 			#{state},
+			now(),
+			#{isOnline},
 			now()
 		)
 	</insert>

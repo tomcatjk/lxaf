@@ -41,16 +41,17 @@
 
     <script type="text/javascript">
 
-        var showSign = 0;
-        var datas = ${fns:toJson(list)};
+        var datas;
 
         $(document).ready(function() {
-            areasCustomer();
+            isOnline(2);
         });
 
         var areasCustomer = function () {
+            console.log(datas);
             var html = '';
             for(var i=0;i<datas.length;i++){
+                $("#treeTableList"+i).html(html);
                 doData(datas[i],"#treeTableList"+i);
                 $("#treeTableList"+i).treeTable({expandLevel : 5});
             }
@@ -516,15 +517,12 @@
             async : false
         });
 
-        var exeCount = 0;
-        var isOnline = function (showSignTemp) {
-            exeCount++;
-            console.log(exeCount);
-            if(showSignTemp == 1){
+        var isOnline = function (showSign) {
+            if(showSign == 1){
                 $("#b1").attr('class','layui-btn layui-btn-warm layui-btn-small');
                 $("#b0").attr('class','layui-btn layui-btn-primary layui-btn-small');
                 $("#b2").attr('class','layui-btn layui-btn-primary layui-btn-small');
-            }else if(showSignTemp == 0){
+            }else if(showSign == 0){
                 $("#b1").attr('class','layui-btn layui-btn-primary layui-btn-small');
                 $("#b0").attr('class','layui-btn layui-btn-warm layui-btn-small');
                 $("#b2").attr('class','layui-btn layui-btn-primary layui-btn-small');
@@ -534,21 +532,10 @@
                 $("#b2").attr('class','layui-btn layui-btn-warm layui-btn-small');
             }
 
-            showSign = showSignTemp;
-
             $.get("${ctx}/getAreasCustomers?showSign=" + showSign, function (data) {
-                for(var i=0;i<6;i++){
-                    $("#treeTableList"+i).html('');
-                }
                 datas = data;
                 areasCustomer();
             });
-
-//            if(exeCount < 2) {
-//                isOnline(showSignTemp);
-//            }else{
-//                exeCount = 0;
-//            }
         }
     </script>
 </head>

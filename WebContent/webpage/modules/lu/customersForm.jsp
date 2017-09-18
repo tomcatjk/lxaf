@@ -89,7 +89,7 @@
                 <td class="width-35">
                     <input type="text" name="contacts"  id="contacts" value="${customers.contacts}" class="form-control"/>
                 </td>
-                <td class="width-15 active"><label class="pull-right"><font color="red">*</font>联系电话：</label></td>
+                <td class="width-15 active"><label class="pull-right">联系电话：</label></td>
                 <td class="width-35">
                     <input type="text" name="phone" id="phone" value="${customers.phone}" class="form-control requiredClass"></td>
                 </td>
@@ -221,12 +221,12 @@
                 }
 
                 //验证联系电话
-                if( $(this).is('#phone') ){
-                    if( this.value=="" || ( this.value!="" && !/^1[34578]\d{9}$/.test(this.value) ) ){
-                        var errorMsg = '请输入11位联系电话.';
-                        $parent.append('<span class="formtips onError">'+errorMsg+'</span>');
-                    }
-                }
+//                if( $(this).is('#phone') ){
+//                    if( this.value=="" || ( this.value!="" && !/^1[34578]\d{9}$/.test(this.value) ) ){
+//                        var errorMsg = '请输入11位联系电话.';
+//                        $parent.append('<span class="formtips onError">'+errorMsg+'</span>');
+//                    }
+//                }
 
             }).keyup(function(){
                 $(this).triggerHandler("blur");
