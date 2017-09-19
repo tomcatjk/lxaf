@@ -3,6 +3,7 @@ package com.jeeplus.modules.lu.entity;
 import com.jeeplus.common.persistence.DataEntity;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * 客户统计实体类
@@ -32,8 +33,27 @@ public class CustomersAlarms extends DataEntity<CustomersAlarms> {
     private int DEVICETYPE5;
     private int DEVICETYPE6;
     private int DEVICETYPE7;
+    private int DEVICETYPE8;
 
     private String customerId;
+
+    private List deviceTypeNameList;
+
+    public List getDeviceTypeNameList() {
+        return deviceTypeNameList;
+    }
+
+    public void setDeviceTypeNameList(List deviceTypeNameList) {
+        this.deviceTypeNameList = deviceTypeNameList;
+    }
+
+    public int getDEVICETYPE8() {
+        return DEVICETYPE8;
+    }
+
+    public void setDEVICETYPE8(int DEVICETYPE8) {
+        this.DEVICETYPE8 = DEVICETYPE8;
+    }
 
     public String getCustomerId() {
         return customerId;

@@ -108,6 +108,7 @@
                         <td>${customersalarms.DEVICETYPE5}</td>
                         <td>${customersalarms.DEVICETYPE6}</td>
                         <td>${customersalarms.DEVICETYPE7}</td>
+                        <td>${customersalarms.DEVICETYPE8}</td>
                     </tr>
                 </c:forEach>
                 </tbody>

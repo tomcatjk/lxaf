@@ -2,6 +2,7 @@ package com.jeeplus.modules.lu.web;
 
 import java.io.BufferedOutputStream;
 import java.io.OutputStream;
+import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -95,6 +96,7 @@ public class CustomersController extends BaseController {
 	@RequestMapping(value = "listcustomer")
 	public String listCustomersAlarms(Customers customers,CustomersAlarms customersAlarms, HttpServletRequest request, HttpServletResponse response, Model model) {
 		customersAlarms.setCustomerId(UserUtils.getUser().getCustomerID());
+		customersAlarms.setDeviceTypeNameList(new ArrayList(Arrays.asList(DeviceTypeName.values())));
 		Page<CustomersAlarms> page = customersService.findCustomersAlarms(new Page<CustomersAlarms>(request, response), customersAlarms);
 		String customerType = request.getParameter("customersTypeStr");
 		customers.setCustomerTypeStr(customerType);
@@ -299,41 +301,20 @@ public class CustomersController extends BaseController {
 			cell.setCellValue("安装时间");
 			cell.setCellStyle(style);
 			sheet.addMergedRegion(new Region(0,(short)4,0,(short)5));
+
 			cell = row.createCell((short)6);
 			cell.setCellValue("主机数");
 			cell.setCellStyle(style);
-			cell = row.createCell((short)7);
-			cell.setCellValue("红外设备");
-			cell.setCellStyle(style);
-			sheet.addMergedRegion(new Region(0,(short)7,0,(short)8));
-			cell = row.createCell((short)9);
-			cell.setCellValue("烟感设备");
-			cell.setCellStyle(style);
-			sheet.addMergedRegion(new Region(0,(short)9,0,(short)10));
-			cell = row.createCell((short)11);
-			cell.setCellValue("门磁设备");
-			cell.setCellStyle(style);
-			sheet.addMergedRegion(new Region(0,(short)11,0,(short)12));
-			cell = row.createCell((short)13);
-			cell.setCellValue("遥控器");
-			cell.setCellStyle(style);
-			sheet.addMergedRegion(new Region(0,(short)13,0,(short)14));
-			cell = row.createCell((short)15);
-			cell.setCellValue("紧急按钮");
-			cell.setCellStyle(style);
-			sheet.addMergedRegion(new Region(0,(short)15,0,(short)16));
-			cell = row.createCell((short)17);
-			cell.setCellValue("地涝设备");
-			cell.setCellStyle(style);
-			sheet.addMergedRegion(new Region(0,(short)17,0,(short)18));
-			cell = row.createCell((short)19);
-			cell.setCellValue("天然气设备");
-			cell.setCellStyle(style);
-			sheet.addMergedRegion(new Region(0,(short)19,0,(short)20));
-			cell = row.createCell((short)21);
+
+			for(DeviceTypeName deviceTypeNameTemp : DeviceTypeName.values()){
+				cell = row.createCell((short)(6 + deviceTypeNameTemp.getDeviceType()));
+				cell.setCellValue(deviceTypeNameTemp.getDeviceTypeName());
+				cell.setCellStyle(style);
+			}
 
 			CustomersAlarms customersAlarmsParamer = new CustomersAlarms();
 			customersAlarmsParamer.setCustomerId(UserUtils.getUser().getCustomerID());
+			customersAlarmsParamer.setDeviceTypeNameList(new ArrayList(Arrays.asList(DeviceTypeName.values())));
 			List<CustomersAlarms> list = customersDao.getCustomersAlarms(customersAlarmsParamer);
 			for(CustomersAlarms customersAlarmsTemp : list){
 				customersAlarmsTemp.setCustomersType(CustomerTypeName.getByType(customersAlarmsTemp.getCustomertype()).getCustomerTypeName());
@@ -350,13 +331,12 @@ public class CustomersController extends BaseController {
 				cell = row.createCell((short)4);
 				cell.setCellValue(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(customersAlarms.getInstallTime()));
 				row.createCell((short)6).setCellValue(customersAlarms.getMasterNum());
-				row.createCell((short)7).setCellValue(customersAlarms.getDEVICETYPE1());
-				row.createCell((short)9).setCellValue(customersAlarms.getDEVICETYPE2());
-				row.createCell((short)11).setCellValue(customersAlarms.getDEVICETYPE3());
-				row.createCell((short)13).setCellValue(customersAlarms.getDEVICETYPE4());
-				row.createCell((short)15).setCellValue(customersAlarms.getDEVICETYPE5());
-				row.createCell((short)17).setCellValue(customersAlarms.getDEVICETYPE6());
-				row.createCell((short)19).setCellValue(customersAlarms.getDEVICETYPE7());
+
+				Class customersAlarmClass = CustomersAlarms.class;
+				for(DeviceTypeName deviceTypeNameTemp : DeviceTypeName.values()){
+					Method method = customersAlarmClass.getMethod("getDEVICETYPE" + deviceTypeNameTemp.getDeviceType());
+					row.createCell((short)(6 + deviceTypeNameTemp.getDeviceType())).setCellValue((int)method.invoke(customersAlarms));
+				}
 			}
 
 			//选择保存路径

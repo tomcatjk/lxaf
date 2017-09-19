@@ -268,62 +268,40 @@
 		LEFT JOIN (
 		SELECT
 		c.CID AS cid2,
-		sum(
-		CASE d.devicetype
-		WHEN 1 THEN
-		1
-		ELSE
-		0
-		END
-		) AS DEVICETYPE1,
-		sum(
-		CASE d.devicetype
-		WHEN 2 THEN
-		1
-		ELSE
-		0
-		END
-		) AS DEVICETYPE2,
-		sum(
-		CASE d.devicetype
-		WHEN 3 THEN
-		1
-		ELSE
-		0
-		END
-		) AS DEVICETYPE3,
-		sum(
-		CASE d.devicetype
-		WHEN 4 THEN
-		1
-		ELSE
-		0
-		END
-		) AS DEVICETYPE4,
-		sum(
-		CASE d.devicetype
-		WHEN 5 THEN
-		1
-		ELSE
-		0
-		END
-		) AS DEVICETYPE5,
-		sum(
-		CASE d.devicetype
-		WHEN 6 THEN
-		1
-		ELSE
-		0
-		END
-		) AS DEVICETYPE6,
-		sum(
-		CASE d.devicetype
-		WHEN 7 THEN
-		1
-		ELSE
-		0
-		END
-		) AS DEVICETYPE7
+		<foreach collection="deviceTypeNameList" index="index" item="deviceTypeName" separator=",">
+			sum(
+			CASE d.devicetype
+			WHEN #{deviceTypeName.deviceType} THEN
+			1
+			ELSE
+			0
+			END
+			)
+			<if test="deviceTypeName.deviceType == 1">
+				AS DEVICETYPE1
+			</if>
+			<if test="deviceTypeName.deviceType == 2">
+				AS DEVICETYPE2
+			</if>
+			<if test="deviceTypeName.deviceType == 3">
+				AS DEVICETYPE3
+			</if>
+			<if test="deviceTypeName.deviceType == 4">
+				AS DEVICETYPE4
+			</if>
+			<if test="deviceTypeName.deviceType == 5">
+				AS DEVICETYPE5
+			</if>
+			<if test="deviceTypeName.deviceType == 6">
+				AS DEVICETYPE6
+			</if>
+			<if test="deviceTypeName.deviceType == 7">
+				AS DEVICETYPE7
+			</if>
+			<if test="deviceTypeName.deviceType == 8">
+				AS DEVICETYPE8
+			</if>
+		</foreach>
 		FROM
 		`devices` d
 		LEFT JOIN masters m ON d.masterid = m.MID

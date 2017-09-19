@@ -2,6 +2,8 @@ package com.jeeplus.modules.lu.entity;
 
 import com.jeeplus.common.persistence.DataEntity;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2017/5/4.
  */
@@ -92,6 +94,16 @@ public class AlarmsCount extends DataEntity<AlarmsCount> {
     private int WARNING62;
     private int WARNING63;
     private int WARNING64;
+
+    private List alarmTypeNameList;
+
+    public List getAlarmTypeNameList() {
+        return alarmTypeNameList;
+    }
+
+    public void setAlarmTypeNameList(List alarmTypeNameList) {
+        this.alarmTypeNameList = alarmTypeNameList;
+    }
 
     public int getWARNING1() {
         return WARNING1;

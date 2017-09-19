@@ -4,12 +4,6 @@
 <head>
 	<title>记录主机信息管理</title>
 	<meta name="decorator" content="default"/>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/static/jedate/jedate.js"></script>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/jqueryesayform/css/platform-1.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/jqueryesayform/js/easyform/easyform.css">
-
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/jqueryesayform/css/tab.css">
-	<script src="${pageContext.request.contextPath}/static/jqueryesayform/js/easyform/easyform.js"></script>
 	<style>
 		.formtips{
 			color: red;
@@ -111,12 +105,6 @@
 						<td class="width-15 active"><label class="pull-right">版本：</label></td>
 						<td class="width-35">
 							<input type="text"  name="version" id="version"   class="form-control" value="${masters.version}"/>
-						</td>
-					</tr>
-					<tr style="display: none">
-						<td class="width-15 active"><label class="pull-right"><font color="red">*</font>创建时间：</label></td>
-						<td class="width-35">
-							<input type="text"  name="createtime" id="createtime" placeholder="请选择"  readonly  class="form-control required"/>
 						</td>
 					</tr>
 				</tbody>

@@ -232,75 +232,205 @@
 	<!--报警统计-->
 	<select id="getAlarmsCount"  resultType="com.jeeplus.modules.lu.entity.AlarmsCount">
 		select c.name,
-		sum(case a.AlarmType when 1100 then 1 else 0 end) as WARNING1,
-		sum(case a.AlarmType when 1101 then 1 else 0 end) as WARNING2,
-		sum(case a.AlarmType when 1102 then 1 else 0 end) as WARNING3,
-		sum(case a.AlarmType when 1440 then 1 else 0 end) as WARNING4,
-		sum(case a.AlarmType when 1141 then 1 else 0 end) as WARNING5,
-		sum(case a.AlarmType when 1142 then 1 else 0 end) as WARNING6,
-		sum(case a.AlarmType when 1143 then 1 else 0 end) as WARNING7,
-		sum(case a.AlarmType when 1144 then 1 else 0 end) as WARNING8,
-		sum(case a.AlarmType when 1145 then 1 else 0 end) as WARNING9,
-		sum(case a.AlarmType when 3102 then 1 else 0 end) as WARNING10,
-		sum(case a.AlarmType when 3140 then 1 else 0 end) as WARNING11,
-		sum(case a.AlarmType when 3141 then 1 else 0 end) as WARNING12,
-		sum(case a.AlarmType when 3142 then 1 else 0 end) as WARNING13,
-		sum(case a.AlarmType when 3143 then 1 else 0 end) as WARNING14,
-		sum(case a.AlarmType when 3144 then 1 else 0 end) as WARNING15,
-		sum(case a.AlarmType when 3145 then 1 else 0 end) as WARNING16,
-		sum(case a.AlarmType when 1110 then 1 else 0 end) as WARNING17,
-		sum(case a.AlarmType when 1113 then 1 else 0 end) as WARNING18,
-		sum(case a.AlarmType when 1114 then 1 else 0 end) as WARNING19,
-		sum(case a.AlarmType when 1115 then 1 else 0 end) as WARNING20,
-		sum(case a.AlarmType when 1116 then 1 else 0 end) as WARNING21,
-		sum(case a.AlarmType when 1117 then 1 else 0 end) as WARNING22,
-		sum(case a.AlarmType when 1118 then 1 else 0 end) as WARNING23,
-		sum(case a.AlarmType when 1120 then 1 else 0 end) as WARNING24,
-		sum(case a.AlarmType when 1121 then 1 else 0 end) as WARNING25,
-		sum(case a.AlarmType when 1122 then 1 else 0 end) as WARNING26,
-		sum(case a.AlarmType when 1123 then 1 else 0 end) as WARNING27,
-		sum(case a.AlarmType when 1130 then 1 else 0 end) as WARNING28,
-		sum(case a.AlarmType when 1131 then 1 else 0 end) as WARNING29,
-		sum(case a.AlarmType when 1132 then 1 else 0 end) as WARNING30,
-		sum(case a.AlarmType when 1133 then 1 else 0 end) as WARNING31,
-		sum(case a.AlarmType when 1134 then 1 else 0 end) as WARNING32,
-		sum(case a.AlarmType when 1135 then 1 else 0 end) as WARNING33,
-		sum(case a.AlarmType when 1136 then 1 else 0 end) as WARNING34,
-		sum(case a.AlarmType when 1137 then 1 else 0 end) as WARNING35,
-		sum(case a.AlarmType when 1138 then 1 else 0 end) as WARNING36,
-		sum(case a.AlarmType when 1111 then 1 else 0 end) as WARNING37,
-		sum(case a.AlarmType when 1112 then 1 else 0 end) as WARNING38,
-		sum(case a.AlarmType when 1300 then 1 else 0 end) as WARNING39,
-		sum(case a.AlarmType when 3301 then 1 else 0 end) as WARNING40,
-		sum(case a.AlarmType when 1301 then 1 else 0 end) as WARNING41,
-		sum(case a.AlarmType when 1302 then 1 else 0 end) as WARNING42,
-		sum(case a.AlarmType when 3302 then 1 else 0 end) as WARNING43,
-		sum(case a.AlarmType when 1303 then 1 else 0 end) as WARNING44,
-		sum(case a.AlarmType when 1304 then 1 else 0 end) as WARNING45,
-		sum(case a.AlarmType when 1305 then 1 else 0 end) as WARNING46,
-		sum(case a.AlarmType when 1306 then 1 else 0 end) as WARNING47,
-		sum(case a.AlarmType when 1307 then 1 else 0 end) as WARNING48,
-		sum(case a.AlarmType when 1308 then 1 else 0 end) as WARNING49,
-		sum(case a.AlarmType when 1309 then 1 else 0 end) as WARNING50,
-		sum(case a.AlarmType when 1320 then 1 else 0 end) as WARNING51,
-		sum(case a.AlarmType when 1321 then 1 else 0 end) as WARNING52,
-		sum(case a.AlarmType when 1322 then 1 else 0 end) as WARNING53,
-		sum(case a.AlarmType when 1331 then 1 else 0 end) as WARNING54,
-		sum(case a.AlarmType when 3331 then 1 else 0 end) as WARNING55,
-		sum(case a.AlarmType when 1351 then 1 else 0 end) as WARNING56,
-		sum(case a.AlarmType when 1352 then 1 else 0 end) as WARNING57,
-		sum(case a.AlarmType when 1354 then 1 else 0 end) as WARNING58,
-		sum(case a.AlarmType when 1384 then 1 else 0 end) as WARNING59,
-		sum(case a.AlarmType when 3384 then 1 else 0 end) as WARNING60,
-		sum(case a.AlarmType when 1381 then 1 else 0 end) as WARNING61,
-		sum(case a.AlarmType when 3381 then 1 else 0 end) as WARNING62,
-		sum(case a.AlarmType when 1701 then 1 else 0 end) as WARNING63,
-		sum(case a.AlarmType when 1702 then 1 else 0 end) as WARNING64
+		<foreach collection="alarmTypeNameList" index="index" item="alarmTypeName" separator=",">
+			sum(case a.AlarmType when #{alarmTypeName.alarmType} then 1 else 0 end)
+			<if test="index == 0">
+				as WARNING1
+			</if>
+			<if test="index == 1">
+				as WARNING2
+			</if>
+			<if test="index == 2">
+				as WARNING3
+			</if>
+			<if test="index == 3">
+				as WARNING4
+			</if>
+			<if test="index == 4">
+				as WARNING5
+			</if>
+			<if test="index == 5">
+				as WARNING6
+			</if>
+			<if test="index == 6">
+				as WARNING7
+			</if>
+			<if test="index == 7">
+				as WARNING8
+			</if>
+			<if test="index == 8">
+				as WARNING9
+			</if>
+			<if test="index == 9">
+				as WARNING10
+			</if>
+			<if test="index == 10">
+				as WARNING11
+			</if>
+			<if test="index == 11">
+				as WARNING12
+			</if>
+			<if test="index == 12">
+				as WARNING13
+			</if>
+			<if test="index == 13">
+				as WARNING14
+			</if>
+			<if test="index == 14">
+				as WARNING15
+			</if>
+			<if test="index == 15">
+				as WARNING16
+			</if>
+			<if test="index == 16">
+				as WARNING17
+			</if>
+			<if test="index == 17">
+				as WARNING18
+			</if>
+			<if test="index == 18">
+				as WARNING19
+			</if>
+			<if test="index == 19">
+				as WARNING20
+			</if>
+			<if test="index == 20">
+				as WARNING21
+			</if>
+			<if test="index == 21">
+				as WARNING22
+			</if>
+			<if test="index == 22">
+				as WARNING23
+			</if>
+			<if test="index == 23">
+				as WARNING24
+			</if>
+			<if test="index == 24">
+				as WARNING25
+			</if>
+			<if test="index == 25">
+				as WARNING26
+			</if>
+			<if test="index == 26">
+				as WARNING27
+			</if>
+			<if test="index == 27">
+				as WARNING28
+			</if>
+			<if test="index == 28">
+				as WARNING29
+			</if>
+			<if test="index == 29">
+				as WARNING30
+			</if>
+			<if test="index == 30">
+				as WARNING31
+			</if>
+			<if test="index == 31">
+				as WARNING32
+			</if>
+			<if test="index == 32">
+				as WARNING33
+			</if>
+			<if test="index == 33">
+				as WARNING34
+			</if>
+			<if test="index == 34">
+				as WARNING35
+			</if>
+			<if test="index == 35">
+				as WARNING36
+			</if>
+			<if test="index == 36">
+				as WARNING37
+			</if>
+			<if test="index == 37">
+				as WARNING38
+			</if>
+			<if test="index == 38">
+				as WARNING39
+			</if>
+			<if test="index == 39">
+				as WARNING40
+			</if>
+			<if test="index == 40">
+				as WARNING41
+			</if>
+			<if test="index == 41">
+				as WARNING42
+			</if>
+			<if test="index == 42">
+				as WARNING43
+			</if>
+			<if test="index == 43">
+				as WARNING44
+			</if>
+			<if test="index == 44">
+				as WARNING45
+			</if>
+			<if test="index == 45">
+				as WARNING46
+			</if>
+			<if test="index == 46">
+				as WARNING47
+			</if>
+			<if test="index == 47">
+				as WARNING48
+			</if>
+			<if test="index == 48">
+				as WARNING49
+			</if>
+			<if test="index == 49">
+				as WARNING50
+			</if>
+			<if test="index == 50">
+				as WARNING51
+			</if>
+			<if test="index == 51">
+				as WARNING52
+			</if>
+			<if test="index == 52">
+				as WARNING53
+			</if>
+			<if test="index == 53">
+				as WARNING54
+			</if>
+			<if test="index == 54">
+				as WARNING55
+			</if>
+			<if test="index == 55">
+				as WARNING56
+			</if>
+			<if test="index == 56">
+				as WARNING57
+			</if>
+			<if test="index == 57">
+				as WARNING58
+			</if>
+			<if test="index == 58">
+				as WARNING59
+			</if>
+			<if test="index == 59">
+				as WARNING60
+			</if>
+			<if test="index == 60">
+				as WARNING61
+			</if>
+			<if test="index == 61">
+				as WARNING62
+			</if>
+			<if test="index == 62">
+				as WARNING63
+			</if>
+			<if test="index == 63">
+				as WARNING64
+			</if>
+		</foreach>
 		from customers c left join alarms a
 		on c.CID=a.CustomerID
 		WHERE
 		c.ParentCid =#{customerid}
-		<!--AND c.CreateBy = #{createid} -->
 		<if test="name != null and name !=''">
 			AND c.name LIKE CONCAT('%',#{name},'%')
 		</if>

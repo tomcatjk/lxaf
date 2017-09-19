@@ -138,7 +138,7 @@
 					</td>
 					<td class="width-15 active"><label class="pull-right">设备类型：</label></td>
 					<td class="width-35">
-						<select name="devicetype" style="width: 250px; height: 30px;">
+						<select name="devicetype" style="width: 255px; height: 33px;">
 							<c:forEach items="${deviceTypeNameMap}" var="deviceTypeName">
 								<option value="${deviceTypeName.key}">${deviceTypeName.value}</option>
 							</c:forEach>
@@ -148,7 +148,7 @@
 				<tr>
 					<td class="width-15 active"><label class="pull-right"><font color="red">*</font>所属主机：</label></td>
 					<td class="width-35">
-							<select name="masterid" id="masterSelect" style='width: 250px; height: 30px;' class="form-control requiredClass"></select>
+							<select name="masterid" id="masterSelect" style='width: 255px; height: 33px;' class="form-control requiredClass"></select>
 					</td>
 					<td></td>
 					<td><input type="hidden" name="customerid" value="${devices.customerid}"></td>
@@ -156,7 +156,7 @@
 				<tr>
 					<td class="width-15 active"><label class="pull-right">防区编号：</label></td>
 					<td class="width-35">
-						<select name="defenceid" id="defenceSelect" style='width: 250px; height: 30px;'></select>
+						<select name="defenceid" id="defenceSelect" style='width: 255px; height: 33px;'></select>
 					</td>
 					<td class="width-15 active"><label class="pull-right">防区名称：</label></td>
 					<td class="width-35">

@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="${ctxStatic}/lianxun/layui/src/css/layui.css" media="all">
 	<script type="text/javascript">
 		function submitFrom() {
-			document.getElementById('searchForm').submit()
+			document.getElementById('searchForm').submit();
 		}
 	</script>
 </head>
