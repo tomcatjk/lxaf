@@ -73,4 +73,9 @@ public class MastersService extends CrudService<MastersDao, Masters> {
 	@Transactional(readOnly = false)
 	public void updatemasters(Map map){mastersDao.updatemasters(map);}
 
+	@Transactional(readOnly = false)
+	public void deleteByCid(String cid){
+		dao.deleteByCid(cid);
+	}
+
 }

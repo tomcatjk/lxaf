@@ -51,6 +51,9 @@ public class CustomersController extends BaseController {
 
 	@Autowired
 	private CustomersDao customersDao;
+
+	@Autowired
+	private MastersService mastersService;
 	
 	@ModelAttribute
 	public Customers get(@RequestParam(required=false) String id) {
@@ -238,6 +241,7 @@ public class CustomersController extends BaseController {
 	@RequestMapping(value = "delete")
 	public String delete(Customers customers, RedirectAttributes redirectAttributes) {
 		customersService.delete(customers);
+		mastersService.deleteByCid(customers.getCid());
 		addMessage(redirectAttributes, "删除客户信息成功");
 		return "redirect:"+Global.getAdminPath()+"/lu/customers/list?repage&customertype=" + customers.getCustomertype();
 	}
@@ -253,6 +257,7 @@ public class CustomersController extends BaseController {
 		for(String id : idArray){
             customers.setCid(id);
 			customersService.delete(customers);
+			mastersService.deleteByCid(customers.getCid());
 		}
 		addMessage(redirectAttributes, "删除客户信息成功");
         System.out.println(Global.getAdminPath());

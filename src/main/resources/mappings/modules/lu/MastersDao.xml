@@ -215,4 +215,9 @@
 		UPDATE masters m SET m.SIM=#{sim},m.Version=#{version},m.State=#{state}
 		WHERE m.CustomerID=#{customerid} AND m.MID=#{mid}
 	</update>
+
+	<update id="deleteByCid">
+		DELETE FROM masters
+		WHERE CustomerID = #{cid}
+	</update>
 </mapper>

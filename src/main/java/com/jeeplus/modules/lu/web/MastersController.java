@@ -283,4 +283,15 @@ public class MastersController extends BaseController {
 			return "notExist";
 		}
 	}
+
+	@RequestMapping(value = "simExist")
+	@ResponseBody
+	public String simExist(Masters masters){
+		Masters mastersTemp = mastersService.findUniqueByProperty("sim", masters.getSim());
+		if(mastersTemp != null){
+			return "exist";
+		}else{
+			return "notExist";
+		}
+	}
 }

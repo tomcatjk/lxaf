@@ -182,6 +182,13 @@
 					if( this.value==""){
 						var errorMsg = '请输入sim卡号.';
 						$parent.append('<span class="formtips onErrorMasters">'+errorMsg+'</span>');
+					}else if(this.value != "${masters.sim}"){
+						$.get("${ctx}/lu/masters/simExist?sim=" + this.value, function (data) {
+							if(data == "exist"){
+								var errorMsg = 'sim卡号已存在.';
+								$parent.append('<span class="formtips onErrorMasters">'+errorMsg+'</span>');
+							}
+						});
 					}
 				}
 

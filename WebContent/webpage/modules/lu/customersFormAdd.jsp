@@ -7,10 +7,10 @@
     <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=F454f8a5efe5e577997931cc01de3974"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/jedate/jedate.js"></script>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/jqueryesayform/css/platform-1.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/jqueryesayform/js/easyform/easyform.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/jqueryesayform/css/tab.css">
-    <script src="${pageContext.request.contextPath}/static/jqueryesayform/js/easyform/easyform.js"></script>
+    <%--<link rel="stylesheet" href="${pageContext.request.contextPath}/static/jqueryesayform/css/platform-1.css">--%>
+    <%--<link rel="stylesheet" href="${pageContext.request.contextPath}/static/jqueryesayform/js/easyform/easyform.css">--%>
+    <%--<link rel="stylesheet" href="${pageContext.request.contextPath}/static/jqueryesayform/css/tab.css">--%>
+    <%--<script src="${pageContext.request.contextPath}/static/jqueryesayform/js/easyform/easyform.js"></script>--%>
     <script src="${ctxStatic}/lianxun/layui/src/layui.js" charset="utf-8"></script>
     <link rel="stylesheet" href="${ctxStatic}/lianxun/layui/src/css/layui.css" media="all">
     <style>
@@ -21,7 +21,7 @@
 </head>
 <body class="hideScroll">
     <ul class="layui-tab-title">
-        <div class="layui-btn-group">
+        <div class="layui-btn-group" style="margin-left: 250px;">
             <button id="customersFormAddLi" class="layui-btn layui-btn-normal">添加客户</button>
             <button id="mastersFormLi" class="layui-btn layui-btn-primary">添加主机</button>
             <button id="devicesFormLi" class="layui-btn layui-btn-primary">添加设备</button>
@@ -88,11 +88,11 @@
                         <tr>
                             <td class="width-15 active"><label class="pull-right">安装时间：</label></td>
                             <td class="width-35">
-                                <input type="datetime" name="installtime" id="installtime" placeholder="请选择"  readonly  class="form-control" />
+                                <input type="datetime" name="installtime" id="installtime" placeholder="请选择" class="form-control" />
                             </td>
                             <td class="width-15 active"><label class="pull-right">到期时间：</label></td>
                             <td class="width-35">
-                                <input type="text" name="duetime" id="duetime"  placeholder="请选择"  readonly  class="form-control"/>
+                                <input type="datetime" name="duetime" id="duetime"  placeholder="请选择" class="form-control"/>
                             </td>
                         </tr>
                         <tr style="display: none">
@@ -530,6 +530,13 @@
                     if( this.value==""){
                         var errorMsg = '请输入sim卡号.';
                         $parent.append('<span class="formtips onErrorMasters">'+errorMsg+'</span>');
+                    }else if(this.value != "${masters.sim}"){
+                        $.get("${ctx}/lu/masters/simExist?sim=" + this.value, function (data) {
+                            if(data == "exist"){
+                                var errorMsg = 'sim卡号已存在.';
+                                $parent.append('<span class="formtips onErrorMasters">'+errorMsg+'</span>');
+                            }
+                        });
                     }
                 }
 
