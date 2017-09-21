@@ -5,6 +5,7 @@ package com.jeeplus.modules.lu.dao;
 
 import com.jeeplus.common.persistence.CrudDao;
 import com.jeeplus.common.persistence.annotation.MyBatisDao;
+import com.jeeplus.modules.lu.entity.Customers;
 import com.jeeplus.modules.lu.entity.Defences;
 import com.jeeplus.modules.lu.entity.DefencesPart;
 
@@ -24,5 +25,7 @@ public interface DefencesDao extends CrudDao<Defences> {
     DefencesPart getDefencesbyDid (String did);
 
     void updatedefences(Map map);
+
+    void deleteByCustomer(Customers customers);
 
 }

@@ -5,6 +5,7 @@ package com.jeeplus.modules.lu.dao;
 
 import com.jeeplus.common.persistence.CrudDao;
 import com.jeeplus.common.persistence.annotation.MyBatisDao;
+import com.jeeplus.modules.lu.entity.Customers;
 import com.jeeplus.modules.lu.entity.Masters;
 
 import java.util.List;
@@ -26,5 +27,5 @@ public interface MastersDao extends CrudDao<Masters> {
 
     void updatemasters(Map map);
 
-    void deleteByCid(String cid);
+    void deleteByCustomer(Customers customers);
 }

@@ -259,8 +259,8 @@
 		<if test="name != null and name != ''">
 			and cc.name like CONCAT('%',#{name},'%')
 		</if>
-		<if test="customertype!=null and customertype != ''">
-			and cc.CustomerType = #{customertype}
+		<if test="customerType !=null and customerType != ''">
+			and cc.CustomerType = #{customerType}
 		</if>
 		GROUP BY
 		cc.cid
@@ -312,4 +312,18 @@
 		ORDER BY
 		aa.createTime DESC
 	</select>
+
+	<delete id="deleteCusMasDevDefByCid">
+		DELETE c.*, m.*, d.*, dd.*
+			FROM
+				customers c,
+				masters m,
+				devices d,
+				defences dd
+			WHERE
+			c.CID = m.CustomerID
+			AND c.CID = d.customerid
+			AND c.CID = dd.CustomerID
+			AND c.CID = #{cid}
+	</delete>
 </mapper>

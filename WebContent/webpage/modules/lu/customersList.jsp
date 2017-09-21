@@ -5,7 +5,7 @@
 	<title>记录客户信息管理</title>
 	<meta name="decorator" content="default"/>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/static/jedate/jedate.js"></script>
-	<script src="${ctxStatic}/common/jeeplus.js?16=3" type="text/javascript"></script>
+	<script src="${ctxStatic}/common/jeeplus.js?16=7" type="text/javascript"></script>
 	<script src="${ctxStatic}/lianxun/layui/src/layui.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="${ctxStatic}/lianxun/layui/src/css/layui.css" media="all">
 	<script type="text/javascript">
@@ -35,11 +35,11 @@
 							 </div>
 							<div class="form-group">
 								<span>到期时间：</span>
-								<input type="datetime" name="startTime" value="${customers.startTime}" id="startTime" placeholder="请选择"  readonly  class="form-control " />
+								<input type="datetime" name="startTime" value="${customers.startTime}" id="startTime" placeholder="请选择" class="laydate-icon form-control layer-date input-sm" />
 							</div>
 							<div class="form-group">
 								<span>—</span>
-								<input type="datetime" name="endTime" value="${customers.endTime}" id="endTime" placeholder="请选择"  readonly  class="form-control " />
+								<input type="datetime" name="endTime" value="${customers.endTime}" id="endTime" placeholder="请选择" class="laydate-icon form-control layer-date input-sm" />
 							</div>
 						</form:form>
 						<br/>
@@ -51,7 +51,7 @@
 					<div class="col-sm-12">
 						<div class="pull-left">
 							<shiro:hasPermission name="lu:customers:add">
-								<table:addRow2 url="${ctx}/lu/customers/formadd?customertype=${customertype}" title="添加客户"></table:addRow2><!-- 增加按钮 -->
+								<table:addRow2 url="${ctx}/lu/customers/formadd?customertype=${customertype}" title="新增客户"></table:addRow2><!-- 增加按钮 -->
 							</shiro:hasPermission>
 							<shiro:hasPermission name="lu:customers:del">
 								<table:delRow url="${ctx}/lu/customers/deleteAll" id="contentTable"></table:delRow><!-- 删除按钮 -->

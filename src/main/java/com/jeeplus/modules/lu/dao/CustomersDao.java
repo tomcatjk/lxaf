@@ -23,4 +23,6 @@ public interface CustomersDao extends CrudDao<Customers> {
     List getCustomers(Customers customers);
 
     List getCustomersAlarms(CustomersAlarms customersAlarms);
+
+    void deleteCusMasDevDefByCid(Customers customers);
 }

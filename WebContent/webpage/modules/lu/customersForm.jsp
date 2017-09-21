@@ -6,13 +6,7 @@
     <meta name="decorator" content="default"/>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=F454f8a5efe5e577997931cc01de3974"></script>
     <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=F454f8a5efe5e577997931cc01de3974"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/static/jedate/jedate.js"></script>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/jqueryesayform/css/platform-1.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/jqueryesayform/js/easyform/easyform.css">
-
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/jqueryesayform/css/tab.css">
-    <script src="${pageContext.request.contextPath}/static/jqueryesayform/js/easyform/easyform.js"></script>
+    <script type="text/javascript" src="${ctxStatic}/jedate/jedate.js"></script>
     <style>
         .onError{
             color: red;
@@ -40,7 +34,7 @@
             <tr>
                 <td class="width-15 active"><label class="pull-right"><font color="red">*</font>客户类别：</label></td>
                 <td class="width-35">
-                    <select id="customertypeId" name="customertype" class="requiredClass" style="width: 250px; height: 30px;">
+                    <select id="customertypeId" name="customertype" class="requiredClass" style="width: 255px; height: 33px;">
                         <c:choose>
                             <c:when test="${customers.customertype == 1}">
                                 <option value="1" selected = 'selected'>企业客户</option>

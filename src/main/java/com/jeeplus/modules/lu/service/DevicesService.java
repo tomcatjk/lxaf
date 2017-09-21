@@ -8,16 +8,13 @@ import java.util.List;
 import java.util.Map;
 
 import com.jeeplus.common.persistence.*;
-import com.jeeplus.modules.lu.entity.AlarmTypeName;
-import com.jeeplus.modules.lu.entity.DeviceTypeName;
-import com.jeeplus.modules.lu.entity.DevicesCustomers;
+import com.jeeplus.modules.lu.entity.*;
 import com.jeeplus.modules.lu.web.DevicesController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jeeplus.common.service.CrudService;
-import com.jeeplus.modules.lu.entity.Devices;
 import com.jeeplus.modules.lu.dao.DevicesDao;
 
 /**
@@ -79,10 +76,8 @@ public class DevicesService extends CrudService<DevicesDao, Devices> {
 	/**
 	 * 查询所有客户类别
 	 */
-	public List<DevicesCustomers> findAllCustomersType(){
-		List<DevicesCustomers> list = devicesDao.findAllCustomersType();
-
-		return list;
+	public List findAllCustomersType(){
+		return devicesDao.findAllCustomersType();
 	}
 
 	@Transactional(readOnly = false)
@@ -102,4 +97,24 @@ public class DevicesService extends CrudService<DevicesDao, Devices> {
 
 	@Transactional(readOnly = false)
 	public void updatedevices(Map map){devicesDao.updatedevices(map);}
+
+	@Transactional(readOnly = false)
+	public void deleteByCustomer(Customers customers){
+		dao.deleteByCustomer(customers);
+	}
+
+	public Page<DevicesCustomers> findDeviceCustomerPage(Page<DevicesCustomers> page, DevicesCustomers devicesCustomers){
+		devicesCustomers.setPage(page);
+		page.setList(dao.getDeviceCustomer(devicesCustomers));
+		for(DevicesCustomers devicesCustomersTemp : page.getList()){
+			if(devicesCustomersTemp.getDevicesType() != null){
+				devicesCustomersTemp.setDevicesType(DeviceTypeName.getByType(Integer.parseInt(devicesCustomersTemp.getDevicesType())).getDeviceTypeName());
+			}
+			//设置设备状态
+			if(devicesCustomersTemp.getState() != null){
+				devicesCustomersTemp.setState(DeviceStateName.getByState(Integer.parseInt(devicesCustomersTemp.getState())).getDeviceStateName());
+			}
+		}
+		return page;
+	}
 }

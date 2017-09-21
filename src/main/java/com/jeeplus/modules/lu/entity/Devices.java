@@ -29,7 +29,17 @@ public class Devices extends DataEntity<Devices> {
 	private Date createtime;		// 创建时间
 	private String state;		// 状态(1:启用，2:禁用)
 	private String createid;  //创建人
-	
+
+	private String code;
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
 	public Devices() {
 		super();
 	}

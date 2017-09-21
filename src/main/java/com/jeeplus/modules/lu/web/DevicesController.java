@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.ConstraintViolationException;
 
+import com.jeeplus.modules.lu.dao.DevicesDao;
 import com.jeeplus.modules.lu.entity.*;
 import com.jeeplus.modules.lu.service.DefencesService;
-import com.jeeplus.modules.lu.service.DevicesCustomersService;
 import com.jeeplus.modules.sys.entity.User;
 import com.jeeplus.modules.sys.utils.UserUtils;
 import net.sf.json.JSONArray;
@@ -56,7 +56,7 @@ public class DevicesController extends BaseController {
 	private DefencesService defencesService;
 
 	@Autowired
-	private DevicesCustomersService devicesCustomersService;
+	private DevicesDao devicesDao;
 	
 	@ModelAttribute
 	public Devices get(@RequestParam(required=false) String id) {
@@ -89,38 +89,16 @@ public class DevicesController extends BaseController {
 	@RequestMapping(value = "customerdevices")
 	public String customerList(DevicesCustomers devicesCustomers, HttpServletRequest request, HttpServletResponse response, Model model) {
 		devicesCustomers.setCustomerId(UserUtils.getUser().getCustomerID());
-		Page<DevicesCustomers> page = devicesCustomersService.find(new Page<DevicesCustomers>(request, response), devicesCustomers);
-		String devicesType = request.getParameter("devicesTypes");
-		String customerType = request.getParameter("customerself");
-		if((devicesType!=null&&StringUtils.isNotBlank(devicesType))||(customerType!=null&&StringUtils.isNotBlank(customerType))){
-			if(customerType!=null&&StringUtils.isNotBlank(customerType)){
-				List<String> customeridList = devicesService.findCustomersidByCustomerName(customerType);
-				if(customeridList.size()>0) {
-					devicesCustomers.setCustomeridList(customeridList);
-				}
-			}
-			if(devicesType!=null && devicesType!=""){
-				devicesCustomers.setDevicesType(String.valueOf(DeviceTypeName.getByName(devicesType).getDeviceType()));
-			}
-			page = devicesCustomersService.find1(new Page<DevicesCustomers>(request, response), devicesCustomers);
-
-		}else {
-
-		}
-		List<DevicesCustomers> listCustomersType = devicesService.findAllCustomersType();
-		listCustomersType.add(0, new DevicesCustomers());
-		model.addAttribute("listCustomersType",listCustomersType);
-		List listDevices = new ArrayList();
-		int i = 0;
-		for(DeviceTypeName deviceTypeName : DeviceTypeName.values()){
-			listDevices.add(i, deviceTypeName.getDeviceTypeName());
-		}
-		listDevices.add(0, "");
-		model.addAttribute("listDevicesType",listDevices);
-		model.addAttribute("customersTypeTemp",customerType);
-		model.addAttribute("devicesTypeTemp",devicesType);
-
+		Page<DevicesCustomers> page = devicesService.findDeviceCustomerPage(new Page<DevicesCustomers>(request, response), devicesCustomers);
 		model.addAttribute("page",page);
+
+		List deviceTypeNameMapList = DeviceTypeName.getDeviceTypeMapList();
+		Map mapTemp = new HashMap();
+		mapTemp.put("deviceType", "");
+		mapTemp.put("deviceTypeName", "全部");
+		deviceTypeNameMapList.add(0, mapTemp);
+		model.addAttribute("deviceTypeNameMapList",deviceTypeNameMapList);
+		model.addAttribute("currentType",devicesCustomers.getDevicesType());
 		return "modules/lu/devicesCustomers";
 	}
 
@@ -130,7 +108,7 @@ public class DevicesController extends BaseController {
 	@RequiresPermissions(value={"lu:devices:view","lu:devices:add","lu:devices:edit"},logical=Logical.OR)
 	@RequestMapping(value = "form")
 	public String form(Devices devices, Model model) {
-		Devices devicesTemp = devicesService.findUniqueByProperty("did", devices.getDid());
+		Devices devicesTemp = devicesService.findUniqueByProperty("d.did", devices.getDid());
 		if(devicesTemp != null){
 			model.addAttribute("devices", devicesTemp);
 		}else{
@@ -167,7 +145,7 @@ public class DevicesController extends BaseController {
 	@RequestMapping(value = "save")
 	public String save(Devices devices, String defencesName, Model model, RedirectAttributes redirectAttributes) throws Exception{
 		if(devices.getDid() != null && devices.getDid().length() != 0){
-			Devices devicesTemp = devicesService.findUniqueByProperty("did", devices.getDid());
+			Devices devicesTemp = devicesService.findUniqueByProperty("d.did", devices.getDid());
 			devicesTemp.setName(devices.getName());
 			devicesTemp.setDevicetype(devices.getDevicetype());
 			devicesTemp.setMasterid(devices.getMasterid());
@@ -280,7 +258,7 @@ public class DevicesController extends BaseController {
 
 			DevicesCustomers devicesCustomersParameter = new DevicesCustomers();
 			devicesCustomersParameter.setCustomerId(UserUtils.getUser().getCustomerID());
-			List<DevicesCustomers> list = devicesCustomersService.findList(devicesCustomersParameter);
+			List<DevicesCustomers> list = devicesDao.getDeviceCustomer(devicesCustomersParameter);
 			for(DevicesCustomers devicesCustomersTemp : list){
 				if(devicesCustomersTemp.getDevicesType() != null){
 					devicesCustomersTemp.setDevicesType(DeviceTypeName.getByType(Integer.parseInt(devicesCustomersTemp.getDevicesType())).getDeviceTypeName());

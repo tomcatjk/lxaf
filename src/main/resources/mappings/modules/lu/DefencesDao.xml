@@ -177,4 +177,9 @@
 		UPDATE defences SET Code=#{defencencode},Name=#{defencename},DefenceType=#{defencetype},State=#{State}
 		WHERE customerid=#{customerid} AND masterid=#{mid}
 	</update>
+
+	<update id="deleteByCustomer">
+		DELETE FROM defences
+		WHERE customerid = #{cid}
+	</update>
 </mapper>

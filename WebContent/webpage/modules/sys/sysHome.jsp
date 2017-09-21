@@ -48,7 +48,6 @@
         });
 
         var areasCustomer = function () {
-            console.log(datas);
             var html = '';
             for(var i=0;i<datas.length;i++){
                 $("#treeTableList"+i).html(html);

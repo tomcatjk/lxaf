@@ -144,10 +144,7 @@
 	<!--物理删除-->
 	<update id="delete">
 		DELETE FROM areas
-		WHERE id = #{id} OR parent_ids LIKE
-		<if test="dbName == 'oracle'">#{id}||'%'</if>
-		<if test="dbName == 'mssql'">#{id}+'%'</if>
-		<if test="dbName == 'mysql'">concat(#{id},'%')</if>
+		WHERE id = #{id} OR parent_ids LIKE CONCAT('%,', #{id}, ',%')
 	</update>
 
 	<!--逻辑删除-->

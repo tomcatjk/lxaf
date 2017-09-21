@@ -216,7 +216,7 @@
 		WHERE m.CustomerID=#{customerid} AND m.MID=#{mid}
 	</update>
 
-	<update id="deleteByCid">
+	<update id="deleteByCustomer">
 		DELETE FROM masters
 		WHERE CustomerID = #{cid}
 	</update>

@@ -284,12 +284,9 @@ public class AlarmsController extends BaseController {
 
     @RequiresPermissions("lu:count:list")
     @RequestMapping(value = "count")
-    public String CountList(Alarms alarms,AlarmsCount alarmsCount, HttpServletRequest request, HttpServletResponse response, Model model) {
+    public String CountList(AlarmsCount alarmsCount, HttpServletRequest request, HttpServletResponse response, Model model) {
         alarmsCount.setCustomerid(UserUtils.getUser().getCustomerID());
         alarmsCount.setAlarmTypeNameList(new ArrayList(Arrays.asList(AlarmTypeName.values())));
-        if(alarms.getCustomerid()!=null&&alarms.getCustomerid()!=""){
-            alarmsCount.setName(alarms.getCustomerid());
-        }
         Page<AlarmsCount> page = alarmsService.findAlarmsCount(new Page<AlarmsCount>(request, response),alarmsCount);
         model.addAttribute("page",page);
         model.addAttribute("alarmscount",alarmsCount);
@@ -300,6 +297,15 @@ public class AlarmsController extends BaseController {
 			alarmTypeList.add(i, alarmTypeNameTemp.getAlarmTypeName());
 			i++;
 		}
+
+		List customersTypeNameMapList = CustomerTypeName.getCustomerTypeNameMapList();
+		Map customerTypeNameMap = new HashMap();
+		customerTypeNameMap.put("customerType", "");
+		customerTypeNameMap.put("customerTypeName", "全部客户");
+		customersTypeNameMapList.add(0, customerTypeNameMap);
+		model.addAttribute("customersTypeNameMapList", customersTypeNameMapList);
+		model.addAttribute("currentType", alarmsCount.getCustomerType());
+
 		model.addAttribute("alarmTypeList", alarmTypeList);
         return "modules/lu/alarmsCount";
     }

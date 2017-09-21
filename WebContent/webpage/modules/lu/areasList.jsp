@@ -12,12 +12,10 @@
 			var tpl = $("#treeTableTpl").html().replace(/(\/\/\<!\-\-)|(\/\/\-\->)/g,"");
 			var data = ${fns:toJson(page.list)}, ids = [], rootIds = [];
 
-			console.log(data);
 			for (var i=0; i<data.length; i++){
 				ids.push(data[i].id);
 			}
 			ids = ',' + ids.join(',') + ',';
-            console.log(ids);
 			for (var i=0; i<data.length; i++){
 				if (ids.indexOf(','+data[i].parentId+',') == -1){
 					if ((','+rootIds.join(',')+',').indexOf(','+data[i].parentId+',') == -1){
@@ -99,7 +97,6 @@
 				<th>创建时间</th>
 				<th>备注信息</th>
 				<th>操作</th>
-				<shiro:hasPermission name="lu:areas:edit"><th>操作</th></shiro:hasPermission>
 			</tr>
 		</thead>
 		<tbody id="treeTableList"></tbody>

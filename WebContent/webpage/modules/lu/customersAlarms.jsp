@@ -24,19 +24,16 @@
                         <table:sortColumn id="orderBy" name="orderBy" value="${page.orderBy}" callback="sortOrRefresh();"/><!-- 支持排序 -->
                         <div class="form-group">
                             <span>客户名称：</span>
-                            <input type="text" name="name" id="name" value="${customers.name}"  class="form-control " />
+                            <input type="text" name="name" id="name" value="${customersAlarms.name}"  class="form-control " />
                         </div>
 
                         <div class="form-group">
                             <span>客户类别：</span>
-                            <select name="customersTypeStr" id="customersTypeStr" class="form-control "  >
-                                <option>${customerTypeTemp}</option>
-                                <c:forEach items="${customersTypeList}" var="customerType">
-                                    <c:if test="${customerType != customerTypeTemp}">
-                                        <option>
-                                                ${customerType}
-                                        </option>
-                                    </c:if>
+                            <select name="customerType" id="customerType" class="form-control "  >
+                                <c:forEach items="${customersTypeNameMapList}" var="customerTypeNameMap">
+                                    <option value="${customerTypeNameMap.customerType}" <c:if test="${currentType == customerTypeNameMap.customerType}">selected</c:if> >
+                                            ${customerTypeNameMap.customerTypeName}
+                                    </option>
                                 </c:forEach>
                             </select>
                         </div>

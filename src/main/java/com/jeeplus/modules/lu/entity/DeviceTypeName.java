@@ -1,5 +1,10 @@
 package com.jeeplus.modules.lu.entity;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created by buwan on 2017/6/20.
  */
@@ -57,5 +62,18 @@ public enum DeviceTypeName {
             }
         }
         return null;
+    }
+
+    public static List getDeviceTypeMapList(){
+        List deviceTypeNameMapList = new ArrayList();
+        int i = 0;
+        for(DeviceTypeName deviceTypeNameTemp : DeviceTypeName.values()){
+            Map mapTemp = new HashMap();
+            mapTemp.put("deviceType", deviceTypeNameTemp.getDeviceType());
+            mapTemp.put("deviceTypeName", deviceTypeNameTemp.getDeviceTypeName());
+            deviceTypeNameMapList.add(i, mapTemp);
+            i++;
+        }
+        return deviceTypeNameMapList;
     }
 }

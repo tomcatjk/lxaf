@@ -59,11 +59,11 @@
                         <table:sortColumn id="orderBy" name="orderBy" value="${page.orderBy}" callback="sortOrRefresh();"/><!-- 支持排序 -->
                         <div class="form-group">
                             <span>报警时间：</span>
-                                <input type="datetime" name="startTime" value="${alarmsDefences.startTime}" id="startTime" placeholder="请选择"  readonly  class="form-control " />
+                                <input type="datetime" name="startTime" value="${alarmsDefences.startTime}" id="startTime" placeholder="请选择" class="laydate-icon form-control layer-date input-sm" />
                         </div>
                         <div class="form-group">
                             <span>—</span>
-                                <input type="datetime" name="endTime" value="${alarmsDefences.endTime}" id="endTime" placeholder="请选择"  readonly  class="form-control " />
+                                <input type="datetime" name="endTime" value="${alarmsDefences.endTime}" id="endTime" placeholder="请选择" class="laydate-icon form-control layer-date input-sm" />
                         </div>
                     </form:form>
                     <br/>

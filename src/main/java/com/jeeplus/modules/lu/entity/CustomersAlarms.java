@@ -24,8 +24,6 @@ public class CustomersAlarms extends DataEntity<CustomersAlarms> {
     //主机数
     private int masterNum;
 
-    private int customertype;
-
     private int DEVICETYPE1;
     private int DEVICETYPE2;
     private int DEVICETYPE3;
@@ -36,6 +34,16 @@ public class CustomersAlarms extends DataEntity<CustomersAlarms> {
     private int DEVICETYPE8;
 
     private String customerId;
+
+    private String customerType;
+
+    public String getCustomerType() {
+        return customerType;
+    }
+
+    public void setCustomerType(String customerType) {
+        this.customerType = customerType;
+    }
 
     private List deviceTypeNameList;
 
@@ -61,14 +69,6 @@ public class CustomersAlarms extends DataEntity<CustomersAlarms> {
 
     public void setCustomerId(String customerId) {
         this.customerId = customerId;
-    }
-
-    public int getCustomertype() {
-        return customertype;
-    }
-
-    public void setCustomertype(int customertype) {
-        this.customertype = customertype;
     }
 
     public int getDEVICETYPE1() {

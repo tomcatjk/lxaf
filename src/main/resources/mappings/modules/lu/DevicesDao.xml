@@ -163,7 +163,7 @@
 	
 	<!-- 根据实体名称和字段名称和字段值获取唯一记录 -->
 	<select id="findUniqueByProperty" resultType="Devices" statementType="STATEMENT">
-		select * FROM devices  where ${propertyName} = '${value}'
+		select d.*,dd.code AS code FROM devices d LEFT JOIN defences dd ON d.defenceid = dd.did where ${propertyName} = '${value}'
 	</select>
 
 	<!--根据所属客户或者设备类型查询不同的客户id-->
@@ -249,4 +249,25 @@
 		UPDATE devices SET name=#{devicename},devicetype=#{devicetype},devicemodel=#{devicemode},state=#{state}
 		WHERE customerid=#{customerid} AND masterid=#{mid} AND did=#{devicerid}
 	</update>
+
+	<update id="deleteByCustomer">
+		DELETE FROM devices
+		WHERE customerid = #{cid}
+	</update>
+
+	<!--设备统计-->
+	<select id="getDeviceCustomer" resultType="com.jeeplus.modules.lu.entity.DevicesCustomers">
+		SELECT d.did as id,d.devicemodel,d.name as devicesName,d.devicetype as devicesType ,c.`Name` as customersName,d.state,c.InstallTime as installTime,
+		c.DueTime as dueTime,c.InstallPerson as installPerson,c.QualityPerson as qualityPerson
+		FROM `devices` d left JOIN customers c on d.customerid=c.CID
+		WHERE
+		c.ParentCid =#{customerId}
+		<if test="customersName != null and customersName != ''">
+			and c.`Name` LIKE concat('%', #{customersName}, '%')
+		</if>
+		<if test="devicesType!=null and devicesType!= ''">
+			and d.devicetype =#{devicesType}
+		</if>
+		ORDER BY d.createtime DESC
+	</select>
 </mapper>

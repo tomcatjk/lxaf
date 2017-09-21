@@ -6,6 +6,7 @@ package com.jeeplus.modules.lu.service;
 import java.util.List;
 import java.util.Map;
 
+import com.jeeplus.modules.lu.entity.Customers;
 import com.jeeplus.modules.lu.entity.DefencesPart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -72,5 +73,10 @@ public class DefencesService extends CrudService<DefencesDao, Defences> {
 
 	@Transactional(readOnly = false)
 	public void update(Map map){defencesDao.updatedefences(map);};
+
+	@Transactional(readOnly = false)
+	public void deleteByCustomer(Customers customers){
+		defencesDao.deleteByCustomer(customers);
+	}
 	
 }

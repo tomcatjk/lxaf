@@ -24,27 +24,15 @@
                         <table:sortColumn id="orderBy" name="orderBy" value="${page.orderBy}" callback="sortOrRefresh();"/><!-- 支持排序 -->
                         <div class="form-group">
                             <span>所属客户：</span>
-                            <select name="customerself" id="customerself" class="form-control ">
-                                <option>${customersTypeTemp}</option>
-                                <c:forEach items="${listCustomersType}" var="customersType">
-                                    <c:if test="${customersType.customersName != customersTypeTemp}">
-                                        <option  >
-                                                ${customersType.customersName}
-                                        </option>
-                                    </c:if>
-                                </c:forEach>
-                            </select>
+                            <input name="customersName" id="customersName" value="${devicesCustomers.customersName}"class=" form-control input-sm"/>
                         </div>
                         <div class="form-group">
                             <span>设备类型：</span>
-                            <select name="devicesTypes" id="devicesTypes" class="form-control ">
-                                <option>${devicesTypeTemp}</option>
-                                <c:forEach items="${listDevicesType}" var="devicesType">
-                                    <c:if test="${devicesType != devicesTypeTemp}">
-                                        <option>
-                                                ${devicesType}
-                                        </option>
-                                    </c:if>
+                            <select name="devicesType" id="devicesType" class="form-control ">
+                                <c:forEach items="${deviceTypeNameMapList}" var="deviceTypeNameMap">
+                                    <option value="${deviceTypeNameMap.deviceType}" <c:if test="${currentType == deviceTypeNameMap.deviceType}">selected</c:if> >
+                                        ${deviceTypeNameMap.deviceTypeName}
+                                    </option>
                                 </c:forEach>
                             </select>
                         </div>

@@ -110,30 +110,6 @@
 				</tbody>
 			</table>
 	</form>
-	<%--初始化时间插件--%>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			/*获取当前系统时间并转化为指定格式*/
-			var date = new Date();
-			var mon = date.getMonth() + 1;
-			var day = date.getDate();
-			var hour = date.getHours();
-			var minutes = date.getMinutes();
-			var seconds = date.getSeconds();
-			var nowDay = date.getFullYear() + "-" + (mon<10?"0"+mon:mon) + "-" +(day<10?"0"+day:day) + " " +
-					(hour<10?"0"+hour:hour) + ":" + (minutes<10?"0"+minutes:minutes) + ":" + (seconds<10?"0"+seconds:seconds);
-			/*创建时间*/
-			jeDate({
-				dateCell:"#createtime",
-				format:"YYYY-MM-DD hh:mm:ss",
-				isinitVal:true, /*初始值*/
-				isTime:true, //isClear:false,
-				minDate:nowDay, //最小时间
-				maxDate:nowDay,                  //最大时间
-				okfun:function(val){}
-			})
-		});
-	</script>
 
 	<%--masterForm表单验证--%>
 	<script>

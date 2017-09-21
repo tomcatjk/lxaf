@@ -69,58 +69,59 @@
 			$.post(url,function (mastersList) {
 				var options = "";
 				$.each(mastersList,function (index,masters) {
-					options += "<option value="+masters.mid+">"+masters.name+"</option>"
-				})
+					if("${devices.masterid}" == masters.mid) {
+						options += "<option value='" + masters.mid + "' selected>" + masters.name + "</option>"
+					}else {
+						options += "<option value=" + masters.mid + ">" + masters.name + "</option>"
+					}
+				});
 				$("#masterSelect").html(options);
 				var mid = $("#masterSelect").val();
-				var url = "${ctx}/lu/defences/findDefencesListByMasterId?masterId=" + mid;
-				$.post(url,function (defencesListJson) {
-					var options = "";
-					$.each(defencesListJson,function (index,defences) {
-						options += "<option value="+defences.did+">"+defences.code+"</option>"
-					})
-					$("#defenceSelect").html(options);
-					var did = $("#defenceSelect").val();
-					var url = "${ctx}/lu/defences/findDefencesbyDid?did=" + did;
-					$.post(url,function (defences) {
-						var input = "<input type='text' name='defencesName' value='"+defences.name+"' class='form-control'>";
-						$("#defencesName").html(input);
-					})
-				})
-			})
-
-		})
+				masterSelectChange(mid);
+			});
+		});
 
 		$(document).ready(function(){
 			$("#masterSelect").change(function(){
 				var mid = $(this).val();
-				var url = "${ctx}/lu/defences/findDefencesListByMasterId?masterId=" + mid;
-				$.post(url,function (defencesListJson) {
-					var options = "";
-					$.each(defencesListJson,function (index,defences) {
-						options += "<option value="+defences.did+">"+defences.code+"</option>"
-					})
-					$("#defenceSelect").html(options);
-					var did = $("#defenceSelect").val();
-					var url = "${ctx}/lu/defences/findDefencesbyDid?did=" + did;
-					$.post(url,function (defences) {
-						var input = "<input type='text' name='defencesName' value='"+defences.name+"' class='form-control'>";
-						$("#defencesName").html(input);
-					})
-				})
+				masterSelectChange(mid);
+			});
+
+			$("#defenceSelect").change(function(){
+				var did = $(this).val();
+				defenceSelectChange(did);
 			});
 		});
 
-		$(document).ready(function(){
-			$("#defenceSelect").change(function(){
-				var did = $(this).val();
+		var showFlag = 0;
+		var masterSelectChange = function (mid) {
+			var url = "${ctx}/lu/defences/findDefencesListByMasterId?masterId=" + mid;
+			$.post(url,function (defencesListJson) {
+				var options = "";
+				if(showFlag == 0 && ${devices.code != null}){
+					options += "<option value='${devices.defenceid}' selected>${devices.code}</option>";
+					showFlag++;
+				}
+				$.each(defencesListJson,function (index,defences) {
+					options += "<option value='"+defences.did+"'>"+defences.code+"</option>"
+				});
+				$("#defenceSelect").html(options);
+				var did = $("#defenceSelect").val();
 				var url = "${ctx}/lu/defences/findDefencesbyDid?did=" + did;
 				$.post(url,function (defences) {
 					var input = "<input type='text' name='defencesName' value='"+defences.name+"' class='form-control'>";
 					$("#defencesName").html(input);
-				})
+				});
 			});
-		});
+		}
+
+		var defenceSelectChange = function (did) {
+			var url = "${ctx}/lu/defences/findDefencesbyDid?did=" + did;
+			$.post(url,function (defences) {
+				var input = "<input type='text' name='defencesName' value='"+defences.name+"' class='form-control'>";
+				$("#defencesName").html(input);
+			});
+		}
 
 	</script>
 </head>
@@ -140,7 +141,14 @@
 					<td class="width-35">
 						<select name="devicetype" style="width: 255px; height: 33px;">
 							<c:forEach items="${deviceTypeNameMap}" var="deviceTypeName">
-								<option value="${deviceTypeName.key}">${deviceTypeName.value}</option>
+								<c:choose>
+									<c:when test="${devices.devicetype == deviceTypeName.key}">
+										<option value="${deviceTypeName.key}" selected>${deviceTypeName.value}</option>
+									</c:when>
+									<c:otherwise>
+										<option value="${deviceTypeName.key}">${deviceTypeName.value}</option>
+									</c:otherwise>
+								</c:choose>
 							</c:forEach>
 						</select>
 					</td>

@@ -1,7 +1,9 @@
 package com.jeeplus.modules.lu.dao;
 
 import com.jeeplus.common.persistence.CrudDao;
+import com.jeeplus.common.persistence.Page;
 import com.jeeplus.common.persistence.annotation.MyBatisDao;
+import com.jeeplus.modules.lu.entity.Customers;
 import com.jeeplus.modules.lu.entity.Devices;
 import com.jeeplus.modules.lu.entity.DevicesCustomers;
 
@@ -24,7 +26,7 @@ public interface DevicesDao extends CrudDao<Devices> {
     /**
      * 查询所有客户类别
      */
-    List<DevicesCustomers> findAllCustomersType();
+    List findAllCustomersType();
 
     List findPageByCustomerid(Devices devices);
 
@@ -35,4 +37,8 @@ public interface DevicesDao extends CrudDao<Devices> {
     Map findByDeviceid(Map map);
 
     void updatedevices(Map map);
+
+    void deleteByCustomer(Customers customers);
+
+    List getDeviceCustomer(DevicesCustomers devicesCustomers);
 }

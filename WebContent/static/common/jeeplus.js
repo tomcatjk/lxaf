@@ -370,7 +370,7 @@ function openDialogAdd(title,url,width,height,target){
 	top.layer.open({
 		type: 2,
 		area: [width, height],
-		title: false,
+		title: title,
 		maxmin: true, //开启最大化最小化按钮
 		content: url ,
 		btn: ['下一步', '取消'],

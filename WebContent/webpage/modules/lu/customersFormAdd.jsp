@@ -6,11 +6,7 @@
     <meta name="decorator" content="default"/>
     <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=F454f8a5efe5e577997931cc01de3974"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/static/jedate/jedate.js"></script>
-    <%--<link rel="stylesheet" href="${pageContext.request.contextPath}/static/jqueryesayform/css/platform-1.css">--%>
-    <%--<link rel="stylesheet" href="${pageContext.request.contextPath}/static/jqueryesayform/js/easyform/easyform.css">--%>
-    <%--<link rel="stylesheet" href="${pageContext.request.contextPath}/static/jqueryesayform/css/tab.css">--%>
-    <%--<script src="${pageContext.request.contextPath}/static/jqueryesayform/js/easyform/easyform.js"></script>--%>
+    <script type="text/javascript" src="${ctxStatic}/jedate/jedate.js"></script>
     <script src="${ctxStatic}/lianxun/layui/src/layui.js" charset="utf-8"></script>
     <link rel="stylesheet" href="${ctxStatic}/lianxun/layui/src/css/layui.css" media="all">
     <style>
@@ -18,13 +14,21 @@
             color: red;
         }
     </style>
+    <script>
+        $(window).resize(function () {
+            var widthPx = $(window).width()/3;
+            $("#customersFormAddLi").css("width", widthPx);
+            $("#mastersFormLi").css("width", widthPx);
+            $("#devicesFormLi").css("width", widthPx);
+        })
+    </script>
 </head>
 <body class="hideScroll">
     <ul class="layui-tab-title">
-        <div class="layui-btn-group" style="margin-left: 250px;">
-            <button id="customersFormAddLi" class="layui-btn layui-btn-normal">添加客户</button>
-            <button id="mastersFormLi" class="layui-btn layui-btn-primary">添加主机</button>
-            <button id="devicesFormLi" class="layui-btn layui-btn-primary">添加设备</button>
+        <div class="layui-btn-group">
+            <button id="customersFormAddLi" class="layui-btn layui-btn-normal" style="width: 300px;">客户信息</button>
+            <button id="mastersFormLi" class="layui-btn layui-btn-primary" style="width: 300px;">主机信息</button>
+            <button id="devicesFormLi" class="layui-btn layui-btn-primary" style="width: 300px;">设备信息</button>
         </div>
     </ul>
     <div class="layui-tab-content" >
@@ -88,17 +92,17 @@
                         <tr>
                             <td class="width-15 active"><label class="pull-right">安装时间：</label></td>
                             <td class="width-35">
-                                <input type="datetime" name="installtime" id="installtime" placeholder="请选择" class="form-control" />
+                                <input type="datetime" name="installtime" id="installtime" placeholder="请选择" class="laydate-icon form-control layer-date input-sm" />
                             </td>
                             <td class="width-15 active"><label class="pull-right">到期时间：</label></td>
                             <td class="width-35">
-                                <input type="datetime" name="duetime" id="duetime"  placeholder="请选择" class="form-control"/>
+                                <input type="datetime" name="duetime" id="duetime"  placeholder="请选择" class="laydate-icon form-control layer-date input-sm"/>
                             </td>
                         </tr>
                         <tr style="display: none">
                             <td class="width-15 active"><label class="pull-right">创建时间：</label></td>
                             <td class="width-35">
-                                <input type="text"  name="createtime" id="createtime" placeholder="请选择"  readonly  class="form-control"/>
+                                <input type="text"  name="createtime" id="createtime" placeholder="请选择"  readonly  class="laydate-icon form-control layer-date input-sm"/>
                             </td>
                             <td class="width-15 active"></td>
                             <td class="width-35" ></td>
@@ -171,18 +175,18 @@
                         <tr>
                             <td class="width-15 active"><label class="pull-right"><font color="red">*</font>设备名称：</label></td>
                             <td class="width-35">
-                                <input type="text" id="name" name="name" class="requiredClass" style='width: 250px; height: 30px;'>
+                                <input type="text" id="name" name="name" class="requiredClass" style='width: 255px; height: 33px;'>
                             </td>
                             <td class="width-15 active"><label class="pull-right">设备类型：</label></td>
                             <td class="width-35">
-                                <select id="deviceTypeSelectId" name="devicetype" style="width: 250px; height: 30px;">
+                                <select id="deviceTypeSelectId" name="devicetype" style="width: 255px; height: 33px;">
                                 </select>
                             </td>
                         </tr>
                         <tr>
                             <td class="width-15 active"><label class="pull-right">所属主机：</label></td>
                             <td class="width-35">
-                                <select name="masterid" id="masterSelect" style='width: 250px; height: 30px;'></select>
+                                <select name="masterid" id="masterSelect" style='width: 255px; height: 33px;'></select>
                             </td>
                             <td></td>
                                 <%--<td><input type="hidden" name="customerid" value="${devices.customerid}"></td>--%>
@@ -190,7 +194,7 @@
                         <tr>
                             <td class="width-15 active"><label class="pull-right">防区编号：</label></td>
                             <td class="width-35">
-                                <select name="defenceid" id="defenceSelect" style='width: 250px; height: 30px;'></select>
+                                <select name="defenceid" id="defenceSelect" style='width: 255px; height: 33px;'></select>
                             </td>
                             <td class="width-15 active"><label class="pull-right">防区名称：</label></td>
                             <td class="width-35">
@@ -566,7 +570,7 @@
                 //验证设备名称
                 if( $(this).is('#name') ){
                     if( this.value==""){
-                        var errorMsg = '请输入设备名称.';
+                        var errorMsg = '<br />请输入设备名称.';
                         $parent.append('<span class="formtips onErrorDevices">'+errorMsg+'</span>');
                     }
                 }

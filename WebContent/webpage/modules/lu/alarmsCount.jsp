@@ -32,7 +32,17 @@
                         <table:sortColumn id="orderBy" name="orderBy" value="${page.orderBy}" callback="sortOrRefresh();"/><!-- 支持排序 -->
                         <div class="form-group">
                             <span>客户名称：</span>
-                            <input name="customerid" id="customerid"   value="${alarmscount.name}"class=" form-control input-sm"/>
+                            <input name="name" id="name" value="${alarmscount.name}"class=" form-control input-sm"/>
+                        </div>
+                        <div class="form-group">
+                            <span>客户类别：</span>
+                            <select name="customerType" id="customerType" class="form-control "  >
+                                <c:forEach items="${customersTypeNameMapList}" var="customerTypeNameMap">
+                                    <option value="${customerTypeNameMap.customerType}" <c:if test="${currentType == customerTypeNameMap.customerType}">selected</c:if> >
+                                            ${customerTypeNameMap.customerTypeName}
+                                    </option>
+                                </c:forEach>
+                            </select>
                         </div>
                     </form:form>
                     <br/>
@@ -58,7 +68,7 @@
                         <button class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" onclick="sortOrRefresh()" title="刷新"><i class="glyphicon glyphicon-repeat"></i> 刷新</button>
                    </div>
                    <div class="pull-right">
-                        <button  class="btn btn-primary btn-rounded btn-outline btn-sm " onclick="search()" ><i class="fa fa-search"></i> 查询</button>
+                        <button  class="btn btn-primary btn-rounded btn-outline btn-sm " onclick="searchLu()" ><i class="fa fa-search"></i> 查询</button>
                         <button  class="btn btn-primary btn-rounded btn-outline btn-sm " onclick="reset()" ><i class="fa fa-refresh"></i> 重置</button>
                    </div>
                </div>

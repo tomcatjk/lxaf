@@ -9,24 +9,6 @@ import java.util.List;
  * Created by Administrator on 2017/5/5.
  */
 public class DevicesCustomers extends DataEntity<DevicesCustomers> {
-    private List<String> customeridList;
-    private String devicesModel;
-
-    public List<String> getCustomeridList() {
-        return customeridList;
-    }
-
-    public void setCustomeridList(List<String> customeridList) {
-        this.customeridList = customeridList;
-    }
-
-    public String getDevicesModel() {
-        return devicesModel;
-    }
-
-    public void setDevicesModel(String devicesModel) {
-        this.devicesModel = devicesModel;
-    }
 
     private String id;
     //设备型号

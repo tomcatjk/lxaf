@@ -68,8 +68,13 @@ public class CustomersService extends CrudService<CustomersDao, Customers> {
 		CustomersAlarms.setPage(page);
 		page.setList(dao.getCustomersAlarms(CustomersAlarms));
 		for(CustomersAlarms customersAlarmsTemp : page.getList()){
-			customersAlarmsTemp.setCustomersType(CustomerTypeName.getByType(customersAlarmsTemp.getCustomertype()).getCustomerTypeName());
+			customersAlarmsTemp.setCustomersType(CustomerTypeName.getByType(Integer.parseInt(customersAlarmsTemp.getCustomerType())).getCustomerTypeName());
 		}
 		return page;
+	}
+
+	@Transactional(readOnly = false)
+	public void deleteCusMasDevDefByCid(Customers customers){
+		dao.deleteCusMasDevDefByCid(customers);
 	}
 }

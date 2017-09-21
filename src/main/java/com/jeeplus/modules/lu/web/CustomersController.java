@@ -55,6 +55,12 @@ public class CustomersController extends BaseController {
 
 	@Autowired
 	private MastersService mastersService;
+
+	@Autowired
+	private DevicesService devicesService;
+
+	@Autowired
+	private DefencesService defencesService;
 	
 	@ModelAttribute
 	public Customers get(@RequestParam(required=false) String id) {
@@ -94,45 +100,26 @@ public class CustomersController extends BaseController {
 	 */
 	@RequiresPermissions("lu:customersalarms:list")
 	@RequestMapping(value = "listcustomer")
-	public String listCustomersAlarms(Customers customers,CustomersAlarms customersAlarms, HttpServletRequest request, HttpServletResponse response, Model model) {
+	public String listCustomersAlarms(CustomersAlarms customersAlarms, HttpServletRequest request, HttpServletResponse response, Model model) {
 		customersAlarms.setCustomerId(UserUtils.getUser().getCustomerID());
 		customersAlarms.setDeviceTypeNameList(new ArrayList(Arrays.asList(DeviceTypeName.values())));
 		Page<CustomersAlarms> page = customersService.findCustomersAlarms(new Page<CustomersAlarms>(request, response), customersAlarms);
-		String customerType = request.getParameter("customersTypeStr");
-		customers.setCustomerTypeStr(customerType);
-		if((customers.getName()!=null||customers.getName()!="")||customerType!=null){
-			if(customers.getName()!=null||customers.getName()!=""){
-				customersAlarms.setName(customers.getName());
-				model.addAttribute("customers",customers);
-			}
-			if(customerType!=null&&StringUtils.isNotBlank(customerType)){
-				CustomerTypeName customerTypeName = CustomerTypeName.getByName(customerType);
-				customers.setCustomertype(customerTypeName.getCustomerType());
-				customersAlarms.setCustomertype(customers.getCustomertype());
-				model.addAttribute("customerType",customerType);
-			}else {
-
-			}
-			page = customersService.findCustomersAlarms(new Page<CustomersAlarms>(request, response), customersAlarms);
-		}else {
-
-		}
-		List customersTypeList = new ArrayList();
-		int i = 0;
-		for(CustomerTypeName customerTypeName : CustomerTypeName.values()){
-			customersTypeList.add(i, customerTypeName.getCustomerTypeName());
-			i++;
-		}
-		customersTypeList.add(0, "");
-		model.addAttribute("customersTypeList", customersTypeList);
-		model.addAttribute("customerTypeTemp",customers.getCustomerTypeStr());
 		model.addAttribute("page",page);
+		model.addAttribute("customersAlarms",customersAlarms);
+
+		List customersTypeNameMapList = CustomerTypeName.getCustomerTypeNameMapList();
+		Map customerTypeNameMap = new HashMap();
+		customerTypeNameMap.put("customerType", "");
+		customerTypeNameMap.put("customerTypeName", "全部客户");
+		customersTypeNameMapList.add(0, customerTypeNameMap);
+		model.addAttribute("customersTypeNameMapList", customersTypeNameMapList);
+		model.addAttribute("currentType", customersAlarms.getCustomerType());
 
 		List deviceTypeNameList = new ArrayList();
-		int j = 0;
+		int i = 0;
 		for(DeviceTypeName deviceTypeNameTemp : DeviceTypeName.values()){
-			deviceTypeNameList.add(j, deviceTypeNameTemp.getDeviceTypeName());
-			j++;
+			deviceTypeNameList.add(i, deviceTypeNameTemp.getDeviceTypeName());
+			i++;
 		}
 		model.addAttribute("deviceTypeNameList", deviceTypeNameList);
 		return "modules/lu/customersAlarms";
@@ -211,7 +198,6 @@ public class CustomersController extends BaseController {
 			customersService.editByCid(customersTemp);
 			addMessage(redirectAttributes, "更新客户成功");
 			model.addAttribute("customers", customersTemp);
-//			return "redirect:"+Global.getAdminPath()+"/lu/customers/list?repage&customertype=" + customers.getCustomertype();
 			return "ok";
         }else{
 			if (customers.getCustomerTypeStr() != null) {
@@ -228,11 +214,9 @@ public class CustomersController extends BaseController {
 				addMessage(redirectAttributes, "新增客户成功");
 				model.addAttribute("customers", customers);
 			}catch (Exception e){
-//				return "redirect:"+Global.getAdminPath()+"/lu/customers/list?repage&customertype=" + customers.getCustomertype();
 				return "error";
 			}
 		}
-//		return "redirect:"+Global.getAdminPath()+"/lu/customers/formiframe/?repage&cid="+customers.getCid() + "&masterFlag=1";
 		return customers.getCid();
 	}
 	
@@ -243,7 +227,9 @@ public class CustomersController extends BaseController {
 	@RequestMapping(value = "delete")
 	public String delete(Customers customers, RedirectAttributes redirectAttributes) {
 		customersService.delete(customers);
-		mastersService.deleteByCid(customers.getCid());
+		mastersService.deleteByCustomer(customers);
+		devicesService.deleteByCustomer(customers);
+		defencesService.deleteByCustomer(customers);
 		addMessage(redirectAttributes, "删除客户信息成功");
 		return "redirect:"+Global.getAdminPath()+"/lu/customers/list?repage&customertype=" + customers.getCustomertype();
 	}
@@ -259,7 +245,9 @@ public class CustomersController extends BaseController {
 		for(String id : idArray){
             customers.setCid(id);
 			customersService.delete(customers);
-			mastersService.deleteByCid(customers.getCid());
+			mastersService.deleteByCustomer(customers);
+			devicesService.deleteByCustomer(customers);
+			defencesService.deleteByCustomer(customers);
 		}
 		addMessage(redirectAttributes, "删除客户信息成功");
         System.out.println(Global.getAdminPath());
@@ -317,7 +305,7 @@ public class CustomersController extends BaseController {
 			customersAlarmsParamer.setDeviceTypeNameList(new ArrayList(Arrays.asList(DeviceTypeName.values())));
 			List<CustomersAlarms> list = customersDao.getCustomersAlarms(customersAlarmsParamer);
 			for(CustomersAlarms customersAlarmsTemp : list){
-				customersAlarmsTemp.setCustomersType(CustomerTypeName.getByType(customersAlarmsTemp.getCustomertype()).getCustomerTypeName());
+				customersAlarmsTemp.setCustomersType(CustomerTypeName.getByType(Integer.parseInt(customersAlarmsTemp.getCustomerType())).getCustomerTypeName());
 			}
 
 			for(int i=0;i<list.size();i++){
