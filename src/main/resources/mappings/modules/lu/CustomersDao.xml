@@ -192,7 +192,6 @@
 		LEFT JOIN areas a ON c.AreaID = a.id
 		WHERE
 			c.cid = #{cid}
-			ORDER BY c.createtime DESC
 	</select>
 
 	<select id="getCustomers" resultType="Customers">

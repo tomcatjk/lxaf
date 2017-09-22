@@ -10,29 +10,30 @@
 	</style>
 	<script type="text/javascript">
 		function refresh(){//刷新
-			
+
 			window.location="${ctx}/sys/user/index";
 		}
 	</script>
 </head>
 <body class="gray-bg">
-	
+
 	<div class="wrapper wrapper-content">
-	<div class="ibox">
-	<div class="ibox-content">
-	<sys:message content="${message}"/>
-	<div id="content" class="row">
-		<%--<div id="left"  style="background-color:#e7eaec" class="leftBox col-sm-1">
-			<a onclick="refresh()" class="pull-right">
-				<i class="fa fa-refresh"></i>
-			</a>
-			<div id="ztree" class="ztree leftBox-content"></div>
-		</div>--%>
-		<div id="right"  class="col-sm-11  animated fadeInRight">
-			<iframe id="officeContent" name="officeContent" src="${ctx}/sys/user/list" width="100%" height="91%" frameborder="0"></iframe>
+		<div class="ibox">
+			<div class="ibox-content">
+				<sys:message content="${message}"/>
+				<div id="content" class="row">
+					<%--<div id="left"  style="background-color:#e7eaec" class="leftBox col-sm-1">
+						<a onclick="refresh()" class="pull-right">
+							<i class="fa fa-refresh"></i>
+						</a>
+						<div id="ztree" class="ztree leftBox-content"></div>
+					</div>--%>
+					<div id="right"  class="col-sm-11  animated fadeInRight">
+						<iframe id="officeContent" name="officeContent" src="${ctx}/sys/user/list" width="100%" height="91%" frameborder="0"></iframe>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
-	</div>
 	</div>
 	<script type="text/javascript">
 		var setting = {data:{simpleData:{enable:true,idKey:"id",pIdKey:"pId",rootPId:'0'}},
@@ -42,14 +43,14 @@
 				}
 			}
 		};
-		
+
 		function refreshTree(){
 			$.getJSON("${ctx}/sys/office/treeData",function(data){
 				$.fn.zTree.init($("#ztree"), setting, data).expandAll(true);
 			});
 		}
 		refreshTree();
-		 
+
 		var leftWidth = 180; // 左侧窗口大小
 		var htmlObj = $("html"), mainObj = $("#main");
 		var frameObj = $("#left, #openClose, #right, #right iframe");

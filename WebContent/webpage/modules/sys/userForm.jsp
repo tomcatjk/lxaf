@@ -4,10 +4,6 @@
 <head>
 	<title>用户管理</title>
 	<meta name="decorator" content="default"/>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/jqueryesayform/css/platform-1.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/jqueryesayform/js/easyform/easyform.css">
-
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/jqueryesayform/css/tab.css">
 	<style>
 		.formtips{
 			color: red;

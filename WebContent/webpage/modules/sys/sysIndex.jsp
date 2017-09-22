@@ -12,7 +12,7 @@
 
 	<%@ include file="/webpage/include/head.jsp"%>
 	<script src="${ctxStatic}/common/inspinia.js?v=3.2.0"></script>
-	<script src="${ctxStatic}/common/contabs.js"></script> 
+	<script src="${ctxStatic}/common/contabs.js"></script>
     <meta name="keywords" content="JeePlus快速开发平台">
     <meta name="description" content="JeePlus，采用spring mvc+mybatis+shiro+bootstrap，集成代码生成器的快速开发平台">
     <script type="text/javascript">
@@ -42,7 +42,7 @@
 <body class="fixed-sidebar full-height-layout gray-bg">
     <div id="wrapper">
         <!--左侧导航开始-->
-        <nav class="navbar-default navbar-static-side" role="navigation">
+        <nav class="navbar-default navbar-static-side" role="navigation" style="height: 500px;">
             <div class="nav-close"><i class="fa fa-times-circle"></i>
             </div>
             <div class="sidebar-collapse">
@@ -61,18 +61,11 @@
                                 </li>
                                 <li><a class="J_menuItem" href="${ctx }/sys/user/info">个人资料</a>
                                 </li>
-                                <%--<li><a class="J_menuItem" href="${ctx }/iim/contact/index">我的通讯录</a>--%>
-                                <%--</li>--%>
-                                <%--<li><a class="J_menuItem" href="${ctx }/iim/mailBox/list">信箱</a>--%>
-                                <%--</li> --%>
-                                 <%--<li class="divider"></li>--%>
-                                <%--<li><a onclick="changeStyle()" href="#">切换到ACE模式</a>--%>
-                                <%--</li> --%>
-                                 
                                 <li class="divider"></li>
                                 <li><a href="${ctx}/logout">安全退出</a>
                                 </li>
                             </ul>
+
                         </div>
                         <div class="logo-element">JP
                         </div>
@@ -117,37 +110,34 @@
             <div class="row J_mainContent" id="content-main">
                 <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="${ctx}/home" frameborder="0" data-id="${ctx}/home" seamless></iframe>
             </div>
-            <%--<div class="footer">--%>
-                <%--<div class="pull-left"><a href="http://www.jeeplus.org">http://www.jeeplus.org</a> &copy; 2015-2025</div>--%>
-            <%--</div>--%>
         </div>
         <!--右侧部分结束-->
-       
-       
+
+
     </div>
 </body>
 
 <!-- 语言切换插件，为国际化功能预留插件 -->
-<script type="text/javascript">
+<%--<script type="text/javascript">--%>
 
-$(document).ready(function(){
+<%--$(document).ready(function(){--%>
 
-	$("a.lang-select").click(function(){
-		$(".lang-selected").find(".lang-flag").attr("src",$(this).find(".lang-flag").attr("src"));
-		$(".lang-selected").find(".lang-flag").attr("alt",$(this).find(".lang-flag").attr("alt"));
-		$(".lang-selected").find(".lang-id").text($(this).find(".lang-id").text());
-		$(".lang-selected").find(".lang-name").text($(this).find(".lang-name").text());
+	<%--$("a.lang-select").click(function(){--%>
+		<%--$(".lang-selected").find(".lang-flag").attr("src",$(this).find(".lang-flag").attr("src"));--%>
+		<%--$(".lang-selected").find(".lang-flag").attr("alt",$(this).find(".lang-flag").attr("alt"));--%>
+		<%--$(".lang-selected").find(".lang-id").text($(this).find(".lang-id").text());--%>
+		<%--$(".lang-selected").find(".lang-name").text($(this).find(".lang-name").text());--%>
 
-	});
+	<%--});--%>
 
 
-});
+<%--});--%>
 
-function changeStyle(){
-   $.get('${pageContext.request.contextPath}/theme/ace?url='+window.top.location.href,function(result){   window.location.reload();});
-}
+<%--function changeStyle(){--%>
+   <%--$.get('${pageContext.request.contextPath}/theme/ace?url='+window.top.location.href,function(result){   window.location.reload();});--%>
+<%--}--%>
 
-</script>
+<%--</script>--%>
 
 
 
@@ -169,12 +159,12 @@ function changeStyle(){
 <!-- 即时聊天插件 结束 -->
 <style>
 /*签名样式*/
-.layim-sign-box{
-	width:95%
-}
-.layim-sign-hide{
-  border:none;background-color:#F5F5F5;
-}
+/*.layim-sign-box{*/
+	/*width:95%*/
+/*}*/
+/*.layim-sign-hide{*/
+  /*border:none;background-color:#F5F5F5;*/
+/*}*/
 </style>
 
 </html>

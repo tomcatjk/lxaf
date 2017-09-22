@@ -367,6 +367,9 @@ public class UserController extends BaseController {
         User currentUser = UserUtils.getUser();
         model.addAttribute("user", currentUser);
         model.addAttribute("Global", new Global());
+
+        Customers currentCustomer = customersService.findUniqueByProperty("cid", currentUser.getCustomerID());
+        model.addAttribute("customer", currentCustomer);
         return "modules/sys/userInfo";
     }
 
@@ -501,6 +504,8 @@ public class UserController extends BaseController {
     @RequestMapping(value = "modifyPwd")
     public String modifyPwd(String oldPassword, String newPassword, Model model) {
         User user = UserUtils.getUser();
+        Customers customer = customersService.findUniqueByProperty("cid", user.getCustomerID());
+        model.addAttribute("customer", customer);
         if (StringUtils.isNotBlank(oldPassword) && StringUtils.isNotBlank(newPassword)){
             if(Global.isDemoMode()){
                 model.addAttribute("message", "演示模式，不允许操作！");
@@ -509,6 +514,7 @@ public class UserController extends BaseController {
             if (SystemService.validatePassword(oldPassword, user.getPassword())){
                 systemService.updatePasswordById(user.getId(), user.getLoginName(), newPassword);
                 model.addAttribute("message", "修改密码成功");
+                model.addAttribute("pwdOk", "pwdOk");
             }else{
                 model.addAttribute("message", "修改密码失败，旧密码错误");
             }

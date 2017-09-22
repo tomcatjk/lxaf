@@ -25,7 +25,7 @@ h1 {
 p {
     padding: 0 15px;
 }
-    
+
 .select_box {
     border-top-width: 1px;
     border-top-style: dashed;
@@ -46,7 +46,7 @@ body {
 
 #main{
     background-image: url(../../../asset/img/groovepaper.png);
-    background-repeat: repeat;    
+    background-repeat: repeat;
     }
 
 .footer {
@@ -106,7 +106,7 @@ body {
     <script src="js/data-people.js"></script>
     <script type="text/javascript">
     require.config({
-        paths:{ 
+        paths:{
             echarts: '../../www/js'
         }
     });
@@ -132,7 +132,7 @@ body {
             myChart.on(ecConfig.EVENT.MAP_SELECTED, mapSelected);
         }
     );
-    
+
     var selected;
     function mapSelected(param){
         selected = param.selected;
@@ -173,7 +173,7 @@ body {
         option.legend.data = legendData;
         myChart.setOption(option, true);
     }
-    
+
     var yearSelector = document.getElementById('year');
     yearSelector.onchange = function (e){
         var curYear = yearSelector.selectedOptions[0].innerHTML;
@@ -208,15 +208,15 @@ body {
             var first = Math.round(10 - max / (max - min) * 10);
             var end = Math.round(min / (min - max) * 10 + 10);
             option.dataRange.color = [
-                colorList[first], 
+                colorList[first],
                 colorList[Math.round((end - first) / 2 + first)],
                 colorList[end]
             ];
             //console.log(first,end);
             /*
             option.color = [
-                colorList[first], colorList[first + 2], 
-                option.dataRange.color[1], 
+                colorList[first], colorList[first + 2],
+                option.dataRange.color[1],
                 colorList[end - 2], colorList[end]
             ];
             */
@@ -232,7 +232,7 @@ body {
             //option.color = [colorList[11], colorList[13], colorList[15], colorList[17], colorList[20]];
         }
         //console.log(option.color,option.dataRange.color)
-        
+
         option.series[0].data = dataPeople[curYear];
         /*
         for (var i = 0; i <= 4; i++) {
@@ -248,7 +248,7 @@ body {
     }
     </script>
 <div class="footer">
-    <p>&copy; 2014 Data Journalism Workshop（华媒基金会 &middot; 数据新闻工作坊） &middot; 孟立昕（腾讯）&middot; 王飞宇（证券时报） &middot; 颜冬（视觉中国） &middot; <a href="http://weibo.com/kenerlinfeng" target="_blank">林峰</a>（百度）</p> 
+    <p>&copy; 2014 Data Journalism Workshop（华媒基金会 &middot; 数据新闻工作坊） &middot; 孟立昕（腾讯）&middot; 王飞宇（证券时报） &middot; 颜冬（视觉中国） &middot; <a href="http://weibo.com/kenerlinfeng" target="_blank">林峰</a>（百度）</p>
     <p><a href="http://echarts.baidu.com" target="_blank">Data Visualization by ECharts</a></p>
 </div>
 </body>

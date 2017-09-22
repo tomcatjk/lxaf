@@ -19,6 +19,7 @@ import com.jeeplus.modules.lu.dao.AlarmsDao;
 import com.jeeplus.modules.lu.dao.AlarmsDefencesDao;
 import com.jeeplus.modules.lu.entity.*;
 import com.jeeplus.modules.lu.service.*;
+import com.jeeplus.modules.lu.utils.JiguangPush;
 import com.jeeplus.modules.sys.entity.Role;
 import com.jeeplus.modules.sys.entity.User;
 import com.jeeplus.modules.sys.service.SystemService;
@@ -46,7 +47,7 @@ import com.jeeplus.common.utils.excel.ExportExcel;
 import com.jeeplus.common.utils.excel.ImportExcel;
 
 /**
- * 报警记录表Controller
+ * 报警表Controller
  * @author 陆华捷  
  * @version 2017-04-27
  */
@@ -179,7 +180,7 @@ public class AlarmsController extends BaseController {
 		//更新服务人员的状态(sqlserver)
 		servicePersons.setState(1);
 		servicePersonsService.updateById(servicePersons);
-		//新增报警记录(sqlserver)
+		//新增报警(sqlserver)
 		User user = UserUtils.getUser();
 		ServiceRecords serviceRecords = new ServiceRecords();
 		serviceRecords.setCreatetime(new Date());
@@ -189,7 +190,7 @@ public class AlarmsController extends BaseController {
 		serviceRecords.setServerid(Integer.parseInt(servicePersonsId));
 		serviceRecords.setState(0);
 		serviceRecordsService.addServiceRecords(serviceRecords);
-		//向AFCustomers中添加记录
+		//向AFCustomers中添加
 		String code = "AF" + alarms.getCustomerid();
 		Afcustomers afcustomers = afcustomersService.findUniqueByProperty("Code", code);
 		if(afcustomers == null){
@@ -206,6 +207,8 @@ public class AlarmsController extends BaseController {
 			afcustomersTemp.setImgurl("");
 			afcustomersService.save(afcustomersTemp);
 		}
+		//极光推送
+		JiguangPush.jiguangPush(servicePersonsId);
 		return "ok";
 	}
 
@@ -216,7 +219,7 @@ public class AlarmsController extends BaseController {
 	@ResponseBody
 	@RequestMapping(value = "completeAlarms")
 	public String completeAlarms(String aid, String rated){
-		//为报警记录添加记录时间以及更改报警状态（mysql)
+		//为报警添加时间以及更改报警状态（mysql)
 		Alarms alarms = alarmsService.findUniqueByProperty("aid",aid);
 		alarms.setRecordTime(new Date());
 		alarms.setState(3);
@@ -226,8 +229,8 @@ public class AlarmsController extends BaseController {
 		ServicePersons servicePersons = servicePersonsService.findUniqueByProperty("id", servicePersonsId);
 		servicePersons.setState(0);
 		servicePersonsService.updateById(servicePersons);
-		//更新报警记录(sqlserver)
-		//结果：没法取到sqlserver中的报警记录
+		//更新报警(sqlserver)
+		//结果：没法取到sqlserver中的报警
 		//用假数据测试
 		String serverId = alarms.getServicename();
 		Map map = new HashMap();
@@ -242,7 +245,7 @@ public class AlarmsController extends BaseController {
 	}
 	
 	/**
-	 * 记录报警信息列表页面
+	 * 报警信息列表页面
 	 */
 	@RequiresPermissions("lu:alarms:list")
 	@RequestMapping(value = {"list", ""})
@@ -251,7 +254,7 @@ public class AlarmsController extends BaseController {
 	}
 
     /**
-     * 报警详单记录
+     * 报警详单
      */
     @RequiresPermissions("lu:ararmsde:list")
     @RequestMapping(value = "alarmsdef")
@@ -279,7 +282,7 @@ public class AlarmsController extends BaseController {
     }
 
     /**
-     * 记录报警类型的统计页面
+     * 报警类型的统计页面
      */
 
     @RequiresPermissions("lu:count:list")
@@ -311,7 +314,7 @@ public class AlarmsController extends BaseController {
     }
 
 	/**
-	 * 查看，增加，编辑记录报警信息表单页面
+	 * 查看，增加，编辑报警信息表单页面
 	 */
 	@RequiresPermissions(value={"lu:alarms:view","lu:alarms:add","lu:alarms:edit"},logical=Logical.OR)
 	@RequestMapping(value = "form")
@@ -321,7 +324,7 @@ public class AlarmsController extends BaseController {
 	}
 
 	/**
-	 * 保存记录报警信息
+	 * 保存报警信息
 	 */
 	@RequiresPermissions(value={"lu:alarms:add","lu:alarms:edit"},logical=Logical.OR)
 	@RequestMapping(value = "save")
@@ -330,30 +333,30 @@ public class AlarmsController extends BaseController {
 			return form(alarms, model);
 		}
 		if(!alarms.getIsNewRecord()){//编辑表单保存
-			Alarms t = alarmsService.get(alarms.getId());//从数据库取出记录的值
-			MyBeanUtils.copyBeanNotNull2Bean(alarms, t);//将编辑表单中的非NULL值覆盖数据库记录中的值
+			Alarms t = alarmsService.get(alarms.getId());//从数据库取出的值
+			MyBeanUtils.copyBeanNotNull2Bean(alarms, t);//将编辑表单中的非NULL值覆盖数据库中的值
 			alarmsService.save(t);//保存
 		}else{//新增表单保存
 			alarmsService.save(alarms);//保存
 		}
-		addMessage(redirectAttributes, "保存记录报警信息成功");
+		addMessage(redirectAttributes, "保存报警信息成功");
 		return "redirect:"+Global.getAdminPath()+"/lu/alarms/alarmsdef/?repage";
 	}
 	
 	/**
-	 * 删除记录报警信息
+	 * 删除报警信息
 	 */
 	@RequiresPermissions("lu:alarms:del")
 	@RequestMapping(value = "delete")
 	public String delete(Alarms alarms, RedirectAttributes redirectAttributes) {
 		alarmsService.delete(alarms);
-		addMessage(redirectAttributes, "删除记录报警信息成功");
+		addMessage(redirectAttributes, "删除报警信息成功");
 		return "redirect:"+Global.getAdminPath()+"/lu/alarms/alarmsdef/?repage";
 	}
 
 	
 	/**
-	 * 批量删除记录报警信息
+	 * 批量删除报警信息
 	 */
 	@RequiresPermissions("lu:alarms:del")
 	@RequestMapping(value = "deleteAll")
@@ -362,7 +365,7 @@ public class AlarmsController extends BaseController {
 		for(String id : idArray){
 			alarmsService.delete(alarmsService.get(id));
 		}
-		addMessage(redirectAttributes, "删除记录报警信息成功");
+		addMessage(redirectAttributes, "删除报警信息成功");
 		return "redirect:"+Global.getAdminPath()+"/lu/alarms/alarmsdef/?repage";
 	}
 
@@ -373,7 +376,7 @@ public class AlarmsController extends BaseController {
     @RequestMapping(value = "export", method=RequestMethod.POST)
     public String exportFile(HttpServletResponse response, RedirectAttributes redirectAttributes) {
         try {
-            String fileName = "记录报警详单信息"+DateUtils.getDate("yyyyMMddHHmmss")+".xls";
+            String fileName = "报警详单信息"+DateUtils.getDate("yyyyMMddHHmmss")+".xls";
             // 第一步，创建一个webbook，对应一个Excel文件
             HSSFWorkbook wb = new HSSFWorkbook();
             // 第二步，在webbook中添加一个sheet,对应Excel文件中的sheet
@@ -440,13 +443,13 @@ public class AlarmsController extends BaseController {
             os.close();
 
 
-			/*new ExportExcel("记录报警信息",AlarmsDefences.class).setDataList(list).write(response,fileName).dispose();*/
+			/*new ExportExcel("报警信息",AlarmsDefences.class).setDataList(list).write(response,fileName).dispose();*/
             /*Page<Alarms> page = alarmsService.findPage(new Page<Alarms>(request, response, -1), alarms);*/
-    		/*new ExportExcel("记录报警信息", Alarms.class).setDataList(page.getList()).write(response, fileName).dispose();*/
+    		/*new ExportExcel("报警信息", Alarms.class).setDataList(page.getList()).write(response, fileName).dispose();*/
 
             return null;
         } catch (Exception e) {
-            addMessage(redirectAttributes, "导出记录报警信息记录失败！失败信息："+e.getMessage());
+            addMessage(redirectAttributes, "导出报警信息失败！失败信息："+e.getMessage());
         }
         return "redirect:"+Global.getAdminPath()+"/lu/alarms/alarmsdef/?repage";
     }
@@ -457,7 +460,7 @@ public class AlarmsController extends BaseController {
     @RequestMapping(value = "exportcount", method=RequestMethod.POST)
     public String exportFileCount(HttpServletResponse response, RedirectAttributes redirectAttributes) {
         try {
-            String fileName = "记录报警统计信息"+DateUtils.getDate("yyyyMMddHHmmss")+".xls";
+            String fileName = "报警统计信息"+DateUtils.getDate("yyyyMMddHHmmss")+".xls";
             HSSFWorkbook wb = new HSSFWorkbook();
             HSSFSheet sheet =wb.createSheet("报警信息统计表");
             HSSFRow row = sheet.createRow((int)0);
@@ -504,7 +507,7 @@ public class AlarmsController extends BaseController {
 
             return null;
         } catch (Exception e) {
-            addMessage(redirectAttributes, "导出记录报警信息记录失败！失败信息："+e.getMessage());
+            addMessage(redirectAttributes, "导出报警信息失败！失败信息："+e.getMessage());
         }
         return "redirect:"+Global.getAdminPath()+"/lu/alarms/alarmsCount/?repage";
     }
@@ -533,25 +536,25 @@ public class AlarmsController extends BaseController {
 				}
 			}
 			if (failureNum>0){
-				failureMsg.insert(0, "，失败 "+failureNum+" 条记录报警信息记录。");
+				failureMsg.insert(0, "，失败 "+failureNum+" 条报警信息。");
 			}
-			addMessage(redirectAttributes, "已成功导入 "+successNum+" 条记录报警信息记录"+failureMsg);
+			addMessage(redirectAttributes, "已成功导入 "+successNum+" 条报警信息"+failureMsg);
 		} catch (Exception e) {
-			addMessage(redirectAttributes, "导入记录报警信息失败！失败信息："+e.getMessage());
+			addMessage(redirectAttributes, "导入报警信息失败！失败信息："+e.getMessage());
 		}
 		return "redirect:"+Global.getAdminPath()+"/lu/alarms/alarmsdef/?repage";
     }
 	
 	/**
-	 * 下载导入记录报警信息数据模板
+	 * 下载导入报警信息数据模板
 	 */
 	@RequiresPermissions("lu:alarms:import")
     @RequestMapping(value = "import/template")
     public String importFileTemplate(HttpServletResponse response, RedirectAttributes redirectAttributes) {
 		try {
-            String fileName = "记录报警信息数据导入模板.xlsx";
+            String fileName = "报警信息数据导入模板.xlsx";
     		List<Alarms> list = Lists.newArrayList(); 
-    		new ExportExcel("记录报警信息数据", Alarms.class, 1).setDataList(list).write(response, fileName).dispose();
+    		new ExportExcel("报警信息数据", Alarms.class, 1).setDataList(list).write(response, fileName).dispose();
     		return null;
 		} catch (Exception e) {
 			addMessage(redirectAttributes, "导入模板下载失败！失败信息："+e.getMessage());
