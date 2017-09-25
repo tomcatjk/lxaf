@@ -14,6 +14,7 @@ import javax.validation.ConstraintViolationException;
 
 import com.jeeplus.modules.lu.dao.DevicesDao;
 import com.jeeplus.modules.lu.entity.*;
+import com.jeeplus.modules.lu.service.AlarmsService;
 import com.jeeplus.modules.lu.service.DefencesService;
 import com.jeeplus.modules.sys.entity.User;
 import com.jeeplus.modules.sys.utils.UserUtils;
@@ -57,6 +58,9 @@ public class DevicesController extends BaseController {
 
 	@Autowired
 	private DevicesDao devicesDao;
+
+	@Autowired
+	private AlarmsService alarmsService;
 	
 	@ModelAttribute
 	public Devices get(@RequestParam(required=false) String id) {
@@ -183,6 +187,7 @@ public class DevicesController extends BaseController {
 	@RequestMapping(value = "delete")
 	public String delete(Devices devices, RedirectAttributes redirectAttributes) {
 		devicesService.delete(devices);
+		alarmsService.deleteByDefenceId(devices);
 		addMessage(redirectAttributes, "删除设备信息成功");
 		return "redirect:"+Global.getAdminPath()+"/lu/devices/?repage&customerid=" + devices.getCustomerid();
 	}

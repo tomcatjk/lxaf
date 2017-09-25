@@ -223,8 +223,6 @@
             }
         }
 
-        var countTemp = 0;
-
         var whichOne = 0;
         var endPage = 0;
 
@@ -255,7 +253,7 @@
                 var alarmsInfoAcdList = resultMap[0].alarmsInfoAcdList;
                 var currentPage = resultMap[0].currentPage;
                 endPage = resultMap[0].endPage;
-                countTemp = 0;
+                var countTemp = 0;
                 $.each(alarmsInfoAcdList, function (index, alarmsInfoAcd) {
                     countTemp++;
                     html += "<tr>";
@@ -306,11 +304,16 @@
                 if (whichOne == 1 && countTemp == 0) {
                     html = "</br>&nbsp;&nbsp;&nbsp;<span style='background-color: white;font-size: 20px;'>没有已处理的报警信息</span></br>";
                 }
+                //播放报警信息
+                if (whichOne == 0 && countTemp > 0) {
+                    PlayMedia();
+                    extbkboxnar();
+                }else{
+                    $('#wav').html("");
+                }
             });
-            //播放报警信息
-            if (whichOne == 0 && countTemp > 0) {
-                PlayMedia();
-            }
+
+
 
             var html12 = "&nbsp;<button id='clickPending' class='layui-btn layui-btn-warm layui-btn-small' onclick='clickPending()'>待处理</button>&nbsp;&nbsp;";
             html12 += "<button id='clickProcessed' class='layui-btn layui-btn-primary layui-btn-small' onclick='clickProcessed()'>已处理</button>";
@@ -543,14 +546,14 @@
 <div id="extbkbox" class="extbkbox" style="display:block; width: auto;">
     <div class="extbkboxm">
         <strong style="float:left;padding-left:10px;">报警信息</strong><label>&nbsp;&nbsp;&nbsp;
-        <input id="chkPlay" name="alarm" type="checkbox" value="" />声音 </label>&nbsp;&nbsp;&nbsp;
+        <input id="chkPlay" name="alarm" type="checkbox" checked value="" />声音 </label>&nbsp;&nbsp;&nbsp;
         <div class="extmore">
             <span class="extbkboxnar" id="extbkboxnar" onclick="extbkboxnar();"></span>
         </div>
     </div>
 
     <div class="extbkboxb" id="extbkboxb" style="display:block;">
-        <span>没有报警信息</span>
+        <%--<span>没有报警信息</span>--%>
     </div>
 </div>
 

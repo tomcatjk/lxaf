@@ -208,7 +208,7 @@ public class AlarmsController extends BaseController {
 			afcustomersService.save(afcustomersTemp);
 		}
 		//极光推送
-		JiguangPush.jiguangPush(servicePersonsId);
+//		JiguangPush.jiguangPush(servicePersonsId);
 		return "ok";
 	}
 

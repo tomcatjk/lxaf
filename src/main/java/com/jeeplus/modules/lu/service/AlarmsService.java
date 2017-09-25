@@ -68,4 +68,9 @@ public class AlarmsService extends CrudService<AlarmsDao, Alarms> {
 		page.setList(dao.getAlarmsCount(alarmsCount));
 		return page;
 	}
+
+	@Transactional(readOnly = false)
+	public void deleteByDefenceId(Devices devices){
+		dao.deleteByDefenceId(devices);
+	}
 }

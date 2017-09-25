@@ -5,6 +5,7 @@ import com.jeeplus.common.persistence.annotation.MyBatisDao;
 import com.jeeplus.modules.lu.entity.Alarms;
 import com.jeeplus.modules.lu.entity.AlarmsCount;
 import com.jeeplus.modules.lu.entity.AlarmsDefences;
+import com.jeeplus.modules.lu.entity.Devices;
 
 import java.util.List;
 import java.util.Map;
@@ -22,4 +23,6 @@ public interface AlarmsDao extends CrudDao<Alarms> {
     void updateByAid(Alarms alarms);
 
     List getAlarmsCount(AlarmsCount alarmsCount);
+
+    void deleteByDefenceId(Devices devices);
 }

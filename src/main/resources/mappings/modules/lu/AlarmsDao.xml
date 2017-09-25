@@ -441,4 +441,10 @@
 		ORDER BY c.CreateTime DESC
 	</select>
 
+	<update id="deleteByDefenceId">
+		DELETE FROM alarms
+		WHERE defenceid = #{defenceid}
+	</update>
+
+
 </mapper>

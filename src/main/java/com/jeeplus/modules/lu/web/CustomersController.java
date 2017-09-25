@@ -61,6 +61,9 @@ public class CustomersController extends BaseController {
 
 	@Autowired
 	private DefencesService defencesService;
+
+	@Autowired
+	private AlarmsService alarmsService;
 	
 	@ModelAttribute
 	public Customers get(@RequestParam(required=false) String id) {
@@ -247,6 +250,7 @@ public class CustomersController extends BaseController {
 			customersService.delete(customers);
 			mastersService.deleteByCustomer(customers);
 			devicesService.deleteByCustomer(customers);
+
 			defencesService.deleteByCustomer(customers);
 		}
 		addMessage(redirectAttributes, "删除客户信息成功");

@@ -390,9 +390,9 @@ public class AppController {
         for (AlarmsDefences alarmsDefences:list){
             JSONObject jsonObject=new JSONObject();
             jsonObject.put("defencename",alarmsDefences.getDefencesName());
-            jsonObject.put("alarmtypename",alarmsDefences.getTypeName());
+            jsonObject.put("alarmtypename", AlarmTypeName.getByType(Integer.parseInt(alarmsDefences.getTypeName())));
             jsonObject.put("alarmtime",sdf.format(alarmsDefences.getDate()));
-            jsonObject.put("statename",alarmsDefences.getState());
+            jsonObject.put("statename", AlarmStateName.getByState(Integer.parseInt(alarmsDefences.getState())));
             jsonArray.add(jsonObject);
         }
         return jsonArray.toString();
