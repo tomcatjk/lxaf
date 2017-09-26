@@ -5,7 +5,7 @@
 	<title>记录客户信息管理</title>
 	<meta name="decorator" content="default"/>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/static/jedate/jedate.js"></script>
-	<script src="${ctxStatic}/common/jeeplus.js?16=26" type="text/javascript"></script>
+	<script src="${ctxStatic}/common/jeeplus.js?16=30" type="text/javascript"></script>
 	<%--<script src="${ctxStatic}/lianxun/layui/src/layui.js" charset="utf-8"></script>--%>
 	<%--<script src="${ctxStatic}/layer-v3.0.3/layer/layer.js?1=1" charset="utf-8"></script>--%>
 	<%--<link rel="stylesheet" href="${ctxStatic}/lianxun/layui/src/css/layui.css" media="all">--%>
@@ -55,7 +55,7 @@
 								<table:addRow2 url="${ctx}/lu/customers/formadd?customertype=${customertype}" title="新增客户"></table:addRow2><!-- 增加按钮 -->
 							</shiro:hasPermission>
 							<shiro:hasPermission name="lu:customers:del">
-								<table:delRow url="${ctx}/lu/customers/deleteAll" id="contentTable"></table:delRow><!-- 删除按钮 -->
+								<table:delRowCustomer url="${ctx}/lu/customers/deleteAll" id="contentTable"></table:delRowCustomer><!-- 删除按钮 -->
 							</shiro:hasPermission>
 							<shiro:hasPermission name="lu:customers:import">
 								<table:importExcel url="${ctx}/lu/customers/import"></table:importExcel><!-- 导入按钮 -->
@@ -127,7 +127,7 @@
 										<a href="#" onclick="openDialogEdit('编辑客户信息', '${ctx}/lu/customers/form?cid=${customers.cid}','800px', '500px')" class="btn btn-success btn-xs" ><i class="fa fa-edit"></i> 编辑</a>
 									</shiro:hasPermission>
 									<shiro:hasPermission name="lu:customers:del">
-										<a href="${ctx}/lu/customers/delete?cid=${customers.cid}&customertype=${customertype}" onclick="return confirmx('确认要删除该客户信息吗？', this.href)"   class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> 删除</a>
+										<a href="${ctx}/lu/customers/delete?cid=${customers.cid}&customertype=${customertype}" onclick="return confirmx('确认要删除该客户信息吗？<br>同时会删除该客户下的所有主机和设备', this.href)"   class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> 删除</a>
 									</shiro:hasPermission>
 								</td>
 							</tr>

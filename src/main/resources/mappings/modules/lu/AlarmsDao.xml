@@ -201,7 +201,7 @@
 			c.Phone AS phone,
 			d.`Name` AS dname,
 			a.AlarmType AS alarmType,
-			a.AlarmTime AS alarmTime,
+			date_format(a.AlarmTime, '%Y-%m-%d %H:%i:%s') AS alarmTime,
 			c.Point AS point,
 			a.State AS state,
 			a.RecordTime AS recordTime,
@@ -446,5 +446,14 @@
 		WHERE defenceid = #{defenceid}
 	</update>
 
+	<update id="deleteByCustomerId">
+		DELETE FROM alarms
+		WHERE customerid = #{cid}
+	</update>
+
+	<update id="deleteByMasterId">
+		DELETE FROM alarms
+		WHERE masterid = #{cid}
+	</update>
 
 </mapper>

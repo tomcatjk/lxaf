@@ -61,7 +61,7 @@ public class DevicesController extends BaseController {
 
 	@Autowired
 	private AlarmsService alarmsService;
-	
+
 	@ModelAttribute
 	public Devices get(@RequestParam(required=false) String id) {
 		Devices entity = null;
@@ -199,16 +199,13 @@ public class DevicesController extends BaseController {
 	@RequestMapping(value = "deleteAll")
 	public String deleteAll(String ids, RedirectAttributes redirectAttributes) {
 		Devices devicesTemp = new Devices();
-		try {
-			String idArray[] =ids.split(",");
-			devicesTemp = devicesService.findUniqueByProperty("did", idArray[0]);
-			for(String id : idArray){
-				devicesService.delete(devicesService.findUniqueByProperty("did", id));
-			}
-			addMessage(redirectAttributes, "删除设备信息成功");
-		}catch (Exception e){
-			return "redirect:"+Global.getAdminPath()+"/lu/devices/?repage&customerid=" + devicesTemp.getCustomerid();
+		String idArray[] =ids.split(",");
+		for(String id : idArray){
+			devicesTemp = devicesService.findUniqueByProperty("d.did", id);
+			devicesService.delete(devicesTemp);
+			alarmsService.deleteByDefenceId(devicesTemp);
 		}
+		addMessage(redirectAttributes, "删除设备信息成功");
 		return "redirect:"+Global.getAdminPath()+"/lu/devices/?repage&customerid=" + devicesTemp.getCustomerid();
 	}
 

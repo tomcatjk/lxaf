@@ -73,4 +73,14 @@ public class AlarmsService extends CrudService<AlarmsDao, Alarms> {
 	public void deleteByDefenceId(Devices devices){
 		dao.deleteByDefenceId(devices);
 	}
+
+	@Transactional(readOnly = false)
+	public void deleteByCustomerId(Customers customers){
+		dao.deleteByCustomerId(customers);
+	}
+
+	@Transactional(readOnly = false)
+	public void deleteByMasterId(Masters masters){
+		dao.deleteByMasterId(masters);
+	}
 }

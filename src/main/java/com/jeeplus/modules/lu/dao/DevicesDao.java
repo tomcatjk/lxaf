@@ -6,6 +6,7 @@ import com.jeeplus.common.persistence.annotation.MyBatisDao;
 import com.jeeplus.modules.lu.entity.Customers;
 import com.jeeplus.modules.lu.entity.Devices;
 import com.jeeplus.modules.lu.entity.DevicesCustomers;
+import com.jeeplus.modules.lu.entity.Masters;
 
 import java.util.List;
 import java.util.Map;
@@ -17,16 +18,6 @@ import java.util.Map;
  */
 @MyBatisDao
 public interface DevicesDao extends CrudDao<Devices> {
-
-    /**
-     * 根据客户名查询客户id
-     */
-    List<String> findCustomersidByCustomerName(String name);
-
-    /**
-     * 查询所有客户类别
-     */
-    List findAllCustomersType();
 
     List findPageByCustomerid(Devices devices);
 
@@ -41,4 +32,6 @@ public interface DevicesDao extends CrudDao<Devices> {
     void deleteByCustomer(Customers customers);
 
     List getDeviceCustomer(DevicesCustomers devicesCustomers);
+
+    void deleteByMaster(Masters masters);
 }

@@ -27,7 +27,7 @@
 		<table:sortColumn id="orderBy" name="orderBy" value="${page.orderBy}" callback="sortOrRefresh();"/><!-- 支持排序 -->
 		<div class="form-group">
 			<span>名称：</span>
-				<input type="text" name="name" value="${masters.name}" maxlength="20"  class=" form-control input-sm"/>
+			<input type="text" name="name" value="${masters.name}" maxlength="20"  class=" form-control input-sm"/>
 		 </div>
 	</form:form>
 	<br/>
@@ -41,12 +41,15 @@
 			<shiro:hasPermission name="lu:masters:add">
 				<table:addRow url="${ctx}/lu/masters/form?customerid=${customerid}&masterFlag=1" title="主机信息"></table:addRow><!-- 增加按钮 -->
 			</shiro:hasPermission>
-			<shiro:hasPermission name="lu:masters:import">
-				<table:importExcel url="${ctx}/lu/masters/import"></table:importExcel><!-- 导入按钮 -->
+			<shiro:hasPermission name="lu:masters:del">
+				<table:delRowMaster url="${ctx}/lu/masters/deleteAll" id="contentTable"></table:delRowMaster><!-- 删除按钮 -->
 			</shiro:hasPermission>
-			<shiro:hasPermission name="lu:masters:export">
-	       		<table:exportExcel url="${ctx}/lu/masters/export"></table:exportExcel><!-- 导出按钮 -->
-	       	</shiro:hasPermission>
+			<%--<shiro:hasPermission name="lu:masters:import">--%>
+				<%--<table:importExcel url="${ctx}/lu/masters/import"></table:importExcel><!-- 导入按钮 -->--%>
+			<%--</shiro:hasPermission>--%>
+			<%--<shiro:hasPermission name="lu:masters:export">--%>
+	       		<%--<table:exportExcel url="${ctx}/lu/masters/export"></table:exportExcel><!-- 导出按钮 -->--%>
+	       	<%--</shiro:hasPermission>--%>
 	       <button class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" onclick="sortOrRefresh()" title="刷新"><i class="glyphicon glyphicon-repeat"></i> 刷新</button>
 		
 			</div>
@@ -76,7 +79,7 @@
 		<tbody>
 		<c:forEach items="${page.list}" var="masters">
 			<tr>
-				<td> <input type="checkbox" id="${masters.id}" class="i-checks"></td>
+				<td> <input type="checkbox" id="${masters.mid}" class="i-checks"></td>
 				<td>
 					${masters.code}
 				</td>
@@ -109,7 +112,7 @@
     					<a href="#" onclick="openDialog('修改主机信息', '${ctx}/lu/masters/form?mid=${masters.mid}','800px', '500px')" class="btn btn-success btn-xs" ><i class="fa fa-edit"></i> 修改</a>
     				</shiro:hasPermission>
     				<shiro:hasPermission name="lu:masters:del">
-						<a href="${ctx}/lu/masters/delete?mid=${masters.mid}&customerid=${customerid}" onclick="return confirmx('确认要删除该主机信息吗？', this.href)"   class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> 删除</a>
+						<a href="${ctx}/lu/masters/delete?mid=${masters.mid}&customerid=${customerid}" onclick="return confirmx('确认要删除该主机信息吗？<br>同时会删除该主机下的设备！', this.href)"   class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> 删除</a>
 					</shiro:hasPermission>
 				</td>
 			</tr>

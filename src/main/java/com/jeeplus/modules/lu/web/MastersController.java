@@ -11,7 +11,9 @@ import javax.validation.ConstraintViolationException;
 
 import com.jeeplus.modules.lu.entity.Defences;
 import com.jeeplus.modules.lu.entity.DeviceStateName;
+import com.jeeplus.modules.lu.service.AlarmsService;
 import com.jeeplus.modules.lu.service.DefencesService;
+import com.jeeplus.modules.lu.service.DevicesService;
 import com.jeeplus.modules.sys.entity.User;
 import com.jeeplus.modules.sys.utils.UserUtils;
 import net.sf.json.JSONArray;
@@ -53,6 +55,12 @@ public class MastersController extends BaseController {
 
 	@Autowired
 	private DefencesService defencesService;
+
+	@Autowired
+	private DevicesService devicesService;
+
+	@Autowired
+	private AlarmsService alarmsService;
 
 	@ModelAttribute
 	public Masters get(@RequestParam(required=false) String id) {
@@ -188,6 +196,8 @@ public class MastersController extends BaseController {
 	@RequestMapping(value = "delete")
 	public String delete(Masters masters, RedirectAttributes redirectAttributes) {
 		mastersService.delete(masters);
+		devicesService.deleteByMaster(masters);
+		alarmsService.deleteByMasterId(masters);
 		addMessage(redirectAttributes, "删除主机信息成功");
 		return "redirect:"+Global.getAdminPath()+"/lu/masters/?repage&customerid=" + masters.getCustomerid();
 	}
@@ -198,12 +208,16 @@ public class MastersController extends BaseController {
 	@RequiresPermissions("lu:masters:del")
 	@RequestMapping(value = "deleteAll")
 	public String deleteAll(String ids, RedirectAttributes redirectAttributes) {
+		Masters masterTemp = new Masters();
 		String idArray[] =ids.split(",");
 		for(String id : idArray){
-			mastersService.delete(mastersService.get(id));
+			masterTemp = mastersService.findUniqueByProperty("mid", id);
+			mastersService.delete(masterTemp);
+			devicesService.deleteByMaster(masterTemp);
+			alarmsService.deleteByMasterId(masterTemp);
 		}
 		addMessage(redirectAttributes, "删除主机信息成功");
-		return "redirect:"+Global.getAdminPath()+"/lu/masters/?repage";
+		return "redirect:"+Global.getAdminPath()+"/lu/masters/?repage&customerid=" + masterTemp.getCustomerid();
 	}
 	
 	/**

@@ -47,11 +47,6 @@ public class AppController {
     @Autowired
     private DevicesService devicesService;
 
-    @RequestMapping(value = "test")
-    public String test(){
-        return "/modules/lu/test/hello2";
-    }
-
     /**
      * 登录
      * @param loginName
@@ -79,12 +74,11 @@ public class AppController {
                 map.put("cid",user.getCustomerID());
                 data.put("result", "success");
                 data.put("data",map);
-                return data.toString();
             }
+        }else{
+            data.put("result", "fail");
+            data.put("data","用户名或密码错误");
         }
-        data.put("result", "fail");
-        data.put("data","用户名或密码错误");
-
         return data.toString();
     }
 
@@ -112,6 +106,9 @@ public class AppController {
                 data.put("result", "fail");
                 data.put("data","旧密码错误");
             }
+        }else {
+            data.put("result", "fail");
+            data.put("data","旧密码错误");
         }
         return data.toString();
     }
@@ -135,18 +132,23 @@ public class AppController {
         JSONObject data = new JSONObject();
         if(user != null){
             Customers customers = customersService.findUniqueByProperty("cid", user.getCustomerID());
-            user.setName(username);
-            user.setPhone(tel);
-            try {
-                customers.setAddress(address);
-                customersService.editByCid(customers);
-                userDao.update(user);
-            }catch (Exception e){
-                data.put("result", "fail");
-                data.put("data","更新失败");
+            if(customers != null) {
+                user.setName(username);
+                user.setPhone(tel);
+                try {
+                    customers.setAddress(address);
+                    customersService.editByCid(customers);
+                    userDao.update(user);
+                } catch (Exception e) {
+                    data.put("result", "fail");
+                    data.put("data", "更新失败");
+                }
+                data.put("result", "success");
+                data.put("data", "");
             }
-            data.put("result", "success");
-            data.put("data", "");
+        }else{
+            data.put("result", "fail");
+            data.put("data","更新失败");
         }
         return data.toString();
     }
@@ -165,7 +167,7 @@ public class AppController {
                              @RequestParam(value="cid")String cid,
                              @RequestParam(value="devicetype")int devicetype,
                              @RequestParam(value="page",required = false)Integer page) {
-        if(page == 0 || page ==null){
+        if(page == 0 || page == null){
             page = 1;
         }
         JSONObject data = new JSONObject();
@@ -280,7 +282,7 @@ public class AppController {
         JSONObject data = new JSONObject();
         Devices paramDevices = new Devices();
         try {
-            List<Masters> mastersList = mastersService.findMastersListByCid(cid);
+            List<MastersPart> mastersPartList = mastersService.findMastersListByCid(cid);
             String action = "";
             String deviceCode = "";
             if(tag == 1){
@@ -290,11 +292,10 @@ public class AppController {
             }else{
                 action = "SetSolved";
             }
-            for(Masters mastersTemp : mastersList){
-                deviceCode = mastersTemp.getCode();
+            for(MastersPart mastersPartTemp : mastersPartList){
+                deviceCode = mastersPartTemp.getCode();
                 setFun(action, deviceCode);
             }
-
         }catch (Exception e){
             data.put("result", "fail");
             data.put("data", "主机暂未连接，布防命令已保存，联机后下发");
@@ -412,7 +413,6 @@ public class AppController {
             jsonObject.put("value",defenceTypeNameObject.getDefenceType());
             jsonArray.add(jsonObject);
         }
-        System.out.println(jsonArray);
         return jsonArray.toString();
     }
 
@@ -446,12 +446,10 @@ public class AppController {
     public String getdefence(@RequestParam(value = "userid")String userid,
                              @RequestParam(value = "cid")String cid,
                              @RequestParam(value = "masterid",required = false)String masterid){
-        System.out.println("userid"+userid+"cid"+cid+"masterid"+masterid);
         Map map=new HashMap();
         map.put("cid",cid);
         map.put("masterid",masterid);
         List<DefencesDevice> list=appService.getDefences(map);
-        System.out.println("list"+list);
         for (DefencesDevice defencesDevice:list){
             int defencetype=defencesDevice.getDefencetype();
             if(defencetype!=0){
@@ -468,7 +466,6 @@ public class AppController {
                 defencesDevice.setStatename("禁用");
             }
         }
-        System.out.println(JSONArray.fromObject(list).toString());
         return JSONArray.fromObject(list).toString();
     }
     /**
@@ -480,7 +477,6 @@ public class AppController {
                             @RequestParam("defencename") String defencename,
                             @RequestParam("defencetypename") String defencetypename){
         int defencetype= DefenceTypeName.getByName(defencetypename).getDefenceType();
-        System.out.println(DefenceTypeName.getByName(defencetypename).getDefenceType());
         Map map=new HashMap();
         map.put("defencename",defencename);
         map.put("defencetype",defencetype);

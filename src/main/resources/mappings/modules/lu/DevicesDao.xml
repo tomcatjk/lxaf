@@ -186,24 +186,6 @@
 		</where>
 	</select>
 
-	<!--查询所有设备类别-->
-	<select id="findAllDevicesType" resultType="com.jeeplus.modules.lu.entity.DevicesCustomers">
-		  SELECT DISTINCT(d.devicetype) as devicestype from devices d
-	</select>
-
-	<!--根据客户名查询客户id-->
-	<select id="findCustomersidByCustomerName" parameterType="java.lang.String" resultType="java.lang.String">
-		select DISTINCT(c.CID) from customers c where c.`Name`=#{name}
-	</select>
-
-	<!--查询所有设备类型-->
-	<select id="findAllCustomersType" resultType="com.jeeplus.modules.lu.entity.DevicesCustomers">
-		SELECT DISTINCT(c.`Name`) as customersName
-		FROM `devices` d left JOIN customers c on d.customerid=c.CID WHERE c.name is not null ORDER BY d.createTime;
-	</select>
-
-	<!--d.customerid = #{customerid}
-		AND d.devicetype = #{devicetype}-->
 	<select id="findByCidAndDevicetypeAndPage" resultType="java.util.Map">
 		SELECT
 			d.defenceid AS deviceid,
@@ -270,5 +252,10 @@
 		</if>
 		ORDER BY d.createtime DESC
 	</select>
+
+	<update id="deleteByMaster">
+		DELETE FROM devices
+		WHERE masterid = #{mid}
+	</update>
 
 </mapper>

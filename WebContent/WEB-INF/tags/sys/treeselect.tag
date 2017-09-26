@@ -28,10 +28,9 @@
 		class="${cssClass}" style="${cssStyle}"/>
        		 <span class="input-group-btn">
 	       		 <button type="button"  id="${id}Button" class="btn <c:if test="${fn:contains(cssClass, 'input-sm')}"> btn-sm </c:if><c:if test="${fn:contains(cssClass, 'input-lg')}"> btn-lg </c:if>  btn-primary ${disabled} ${hideBtn ? 'hide' : ''}"><i class="fa fa-search"></i>
-	             </button> 
+	             </button>
        		 </span>
-       		
-    </div>
+		</div>
 	 <label id="${id}Name-error" class="error" for="${id}Name" style="display:none"></label>
 <script type="text/javascript">
 	$("#${id}Button, #${id}Name").click(function(){

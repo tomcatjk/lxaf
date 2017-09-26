@@ -64,7 +64,7 @@ public class CustomersController extends BaseController {
 
 	@Autowired
 	private AlarmsService alarmsService;
-	
+
 	@ModelAttribute
 	public Customers get(@RequestParam(required=false) String id) {
 		Customers entity = null;
@@ -233,6 +233,7 @@ public class CustomersController extends BaseController {
 		mastersService.deleteByCustomer(customers);
 		devicesService.deleteByCustomer(customers);
 		defencesService.deleteByCustomer(customers);
+		alarmsService.deleteByCustomerId(customers);
 		addMessage(redirectAttributes, "删除客户信息成功");
 		return "redirect:"+Global.getAdminPath()+"/lu/customers/list?repage&customertype=" + customers.getCustomertype();
 	}
@@ -250,8 +251,8 @@ public class CustomersController extends BaseController {
 			customersService.delete(customers);
 			mastersService.deleteByCustomer(customers);
 			devicesService.deleteByCustomer(customers);
-
 			defencesService.deleteByCustomer(customers);
+			alarmsService.deleteByCustomerId(customers);
 		}
 		addMessage(redirectAttributes, "删除客户信息成功");
         System.out.println(Global.getAdminPath());

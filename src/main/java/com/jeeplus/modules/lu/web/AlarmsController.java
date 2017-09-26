@@ -138,18 +138,6 @@ public class AlarmsController extends BaseController {
             paramMap.put("currentPage", (currentPage-1) * pageSize);
             list.addAll(alarmsService.findAlarmsInfoAcd(paramMap));
         }
-
-//        if("0".equals(user.getCustomerID())){
-//			total = alarmsService.findAlarmsInfoAcd(paramMap).size();
-//			paramMap.put("currentPage", (currentPage-1) * pageSize);
-//            list = alarmsService.findAlarmsInfoAcd(paramMap);
-//        }else{
-//			paramMap.put("cid", user.getCustomerID());
-//			total = alarmsService.findAlarmsInfoAcd(paramMap).size();
-//			paramMap.put("currentPage", (currentPage-1) * pageSize);
-//			list = alarmsService.findAlarmsInfoAcd(paramMap);
-//        }
-
         Map resultMap = new HashMap();
 		resultMap.put("currentPage", currentPage);
 		resultMap.put("endPage", total % pageSize == 0 ? total / pageSize : total / pageSize + 1);

@@ -41,9 +41,12 @@
 			<shiro:hasPermission name="lu:devices:add">
 				<table:addRow url="${ctx}/lu/devices/form?customerid=${customerid}" title="设备"></table:addRow><!-- 增加按钮 -->
 			</shiro:hasPermission>
-			<shiro:hasPermission name="lu:devices:import">
-				<table:importExcel url="${ctx}/lu/devices/import"></table:importExcel><!-- 导入按钮 -->
+			<shiro:hasPermission name="lu:masters:del">
+				<table:delRow url="${ctx}/lu/devices/deleteAll" id="contentTable"></table:delRow><!-- 删除按钮 -->
 			</shiro:hasPermission>
+			<%--<shiro:hasPermission name="lu:devices:import">--%>
+				<%--<table:importExcel url="${ctx}/lu/devices/import"></table:importExcel><!-- 导入按钮 -->--%>
+			<%--</shiro:hasPermission>--%>
 	       <button class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" onclick="sortOrRefresh()" title="刷新"><i class="glyphicon glyphicon-repeat"></i> 刷新</button>
 		
 			</div>
@@ -72,7 +75,7 @@
 		<tbody>
 		<c:forEach items="${page.list}" var="devices">
 			<tr>
-				<td> <input type="checkbox" id="${devices.id}" class="i-checks"></td>
+				<td> <input type="checkbox" id="${devices.did}" class="i-checks"></td>
 				<td>
 					${devices.name}
 				</td>
@@ -83,7 +86,7 @@
 					${devices.defenceid}
 				</td>
 				<td>
-						${devices.state == 1 ? "布防" : "撤防"}
+					${devices.state == 1 ? "布防" : "撤防"}
 				</td>
 				<td>
 					${devices.masterid}

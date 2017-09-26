@@ -256,14 +256,14 @@
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text"  id="username" name="username" class="form-control required"  value="admin" placeholder="用户名" />
+															<input type="text"  id="username" name="username" class="form-control required"  value="" placeholder="用户名" />
 															<i class="ace-icon fa fa-user"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" id="password" name="password" value="admin" class="form-control required" placeholder="密码" />
+															<input type="password" id="password" name="password" value="" class="form-control required" placeholder="密码" />
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
 													</label>

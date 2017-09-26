@@ -307,7 +307,10 @@
                 //播放报警信息
                 if (whichOne == 0 && countTemp > 0) {
                     PlayMedia();
-                    extbkboxnar();
+                    var narrowmen = document.getElementById("extbkboxnar");
+                    var narrowbox = document.getElementById("extbkboxb");
+                    narrowbox.style.display = "block";
+                    narrowmen.className = "extbkboxnar";
                 }else{
                     $('#wav').html("");
                 }

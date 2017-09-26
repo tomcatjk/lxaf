@@ -66,20 +66,6 @@ public class DevicesService extends CrudService<DevicesDao, Devices> {
 		super.delete(devices);
 	}
 
-	/**
-	 * 通过客户名查询客户id
-	 */
-	public List<String> findCustomersidByCustomerName(String name){
-		List<String> customersid = devicesDao.findCustomersidByCustomerName(name);
-		return customersid;
-	}
-	/**
-	 * 查询所有客户类别
-	 */
-	public List findAllCustomersType(){
-		return devicesDao.findAllCustomersType();
-	}
-
 	@Transactional(readOnly = false)
 	public void updateByDid(Devices devices){
 		dao.updateByDid(devices);
@@ -116,5 +102,10 @@ public class DevicesService extends CrudService<DevicesDao, Devices> {
 			}
 		}
 		return page;
+	}
+
+	@Transactional(readOnly = false)
+	public void deleteByMaster(Masters masters){
+		dao.deleteByMaster(masters);
 	}
 }

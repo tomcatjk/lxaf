@@ -2,10 +2,7 @@ package com.jeeplus.modules.lu.dao;
 
 import com.jeeplus.common.persistence.CrudDao;
 import com.jeeplus.common.persistence.annotation.MyBatisDao;
-import com.jeeplus.modules.lu.entity.Alarms;
-import com.jeeplus.modules.lu.entity.AlarmsCount;
-import com.jeeplus.modules.lu.entity.AlarmsDefences;
-import com.jeeplus.modules.lu.entity.Devices;
+import com.jeeplus.modules.lu.entity.*;
 
 import java.util.List;
 import java.util.Map;
@@ -25,4 +22,9 @@ public interface AlarmsDao extends CrudDao<Alarms> {
     List getAlarmsCount(AlarmsCount alarmsCount);
 
     void deleteByDefenceId(Devices devices);
+
+    void deleteByCustomerId(Customers customers);
+
+    void deleteByMasterId(Masters masters);
+
 }

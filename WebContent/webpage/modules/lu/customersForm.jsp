@@ -25,10 +25,10 @@
                 <td class="width-35">
                     <input type="text" name="name" id="name" value="${customers.name}" class="form-control requiredClass"/>
                 </td>
-                <td class="width-15 active"><label class="pull-right">区域：</label></td>
-                <td class="width-35">
+                <td class="width-15 active"><label class="pull-right"><font color="red">*</font>区域：</label></td>
+                <td class="width-35 areaClass">
                     <sys:treeselect id="areaid" name="areaid" value="${areas.parent.id}" labelName="parent.name" labelValue="${customers.areaName}"
-                                    title="选择区域" url="/lu/areas/treeData" extId="${areas.id}" cssClass="form-control " allowClear="true"/>
+                                    title="选择区域" url="/lu/areas/treeData" extId="${areas.id}" cssClass="form-control requiredClass" allowClear="true"/>
                 </td>
             </tr>
             <tr>
@@ -195,6 +195,14 @@
                     if( this.value==""){
                         var errorMsg = '请输入用户名.';
                         $parent.append('<span class="formtips onError">'+errorMsg+'</span>');
+                    }
+                }
+
+                //验证区域
+                if( $(this).is('#areaidName') ){
+                    if( this.value==""){
+                        var errorMsg = '请选择区域.';
+                        $parent.parent(".areaClass").append('<span class="formtips onErrorCustomers">'+errorMsg+'</span>');
                     }
                 }
 

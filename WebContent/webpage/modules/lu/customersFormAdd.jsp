@@ -41,22 +41,21 @@
                             <td class="width-35">
                                 <input type="text" name="name" id="name" class="form-control requiredClass"/>
                             </td>
-                            <td class="width-15 active"><label class="pull-right">区域：</label></td>
-                            <td class="width-35">
+                            <td class="width-15 active"><label class="pull-right"><font color="red">*</font>区域：</label></td>
+                            <td class="width-35 areaClass">
                                 <sys:treeselect id="areaid" name="areaid" value="${areas.parent.id}" labelName="parent.name" labelValue="${areas.parent.name}"
-                                                title="选择区域" url="/lu/areas/treeData" extId="${areas.id}" cssClass="form-control " allowClear="true"/>
+                                                title="选择区域" url="/lu/areas/treeData" extId="${areas.id}" cssClass="form-control requiredClass" allowClear="true"/>
                             </td>
                         </tr>
                         <tr>
                             <td class="width-15 active"><label class="pull-right"><font color="red">*</font>客户类别：</label></td>
                             <td class="width-35">
                                 <input type="hidden" name = "customertype" id="customerTypeId" value = "${customertype}">
-                                <input type="text" name="customerTypeStr" id="customerTypeStr" value="${customertype == 1 ? "企业客户" : (customertype == 2 ? "个体客户" : "政府客户")}"  readonly  class="form-control "
-                                       data-easyform="null;"/>
+                                <input type="text" name="customerTypeStr" id="customerTypeStr" value="${customerTypeStr}"  readonly  class="form-control"/>
                             </td>
                             <td class="width-15 active"><label class="pull-right"><font color="red">*</font>地址：</label></td>
                             <td class="width-35">
-                                <input type="text"  name="address" id="address"  onBlur="searchByStationName();"  class="form-control requiredClass"/>
+                                <input type="text"  name="address" id="address"  onBlur="searchByStationName();" class="form-control requiredClass"/>
                             </td>
                         </tr>
                         <tr>
@@ -459,11 +458,20 @@
             $('.customersFormAddFormClass :input').blur(function(){
                 var $parent = $(this).parent();
                 $parent.find(".formtips").remove();
+                $parent.parent(".areaClass").find(".formtips").remove();
                 //验证用户名
                 if( $(this).is('#name') ){
                     if( this.value==""){
                         var errorMsg = '请输入用户名.';
                         $parent.append('<span class="formtips onErrorCustomers">'+errorMsg+'</span>');
+                    }
+                }
+
+                //验证区域
+                if( $(this).is('#areaidName') ){
+                    if( this.value==""){
+                        var errorMsg = '请选择区域.';
+                        $parent.parent(".areaClass").append('<span class="formtips onErrorCustomers">'+errorMsg+'</span>');
                     }
                 }
 
