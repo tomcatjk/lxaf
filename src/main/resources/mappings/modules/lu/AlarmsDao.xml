@@ -453,7 +453,7 @@
 
 	<update id="deleteByMasterId">
 		DELETE FROM alarms
-		WHERE masterid = #{cid}
+		WHERE masterid = #{mid}
 	</update>
 
 </mapper>

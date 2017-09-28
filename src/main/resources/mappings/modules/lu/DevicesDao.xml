@@ -188,19 +188,19 @@
 
 	<select id="findByCidAndDevicetypeAndPage" resultType="java.util.Map">
 		SELECT
-			d.defenceid AS deviceid,
+			d.did AS deviceid,
 			d.`name` AS devicename,
 			d.devicetype AS devicetype,
 			m.`Name` AS typename,
 			d.devicemodel AS devicemode,
-			d.createtime AS createtime,
+			date_format(d.createtime, '%Y-%m-%d') AS createtime,
 			m.state AS state
 		FROM
 			devices d
 		LEFT JOIN masters m ON d.masterid = m.MID
 		WHERE
 			d.devicetype = #{devicetype}
-			AND d.createid = #{userid}
+			AND d.customerid = #{customerid}
 		LIMIT #{pageBegin},
 		 #{pageEnd}
 	</select>
@@ -215,7 +215,7 @@
 			def.`Code` AS defencecode,
 			def.`Name` AS defencename,
 			def.DefenceType AS defenceType,
-			d.createtime AS createtime,
+			date_format(d.createtime, '%Y-%m-%d') AS createtime,
 			d.state AS state,
 			m.Version AS version,
 			m.SIM AS sim

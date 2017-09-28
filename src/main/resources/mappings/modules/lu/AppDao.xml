@@ -30,13 +30,34 @@
 	</update>
 
 	<select id="getDefences" parameterType="map" resultType="com.jeeplus.modules.app.entity.DefencesDevice">
-		SELECT a.DID as defenceid , a.Code as defencecode , a.Name as defencename, a.DefenceType as defencetype, b.devicetype as devicetype,
-		b.masterid as masterid, b.state as state FROM defences a LEFT JOIN devices b on a.CustomerID = b.customerid
+		SELECT
+			a.DID AS defenceid,
+			a. CODE AS defencecode,
+			a. NAME AS defencename,
+			a.DefenceType AS defencetype,
+			b.devicetype AS devicetype,
+			a.masterid AS masterid,
+			b.state AS state
+		FROM
+			defences a
+		LEFT JOIN devices b ON a.DID = b.defenceid
 		WHERE
-		a.CustomerID = #{cid}
-		<if test="masterid !=null">
+			a.CustomerID = #{cid}
+		AND a.DID IN (
+			SELECT
+				defenceid
+			FROM
+				devices
+			WHERE
+				customerid = #{cid}
+		)
+		<if test="masterid !=null and masterid != ''">
 			AND b.masterid = #{masterid}
 		</if>
-
+		GROUP BY
+			a.masterid,
+			a.`Code`
+		ORDER BY
+			a.masterid ASC, a.`Code` ASC
 	</select>
 </mapper>

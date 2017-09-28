@@ -7,6 +7,7 @@ import com.jeeplus.modules.lu.service.CustomersService;
 import com.jeeplus.modules.lu.service.DefencesService;
 import com.jeeplus.modules.lu.service.DevicesService;
 import com.jeeplus.modules.lu.service.MastersService;
+import com.jeeplus.modules.lu.web.DevicesController;
 import com.jeeplus.modules.sys.dao.UserDao;
 import com.jeeplus.modules.sys.entity.User;
 import com.jeeplus.modules.sys.service.SystemService;
@@ -47,6 +48,9 @@ public class AppController {
     @Autowired
     private DevicesService devicesService;
 
+    @Autowired
+    private DevicesController devicesController;
+
     /**
      * 登录
      * @param loginName
@@ -65,7 +69,7 @@ public class AppController {
                 Map map = new HashedMap();
                 map.put("userid", user.getId());
                 map.put("username", user.getName());
-                map.put("tel", user.getPhone()); //user.phone为null
+                map.put("tel", user.getPhone() != null ? user.getPhone() : ""); //user.phone为null
                 if(customers != null) {
                     map.put("address", customers.getAddress()); //user没有地址
                 }else{
@@ -74,6 +78,9 @@ public class AppController {
                 map.put("cid",user.getCustomerID());
                 data.put("result", "success");
                 data.put("data",map);
+            }else{
+                data.put("result", "fail");
+                data.put("data","用户名或密码错误");
             }
         }else{
             data.put("result", "fail");
@@ -183,7 +190,7 @@ public class AppController {
                 if (deviceList.get(i).get("devicemode") == null) {
                     deviceList.get(i).put("devicemode", "");
                 }
-                deviceList.get(i).put("createtime", deviceList.get(i).get("createtime").toString().substring(0,10));
+                deviceList.get(i).put("createtime", deviceList.get(i).get("createtime").toString());
 
                 state = Integer.parseInt(deviceList.get(i).get("state").toString());
                 deviceList.get(i).put("statename", DeviceStateName.getByState(state).getDeviceStateName());
@@ -225,7 +232,7 @@ public class AppController {
             if(objectMap.get("defencetype") == null){
                 objectMap.put("defencetype", 1);
             }
-            objectMap.put("createtime", objectMap.get("createtime").toString().substring(0,10));
+            objectMap.put("createtime", objectMap.get("createtime").toString());
             int defencetypeTemp = Integer.parseInt(objectMap.get("defencetype").toString());
             int devicetypenameTemp = Integer.parseInt(objectMap.get("devicetype").toString());
             int stateTemp = Integer.parseInt(objectMap.get("state").toString());
@@ -236,7 +243,7 @@ public class AppController {
             data.put("data", objectMap);
         }else{
             data.put("result", "fail");
-            data.put("data", "主机信息不存在");
+            data.put("data", "设备信息不存在");
         }
         return data.toString();
     }
@@ -256,7 +263,7 @@ public class AppController {
         JSONObject data = new JSONObject();
         Devices paramDevices = new Devices();
         paramDevices.setDid(deviceid);
-        if(devicesService.findUniqueByProperty("did", deviceid) !=null){
+        if(devicesService.findUniqueByProperty("d.did", deviceid) !=null){
             devicesService.delete(paramDevices);
             data.put("result", "success");
             data.put("data", "");
@@ -280,7 +287,6 @@ public class AppController {
                             @RequestParam(value="cid")String cid,
                             @RequestParam(value="tag")int tag) {
         JSONObject data = new JSONObject();
-        Devices paramDevices = new Devices();
         try {
             List<MastersPart> mastersPartList = mastersService.findMastersListByCid(cid);
             String action = "";
@@ -298,7 +304,7 @@ public class AppController {
             }
         }catch (Exception e){
             data.put("result", "fail");
-            data.put("data", "主机暂未连接，布防命令已保存，联机后下发");
+            data.put("data", "主机暂未连接，布防/撤防命令已保存，联机后下发");
         }
         return data.toString();
     }
@@ -369,7 +375,7 @@ public class AppController {
                               @RequestParam(value = "enddate" , required =  false) String enddate,
                               @RequestParam(value = "page") int page,
                               @RequestParam(value = "alarmtype" , required = false) Integer alarmtype){
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Map map=new HashMap();
         map.put("cid",cid);
         map.put("alarmtype",alarmtype);
@@ -391,9 +397,9 @@ public class AppController {
         for (AlarmsDefences alarmsDefences:list){
             JSONObject jsonObject=new JSONObject();
             jsonObject.put("defencename",alarmsDefences.getDefencesName());
-            jsonObject.put("alarmtypename", AlarmTypeName.getByType(Integer.parseInt(alarmsDefences.getTypeName())));
+            jsonObject.put("alarmtypename", AlarmTypeName.getByType(Integer.parseInt(alarmsDefences.getTypeName())).getAlarmTypeName());
             jsonObject.put("alarmtime",sdf.format(alarmsDefences.getDate()));
-            jsonObject.put("statename", AlarmStateName.getByState(Integer.parseInt(alarmsDefences.getState())));
+            jsonObject.put("statename", AlarmStateName.getByState(Integer.parseInt(alarmsDefences.getState())).getAlarmStateName());
             jsonArray.add(jsonObject);
         }
         return jsonArray.toString();
@@ -516,81 +522,35 @@ public class AppController {
                                @RequestParam(value = "devicerid",required = false) String devicerid,
                                @RequestParam(value = "devicetype",required = false) Integer devicetype,
                                @RequestParam(value = "devicename",required = false) String devicename,
-                               @RequestParam(value = "version",required = false) String version,
+                               @RequestParam(value = "version",required = false) String version,//----------
                                @RequestParam(value = "state",required = false) Integer state,
                                @RequestParam(value = "defencencode",required = false) String defencencode,
-                               @RequestParam(value = "defencename",required = false) String defencename,
-                               @RequestParam(value = "defencetype",required = false) Integer defencetype,
+                               @RequestParam(value = "defencename",required = false) String defencename,//---------
+                               @RequestParam(value = "defencetype",required = false) Integer defencetype,//-------
                                @RequestParam(value = "devicemode",required = false) String devicemode,
                                @RequestParam(value = "masterid",required = false) String masterid,
-                               @RequestParam(value = "sim",required = false) String sim){
-        if(userid==null){
-            userid="";
-        }
-        if(cid==null){
-            cid="";
-        }if(devicerid==null){
-            devicerid="";
-        }if(devicetype==null){
-            devicetype=0;
-        }if(devicename==null){
-            devicename="";
-        }if(version==null){
-            version="";
-        }if(state==null){
-            state=0;
-        }if(defencencode==null){
-            defencencode="";
-        }if(defencename==null){
-            defencename="";
-        }if(defencetype==null){
-            defencetype=0;
-        }if(devicemode==null){
-            devicemode="";
-        }if(masterid==null){
-            masterid="";
-        }if(sim==null){
-            sim="";
-        }
+                               @RequestParam(value = "sim",required = false) String sim){//---------
+        JSONObject jsonObject=new JSONObject();
+        Devices devices = new Devices();
+        devices.setCustomerid(cid);
+        devices.setDid(devicerid);
+        devices.setDevicetype(devicetype);
+        devices.setName(devicename);
+        devices.setState(String.valueOf(state));
+        devices.setDefenceid(defencencode);
+        devices.setDevicemodel(devicemode);
+        devices.setMasterid(masterid);
+        devices.setCreateid(userid);
         try {
-            Map map=new HashMap();
-            map.put("mid",masterid);
-            map.put("customerid",cid);
-            map.put("sim",sim);
-            map.put("version",version);
-            map.put("state",state);
-            mastersService.updatemasters(map);
-
-            Map map1=new HashMap();
-            map1.put("mid",masterid);
-            map1.put("customerid",cid);
-            map1.put("devicerid",devicerid);
-            map1.put("devicename",devicename);
-            map1.put("devicetype",devicetype);
-            map1.put("devicemode",devicemode);
-            map1.put("state",state);
-            map1.put("userid",userid);
-            devicesService.updatedevices(map1);
-
-            Map map2=new HashMap();
-            map2.put("mid",masterid);
-            map2.put("customerid",cid);
-            map2.put("defencencode",defencencode);
-            map2.put("defencename",defencename);
-            map2.put("defencetype",defencetype);
-            map2.put("State",state);
-            defencesService.update(map2);
-            JSONObject jsonObject=new JSONObject();
+            devicesController.savedevice(devices, defencename);
             jsonObject.put("result","success");
             jsonObject.put("data","");
-            return jsonObject.toString();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-            JSONObject jsonObject=new JSONObject();
             jsonObject.put("result","fail");
             jsonObject.put("data","更新失败");
-            return jsonObject.toString();
         }
+        return jsonObject.toString();
     }
 
 

@@ -148,6 +148,13 @@ public class DevicesController extends BaseController {
 	@ResponseBody
 	@RequestMapping(value = "save")
 	public String save(Devices devices, String defencesName, Model model, RedirectAttributes redirectAttributes) throws Exception{
+		String msg = savedevice(devices, defencesName);
+		addMessage(redirectAttributes, msg);
+		return "redirect:"+Global.getAdminPath()+"/lu/devices/?repage&customerid=" + devices.getCustomerid();
+	}
+
+	public String savedevice(Devices devices, String defencesName) throws Exception {
+		String msg = "";
 		if(devices.getDid() != null && devices.getDid().length() != 0){
 			Devices devicesTemp = devicesService.findUniqueByProperty("d.did", devices.getDid());
 			devicesTemp.setName(devices.getName());
@@ -158,8 +165,7 @@ public class DevicesController extends BaseController {
 			Defences defencesTemp = defencesService.findUniqueByProperty("did",devices.getDefenceid());
 			defencesTemp.setName(defencesName);
 			defencesService.updateOfNoCheck(defencesTemp);
-			addMessage(redirectAttributes, "更新设备信息成功");
-			return "redirect:"+Global.getAdminPath()+"/lu/devices/?repage&customerid=" + devices.getCustomerid();
+			msg = "更新设备信息成功";
 		}else{
 			User user = UserUtils.getUser();
 			Defences defences = defencesService.findUniqueByProperty("did",devices.getDefenceid());
@@ -172,12 +178,14 @@ public class DevicesController extends BaseController {
 			}else{//新增表单保存
 				devices.setCreatetime(new Date());
 				devices.setDid(UUID.randomUUID().toString());
-				devices.setCreateid(user.getId());
+				if(devices.getCreateid() == null) {
+					devices.setCreateid(user.getId());
+				}
 				devicesService.save(devices);//保存
 			}
-			addMessage(redirectAttributes, "保存设备信息成功");
+			msg = "保存设备信息成功";
 		}
-		return "redirect:"+Global.getAdminPath()+"/lu/devices/?repage&customerid=" + devices.getCustomerid();
+		return msg;
 	}
 
 	/**
