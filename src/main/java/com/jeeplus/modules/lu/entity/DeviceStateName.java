@@ -1,10 +1,15 @@
 package com.jeeplus.modules.lu.entity;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created by buwan on 2017/6/20.
  */
 public enum DeviceStateName {
-    STARTUSING("启用", 1), BLOCKUP("停用", 2);
+    STARTUSING("启用", 1), BLOCKUP("停用", 0);
 
     private String deviceStateName;
     private int deviceState;
@@ -49,5 +54,18 @@ public enum DeviceStateName {
             }
         }
         return null;
+    }
+
+    public static List getDeviceStateMapList(){
+        List deviceStateNameMapList = new ArrayList();
+        int i = 0;
+        for(DeviceStateName deviceStateNameTemp : DeviceStateName.values()){
+            Map mapTemp = new HashMap();
+            mapTemp.put("deviceState", deviceStateNameTemp.getDeviceState());
+            mapTemp.put("deviceStateName", deviceStateNameTemp.getDeviceStateName());
+            deviceStateNameMapList.add(i, mapTemp);
+            i++;
+        }
+        return deviceStateNameMapList;
     }
 }

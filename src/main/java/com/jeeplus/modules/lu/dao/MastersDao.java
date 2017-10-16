@@ -25,7 +25,7 @@ public interface MastersDao extends CrudDao<Masters> {
 
     void updateByMid(Masters masters);
 
-    void updatemasters(Map map);
-
     void deleteByCustomer(Customers customers);
+
+    void updateState(Masters master);
 }

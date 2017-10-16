@@ -16,7 +16,7 @@
 		<link href="${ctxStatic}/awesome/4.4/css/font-awesome.min.css" rel="stylesheet" />
 		<!-- jeeplus -->
 		<link href="${ctxStatic}/common/jeeplus.css" type="text/css" rel="stylesheet" />
-		<script src="${ctxStatic}/common/jeeplus.js" type="text/javascript"></script>
+		<script src="${ctxStatic}/common/jeeplus.js?100=2" type="text/javascript"></script>
 		<link rel="shortcut icon" href="images/favicon.png" type="image/png">
 		<!-- text fonts -->
 		<link rel="stylesheet" href="${ctxStatic }/common/login/ace-fonts.css" />
@@ -276,10 +276,10 @@
 													<div class="space"></div>
 
 													<div class="clearfix">
-														<label class="inline">
-															<input  type="checkbox" id="rememberMe" name="rememberMe" ${rememberMe ? 'checked' : ''} class="ace" />
-															<span class="lbl"> 记住我</span>
-														</label>
+														<%--<label class="inline">--%>
+															<%--<input  type="checkbox" id="rememberMe" name="rememberMe" ${rememberMe ? 'checked' : ''} class="ace" />--%>
+															<%--<span class="lbl"> 记住我</span>--%>
+														<%--</label>--%>
 
 														<button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
 															<i class="ace-icon fa fa-key"></i>

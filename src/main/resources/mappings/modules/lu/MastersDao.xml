@@ -80,7 +80,8 @@
 			state,
 			createtime,
 			IsOnline,
-			EndTime
+			EndTime,
+			disarmState
 		) VALUES (
 			#{mid},
 			#{code},
@@ -92,7 +93,8 @@
 			#{state},
 			now(),
 			#{isOnline},
-			now()
+			now(),
+			#{disarmState}
 		)
 	</insert>
 	
@@ -106,7 +108,8 @@
 			maintype = #{maintype},
 			version = #{version},
 			state = #{state},
-			createtime = #{createtime}
+			createtime = #{createtime},
+			disarmState = #{disarmState}
 		WHERE mid = #{mid}
 	</update>
 
@@ -210,14 +213,12 @@
 		ORDER BY m.createtime DESC
 	</select>
 
-	<!--编辑-->
-	<update id="updatemasters" parameterType="map" >
-		UPDATE masters m SET m.SIM=#{sim},m.Version=#{version},m.State=#{state}
-		WHERE m.CustomerID=#{customerid} AND m.MID=#{mid}
-	</update>
-
 	<update id="deleteByCustomer">
 		DELETE FROM masters
 		WHERE CustomerID = #{cid}
+	</update>
+
+	<update id="updateState">
+		UPDATE masters SET disarmState = #{disarmState} WHERE mid = #{mid}
 	</update>
 </mapper>

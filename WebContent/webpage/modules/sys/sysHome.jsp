@@ -10,7 +10,7 @@
     <script src="${ctxStatic}/layer-v3.0.3/layer/layer.js"></script>
     <link rel="stylesheet" type="text/css" href="${ctxStatic}/lianxun/lower-right-corner/css/style.css?6=6">
     <link rel="stylesheet" href="${ctxStatic}/lianxun/layui/src/css/layui.css">
-    <%--<script src="${ctxStatic}/lianxun/layui/src/layui.js"></script>--%>
+    <%--<script src="${ctxStatic}/lianxun/layui/src/layui.js?1=2"></script>--%>
     <%@include file="/webpage/include/treetable.jsp" %>
 
     <%--右下角表格样式修改--%>
@@ -565,9 +565,9 @@
     <div id="worker" style="float: left"></div>
 </div>
 
-<div class="ibox">
+<div class="ibox" style="height: calc(100% - 100px);">
     <div id="frmtitle" style="width: 15%;height: 0px; overflow: scroll;float: left;">
-        <table id="treeTable" class="table table-striped table-bordered table-hover table-condensed dataTables-example dataTable">
+        <table id="treeTable" class="table table-striped table-bordered table-hover table-condensed dataTables-example dataTable" style="margin-top: 0;">
             <thead>
             <tr>
                 <th>区域及客户</th>
@@ -603,9 +603,11 @@
     <%--地图--%>
     <div id="allmap" style="width: 84%; height: 800px;"></div>
 </div>
-<object id="ctrlLight" classid="clsid:C6B41616-6238-42B6-BB05-F6C87A26B9F4" width="0"
-        height="20">
-</object>
+<div style="display: none;">
+    <object id="ctrlLight" classid="clsid:C6B41616-6238-42B6-BB05-F6C87A26B9F4" width="0"
+            height="0">
+    </object>
+</div>
 <div id="wav">
 </div>
 </body>

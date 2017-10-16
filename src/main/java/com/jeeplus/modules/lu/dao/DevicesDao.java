@@ -23,11 +23,7 @@ public interface DevicesDao extends CrudDao<Devices> {
 
     void updateByDid(Devices devices);
 
-    List findByCidAndDevicetypeAndPage(Map map);
-
     Map findByDeviceid(Map map);
-
-    void updatedevices(Map map);
 
     void deleteByCustomer(Customers customers);
 

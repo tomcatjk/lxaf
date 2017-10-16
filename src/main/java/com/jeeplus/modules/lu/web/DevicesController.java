@@ -114,6 +114,8 @@ public class DevicesController extends BaseController {
 	public String form(Devices devices, Model model) {
 		Devices devicesTemp = devicesService.findUniqueByProperty("d.did", devices.getDid());
 		if(devicesTemp != null){
+			Defences defence = defencesService.findUniqueByProperty("did", devicesTemp.getDefenceid());
+			model.addAttribute("defenceTypeTemp", defence.getDefencetype());
 			model.addAttribute("devices", devicesTemp);
 		}else{
 
@@ -123,6 +125,7 @@ public class DevicesController extends BaseController {
 			deviceTypeNameMap.put(String.valueOf(deviceTypeNameObject.getDeviceType()), deviceTypeNameObject.getDeviceTypeName());
 		}
 		model.addAttribute("deviceTypeNameMap", deviceTypeNameMap);
+		model.addAttribute("defenceTypeMapList", DefenceTypeName.getDefenceTypeMapList());
 		return "modules/lu/devicesForm";
 	}
 
@@ -147,13 +150,13 @@ public class DevicesController extends BaseController {
 	@RequiresPermissions(value={"lu:devices:add","lu:devices:edit"},logical=Logical.OR)
 	@ResponseBody
 	@RequestMapping(value = "save")
-	public String save(Devices devices, String defencesName, Model model, RedirectAttributes redirectAttributes) throws Exception{
-		String msg = savedevice(devices, defencesName);
+	public String save(Devices devices,Model model, RedirectAttributes redirectAttributes) throws Exception{
+		String msg = savedevice(devices, new User());
 		addMessage(redirectAttributes, msg);
 		return "redirect:"+Global.getAdminPath()+"/lu/devices/?repage&customerid=" + devices.getCustomerid();
 	}
 
-	public String savedevice(Devices devices, String defencesName) throws Exception {
+	public String savedevice(Devices devices,User user) throws Exception {
 		String msg = "";
 		if(devices.getDid() != null && devices.getDid().length() != 0){
 			Devices devicesTemp = devicesService.findUniqueByProperty("d.did", devices.getDid());
@@ -163,13 +166,19 @@ public class DevicesController extends BaseController {
 			devicesTemp.setDefenceid(devices.getDefenceid());
 			devicesService.updateByDid(devicesTemp);
 			Defences defencesTemp = defencesService.findUniqueByProperty("did",devices.getDefenceid());
-			defencesTemp.setName(defencesName);
+			defencesTemp.setName(devices.getDefenceName());
+			defencesTemp.setDefencetype(Integer.valueOf(devices.getDefenceType()));
 			defencesService.updateOfNoCheck(defencesTemp);
 			msg = "更新设备信息成功";
 		}else{
-			User user = UserUtils.getUser();
+			if(user.getId() == null) {
+				user = UserUtils.getUser();
+			}
 			Defences defences = defencesService.findUniqueByProperty("did",devices.getDefenceid());
-			defences.setName(defencesName);
+			defences.setName(devices.getDefenceName());
+			if(devices.getDevicetype() != null) {
+				defences.setDefencetype(devices.getDevicetype());
+			}
 			defencesService.updateOfNoCheck(defences);
 			if(!devices.getIsNewRecord()){//编辑表单保存
 				Devices t = devicesService.get(devices.getId());//从数据库取出的值
@@ -194,10 +203,14 @@ public class DevicesController extends BaseController {
 	@RequiresPermissions("lu:devices:del")
 	@RequestMapping(value = "delete")
 	public String delete(Devices devices, RedirectAttributes redirectAttributes) {
-		devicesService.delete(devices);
-		alarmsService.deleteByDefenceId(devices);
+		delDevice(devices);
 		addMessage(redirectAttributes, "删除设备信息成功");
 		return "redirect:"+Global.getAdminPath()+"/lu/devices/?repage&customerid=" + devices.getCustomerid();
+	}
+
+	public void delDevice(Devices device){
+		devicesService.delete(device);
+		alarmsService.deleteByDefenceId(device);
 	}
 
 	/**
@@ -210,8 +223,7 @@ public class DevicesController extends BaseController {
 		String idArray[] =ids.split(",");
 		for(String id : idArray){
 			devicesTemp = devicesService.findUniqueByProperty("d.did", id);
-			devicesService.delete(devicesTemp);
-			alarmsService.deleteByDefenceId(devicesTemp);
+			delDevice(devicesTemp);
 		}
 		addMessage(redirectAttributes, "删除设备信息成功");
 		return "redirect:"+Global.getAdminPath()+"/lu/devices/?repage&customerid=" + devicesTemp.getCustomerid();

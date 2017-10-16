@@ -4,7 +4,7 @@
 <head>
 	<title>设备信息管理</title>
 	<meta name="decorator" content="default"/>
-	<script src="${ctxStatic}/common/jeeplus.js?16=22" type="text/javascript"></script>
+	<script src="${ctxStatic}/common/jeeplus.js?100=2" type="text/javascript"></script>
 	<script type="text/javascript">
 		function submitFrom() {
 			document.getElementById('searchForm').submit()

@@ -15,6 +15,7 @@
 			var isTrue = true;
 			var url = "${ctx}/lu/masters/save";
 			var obj = $("#reg-form").serialize();
+			console.log(obj)
 			$.ajaxSetup({
 				async : false
 			});
@@ -67,7 +68,6 @@
 <body class="hideScroll">
 		<form id="reg-form" modelAttribute="masters" action="${ctx}/lu/masters/save" method="post" class="form-horizontal">
 			<input type="hidden" value="${masters.mid}" id="mid" name="mid">
-			<input type="hidden" value="${masters.state}" id="state" name="state">
 			<input type="hidden"  name="customerid" id="customerid"    value="${masters.customerid}"/>
 			<sys:message content="${message}"/>
 			<table class="table table-bordered  table-condensed dataTables-example dataTable no-footer">
@@ -91,9 +91,9 @@
 						<td class="width-15 active"><label class="pull-right"><font color="red">*</font>状态：</label></td>
 						<td class="width-35">
 							<select class="form-control requiredClass" name="state" id="state">
-									<c:forEach items="${mastersStateNameMap}" var="mastersStateName">
-										<option value="${mastersStateName.key}">${mastersStateName.value}</option>
-									</c:forEach>
+								<c:forEach items="${deviceStateMapList}" var="deviceStateMap">
+									<option value="${deviceStateMap.deviceState}">${deviceStateMap.deviceStateName}</option>
+								</c:forEach>
 							</select>
 						</td>
 					</tr>

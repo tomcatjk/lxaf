@@ -32,6 +32,25 @@ public class Devices extends DataEntity<Devices> {
 
 	private String code;
 
+	private String defenceName;
+	private String defenceType;
+
+	public String getDefenceName() {
+		return defenceName;
+	}
+
+	public void setDefenceName(String defenceName) {
+		this.defenceName = defenceName;
+	}
+
+	public String getDefenceType() {
+		return defenceType;
+	}
+
+	public void setDefenceType(String defenceType) {
+		this.defenceType = defenceType;
+	}
+
 	public String getCode() {
 		return code;
 	}

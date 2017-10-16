@@ -3,13 +3,11 @@
  */
 package com.jeeplus.modules.lu.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import com.jeeplus.common.persistence.*;
 import com.jeeplus.modules.lu.entity.*;
-import com.jeeplus.modules.lu.web.DevicesController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -72,17 +70,9 @@ public class DevicesService extends CrudService<DevicesDao, Devices> {
 	}
 
 	@Transactional(readOnly = false)
-	public List findByCidAndDevicetypeAndPage(Map map){
-		return dao.findByCidAndDevicetypeAndPage(map);
-	}
-
-	@Transactional(readOnly = false)
 	public Map findByDeviceid(Map map){
 		return dao.findByDeviceid(map);
 	}
-
-	@Transactional(readOnly = false)
-	public void updatedevices(Map map){devicesDao.updatedevices(map);}
 
 	@Transactional(readOnly = false)
 	public void deleteByCustomer(Customers customers){

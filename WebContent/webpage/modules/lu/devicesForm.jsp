@@ -109,8 +109,8 @@
 				var did = $("#defenceSelect").val();
 				var url = "${ctx}/lu/defences/findDefencesbyDid?did=" + did;
 				$.post(url,function (defences) {
-					var input = "<input type='text' name='defencesName' value='"+defences.name+"' class='form-control'>";
-					$("#defencesName").html(input);
+					var input = "<input type='text' name='defenceName' value='"+defences.name+"' class='form-control'>";
+					$("#defenceName").html(input);
 				});
 			});
 		}
@@ -118,8 +118,8 @@
 		var defenceSelectChange = function (did) {
 			var url = "${ctx}/lu/defences/findDefencesbyDid?did=" + did;
 			$.post(url,function (defences) {
-				var input = "<input type='text' name='defencesName' value='"+defences.name+"' class='form-control'>";
-				$("#defencesName").html(input);
+				var input = "<input type='text' name='defenceName' value='"+defences.name+"' class='form-control'>";
+				$("#defenceName").html(input);
 			});
 		}
 
@@ -158,17 +158,30 @@
 					<td class="width-35">
 							<select name="masterid" id="masterSelect" style='width: 255px; height: 33px;' class="form-control requiredClass"></select>
 					</td>
-					<td></td>
-					<td><input type="hidden" name="customerid" value="${devices.customerid}"></td>
+					<input type="hidden" name="customerid" value="${devices.customerid}">
 				</tr>
 				<tr>
 					<td class="width-15 active"><label class="pull-right">防区编号：</label></td>
 					<td class="width-35">
 						<select name="defenceid" id="defenceSelect" style='width: 255px; height: 33px;'></select>
 					</td>
+					<td class="width-15 active"><label class="pull-right">防区类型：</label></td>
+					<td class="width-35">
+						<select name="defenceType" id="defenceTypeSelect" style='width: 255px; height: 33px;'>
+							<c:forEach items="${defenceTypeMapList}" var="defenceTypeMap">
+								<option value="${defenceTypeMap.defenceType}"
+										<c:if test="${defenceTypeTemp == defenceTypeMap.defenceType}">selected</c:if>
+								>
+									${defenceTypeMap.defenceTypeName}
+								</option>
+							</c:forEach>
+						</select>
+					</td>
+				</tr>
+		   		<tr>
 					<td class="width-15 active"><label class="pull-right">防区名称：</label></td>
 					<td class="width-35">
-						<div id="defencesName"></div>
+						<div id="defenceName"></div>
 					</td>
 				</tr>
 		 	</tbody>

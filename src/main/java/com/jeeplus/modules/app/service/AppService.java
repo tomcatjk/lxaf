@@ -26,14 +26,18 @@ public class AppService {
 		return appDao.selectAlarmrecord(map);
 	}
 
-	public List getdefence(String cid){
-		return appDao.getdefence(cid);
-	}
-
 	public List getDefences(Map map){
 		return appDao.getDefences(map);
 	}
 
 	@Transactional(readOnly = false)
 	public int updateDefence(Map map){return appDao.updateDefence(map);}
+
+	public List getMasters(Map map){
+		return appDao.getMasters(map);
+	}
+
+	public List getDevices(Map map){
+		return appDao.getDevices(map);
+	}
 }

@@ -14,15 +14,10 @@ import com.jeeplus.modules.lu.entity.DeviceStateName;
 import com.jeeplus.modules.lu.service.AlarmsService;
 import com.jeeplus.modules.lu.service.DefencesService;
 import com.jeeplus.modules.lu.service.DevicesService;
-import com.jeeplus.modules.sys.entity.User;
-import com.jeeplus.modules.sys.utils.UserUtils;
 import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -101,11 +96,8 @@ public class MastersController extends BaseController {
 		if(masters.getMid()!=null){
 			masters = mastersService.findUniqueByProperty("mid", masters.getMid());
 		}
-		Map mastersStateNameMap = new HashMap();
-		for(DeviceStateName deviceStateName : DeviceStateName.values()){
-			mastersStateNameMap.put(String.valueOf(deviceStateName.getDeviceState()),deviceStateName.getDeviceStateName());
-		}
-		model.addAttribute("mastersStateNameMap", mastersStateNameMap);
+		List deviceStateMapList = DeviceStateName.getDeviceStateMapList();
+		model.addAttribute("deviceStateMapList", deviceStateMapList);
 		model.addAttribute("masters", masters);
 		model.addAttribute("masterFlag",masterFlag); //注意第126行参数有变化
 		return "modules/lu/mastersForm";
@@ -132,7 +124,11 @@ public class MastersController extends BaseController {
 	@RequiresPermissions(value={"lu:masters:add","lu:masters:edit"},logical=Logical.OR)
 	@ResponseBody
 	@RequestMapping(value = "save")
-	public String save(Masters masters, String masterFlag, Model model, RedirectAttributes redirectAttributes) throws Exception{
+	public String save(Masters masters) throws Exception{
+		return saveMaster(masters);
+	}
+
+	public String saveMaster(Masters masters) throws Exception {
 		if(masters.getCustomerid() != null && masters.getCustomerid().contains(",")){
 			masters.setCustomerid(masters.getCustomerid().split(",")[1]);
 		}
@@ -141,12 +137,10 @@ public class MastersController extends BaseController {
 			mastersTemp.setCode(masters.getCode());
 			mastersTemp.setName(masters.getName());
 			mastersTemp.setSim(masters.getSim());
-			mastersTemp.setState(masters.getState().split(",")[1]);
+			mastersTemp.setState(masters.getState());
 			mastersTemp.setMaintype(masters.getMaintype());
 			mastersTemp.setVersion(masters.getVersion());
 			mastersService.updateByMid(mastersTemp);
-			addMessage(redirectAttributes, "保存主机信息成功");
-//			return "redirect:"+Global.getAdminPath()+"/lu/masters/?repage&customerid=" + mastersTemp.getCustomerid();
 			return masters.getCustomerid();
 		}else{
 			if(masters.getState().contains(",")) {
@@ -162,6 +156,7 @@ public class MastersController extends BaseController {
 			}else{//新增表单保存
 				masters.setMid(UUID.randomUUID().toString());
 				masters.setIsOnline("0");
+				masters.setDisarmState("0");
 				mastersService.save(masters);//保存
 				Defences defences = new Defences();
 				defences.setCustomerid(masters.getCustomerid());
@@ -181,11 +176,6 @@ public class MastersController extends BaseController {
 				}
 			}
 		}
-		addMessage(redirectAttributes, "保存主机信息成功");
-		if("1".equals(masterFlag)){
-			return "redirect:"+Global.getAdminPath()+"/lu/customers/formiframe/?repage&cid="+ masters.getCustomerid() + "&masterFlag=2";
-		}
-//		return "redirect:"+Global.getAdminPath()+"/lu/masters/?repage&customerid=" + masters.getCustomerid();
 		return masters.getCustomerid();
 	}
 	
@@ -195,11 +185,15 @@ public class MastersController extends BaseController {
 	@RequiresPermissions("lu:masters:del")
 	@RequestMapping(value = "delete")
 	public String delete(Masters masters, RedirectAttributes redirectAttributes) {
-		mastersService.delete(masters);
-		devicesService.deleteByMaster(masters);
-		alarmsService.deleteByMasterId(masters);
+		delMaster(masters);
 		addMessage(redirectAttributes, "删除主机信息成功");
 		return "redirect:"+Global.getAdminPath()+"/lu/masters/?repage&customerid=" + masters.getCustomerid();
+	}
+
+	public void delMaster(Masters master){
+		mastersService.delete(master);
+		devicesService.deleteByMaster(master);
+		alarmsService.deleteByMasterId(master);
 	}
 	
 	/**
@@ -212,9 +206,7 @@ public class MastersController extends BaseController {
 		String idArray[] =ids.split(",");
 		for(String id : idArray){
 			masterTemp = mastersService.findUniqueByProperty("mid", id);
-			mastersService.delete(masterTemp);
-			devicesService.deleteByMaster(masterTemp);
-			alarmsService.deleteByMasterId(masterTemp);
+			delMaster(masterTemp);
 		}
 		addMessage(redirectAttributes, "删除主机信息成功");
 		return "redirect:"+Global.getAdminPath()+"/lu/masters/?repage&customerid=" + masterTemp.getCustomerid();

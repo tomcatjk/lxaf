@@ -31,6 +31,26 @@ public class Masters extends DataEntity<Masters> {
 
 	private String isOnline;
 
+	private String createId;
+
+	private String disarmState;
+
+	public String getDisarmState() {
+		return disarmState;
+	}
+
+	public void setDisarmState(String disarmState) {
+		this.disarmState = disarmState;
+	}
+
+	public String getCreateId() {
+		return createId;
+	}
+
+	public void setCreateId(String createId) {
+		this.createId = createId;
+	}
+
 	public String getIsOnline() {
 		return isOnline;
 	}

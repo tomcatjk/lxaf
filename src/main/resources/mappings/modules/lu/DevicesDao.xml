@@ -36,7 +36,7 @@
 		m.`Name` AS "masterid",
 		c.`Name` AS "customerid",
 		a.createtime AS "createtime",
-		d.state AS "state",
+		m.disarmState AS "state",
 		s.name as "createid"
 		FROM
 		devices a
@@ -186,28 +186,9 @@
 		</where>
 	</select>
 
-	<select id="findByCidAndDevicetypeAndPage" resultType="java.util.Map">
-		SELECT
-			d.did AS deviceid,
-			d.`name` AS devicename,
-			d.devicetype AS devicetype,
-			m.`Name` AS typename,
-			d.devicemodel AS devicemode,
-			date_format(d.createtime, '%Y-%m-%d') AS createtime,
-			m.state AS state
-		FROM
-			devices d
-		LEFT JOIN masters m ON d.masterid = m.MID
-		WHERE
-			d.devicetype = #{devicetype}
-			AND d.customerid = #{customerid}
-		LIMIT #{pageBegin},
-		 #{pageEnd}
-	</select>
-
 	<select id="findByDeviceid" resultType="java.util.Map">
 		SELECT
-			d.defenceid AS deviceid,
+			d.did AS deviceid,
 			d.`name` AS devicename,
 			d.devicetype AS devicetype,
 			m.`Name` AS devicetype,
@@ -218,7 +199,7 @@
 			date_format(d.createtime, '%Y-%m-%d') AS createtime,
 			d.state AS state,
 			m.Version AS version,
-			m.SIM AS sim
+			d.masterid AS sim
 		FROM
 			devices d
 		LEFT JOIN masters m ON d.masterid = m.MID
@@ -226,11 +207,6 @@
 		WHERE
 			d.did = #{did}
 	</select>
-
-	<update id="updatedevices" parameterType="map" >
-		UPDATE devices SET name=#{devicename},devicetype=#{devicetype},devicemodel=#{devicemode},state=#{state}
-		WHERE customerid=#{customerid} AND masterid=#{mid} AND did=#{devicerid}
-	</update>
 
 	<update id="deleteByCustomer">
 		DELETE FROM devices

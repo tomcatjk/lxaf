@@ -78,5 +78,9 @@ public class DefencesService extends CrudService<DefencesDao, Defences> {
 	public void deleteByCustomer(Customers customers){
 		defencesDao.deleteByCustomer(customers);
 	}
-	
+
+	public Defences findDefence(Defences defence){
+		return dao.getDefence(defence);
+	}
+
 }

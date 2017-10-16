@@ -120,9 +120,12 @@ public class UserController extends BaseController {
     @RequestMapping(value = "save", method = RequestMethod.POST)
     public String save(User userTemp, HttpServletRequest request) {
         String idTemp = request.getParameter("id");
+        String pwd = "";
         User user = new User();
         if(idTemp != null && !"123".equals(idTemp)){
             user = systemService.getUser(idTemp);
+            userTemp = userDao.findUniqueByProperty("id", idTemp);
+            pwd= userTemp.getPassword();
         }
         user.setName(request.getParameter("name"));
         user.setLoginName(request.getParameter("loginName"));
@@ -137,7 +140,9 @@ public class UserController extends BaseController {
             user.setCustomerID(UserUtils.getUser().getCustomerID());
         }
         // 密码MD5加密
-        if(user.getPassword().length() < 20) {
+        if("".equals(user.getPassword())) {
+            user.setPassword(pwd);
+        }else{
             user.setPassword(SystemService.entryptPassword(user.getPassword()));
         }
         systemService.saveUser2(user);

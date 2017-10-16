@@ -50,23 +50,43 @@
                     <li class="nav-header">
                         <div class="dropdown profile-element">
                             <span><img alt="image" class="img-circle" style="height:64px;width:64px;" src="${fns:getUser().photo }" /></span>
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#" onclick="showDropdownMenu()">
                                 <span class="clear">
-                               <span class="block m-t-xs"><strong class="font-bold">${fns:getUser().name}</strong></span>
-                               <span class="text-muted text-xs block">${fns:getUser().roleNames}<b class="caret"></b></span>
+                                   <span class="block m-t-xs"><strong class="font-bold">${fns:getUser().name}</strong></span>
+                                   <span class="text-muted text-xs block">${fns:getUser().roleNames}<b class="caret"></b></span>
                                 </span>
                             </a>
-                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a class="J_menuItem" href="${ctx}/sys/user/imageEdit">修改头像</a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs" id="dropdown-menu-id">
+                                <li><a class="J_menuItem" href="${ctx}/sys/user/imageEdit" onclick="hideDropdownMenu()">修改头像</a>
                                 </li>
-                                <li><a class="J_menuItem" href="${ctx }/sys/user/info">个人资料</a>
+                                <li><a class="J_menuItem" href="${ctx }/sys/user/info" onclick="hideDropdownMenu()">个人资料</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li><a href="${ctx}/logout">安全退出</a>
                                 </li>
                             </ul>
-
                         </div>
+                        <script>
+                            var showDropdownMenu = function () {
+                                if($("#dropdown-menu-id").css("display") == "none"){
+                                    $("#dropdown-menu-id").css("display", "inline");
+                                }else{
+                                    $("#dropdown-menu-id").css("display", "none");
+                                }
+                            }
+
+                            var hideDropdownMenu = function () {
+                                $("#dropdown-menu-id").css("display", "none");
+                            }
+
+                            $(document).bind('click',
+                                    function() {
+                                        var display = $("#dropdown-menu-id").css("display");
+                                        if(display == "inline" || display == "block"){
+                                            $("#dropdown-menu-id").css("display", "none");
+                                        }
+                                    });
+                        </script>
                         <div class="logo-element">JP
                         </div>
                     </li>
@@ -107,8 +127,10 @@
                 </div>
                 <a href="${ctx}/logout" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
             </div>
-            <div class="row J_mainContent" id="content-main">
+            <div class="row J_mainContent" id="content-main" style="height: calc(100% - 100px);">
+            <%--&lt;%&ndash;<div class="row J_mainContent" id="content-main">&ndash;%&gt;--%>
                 <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="${ctx}/home" frameborder="0" data-id="${ctx}/home" seamless></iframe>
+                <%--&lt;%&ndash;<iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="${ctx}/home" frameborder="0" data-id="${ctx}/home" seamless></iframe>&ndash;%&gt;--%>
             </div>
         </div>
         <!--右侧部分结束-->
@@ -155,14 +177,14 @@
 
 <%--<script src="${ctxStatic}/layer-v2.3/layim/layim.js"></script>--%>
 <!-- 即时聊天插件 结束 -->
-<style>
-/*签名样式*/
-/*.layim-sign-box{*/
-	/*width:95%*/
-/*}*/
-/*.layim-sign-hide{*/
-  /*border:none;background-color:#F5F5F5;*/
-/*}*/
-</style>
+<%--<style>--%>
+<%--/*签名样式*/--%>
+<%--/*.layim-sign-box{*/--%>
+	<%--/*width:95%*/--%>
+<%--/*}*/--%>
+<%--/*.layim-sign-hide{*/--%>
+  <%--/*border:none;background-color:#F5F5F5;*/--%>
+<%--/*}*/--%>
+<%--</style>--%>
 
 </html>

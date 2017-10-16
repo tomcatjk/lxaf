@@ -98,9 +98,9 @@
 		      </tr>
 			  <tr>
 				  <td class="active"><label class="pull-right"><font color="red">*</font>密码:</label></td>
-				  <td><input name="password" type="password" id="password" value="${user.password}" class="form-control requiredClass"></td>
+				  <td><input name="password" type="password" id="password" value="" class="form-control requiredClass"></td><%--${user.password}--%>
 				  <td class="active"><label class="pull-right"><font color="red">*</font>确认密码:</label></td>
-				  <td><input name="psw2" type="password" id="psw2" value="${user.password}" class="form-control requiredClass"></td>
+				  <td><input name="psw2" type="password" id="psw2" value="" class="form-control requiredClass"></td>
 			  </tr>
 		       <tr>
 		           <td class="active"><label class="pull-right">所属客户:</label></td>
@@ -176,20 +176,32 @@
 
 				//验证密码
 				if( $(this).is('#password') ){
-					if( this.value==""){
-						var errorMsg = '请输入密码.';
-						$parent.append('<span class="formtips onErrorMasters">'+errorMsg+'</span>');
+					if(${user.id == null}) {
+						if (this.value == "") {
+							var errorMsg = '请输入密码.';
+							$parent.append('<span class="formtips onErrorMasters">' + errorMsg + '</span>');
+						}
 					}
 				}
 
 				//验证密码
 				if( $(this).is('#psw2') ){
-					if( this.value==""){
-						var errorMsg = '请再次输入密码.';
-						$parent.append('<span class="formtips onErrorMasters">'+errorMsg+'</span>');
-					}else if( this.value != $("#password").val()){
-						var errorMsg = '两次密码输入不同.';
-						$parent.append('<span class="formtips onErrorMasters">'+errorMsg+'</span>');
+					if(${user.id == null}) {
+						if (this.value == "") {
+							var errorMsg = '请再次输入密码.';
+							$parent.append('<span class="formtips onErrorMasters">' + errorMsg + '</span>');
+						} else if (this.value != $("#password").val()) {
+							var errorMsg = '两次密码输入不同.';
+							$parent.append('<span class="formtips onErrorMasters">' + errorMsg + '</span>');
+						}
+					}else{
+						if ($("#password").val() != "" && this.value == "") {
+							var errorMsg = '请再次输入密码.';
+							$parent.append('<span class="formtips onErrorMasters">' + errorMsg + '</span>');
+						} else if (this.value != $("#password").val()) {
+							var errorMsg = '两次密码输入不同.';
+							$parent.append('<span class="formtips onErrorMasters">' + errorMsg + '</span>');
+						}
 					}
 				}
 

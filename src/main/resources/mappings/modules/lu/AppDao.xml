@@ -31,33 +31,60 @@
 
 	<select id="getDefences" parameterType="map" resultType="com.jeeplus.modules.app.entity.DefencesDevice">
 		SELECT
-			a.DID AS defenceid,
-			a. CODE AS defencecode,
-			a. NAME AS defencename,
-			a.DefenceType AS defencetype,
-			b.devicetype AS devicetype,
-			a.masterid AS masterid,
-			b.state AS state
+			def.DID AS defenceid,
+			def. CODE AS defencecode,
+			def. NAME AS defencename,
+			IFNULL(def.DefenceType ,-1) AS defencetype,
+			IFNULL(dev.devicetype ,-1) AS devicetype,
+			m.`Name` AS masterid,
+			m.disarmState AS state
 		FROM
-			defences a
-		LEFT JOIN devices b ON a.DID = b.defenceid
+			defences def
+		LEFT JOIN devices dev ON def.DID = dev.defenceid
+		LEFT JOIN masters m ON def.MasterID = m.MID
 		WHERE
-			a.CustomerID = #{cid}
-		AND a.DID IN (
-			SELECT
-				defenceid
-			FROM
-				devices
-			WHERE
-				customerid = #{cid}
-		)
-		<if test="masterid !=null and masterid != ''">
-			AND b.masterid = #{masterid}
-		</if>
-		GROUP BY
-			a.masterid,
-			a.`Code`
+			def.CustomerID = #{cid}
+			<if test="masterid !=null and masterid != ''">
+				AND m.mid = #{masterid}
+			</if>
 		ORDER BY
-			a.masterid ASC, a.`Code` ASC
+			def.masterid ASC,
+			def.`Code` ASC
+	</select>
+
+	<select id="getMasters" resultType="java.util.Map">
+		SELECT
+			m.MID AS deviceid,
+			m.`Name` AS devicename,
+			m.`Code` AS typename,
+			IFNULL(m.Version,'') AS devicemode,
+			date_format(m.CreateTime, '%Y-%m-%d') AS createtime,
+			m.SIM AS state,
+			m.State AS statename
+		FROM
+			masters m
+		WHERE
+			m.CustomerID = #{customerid}
+		LIMIT #{pageBegin},
+		 #{pageEnd}
+	</select>
+
+	<select id="getDevices" resultType="java.util.Map">
+		SELECT
+			d.did AS deviceid,
+			d.`name` AS devicename,
+			d.devicetype AS devicetype,
+			m.`Name` AS typename,
+			d.devicemodel AS devicemode,
+			date_format(d.createtime, '%Y-%m-%d') AS createtime,
+			m.state AS state
+		FROM
+			devices d
+		LEFT JOIN masters m ON d.masterid = m.MID
+		WHERE
+			d.customerid = #{customerid}
+			AND d.devicetype = #{devicetype}
+		LIMIT #{pageBegin},
+		 #{pageEnd}
 	</select>
 </mapper>

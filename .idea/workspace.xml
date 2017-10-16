@@ -3,11 +3,39 @@
   <component name="ChangeListManager">
     <list default="true" id="48e8464c-4ae8-491d-8a95-fbc32110f6fc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/webpage/include/head.jsp" afterPath="$PROJECT_DIR$/WebContent/webpage/include/head.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/webpage/modules/lu/customersList.jsp" afterPath="$PROJECT_DIR$/WebContent/webpage/modules/lu/customersList.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/webpage/modules/lu/devicesForm.jsp" afterPath="$PROJECT_DIR$/WebContent/webpage/modules/lu/devicesForm.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/webpage/modules/lu/devicesList.jsp" afterPath="$PROJECT_DIR$/WebContent/webpage/modules/lu/devicesList.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/webpage/modules/lu/mastersForm.jsp" afterPath="$PROJECT_DIR$/WebContent/webpage/modules/lu/mastersForm.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/webpage/modules/lu/mastersList.jsp" afterPath="$PROJECT_DIR$/WebContent/webpage/modules/lu/mastersList.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/webpage/modules/sys/sysHome.jsp" afterPath="$PROJECT_DIR$/WebContent/webpage/modules/sys/sysHome.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/webpage/modules/sys/sysIndex.jsp" afterPath="$PROJECT_DIR$/WebContent/webpage/modules/sys/sysIndex.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/webpage/modules/sys/sysLogin.jsp" afterPath="$PROJECT_DIR$/WebContent/webpage/modules/sys/sysLogin.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/webpage/modules/sys/sysLogin2.jsp" afterPath="$PROJECT_DIR$/WebContent/webpage/modules/sys/sysLogin2.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/webpage/modules/sys/userForm.jsp" afterPath="$PROJECT_DIR$/WebContent/webpage/modules/sys/userForm.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/webpage/modules/sys/userList.jsp" afterPath="$PROJECT_DIR$/WebContent/webpage/modules/sys/userList.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/dao/AppDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/dao/AppDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/service/AppService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/service/AppService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/dao/DefencesDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/dao/DefencesDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/dao/DevicesDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/dao/DevicesDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/dao/MastersDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/dao/MastersDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/DefenceTypeName.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/DefenceTypeName.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/DeviceStateName.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/DeviceStateName.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/Devices.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/Devices.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/Masters.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/Masters.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/DefencesService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/DefencesService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/DevicesService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/DevicesService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/MastersService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/MastersService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/DevicesController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/DevicesController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AlarmsDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AlarmsDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/MastersController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/MastersController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/sys/web/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/sys/web/UserController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/jeeplus.properties" afterPath="$PROJECT_DIR$/src/main/resources/jeeplus.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AppDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AppDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/DefencesDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/DefencesDao.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/DevicesDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/DevicesDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/MastersDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/MastersDao.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <ignored path="$PROJECT_DIR$/build/classes/" />
@@ -28,92 +56,102 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AppController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java">
+      <file leaf-file-name="userForm.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/sys/userForm.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="332" column="32" selection-start-line="332" selection-start-column="32" selection-end-line="332" selection-end-column="32" />
-              <folding>
-                <element signature="docComment;class#AppController#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DevicesService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/DevicesService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="75" column="48" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="48" />
-              <folding>
-                <element signature="e#1934#1935#0" expanded="true" />
-                <element signature="e#1986#1987#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DevicesDao.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/DevicesDao.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="202" column="44" selection-start-line="202" selection-start-column="44" selection-end-line="202" selection-end-column="44" />
-              <folding>
-                <marker date="1506493525946" expanded="true" signature="579:695" ph="SELECT FROM devices" />
-                <marker date="1506493525946" expanded="true" signature="768:1416" ph="SELECT a.did... devices" />
-                <marker date="1506493525946" expanded="true" signature="2414:2735" ph="INSERT INTO devices... " />
-                <marker date="1506493525946" expanded="true" signature="2773:3050" ph="UPDATE devic... " />
-                <marker date="1506493525946" expanded="true" signature="3092:3360" ph="UPDATE devic... " />
-                <marker date="1506493525946" expanded="true" signature="3410:3450" ph="DELETE FROM " />
-                <marker date="1506493525946" expanded="true" signature="3508:3579" ph="UPDATE devic... " />
-                <marker date="1506493525946" expanded="true" signature="3712:3834" ph="select d.*,d... devices" />
-                <marker date="1506493525946" expanded="true" signature="4758:5153" ph="SELECT d.def... devices" />
-                <marker date="1506493525946" expanded="true" signature="5225:5729" ph="SELECT d.def... devices" />
-                <marker date="1506493525946" expanded="true" signature="5794:5971" ph="UPDATE devic... " />
-                <marker date="1506493525946" expanded="true" signature="6018:6065" ph="DELETE FROM " />
-                <marker date="1506493525946" expanded="true" signature="6186:6772" ph="SELECT d.did... devices" />
-                <marker date="1506493525946" expanded="true" signature="6817:6862" ph="DELETE FROM " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/service/AppService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="25" column="39" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="39" />
-              <folding>
-                <element signature="e#614#615#0" expanded="true" />
-                <element signature="e#657#658#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppDao.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AppDao.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="42" column="50" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
-              <folding>
-                <marker date="1506577223190" expanded="true" signature="322:769" ph="Select d.nam... " />
-                <marker date="1506577223190" expanded="true" signature="892:1164" ph="SELECT a.DID... defences" />
-                <marker date="1506577223190" expanded="true" signature="1229:1320" ph="UPDATE defen... " />
-                <marker date="1506577223190" expanded="true" signature="1441:2002" ph="SELECT a.DID... defences" />
-                <marker date="1506577223190" expanded="true" signature="1755:1822" ph="SELECT defen... devices" />
-                <marker date="1506577223190" expanded="true" signature="1755:1828" ph="SELECT defen... devices" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DevicesController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/DevicesController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="180" column="40" selection-start-line="180" selection-start-column="40" selection-end-line="180" selection-end-column="40" />
+            <state relative-caret-position="119">
+              <caret line="55" column="15" selection-start-line="55" selection-start-column="15" selection-end-line="55" selection-end-column="15" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/sys/web/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="126" column="36" selection-start-line="126" selection-start-column="36" selection-end-line="126" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SystemService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/sys/service/SystemService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="74" column="26" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
+              <folding>
+                <element signature="e#2193#2194#0" expanded="true" />
+                <element signature="e#2224#2225#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/sys/utils/UserUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="218">
+              <caret line="63" column="30" selection-start-line="63" selection-start-column="27" selection-end-line="63" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserDao.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/sys/UserDao.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="131" column="38" selection-start-line="131" selection-start-column="38" selection-end-line="131" selection-end-column="38" />
+              <folding>
+                <marker date="1508136369717" expanded="true" signature="5525:5835" ph="SELECT ,ur.r... " />
+                <marker date="1508136369717" expanded="true" signature="5939:6214" ph="SELECT FROM sys_user" />
+                <marker date="1508136369717" expanded="true" signature="6290:9264" ph="SELECT a.id,... sys_user" />
+                <marker date="1508136369717" expanded="true" signature="9351:10239" ph="SELECT FROM sys_user" />
+                <marker date="1508136369717" expanded="true" signature="10357:10503" ph="SELECT a.id,... sys_user" />
+                <marker date="1508136369717" expanded="true" signature="10580:10742" ph="SELECT FROM sys_user" />
+                <marker date="1508136369717" expanded="true" signature="10822:10898" ph="SELECT COUNT... sys_user" />
+                <marker date="1508136369717" expanded="true" signature="10950:11604" ph="INSERT INTO sys_user... " />
+                <marker date="1508136369717" expanded="true" signature="11656:12143" ph="UPDATE sys_u... " />
+                <marker date="1508136369717" expanded="true" signature="12211:12258" ph="DELETE FROM " />
+                <marker date="1508136369717" expanded="true" signature="12443:12477" ph="SELECT ##{id}... dual" />
+                <marker date="1508136369717" expanded="true" signature="12553:12831" ph="UPDATE sys_u... " />
+                <marker date="1508136369717" expanded="true" signature="12897:12963" ph="UPDATE sys_u... " />
+                <marker date="1508136369717" expanded="true" signature="13037:13133" ph="UPDATE sys_u... " />
+                <marker date="1508136369717" expanded="true" signature="13187:13227" ph="DELETE FROM " />
+                <marker date="1508136369717" expanded="true" signature="13288:13360" ph="UPDATE sys_u... " />
+                <marker date="1508136369717" expanded="true" signature="13488:13545" ph="select * fro... sys_user" />
+                <marker date="1508136369717" expanded="true" signature="13603:13721" ph="INSERT INTO sys_user_friend... " />
+                <marker date="1508136369717" expanded="true" signature="13808:13944" ph="SELECT * FRO... sys_user" />
+                <marker date="1508136369717" expanded="true" signature="14002:14082" ph="DELETE FROM " />
+                <marker date="1508136369717" expanded="true" signature="14162:14381" ph="SELECT FROM sys_user" />
+                <marker date="1508136369717" expanded="true" signature="14935:15053" ph="select DISTI... sys_user" />
+                <marker date="1508136369717" expanded="true" signature="15186:15299" ph="select DISTI... sys_user" />
+                <marker date="1508136369717" expanded="true" signature="15353:15595" ph="insert into sys_user... " />
+                <marker date="1508136369717" expanded="true" signature="15730:15792" ph="SELECT DISTI... customers" />
+                <marker date="1508136369717" expanded="true" signature="15876:16018" ph="SELECT s.nam... sys_user" />
+                <marker date="1508136369717" expanded="true" signature="16105:16194" ph="INSERT INTO sys_user_role... " />
+                <marker date="1508136369717" expanded="true" signature="16320:16366" ph="SELECT s.* F... sys_role" />
+                <marker date="1508136369717" expanded="true" signature="16511:16555" ph="SELECT s.id sys_role" />
+                <marker date="1508136369717" expanded="true" signature="16698:16852" ph="SELECT sr.na... sys_user" />
+                <marker date="1508136369717" expanded="true" signature="16925:16996" ph="UPDATE sys_u... " />
+                <marker date="1508136369717" expanded="true" signature="17056:17719" ph="SELECT a.id,... sys_user" />
+                <marker date="1508136369717" expanded="true" signature="17241:17321" ph="SELECT CID F... customers" />
+                <marker date="1508136369717" expanded="true" signature="17781:18302" ph="SELECT a.id,... sys_user" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/sys/entity/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="46" column="30" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="30" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -175,57 +213,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/DevicesCustomers.java" />
-        <option value="$PROJECT_DIR$/WebContent/webpage/modules/lu/devicesCustomers.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/DeviceTypeName.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/DevicesCustomersService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/DevicesCustomersDao.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AreasDao.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/CustomerTypeName.java" />
-        <option value="$PROJECT_DIR$/WebContent/webpage/modules/lu/areasList.jsp" />
-        <option value="$PROJECT_DIR$/WebContent/webpage/modules/sys/userForm.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/CustomersDao.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/sys/web/UserController.java" />
-        <option value="$PROJECT_DIR$/WebContent/webpage/modules/sys/userInfo.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/utils/JiguangPush.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/WebContent/webpage/modules/sys/userList.jsp" />
-        <option value="$PROJECT_DIR$/WebContent/webpage/modules/sys/userIndex.jsp" />
-        <option value="$PROJECT_DIR$/WebContent/webpage/modules/sys/sysIndex-ace.jsp" />
         <option value="$PROJECT_DIR$/WebContent/static/ace/docs/sections/basics/footer.html" />
         <option value="$PROJECT_DIR$/WebContent/static/ace/docs/sections/basics/sidebar.html" />
         <option value="$PROJECT_DIR$/WebContent/static/echarts-2.2.7/doc/example/topic/24-population-china/index.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/jeeplus.properties" />
         <option value="$PROJECT_DIR$/WebContent/webpage/modules/sys/roleList.jsp" />
-        <option value="$PROJECT_DIR$/WebContent/webpage/modules/sys/sysHome.jsp" />
-        <option value="$PROJECT_DIR$/WebContent/webpage/modules/sys/sysLogin.jsp" />
-        <option value="$PROJECT_DIR$/WebContent/webpage/modules/sys/sysIndex.jsp" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/tags/sys/treeselect.tag" />
         <option value="$PROJECT_DIR$/WebContent/webpage/modules/lu/customersForm.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/MastersDao.xml" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/tags/table/delRow.tag" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/tags/table/delRowCustomer.tag" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/tags/table/delRowMaster.tag" />
         <option value="$PROJECT_DIR$/WebContent/webpage/modules/lu/mastersList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/dao/DevicesDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/CustomersController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/CustomersService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/AlarmsService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/MastersController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/MastersService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/dao/AlarmsDao.java" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/tags/table/delRowDevice.tag" />
-        <option value="$PROJECT_DIR$/WebContent/webpage/modules/lu/devicesList.jsp" />
-        <option value="$PROJECT_DIR$/WebContent/static/common/jeeplus.js" />
         <option value="$PROJECT_DIR$/WebContent/webpage/modules/lu/customersFormAdd.jsp" />
-        <option value="$PROJECT_DIR$/WebContent/webpage/modules/lu/customersList.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/AlarmsController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AlarmsDao.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/DevicesDao.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/jeeplus.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/dao/AppDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/service/AppService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/dao/DevicesDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/DevicesService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/DevicesController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/DefenceTypeName.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/dao/MastersDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/MastersService.java" />
+        <option value="$PROJECT_DIR$/WebContent/webpage/modules/sys/sysLogin.jsp" />
+        <option value="$PROJECT_DIR$/classes/artifacts/LXAFPlatform_war_exploded/WEB-INF/classes/jeeplus.properties" />
+        <option value="$PROJECT_DIR$/WebContent/webpage/modules/lu/mastersForm.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/DeviceStateName.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/dao/DefencesDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/DefencesService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/Defences.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/DefencesDao.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/Masters.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/MastersController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/MastersDao.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/Devices.java" />
+        <option value="$PROJECT_DIR$/WebContent/webpage/modules/lu/devicesForm.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AppDao.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/mappings/modules/lu/DevicesDao.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/DevicesController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java" />
+        <option value="$PROJECT_DIR$/WebContent/webpage/modules/lu/customersList.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/static/common/jeeplus.js" />
+        <option value="$PROJECT_DIR$/WebContent/webpage/modules/lu/devicesList.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/webpage/modules/sys/sysIndex.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/webpage/modules/sys/sysHome.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/webpage/modules/sys/userForm.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/mappings/modules/sys/UserDao.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeeplus/modules/sys/web/UserController.java" />
       </list>
     </option>
   </component>
@@ -252,7 +290,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1612" />
+    <option name="width" value="1604" />
     <option name="height" value="876" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -299,9 +337,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -385,120 +423,6 @@
               <option name="myItemId" value="webpage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebContent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webpage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebContent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebContent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tlds" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebContent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tags" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="table" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebContent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tags" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -674,7 +598,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lu" />
+              <option name="myItemId" value="sys" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -712,41 +636,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LXAFPlatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jeeplus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="sys" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -783,12 +673,12 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.20878136" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
-    <property name="SearchEverywhereHistoryKey" value="devicecont&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/web/DevicesController.java&#10;devicesdao.xml&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/DevicesDao.xml&#10;devicesc&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/web/DevicesController.java&#10;appdao.xml&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/AppDao.xml&#10;devicesform&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/devicesForm.jsp&#10;devicetype&#9;PSI&#9;JAVA://com.jeeplus.modules.lu.entity.DeviceTypeName&#10;defenctypename&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/entity/DefenceTypeName.java&#10;devices.java&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/entity/Devices.java&#10;devicescont&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/web/DevicesController.java&#10;defencetype&#9;PSI&#9;JAVA://com.jeeplus.modules.lu.entity.DefenceTypeName&#10;appdao&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/AppDao.xml&#10;appc&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/app/controller/AppController.java&#10;masters.java&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/entity/Masters.java&#10;alarmsdao&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/AlarmsDao.xml&#10;jeeplus&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/static/common/jeeplus.js&#10;app&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/app/controller/AppController.java&#10;alarmsdaox&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/AlarmsDao.xml&#10;areasdao.xml&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/AreasDao.xml&#10;alarmsdao.xml&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/AlarmsDao.xml&#10;alarmscont&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/web/AlarmsController.java&#10;syshome&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/sys/sysHome.jsp&#10;customerslist&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/customersList.jsp&#10;customerfor&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/customersFormAdd.jsp&#10;deviceslist&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/devicesList.jsp&#10;devicesser&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/service/DevicesService.java&#10;mastercont&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/web/MastersController.java&#10;customersservice.&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/service/CustomersService.java&#10;mastersser&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/service/MastersService.java&#10;alarmsser&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/service/AlarmsService.java&#10;master&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/web/MastersController.java&#10;cus&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/service/CustomersService.java&#10;customers.java&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/entity/Customers.java&#10;alarmsdao.java&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/dao/AlarmsDao.java&#10;customerform&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/customersFormAdd.jsp&#10;devicedao.xml&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/DevicesDao.xml&#10;devic&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/web/DevicesController.java&#10;masterscont&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/web/MastersController.java&#10;devices&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/web/DevicesController.java&#10;devicesservice&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/service/DevicesService.java&#10;masterservice&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/service/MastersService.java&#10;customersser&#9;PSI&#9;JAVA://com.jeeplus.modules.lu.service.CustomersService&#10;customerscont&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/web/CustomersController.java&#10;masterslist.jsp&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/mastersList.jsp&#10;deviceslist.jsp&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/devicesList.jsp&#10;masterdao.xml&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/MastersDao.xml&#10;mastercontroller&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/web/MastersController.java&#10;masterlist.js[&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/mastersList.jsp&#10;delRow_tag&#9;FILE&#9;jar://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/WEB-INF/lib/org.jeeframework.gencode-1.5.jar!/org/apache/jsp/tag/web/table/delRow_tag.class&#10;customerlist&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/customersList.jsp&#10;deviceservice&#9;PSI&#9;JAVA://com.jeeplus.modules.lu.service.DevicesService" />
+    <property name="SearchEverywhereHistoryKey" value="user.xml&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/sys/UserDao.xml&#10;User.java&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/sys/entity/User.java&#10;userdao.xml&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/sys/UserDao.xml&#10;usercont&#9;PSI&#9;JAVA://com.jeeplus.modules.sys.web.UserController&#10;userform&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/sys/userForm.jsp&#10;syshome&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/sys/sysHome.jsp&#10;jeeplus&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/static/common/jeeplus.js&#10;sysindex.&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/sys/sysIndex.jsp&#10;jeeplus.js&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/static/common/jeeplus.js&#10;customersform&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/customersForm.jsp&#10;devicelist&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/devicesList.jsp&#10;customer&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/customersFormAdd.jsp&#10;masterslist&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/mastersList.jsp&#10;sysindex&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/sys/sysIndex.jsp&#10;defencesdao.xml&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/DefencesDao.xml&#10;devicedao.xml&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/DevicesDao.xml&#10;app&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/app/controller/AppController.java&#10;masters&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/entity/Masters.java&#10;appdao&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/AppDao.xml&#10;devicesform&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/devicesForm.jsp&#10;devices.java&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/entity/Devices.java&#10;defencesdao&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/DefencesDao.xml&#10;masterdao&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/MastersDao.xml&#10;masters.java&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/entity/Masters.java&#10;devicesdao.xml&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/DevicesDao.xml&#10;device&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/web/DevicesController.java&#10;masterdao.xml&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/MastersDao.xml&#10;mastercontroller&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/web/MastersController.java&#10;defences&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/entity/Defences.java&#10;defence.java&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/entity/Defences.java&#10;defencedao.java&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/dao/DefencesDao.java&#10;defenceser&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/service/DefencesService.java&#10;devicescont&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/web/DevicesController.java&#10;devicecont&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/web/DevicesController.java&#10;systemser&#9;PSI&#9;JAVA://com.jeeplus.modules.sys.service.SystemService&#10;loginc&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/sys/web/LoginController.java&#10;customersfor&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/customersFormAdd.jsp&#10;mastersform&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/mastersForm.jsp&#10;masterform&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/mastersForm.jsp&#10;devicedao&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/DevicesDao.xml&#10;appcont&#9;PSI&#9;JAVA://com.jeeplus.modules.app.controller.AppController&#10;appdao.xml&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/AppDao.xml&#10;syslogin&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/sys/sysLogin.jsp&#10;mastercon&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/web/MastersController.java&#10;cus&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/customersList.jsp&#10;customerslist.js&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/customersList.jsp&#10;masterlist&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/WebContent/webpage/modules/lu/mastersList.jsp&#10;master.java&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/entity/Masters.java&#10;masterservice&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/java/com/jeeplus/modules/lu/service/MastersService.java&#10;mastersdao.xml&#9;FILE&#9;file://C:/Users/buwan/idea/lianxun_testdev/LXAFPlatform/src/main/resources/mappings/modules/lu/MastersDao.xml" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\node-v8.2.1-win-x64\node.exe" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/node-v8.2.1-win-x64/node" />
   </component>
@@ -1501,40 +1391,50 @@
       <workItem from="1506304497270" duration="19131000" />
       <workItem from="1506387263268" duration="25806000" />
       <workItem from="1506474003560" duration="16498000" />
-      <workItem from="1506560127460" duration="9751000" />
+      <workItem from="1506560127460" duration="15718000" />
+      <workItem from="1506647169784" duration="8271000" />
+      <workItem from="1506734286826" duration="5376000" />
+      <workItem from="1507511184690" duration="496000" />
+      <workItem from="1507511873923" duration="20641000" />
+      <workItem from="1507598319193" duration="11139000" />
+      <workItem from="1507683819141" duration="10236000" />
+      <workItem from="1507771088289" duration="9373000" />
+      <workItem from="1507856283450" duration="24793000" />
+      <workItem from="1508115327656" duration="17542000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="370694000" />
+    <option name="totallyTimeSpent" value="484528000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1612" height="876" extended-state="1" />
+    <frame x="-8" y="-8" width="1604" height="876" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22457626" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909605" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.55649716" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27196383" sideWeight="0.50428814" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18152454" sideWeight="0.49571183" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14124294" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31920904" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28248587" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.55649716" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23181818" sideWeight="0.50428814" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18152454" sideWeight="0.49571183" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2740113" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1544,7 +1444,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2740113" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1567,7 +1466,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="206" />
+      <option name="time" value="283" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
@@ -1580,483 +1479,661 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/WebContent/WEB-INF/lib/spring-web-4.0.8.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AlarmsDao.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="134" column="0" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/sys/sysLogin.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="265" column="120" selection-start-line="265" selection-start-column="120" selection-end-line="265" selection-end-column="120" />
-          <folding>
-            <marker date="1506388770910" expanded="true" signature="17886:17988" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/sys/sysIndex.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="109" column="41" selection-start-line="109" selection-start-column="41" selection-end-line="109" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/tags/sys/treeselect.tag">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/lu/customersForm.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="45" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/tlds/echarts.tld">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-510">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/jsp/lib/jsp-impl.jar!/standardSchemas/jspdirectives2_1.xsd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="219" column="2" selection-start-line="219" selection-start-column="2" selection-end-line="219" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/webpage/include/taglib.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="51" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/WebContent/WEB-INF/lib/org.jeeframework.gencode-1.5.jar!/org/apache/jsp/tag/web/table/delRow_tag.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/WebContent/WEB-INF/lib/spring-core-4.0.8.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/MastersDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="130" column="26" selection-start-line="130" selection-start-column="26" selection-end-line="130" selection-end-column="26" />
-          <folding>
-            <marker date="1506394669117" expanded="true" signature="547:664" ph="SELECT FROM masters" />
-            <marker date="1506394669117" expanded="true" signature="1664:1967" ph="INSERT INTO masters... " />
-            <marker date="1506394669117" expanded="true" signature="2005:2252" ph="UPDATE maste... " />
-            <marker date="1506394669117" expanded="true" signature="2294:2530" ph="UPDATE maste... " />
-            <marker date="1506394669117" expanded="true" signature="2583:2623" ph="DELETE FROM " />
-            <marker date="1506394669117" expanded="true" signature="2681:2754" ph="UPDATE maste... " />
-            <marker date="1506394669117" expanded="true" signature="2887:2944" ph="select * FRO... masters" />
-            <marker date="1506394669117" expanded="true" signature="3023:3183" ph="SELECT m.mid... masters" />
-            <marker date="1506394669117" expanded="true" signature="3290:3557" ph="SELECT m.mid... masters" />
-            <marker date="1506394669117" expanded="true" signature="3630:4025" ph="SELECT m.mid... masters" />
-            <marker date="1506394669117" expanded="true" signature="4163:4371" ph="SELECT m.mid... masters" />
-            <marker date="1506394669117" expanded="true" signature="4447:4570" ph="UPDATE maste... " />
-            <marker date="1506394669117" expanded="true" signature="4617:4664" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/tags/table/delRowMaster.tag">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="25" column="28" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="28" />
-          <folding />
+        <state relative-caret-position="148">
+          <caret line="203" column="12" selection-start-line="203" selection-start-column="12" selection-end-line="203" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/dao/DevicesDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="306">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/dao/AppDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/WebContent/WEB-INF/lib/shiro-core-1.2.3.jar!/org/apache/shiro/subject/support/DelegatingSubject.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/AlarmTypeName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-221">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/DefenceTypeName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="69" column="44" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/dao/MastersDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="29" column="37" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/service/AppService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#614#615#0" expanded="false" />
+            <element signature="e#657#658#0" expanded="false" />
+            <element signature="e#693#694#0" expanded="false" />
+            <element signature="e#730#731#0" expanded="false" />
+            <element signature="e#870#871#0" expanded="false" />
+            <element signature="e#906#907#0" expanded="false" />
+            <element signature="e#941#942#0" expanded="false" />
+            <element signature="e#977#978#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/sys/sysLogin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="286" column="65" selection-start-line="286" selection-start-column="65" selection-end-line="286" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/artifacts/LXAFPlatform_war_exploded/WEB-INF/classes/jeeplus.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/AfcustomersController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="77" column="44" selection-start-line="77" selection-start-column="44" selection-end-line="77" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/CustomersController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="254" column="56" selection-start-line="254" selection-start-column="56" selection-end-line="254" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/lu/mastersList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/MastersService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-193">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state relative-caret-position="2074">
+          <caret line="155" column="45" selection-start-line="155" selection-start-column="45" selection-end-line="155" selection-end-column="45" />
           <folding>
-            <element signature="e#1302#1303#0" expanded="false" />
-            <element signature="e#1330#1331#0" expanded="false" />
-            <element signature="e#1802#1803#0" expanded="false" />
-            <element signature="e#1851#1852#0" expanded="false" />
-            <element signature="e#2150#2151#0" expanded="false" />
-            <element signature="e#2188#2189#0" expanded="false" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/Customers.java">
+    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/lu/mastersForm.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/CustomersService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/MastersController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="216" column="53" selection-start-line="216" selection-start-column="53" selection-end-line="216" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/dao/AlarmsDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" column="26" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/tags/table/delRowDevice.tag" />
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/tags/table/delRow.tag">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/lu/devicesList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="44" column="27" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/tags/table/addRow2.tag">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="63" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="1016" column="0" selection-start-line="1016" selection-start-column="0" selection-end-line="1016" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/static/layer-v2.3/layim/source/layui/lay/pc/modules/layer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/lu/customersFormAdd.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="119" column="13" selection-start-line="119" selection-start-column="13" selection-end-line="119" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/lu/customersList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="53" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/sys/sysHome.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="236" column="57" selection-start-line="236" selection-start-column="40" selection-end-line="236" selection-end-column="57" />
-          <folding>
-            <marker date="1506388512216" expanded="true" signature="9649:9661" ph="..." />
-            <marker date="1506388512216" expanded="true" signature="12688:12694" ph="&amp;nbsp;" />
-            <marker date="1506388512216" expanded="true" signature="12694:12700" ph="&amp;nbsp;" />
-            <marker date="1506388512216" expanded="true" signature="12700:12706" ph="&amp;nbsp;" />
-            <marker date="1506388512216" expanded="true" signature="12719:12759" ph="..." />
-            <marker date="1506388512216" expanded="true" signature="12892:12898" ph="&amp;nbsp;" />
-            <marker date="1506388512216" expanded="true" signature="12898:12904" ph="&amp;nbsp;" />
-            <marker date="1506388512216" expanded="true" signature="12904:12910" ph="&amp;nbsp;" />
-            <marker date="1506388512216" expanded="true" signature="12923:12963" ph="..." />
-            <marker date="1506388512216" expanded="true" signature="13508:13514" ph="&amp;nbsp;" />
-            <marker date="1506388512216" expanded="true" signature="13626:13632" ph="&amp;nbsp;" />
-            <marker date="1506388512216" expanded="true" signature="13632:13638" ph="&amp;nbsp;" />
-            <marker date="1506388512216" expanded="true" signature="13821:13836" ph="..." />
-            <marker date="1506388512216" expanded="true" signature="15154:15160" ph="&amp;nbsp;" />
-            <marker date="1506388512216" expanded="true" signature="15205:15211" ph="&amp;nbsp;" />
-            <marker date="1506388512216" expanded="true" signature="15271:15298" ph="..." />
-            <marker date="1506388512216" expanded="true" signature="15634:15640" ph="&amp;nbsp;" />
-            <marker date="1506388512216" expanded="true" signature="15640:15646" ph="&amp;nbsp;" />
-            <marker date="1506388512216" expanded="true" signature="15646:15652" ph="&amp;nbsp;" />
-            <marker date="1506388512216" expanded="true" signature="15717:15723" ph="&amp;nbsp;" />
-            <marker date="1506388512216" expanded="true" signature="17319:17325" ph="&amp;nbsp;" />
-            <marker date="1506388512216" expanded="true" signature="17362:17368" ph="&amp;nbsp;" />
-            <marker date="1506388512216" expanded="true" signature="17489:17495" ph="&amp;nbsp;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/AreasService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="74" column="42" selection-start-line="74" selection-start-column="24" selection-end-line="74" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AreasDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="269" column="24" selection-start-line="269" selection-start-column="24" selection-end-line="269" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/AlarmsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="138" column="47" selection-start-line="138" selection-start-column="47" selection-end-line="138" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/static/common/jeeplus.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="378" column="27" selection-start-line="378" selection-start-column="27" selection-end-line="378" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/tags/table/delRowCustomer.tag">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="37" column="62" selection-start-line="37" selection-start-column="62" selection-end-line="37" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/AlarmsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="83" column="28" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/Masters.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/tags/table/importExcel.tag">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AlarmsDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="203" column="12" selection-start-line="203" selection-start-column="12" selection-end-line="203" selection-end-column="57" />
-          <folding>
-            <marker date="1506418735366" expanded="true" signature="759:873" ph="SELECT FROM alarms" />
-            <marker date="1506418735366" expanded="true" signature="1687:2104" ph="INSERT INTO alarms... " />
-            <marker date="1506418735366" expanded="true" signature="2142:2536" ph="UPDATE alarm... " />
-            <marker date="1506418735366" expanded="true" signature="2631:3074" ph="UPDATE alarm... " />
-            <marker date="1506418735366" expanded="true" signature="3127:3166" ph="DELETE FROM " />
-            <marker date="1506418735366" expanded="true" signature="3224:3296" ph="UPDATE alarm... " />
-            <marker date="1506418735366" expanded="true" signature="3451:3507" ph="select * FRO... alarms" />
-            <marker date="1506418735366" expanded="true" signature="3635:3893" ph="Select a.aid... " />
-            <marker date="1506418735366" expanded="true" signature="4679:5114" ph="select c.nam... customers" />
-            <marker date="1506418735366" expanded="true" signature="6201:10109" ph="select c.nam... customers" />
-            <marker date="1506418735366" expanded="true" signature="10157:10208" ph="DELETE FROM " />
-            <marker date="1506418735366" expanded="true" signature="10257:10303" ph="DELETE FROM " />
-            <marker date="1506418735366" expanded="true" signature="10350:10394" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/Devices.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/DefenceTypeName.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="27" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="27" />
+        <state relative-caret-position="-1119">
+          <caret line="93" column="59" selection-start-line="93" selection-start-column="52" selection-end-line="93" selection-end-column="59" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/DeviceTypeName.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+        <state relative-caret-position="1122">
+          <caret line="77" column="5" selection-start-line="66" selection-start-column="4" selection-end-line="77" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/sys/web/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="85" column="44" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/DefencesService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/DeviceStateName.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="60" column="18" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="18" />
-          <folding>
-            <element signature="e#1545#1546#0" expanded="true" />
-            <element signature="e#1572#1573#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="124">
+          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/common/service/CrudService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
+        <state relative-caret-position="225">
           <caret line="75" column="16" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/lu/devicesForm.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/MastersController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="102" column="31" selection-start-line="102" selection-start-column="31" selection-end-line="102" selection-end-column="31" />
+        <state relative-caret-position="247">
+          <caret line="83" column="58" selection-start-line="83" selection-start-column="58" selection-end-line="83" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/service/AppService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/Defences.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="25" column="39" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="39" />
+        <state relative-caret-position="321">
+          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
           <folding>
-            <element signature="e#614#615#0" expanded="true" />
-            <element signature="e#657#658#0" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/DevicesService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/MastersService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="75" column="48" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="48" />
+        <state relative-caret-position="532">
+          <caret line="80" column="23" selection-start-line="80" selection-start-column="12" selection-end-line="80" selection-end-column="23" />
           <folding>
-            <element signature="e#1934#1935#0" expanded="true" />
-            <element signature="e#1986#1987#0" expanded="true" />
+            <element signature="e#2162#2163#0" expanded="false" />
+            <element signature="e#2192#2193#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/MastersDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="221" column="54" selection-start-line="221" selection-start-column="54" selection-end-line="221" selection-end-column="54" />
+          <folding>
+            <marker date="1507872468951" expanded="true" signature="547:664" ph="SELECT FROM masters" />
+            <marker date="1507872468951" expanded="true" signature="1664:2002" ph="INSERT INTO masters... " />
+            <marker date="1507872468951" expanded="true" signature="2040:2320" ph="UPDATE maste... " />
+            <marker date="1507872468951" expanded="true" signature="2362:2598" ph="UPDATE maste... " />
+            <marker date="1507872468951" expanded="true" signature="2651:2691" ph="DELETE FROM " />
+            <marker date="1507872468951" expanded="true" signature="2749:2822" ph="UPDATE maste... " />
+            <marker date="1507872468951" expanded="true" signature="2955:3012" ph="select * FRO... masters" />
+            <marker date="1507872468951" expanded="true" signature="3091:3251" ph="SELECT m.mid... masters" />
+            <marker date="1507872468951" expanded="true" signature="3358:3625" ph="SELECT m.mid... masters" />
+            <marker date="1507872468951" expanded="true" signature="3698:4093" ph="SELECT m.mid... masters" />
+            <marker date="1507872468951" expanded="true" signature="4231:4439" ph="SELECT m.mid... masters" />
+            <marker date="1507872468951" expanded="true" signature="4486:4533" ph="DELETE FROM " />
+            <marker date="1507872468951" expanded="true" signature="4575:4641" ph="UPDATE defen... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/lu/devicesForm.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="125" column="13" selection-start-line="125" selection-start-column="13" selection-end-line="125" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/dao/DefencesDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="30" column="23" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/Devices.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+          <folding>
+            <element signature="e#1072#1073#0" expanded="false" />
+            <element signature="e#1123#1124#0" expanded="false" />
+            <element signature="e#1160#1161#0" expanded="false" />
+            <element signature="e#1195#1196#0" expanded="false" />
+            <element signature="e#1220#1221#0" expanded="false" />
+            <element signature="e#1271#1272#0" expanded="false" />
+            <element signature="e#1308#1309#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/entity/Masters.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="35" column="30" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="30" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#976#977#0" expanded="false" />
+            <element signature="e#1001#1002#0" expanded="false" />
+            <element signature="e#1052#1053#0" expanded="false" />
+            <element signature="e#1089#1090#0" expanded="false" />
+            <element signature="e#1121#1122#0" expanded="false" />
+            <element signature="e#1143#1144#0" expanded="false" />
+            <element signature="e#1188#1189#0" expanded="false" />
+            <element signature="e#1219#1220#0" expanded="false" />
+            <element signature="e#1251#1252#0" expanded="false" />
+            <element signature="e#1273#1274#0" expanded="false" />
+            <element signature="e#1318#1319#0" expanded="false" />
+            <element signature="e#1349#1350#0" expanded="false" />
+            <element signature="e#1370#1371#0" expanded="false" />
+            <element signature="e#1384#1385#0" expanded="false" />
+            <element signature="e#1413#1414#0" expanded="false" />
+            <element signature="e#1432#1433#0" expanded="false" />
+            <element signature="e#1471#1472#0" expanded="false" />
+            <element signature="e#1496#1497#0" expanded="false" />
+            <element signature="e#1525#1526#0" expanded="false" />
+            <element signature="e#1541#1542#0" expanded="false" />
+            <element signature="e#1610#1611#0" expanded="false" />
+            <element signature="e#1627#1628#0" expanded="false" />
+            <element signature="e#1662#1663#0" expanded="false" />
+            <element signature="e#1683#1684#0" expanded="false" />
+            <element signature="e#1754#1755#0" expanded="false" />
+            <element signature="e#1772#1773#0" expanded="false" />
+            <element signature="e#1809#1810#0" expanded="false" />
+            <element signature="e#1832#1833#0" expanded="false" />
+            <element signature="e#1903#1904#0" expanded="false" />
+            <element signature="e#1921#1922#0" expanded="false" />
+            <element signature="e#1958#1959#0" expanded="false" />
+            <element signature="e#1981#1982#0" expanded="false" />
+            <element signature="e#2054#2055#0" expanded="false" />
+            <element signature="e#2071#2072#0" expanded="false" />
+            <element signature="e#2106#2107#0" expanded="false" />
+            <element signature="e#2127#2128#0" expanded="false" />
+            <element signature="e#2206#2207#0" expanded="false" />
+            <element signature="e#2230#2231#0" expanded="false" />
+            <element signature="e#2279#2280#0" expanded="false" />
+            <element signature="e#2314#2315#0" expanded="false" />
+            <element signature="e#2391#2392#0" expanded="false" />
+            <element signature="e#2413#2414#0" expanded="false" />
+            <element signature="e#2458#2459#0" expanded="false" />
+            <element signature="e#2489#2490#0" expanded="false" />
+            <element signature="e#2563#2564#0" expanded="false" />
+            <element signature="e#2584#2585#0" expanded="false" />
+            <element signature="e#2627#2628#0" expanded="false" />
+            <element signature="e#2656#2657#0" expanded="false" />
+            <element signature="e#2982#2983#0" expanded="false" />
+            <element signature="e#3006#3007#0" expanded="false" />
+            <element signature="e#3053#3054#0" expanded="false" />
+            <element signature="e#3088#3089#0" expanded="false" />
+            <element signature="e#3120#3121#0" expanded="false" />
+            <element signature="e#3142#3143#0" expanded="false" />
+            <element signature="e#3187#3188#0" expanded="false" />
+            <element signature="e#3218#3219#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/DevicesDao.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="202" column="44" selection-start-line="202" selection-start-column="44" selection-end-line="202" selection-end-column="44" />
+        <state relative-caret-position="2227">
+          <caret line="131" column="28" selection-start-line="131" selection-start-column="28" selection-end-line="131" selection-end-column="28" />
           <folding>
-            <marker date="1506493525946" expanded="true" signature="579:695" ph="SELECT FROM devices" />
-            <marker date="1506493525946" expanded="true" signature="768:1416" ph="SELECT a.did... devices" />
-            <marker date="1506493525946" expanded="true" signature="2414:2735" ph="INSERT INTO devices... " />
-            <marker date="1506493525946" expanded="true" signature="2773:3050" ph="UPDATE devic... " />
-            <marker date="1506493525946" expanded="true" signature="3092:3360" ph="UPDATE devic... " />
-            <marker date="1506493525946" expanded="true" signature="3410:3450" ph="DELETE FROM " />
-            <marker date="1506493525946" expanded="true" signature="3508:3579" ph="UPDATE devic... " />
-            <marker date="1506493525946" expanded="true" signature="3712:3834" ph="select d.*,d... devices" />
-            <marker date="1506493525946" expanded="true" signature="4758:5153" ph="SELECT d.def... devices" />
-            <marker date="1506493525946" expanded="true" signature="5225:5729" ph="SELECT d.def... devices" />
-            <marker date="1506493525946" expanded="true" signature="5794:5971" ph="UPDATE devic... " />
-            <marker date="1506493525946" expanded="true" signature="6018:6065" ph="DELETE FROM " />
-            <marker date="1506493525946" expanded="true" signature="6186:6772" ph="SELECT d.did... devices" />
-            <marker date="1506493525946" expanded="true" signature="6817:6862" ph="DELETE FROM " />
+            <marker date="1507883231457" expanded="true" signature="579:695" ph="SELECT FROM devices" />
+            <marker date="1507883231457" expanded="true" signature="768:1422" ph="SELECT a.did... devices" />
+            <marker date="1507883231457" expanded="true" signature="2420:2741" ph="INSERT INTO devices... " />
+            <marker date="1507883231457" expanded="true" signature="2779:3056" ph="UPDATE devic... " />
+            <marker date="1507883231457" expanded="true" signature="3098:3366" ph="UPDATE devic... " />
+            <marker date="1507883231457" expanded="true" signature="3416:3456" ph="DELETE FROM " />
+            <marker date="1507883231457" expanded="true" signature="3514:3585" ph="UPDATE devic... " />
+            <marker date="1507883231457" expanded="true" signature="3718:3840" ph="select d.*,d... devices" />
+            <marker date="1507883231457" expanded="true" signature="4749:5252" ph="SELECT d.def... devices" />
+            <marker date="1507883231457" expanded="true" signature="5299:5346" ph="DELETE FROM " />
+            <marker date="1507883231457" expanded="true" signature="5467:6053" ph="SELECT d.did... devices" />
+            <marker date="1507883231457" expanded="true" signature="6098:6143" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/WebContent/WEB-INF/lib/spring-web-4.0.8.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="134" column="0" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/DefencesDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2499">
+          <caret line="147" column="31" selection-start-line="147" selection-start-column="31" selection-end-line="147" selection-end-column="31" />
+          <folding>
+            <marker date="1507865128275" expanded="true" signature="589:708" ph="SELECT FROM defences" />
+            <marker date="1507865128275" expanded="true" signature="846:988" ph="SELECT a.did... defences" />
+            <marker date="1507865128275" expanded="true" signature="1134:1382" ph="SELECT a.did... defences" />
+            <marker date="1507865128275" expanded="true" signature="1315:1357" ph="SELECT defen... devices" />
+            <marker date="1507865128275" expanded="true" signature="2388:2688" ph="INSERT INTO defences... " />
+            <marker date="1507865128275" expanded="true" signature="2726:2850" ph="INSERT INTO defences... " />
+            <marker date="1507865128275" expanded="true" signature="2888:3171" ph="UPDATE defen... " />
+            <marker date="1507865128275" expanded="true" signature="3224:3263" ph="DELETE FROM " />
+            <marker date="1507865128275" expanded="true" signature="3321:3393" ph="UPDATE defen... " />
+            <marker date="1507865128275" expanded="true" signature="3527:3585" ph="select * FRO... defences" />
+            <marker date="1507865128275" expanded="true" signature="3651:3806" ph="UPDATE defen... " />
+            <marker date="1507865128275" expanded="true" signature="3853:3901" ph="DELETE FROM " />
+            <marker date="1507865128275" expanded="true" signature="3964:4036" ph="SELECT did F... defences" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/DevicesService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="73" column="33" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="33" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#786#787#0" expanded="false" />
+            <element signature="e#813#814#0" expanded="false" />
+            <element signature="e#865#866#0" expanded="false" />
+            <element signature="e#902#903#0" expanded="false" />
+            <element signature="e#973#974#0" expanded="false" />
+            <element signature="e#1016#1017#0" expanded="false" />
+            <element signature="e#1528#1529#0" expanded="false" />
+            <element signature="e#1554#1555#0" expanded="false" />
+            <element signature="e#1628#1629#0" expanded="false" />
+            <element signature="e#1656#1657#0" expanded="false" />
+            <element signature="e#1734#1735#0" expanded="false" />
+            <element signature="e#1765#1766#0" expanded="false" />
+            <element signature="e#1961#1962#0" expanded="false" />
+            <element signature="e#1999#2000#0" expanded="false" />
+            <element signature="e#2779#2780#0" expanded="false" />
+            <element signature="e#2813#2814#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/service/DefencesService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="59" column="31" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="31" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#902#903#0" expanded="false" />
+            <element signature="e#929#930#0" expanded="false" />
+            <element signature="e#984#985#0" expanded="false" />
+            <element signature="e#1022#1023#0" expanded="false" />
+            <element signature="e#1098#1099#0" expanded="false" />
+            <element signature="e#1142#1143#0" expanded="false" />
+            <element signature="e#1217#1218#0" expanded="false" />
+            <element signature="e#1244#1245#0" expanded="false" />
+            <element signature="e#1321#1322#0" expanded="false" />
+            <element signature="e#1350#1351#0" expanded="false" />
+            <element signature="e#1433#1434#0" expanded="false" />
+            <element signature="e#1460#1461#0" expanded="false" />
+            <element signature="e#1666#1667#0" expanded="false" />
+            <element signature="e#1719#1720#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/DevicesController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="180" column="40" selection-start-line="180" selection-start-column="40" selection-end-line="180" selection-end-column="40" />
-          <folding />
+        <state relative-caret-position="2159">
+          <caret line="165" column="38" selection-start-line="165" selection-start-column="38" selection-end-line="165" selection-end-column="38" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/lu/AppDao.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="42" column="50" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
+        <state relative-caret-position="216">
+          <caret line="39" column="34" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
           <folding>
-            <marker date="1506577223190" expanded="true" signature="322:769" ph="Select d.nam... " />
-            <marker date="1506577223190" expanded="true" signature="892:1164" ph="SELECT a.DID... defences" />
-            <marker date="1506577223190" expanded="true" signature="1229:1320" ph="UPDATE defen... " />
-            <marker date="1506577223190" expanded="true" signature="1441:2002" ph="SELECT a.DID... defences" />
-            <marker date="1506577223190" expanded="true" signature="1755:1822" ph="SELECT defen... devices" />
-            <marker date="1506577223190" expanded="true" signature="1755:1828" ph="SELECT defen... devices" />
+            <marker date="1507880656557" expanded="true" signature="322:769" ph="Select d.nam... " />
+            <marker date="1507880656557" expanded="true" signature="892:1164" ph="SELECT a.DID... defences" />
+            <marker date="1507880656557" expanded="true" signature="1229:1320" ph="UPDATE defen... " />
+            <marker date="1507880656557" expanded="true" signature="1441:1965" ph="SELECT a.DID... defences" />
+            <marker date="1507880656557" expanded="true" signature="2033:2347" ph="SELECT m.MID... masters" />
+            <marker date="1507880656557" expanded="true" signature="2415:2810" ph="SELECT d.did... devices" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/lu/web/AfcustomersController.java">
+    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/lu/mastersList.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1836">
-          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+        <state relative-caret-position="1343">
+          <caret line="79" column="26" selection-start-line="79" selection-start-column="26" selection-end-line="79" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/lu/customersFormAdd.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="80" selection-start-line="8" selection-start-column="80" selection-end-line="8" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/jeeplus.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="61" column="12" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/lu/customersForm.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="57" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/sys/sysHome2.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1505097529672" expanded="true" signature="7255:7267" ph="..." />
+            <marker date="1505097529672" expanded="true" signature="8064:8076" ph="..." />
+            <marker date="1505097529672" expanded="true" signature="9007:9013" ph="&amp;nbsp;" />
+            <marker date="1505097529672" expanded="true" signature="9013:9019" ph="&amp;nbsp;" />
+            <marker date="1505097529672" expanded="true" signature="9019:9025" ph="&amp;nbsp;" />
+            <marker date="1505097529672" expanded="true" signature="9038:9078" ph="..." />
+            <marker date="1505097529672" expanded="true" signature="9190:9196" ph="&amp;nbsp;" />
+            <marker date="1505097529672" expanded="true" signature="9196:9202" ph="&amp;nbsp;" />
+            <marker date="1505097529672" expanded="true" signature="9202:9208" ph="&amp;nbsp;" />
+            <marker date="1505097529672" expanded="true" signature="9221:9261" ph="..." />
+            <marker date="1505097529672" expanded="true" signature="9336:9342" ph="&amp;nbsp;" />
+            <marker date="1505097529672" expanded="true" signature="9438:9444" ph="&amp;nbsp;" />
+            <marker date="1505097529672" expanded="true" signature="9444:9450" ph="&amp;nbsp;" />
+            <marker date="1505097529672" expanded="true" signature="9640:9655" ph="..." />
+            <marker date="1505097529672" expanded="true" signature="9784:9797" ph="..." />
+            <marker date="1505097529672" expanded="true" signature="11172:11178" ph="&amp;nbsp;" />
+            <marker date="1505097529672" expanded="true" signature="11223:11229" ph="&amp;nbsp;" />
+            <marker date="1505097529672" expanded="true" signature="11289:11316" ph="..." />
+            <marker date="1505097529672" expanded="true" signature="11652:11658" ph="&amp;nbsp;" />
+            <marker date="1505097529672" expanded="true" signature="11658:11664" ph="&amp;nbsp;" />
+            <marker date="1505097529672" expanded="true" signature="11664:11670" ph="&amp;nbsp;" />
+            <marker date="1505097529672" expanded="true" signature="11735:11741" ph="&amp;nbsp;" />
+            <marker date="1505097529672" expanded="true" signature="13134:13140" ph="&amp;nbsp;" />
+            <marker date="1505097529672" expanded="true" signature="13177:13183" ph="&amp;nbsp;" />
+            <marker date="1505097529672" expanded="true" signature="13304:13310" ph="&amp;nbsp;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/static/common/jeeplus.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="461" column="0" selection-start-line="461" selection-start-column="0" selection-end-line="461" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/sys/sysHome.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2081">
+          <caret line="570" column="19" selection-start-line="570" selection-start-column="19" selection-end-line="570" selection-end-column="19" />
+          <folding>
+            <marker date="1508128054970" expanded="true" signature="9653:9665" ph="..." />
+            <marker date="1508128054970" expanded="true" signature="12692:12698" ph="&amp;nbsp;" />
+            <marker date="1508128054970" expanded="true" signature="12698:12704" ph="&amp;nbsp;" />
+            <marker date="1508128054970" expanded="true" signature="12704:12710" ph="&amp;nbsp;" />
+            <marker date="1508128054970" expanded="true" signature="12723:12763" ph="..." />
+            <marker date="1508128054970" expanded="true" signature="12896:12902" ph="&amp;nbsp;" />
+            <marker date="1508128054970" expanded="true" signature="12902:12908" ph="&amp;nbsp;" />
+            <marker date="1508128054970" expanded="true" signature="12908:12914" ph="&amp;nbsp;" />
+            <marker date="1508128054970" expanded="true" signature="12927:12967" ph="..." />
+            <marker date="1508128054970" expanded="true" signature="13512:13518" ph="&amp;nbsp;" />
+            <marker date="1508128054970" expanded="true" signature="13630:13636" ph="&amp;nbsp;" />
+            <marker date="1508128054970" expanded="true" signature="13636:13642" ph="&amp;nbsp;" />
+            <marker date="1508128054970" expanded="true" signature="13825:13840" ph="..." />
+            <marker date="1508128054970" expanded="true" signature="15158:15164" ph="&amp;nbsp;" />
+            <marker date="1508128054970" expanded="true" signature="15209:15215" ph="&amp;nbsp;" />
+            <marker date="1508128054970" expanded="true" signature="15275:15302" ph="..." />
+            <marker date="1508128054970" expanded="true" signature="15638:15644" ph="&amp;nbsp;" />
+            <marker date="1508128054970" expanded="true" signature="15644:15650" ph="&amp;nbsp;" />
+            <marker date="1508128054970" expanded="true" signature="15650:15656" ph="&amp;nbsp;" />
+            <marker date="1508128054970" expanded="true" signature="15721:15727" ph="&amp;nbsp;" />
+            <marker date="1508128054970" expanded="true" signature="17323:17329" ph="&amp;nbsp;" />
+            <marker date="1508128054970" expanded="true" signature="17366:17372" ph="&amp;nbsp;" />
+            <marker date="1508128054970" expanded="true" signature="17493:17499" ph="&amp;nbsp;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/lu/customersList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/lu/devicesList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/sys/sysIndex.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="129" column="95" selection-start-line="129" selection-start-column="61" selection-end-line="129" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/modules/gen/treetable/controller.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="131" column="26" selection-start-line="131" selection-start-column="26" selection-end-line="131" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/app/controller/AppController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="332" column="32" selection-start-line="332" selection-start-column="32" selection-end-line="332" selection-end-column="32" />
+        <state relative-caret-position="153">
+          <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/sys/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="46" column="30" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="30" />
           <folding>
-            <element signature="docComment;class#AppController#0" expanded="false" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/sys/service/SystemService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="74" column="26" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
+          <folding>
+            <element signature="e#2193#2194#0" expanded="true" />
+            <element signature="e#2224#2225#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/sys/utils/UserUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="63" column="30" selection-start-line="63" selection-start-column="27" selection-end-line="63" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/sys/UserDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="131" column="38" selection-start-line="131" selection-start-column="38" selection-end-line="131" selection-end-column="38" />
+          <folding>
+            <marker date="1508136369717" expanded="true" signature="5525:5835" ph="SELECT ,ur.r... " />
+            <marker date="1508136369717" expanded="true" signature="5939:6214" ph="SELECT FROM sys_user" />
+            <marker date="1508136369717" expanded="true" signature="6290:9264" ph="SELECT a.id,... sys_user" />
+            <marker date="1508136369717" expanded="true" signature="9351:10239" ph="SELECT FROM sys_user" />
+            <marker date="1508136369717" expanded="true" signature="10357:10503" ph="SELECT a.id,... sys_user" />
+            <marker date="1508136369717" expanded="true" signature="10580:10742" ph="SELECT FROM sys_user" />
+            <marker date="1508136369717" expanded="true" signature="10822:10898" ph="SELECT COUNT... sys_user" />
+            <marker date="1508136369717" expanded="true" signature="10950:11604" ph="INSERT INTO sys_user... " />
+            <marker date="1508136369717" expanded="true" signature="11656:12143" ph="UPDATE sys_u... " />
+            <marker date="1508136369717" expanded="true" signature="12211:12258" ph="DELETE FROM " />
+            <marker date="1508136369717" expanded="true" signature="12443:12477" ph="SELECT ##{id}... dual" />
+            <marker date="1508136369717" expanded="true" signature="12553:12831" ph="UPDATE sys_u... " />
+            <marker date="1508136369717" expanded="true" signature="12897:12963" ph="UPDATE sys_u... " />
+            <marker date="1508136369717" expanded="true" signature="13037:13133" ph="UPDATE sys_u... " />
+            <marker date="1508136369717" expanded="true" signature="13187:13227" ph="DELETE FROM " />
+            <marker date="1508136369717" expanded="true" signature="13288:13360" ph="UPDATE sys_u... " />
+            <marker date="1508136369717" expanded="true" signature="13488:13545" ph="select * fro... sys_user" />
+            <marker date="1508136369717" expanded="true" signature="13603:13721" ph="INSERT INTO sys_user_friend... " />
+            <marker date="1508136369717" expanded="true" signature="13808:13944" ph="SELECT * FRO... sys_user" />
+            <marker date="1508136369717" expanded="true" signature="14002:14082" ph="DELETE FROM " />
+            <marker date="1508136369717" expanded="true" signature="14162:14381" ph="SELECT FROM sys_user" />
+            <marker date="1508136369717" expanded="true" signature="14935:15053" ph="select DISTI... sys_user" />
+            <marker date="1508136369717" expanded="true" signature="15186:15299" ph="select DISTI... sys_user" />
+            <marker date="1508136369717" expanded="true" signature="15353:15595" ph="insert into sys_user... " />
+            <marker date="1508136369717" expanded="true" signature="15730:15792" ph="SELECT DISTI... customers" />
+            <marker date="1508136369717" expanded="true" signature="15876:16018" ph="SELECT s.nam... sys_user" />
+            <marker date="1508136369717" expanded="true" signature="16105:16194" ph="INSERT INTO sys_user_role... " />
+            <marker date="1508136369717" expanded="true" signature="16320:16366" ph="SELECT s.* F... sys_role" />
+            <marker date="1508136369717" expanded="true" signature="16511:16555" ph="SELECT s.id sys_role" />
+            <marker date="1508136369717" expanded="true" signature="16698:16852" ph="SELECT sr.na... sys_user" />
+            <marker date="1508136369717" expanded="true" signature="16925:16996" ph="UPDATE sys_u... " />
+            <marker date="1508136369717" expanded="true" signature="17056:17719" ph="SELECT a.id,... sys_user" />
+            <marker date="1508136369717" expanded="true" signature="17241:17321" ph="SELECT CID F... customers" />
+            <marker date="1508136369717" expanded="true" signature="17781:18302" ph="SELECT a.id,... sys_user" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/webpage/modules/sys/userForm.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="55" column="15" selection-start-line="55" selection-start-column="15" selection-end-line="55" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeeplus/modules/sys/web/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="126" column="36" selection-start-line="126" selection-start-column="36" selection-end-line="126" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2119,7 +2196,6 @@
             <option name="proportions">
               <list>
                 <option value="0.20878136" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -2127,7 +2203,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>analyzer-2012_u6</last-edited>
+          <last-edited>axis</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

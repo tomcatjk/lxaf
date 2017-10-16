@@ -1,5 +1,10 @@
 package com.jeeplus.modules.lu.entity;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created by buwan on 2017/6/19.
  */
@@ -60,5 +65,18 @@ public enum DefenceTypeName {
             }
         }
         return null;
+    }
+
+    public static List getDefenceTypeMapList(){
+        List defenceTypeNameMapList = new ArrayList();
+        int i = 0;
+        for(DefenceTypeName defenceTypeNameTemp : DefenceTypeName.values()){
+            Map mapTemp = new HashMap();
+            mapTemp.put("defenceType", defenceTypeNameTemp.getDefenceType());
+            mapTemp.put("defenceTypeName", defenceTypeNameTemp.getDefenceTypeName());
+            defenceTypeNameMapList.add(i, mapTemp);
+            i++;
+        }
+        return defenceTypeNameMapList;
     }
 }

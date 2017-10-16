@@ -16,7 +16,7 @@
 		<link href="${ctxStatic}/awesome/4.4/css/font-awesome.min.css" rel="stylesheet" />
 		<!-- jeeplus -->
 		<link href="${ctxStatic}/common/jeeplus.css" type="text/css" rel="stylesheet" />
-		<script src="${ctxStatic}/common/jeeplus.js" type="text/javascript"></script>
+		<script src="${ctxStatic}/common/jeeplus.js?100=2" type="text/javascript"></script>
 		<link rel="shortcut icon" href="images/favicon.png" type="image/png">
 		<!-- text fonts -->
 		<link rel="stylesheet" href="${ctxStatic }/common/login/ace-fonts.css" />

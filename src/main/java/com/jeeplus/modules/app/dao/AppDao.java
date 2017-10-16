@@ -16,11 +16,13 @@ import java.util.Map;
 @MyBatisDao
 public interface AppDao {
 
-   public List selectAlarmrecord(Map map);
+   List selectAlarmrecord(Map map);
 
-   public List getdefence(String cid);
+   List getDefences(Map map);
 
-   public List getDefences(Map map);
+   int updateDefence(Map map);
 
-   public int updateDefence(Map map);
+   List getMasters(Map map);
+
+   List getDevices(Map map);
 }

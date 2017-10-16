@@ -28,4 +28,6 @@ public interface DefencesDao extends CrudDao<Defences> {
 
     void deleteByCustomer(Customers customers);
 
+    Defences getDefence(Defences defence);
+
 }
