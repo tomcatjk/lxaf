@@ -4,7 +4,7 @@
 <head>
 	<title>用户管理</title>
 	<meta name="decorator" content="default"/>
-	<script src="${ctxStatic}/common/jeeplus.js?100=2" type="text/javascript"></script>
+	<script src="${ctxStatic}/common/jeeplus.js?101=1" type="text/javascript"></script>
 	<script type="text/javascript">
 		function submitFrom() {
 			document.getElementById('searchForm').submit()
@@ -49,7 +49,7 @@
 				<div class="col-sm-12">
 					<div class="pull-left">
 						<shiro:hasPermission name="sys:user:add">
-							<table:addRow url="${ctx}/sys/user/form" title="用户" width="800px" height="625px" target="officeContent"></table:addRow><!-- 增加按钮 -->
+							<table:addRow url="${ctx}/sys/user/form" title="用户" width="800px" height="500px" target="officeContent"></table:addRow><!-- 增加按钮 -->
 						</shiro:hasPermission>
 						<shiro:hasPermission name="sys:user:del">
 							<table:delRow url="${ctx}/sys/user/deleteAll" id="contentTable"></table:delRow><!-- 删除按钮 -->
@@ -89,7 +89,7 @@
 						<td>${user.remarks}</td>
 						<td >
 							<shiro:hasPermission name="sys:user:edit">
-								<a href="#" onclick="openDialog('修改用户', '${ctx}/sys/user/form?id=${user.id}','800px', '700px', 'officeContent')" class="btn btn-success btn-xs" ><i class="fa fa-edit"></i> 修改</a>
+								<a href="#" onclick="openDialog('修改用户', '${ctx}/sys/user/form?id=${user.id}','800px', '500px', 'officeContent')" class="btn btn-success btn-xs" ><i class="fa fa-edit"></i> 修改</a>
 							</shiro:hasPermission>
 							<shiro:hasPermission name="sys:user:del">
 								<a href="${ctx}/sys/user/delete?id=${user.id}" onclick="return confirmx('确认要删除该用户吗？', this.href)" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> 删除</a>

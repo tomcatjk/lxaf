@@ -31,7 +31,7 @@
 
 <!-- jeeplus -->
 <link href="${ctxStatic}/common/jeeplus.css" type="text/css" rel="stylesheet" />
-<script src="${ctxStatic}/common/jeeplus.js?100=2" type="text/javascript"></script>
+<script src="${ctxStatic}/common/jeeplus.js?101=1" type="text/javascript"></script>
 
 <!-- jquery ui -->
 <script src="${ctxStatic}/jquery-ui/jquery-ui.min.js"></script>

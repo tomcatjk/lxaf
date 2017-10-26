@@ -282,9 +282,9 @@ function openDialog(title,url,width,height,target){
 	    type: 2,  
 	    area: [width, height],
 	    title: title,
-        maxmin: true, //开启最大化最小化按钮
+        maxmin: false, //开启最大化最小化按钮
 		shade: false,
-		content: [url, 'no'],
+		content: url,
 	    btn: ['确定', '关闭'],
 	    yes: function(index, layero){
 	    	 var body = top.layer.getChildFrame('body', index);
@@ -324,7 +324,7 @@ function openDialogEdit(title,url,width,height,target){
 		type: 2,
 		area: [width, height],
 		title: title,
-		maxmin: true, //开启最大化最小化按钮
+		maxmin: false, //开启最大化最小化按钮
 		shade: false,
 		content: [url, 'no'],
 		btn: ['确定', '关闭'],
@@ -373,7 +373,7 @@ function openDialogAdd(title,url,width,height,target){
 		type: 2,
 		title: title,
 		shade: false,
-		maxmin: true, //开启最大化最小化按钮
+		maxmin: false, //开启最大化最小化按钮
 		content: [url, 'no'],
 		area: [width, height],
 		btn: ['下一步', '取消'],
@@ -424,7 +424,7 @@ function openDialogView(title,url,width,height){
 	    type: 2,  
 	    area: [width, height],
 	    title: title,
-        maxmin: true, //开启最大化最小化按钮
+        maxmin: false, //开启最大化最小化按钮
 		shade: false,
 		content: url,
 	    btn: ['关闭'],

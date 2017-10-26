@@ -377,6 +377,7 @@
                             $("#customersFormAddLi").attr("class", "layui-btn layui-btn-primary");
                             $("#mastersFormLi").attr("class", "layui-btn layui-btn-normal");
                             $("#devicesFormLi").attr("class", "layui-btn layui-btn-primary");
+                            $(".layui-layer-btn0").text("ddd");
                         },
                         error : function () {
 
@@ -417,6 +418,13 @@
                             $("#customersFormAddLi").attr("class", "layui-btn layui-btn-primary");
                             $("#mastersFormLi").attr("class", "layui-btn layui-btn-primary");
                             $("#devicesFormLi").attr("class", "layui-btn layui-btn-normal");
+
+                            var array = window.parent.document.getElementsByTagName("a");
+                            for(var i=0;i<array.length;i++){
+                                if(array[i].innerHTML=='下一步'){
+                                    array[i].innerHTML='完成'
+                                }
+                            }
                         },
                         error : function () {
 

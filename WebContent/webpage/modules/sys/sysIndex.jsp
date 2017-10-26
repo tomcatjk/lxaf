@@ -56,6 +56,7 @@
                                    <span class="text-muted text-xs block">${fns:getUser().roleNames}<b class="caret"></b></span>
                                 </span>
                             </a>
+                            <div id="dropdown-menu-divId">
                             <ul class="dropdown-menu animated fadeInRight m-t-xs" id="dropdown-menu-id">
                                 <li><a class="J_menuItem" href="${ctx}/sys/user/imageEdit" onclick="hideDropdownMenu()">修改头像</a>
                                 </li>
@@ -65,13 +66,19 @@
                                 <li><a href="${ctx}/logout">安全退出</a>
                                 </li>
                             </ul>
+                            </div>
                         </div>
                         <script>
                             var showDropdownMenu = function () {
-                                if($("#dropdown-menu-id").css("display") == "none"){
-                                    $("#dropdown-menu-id").css("display", "inline");
-                                }else{
+                                var display = $("#dropdown-menu-id").css("display");
+                                if(display == "inline" || display == "block"){
                                     $("#dropdown-menu-id").css("display", "none");
+                                }else{
+                                    $("#dropdown-menu-id").css("display", "inline");
+                                    var t = setTimeout(function(){
+                                        $("#dropdown-menu-id").css("display", "none");
+                                    }, 3000);
+//                                    clearTimeout(t);
                                 }
                             }
 
@@ -86,6 +93,13 @@
                                             $("#dropdown-menu-id").css("display", "none");
                                         }
                                     });
+
+//                            $("#dropdown-menu-divId").bind("onmouseout", function () {
+//                                console.log("ddd");
+//                                var t = setTimeout(function(){
+//                                    $("#dropdown-menu-id").css("display", "none");
+//                                }, 3000);
+//                            });
                         </script>
                         <div class="logo-element">JP
                         </div>
