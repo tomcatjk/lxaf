@@ -166,7 +166,7 @@ public class AlarmsController extends BaseController {
 		alarms.setState(2);
 		alarmsService.updateByAid(alarms);
 		//更新服务人员的状态(sqlserver)
-		servicePersons.setState(1);
+//		servicePersons.setState(1);
 		servicePersonsService.updateById(servicePersons);
 		//新增报警(sqlserver)
 		User user = UserUtils.getUser();
@@ -215,7 +215,7 @@ public class AlarmsController extends BaseController {
 		//更新服务人员状态(sqlserver)
 		String servicePersonsId = alarms.getServicename();//存在servicename中的是人员id
 		ServicePersons servicePersons = servicePersonsService.findUniqueByProperty("id", servicePersonsId);
-		servicePersons.setState(0);
+//		servicePersons.setState(0);
 		servicePersonsService.updateById(servicePersons);
 		//更新报警(sqlserver)
 		//结果：没法取到sqlserver中的报警
