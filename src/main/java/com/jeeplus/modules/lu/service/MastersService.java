@@ -62,6 +62,7 @@ public class MastersService extends CrudService<MastersDao, Masters> {
 		return page;
 	}
 
+
 	public List findMastersListByCid(String cid){
 		return mastersDao.getMastersListByCid(cid);
 	}

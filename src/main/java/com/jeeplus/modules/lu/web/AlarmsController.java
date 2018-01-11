@@ -136,7 +136,8 @@ public class AlarmsController extends BaseController {
             paramMap.put("roleAreaList", roleAreaList);
             total += alarmsService.findAlarmsInfoAcd(paramMap).size();
             paramMap.put("currentPage", (currentPage-1) * pageSize);
-            list.addAll(alarmsService.findAlarmsInfoAcd(paramMap));
+			List<AlarmsInfoAcd> l = alarmsService.findAlarmsInfoAcd(paramMap);
+            list.addAll(l);
         }
         Map resultMap = new HashMap();
 		resultMap.put("currentPage", currentPage);
@@ -278,9 +279,16 @@ public class AlarmsController extends BaseController {
     public String CountList(AlarmsCount alarmsCount, HttpServletRequest request, HttpServletResponse response, Model model) {
         alarmsCount.setCustomerid(UserUtils.getUser().getCustomerID());
         alarmsCount.setAlarmTypeNameList(new ArrayList(Arrays.asList(AlarmTypeName.values())));
+		//sun 添加数据到报警总数
+		AlarmsCount devidedAlarmsCount = alarmsService.getDevidedAlarmsCount(alarmsCount);
+		model.addAttribute("devidedAlarmsCount",devidedAlarmsCount);
+
         Page<AlarmsCount> page = alarmsService.findAlarmsCount(new Page<AlarmsCount>(request, response),alarmsCount);
-        model.addAttribute("page",page);
+
+		model.addAttribute("page",page);
         model.addAttribute("alarmscount",alarmsCount);
+
+
 
 		List alarmTypeList = new ArrayList();
 		int i = 0;

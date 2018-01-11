@@ -100,6 +100,7 @@
                 <thead>
                     <tr>
                         <th>客户</th>
+                        <th>客户类别</th>
                         <th>报警防区</th>
                         <th>报警类型</th>
                         <th>报警时间</th>
@@ -113,6 +114,10 @@
                         <td>
                                 ${alarmsdefences.customersName}
                         </td>
+                        <td>
+                                ${alarmsdefences.customerTypeStr}
+                        </td>
+
                         <td>
                                 ${alarmsdefences.defencesName}
                         </td>

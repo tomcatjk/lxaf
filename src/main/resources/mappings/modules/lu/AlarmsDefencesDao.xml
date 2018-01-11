@@ -7,6 +7,7 @@
 		SELECT
 		a.aid,
 		c. NAME AS customersName,
+		c.CustomerType AS customerType,
 		d. NAME AS defencesName,
 		a.AlarmType AS typeName,
 		a.AlarmTime AS date,

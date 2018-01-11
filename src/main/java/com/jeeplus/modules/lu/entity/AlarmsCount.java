@@ -99,6 +99,18 @@ public class AlarmsCount extends DataEntity<AlarmsCount> {
 
     private String customerType;
 
+
+    public String getCustomerTypeStr() {
+        if(customerType.equals("1")){
+            return "企业客户";
+        }else if(customerType.equals("2")){
+            return "个人用户";
+        }else {
+            return "政府客户";
+        }
+    }
+
+
     public String getCustomerType() {
         return customerType;
     }

@@ -14,6 +14,8 @@ public class AlarmsDefences extends DataEntity<AlarmsDefences> {
     private int aid;*/
     //客户名
     private String customersName;
+    //客户类别
+    private String customerType;
     //防区名
     private String defencesName;
     //报警类型
@@ -29,6 +31,24 @@ public class AlarmsDefences extends DataEntity<AlarmsDefences> {
     private String endTime;
 
     private String customerId;
+
+    public String getCustomerTypeStr() {
+        if(customerType.equals("1")){
+            return "企业客户";
+        }else if(customerType.equals("2")){
+            return "个人用户";
+        }else {
+            return "政府客户";
+        }
+    }
+
+    public String getCustomerType() {
+        return customerType;
+    }
+
+    public void setCustomerType(String customerType) {
+        this.customerType = customerType;
+    }
 
     public String getCustomerId() {
         return customerId;

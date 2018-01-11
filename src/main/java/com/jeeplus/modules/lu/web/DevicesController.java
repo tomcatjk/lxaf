@@ -10,6 +10,7 @@ import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.ConstraintViolationException;
 
 import com.jeeplus.modules.lu.dao.DevicesDao;
@@ -87,6 +88,27 @@ public class DevicesController extends BaseController {
 	}
 
 	/**
+	 * sun 根据id查询设备
+	 */
+	@RequestMapping(value = "findDevicesById")
+	@ResponseBody
+	public Devices findDevicesById(@RequestParam("deviceid") String deviceid){
+		Devices devices = devicesService.findUniqueByProperty("d.did",deviceid);
+		return devices;
+	}
+
+
+	/**
+	 *sun 查询所有的设备
+	 */
+	@RequestMapping(value = "findAllDevices")
+	@ResponseBody
+	public List<Devices> findAllDevices(){
+		List<Devices> allList = devicesService.findAllList();
+		return allList;
+	}
+
+	/**
 	 * 设备统计页面
 	 */
 	@RequiresPermissions("lu:devicescustomer:list")
@@ -111,12 +133,13 @@ public class DevicesController extends BaseController {
 	 */
 	@RequiresPermissions(value={"lu:devices:view","lu:devices:add","lu:devices:edit"},logical=Logical.OR)
 	@RequestMapping(value = "form")
-	public String form(Devices devices, Model model) {
+	public String form(Devices devices, Model model, HttpSession session) {
 		Devices devicesTemp = devicesService.findUniqueByProperty("d.did", devices.getDid());
 		if(devicesTemp != null){
 			Defences defence = defencesService.findUniqueByProperty("did", devicesTemp.getDefenceid());
 			model.addAttribute("defenceTypeTemp", defence.getDefencetype());
 			model.addAttribute("devices", devicesTemp);
+			/*session.setAttribute("devices", devicesTemp);*/
 		}else{
 
 		}
@@ -164,6 +187,8 @@ public class DevicesController extends BaseController {
 			devicesTemp.setDevicetype(devices.getDevicetype());
 			devicesTemp.setMasterid(devices.getMasterid());
 			devicesTemp.setDefenceid(devices.getDefenceid());
+			devicesTemp.setBegintime(devices.getBegintime());
+			devicesTemp.setEndtime(devices.getEndtime());
 			devicesService.updateByDid(devicesTemp);
 			Defences defencesTemp = defencesService.findUniqueByProperty("did",devices.getDefenceid());
 			defencesTemp.setName(devices.getDefenceName());

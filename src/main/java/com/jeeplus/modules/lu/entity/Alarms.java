@@ -20,6 +20,7 @@ public class Alarms extends DataEntity<Alarms> {
 	private static final long serialVersionUID = 1L;
 	private String aid;		// ID
 	private String customerid;		// 客户ID
+	private String deviceid;		//设备ID
 	private String masterid;		// 主机ID
 	private String defenceid;		// 防区ID
 	private Integer middefence;		// 分区ID
@@ -34,6 +35,10 @@ public class Alarms extends DataEntity<Alarms> {
 	private Customers customers; //顾客表
 	private Date recordTime;
 	private String disarmState;
+
+	public String getDeviceid() { return deviceid; }
+
+	public void setDeviceid(String deviceid) { this.deviceid = deviceid; }
 
 	public Date getRecordTime() {
 		return recordTime;

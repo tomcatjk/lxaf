@@ -21,7 +21,7 @@
             <h5>报警信息统计列表 </h5>
         </div>
 
-        <div class="ibox-content">
+        <div class="ibox-content" style="">
             <sys:message content="${message}"/>
 
             <div class="row">
@@ -73,11 +73,11 @@
                    </div>
                </div>
            </div>
-
+            <div style="width: 100%;overflow:auto;">
             <!-- 表格 -->
-            <table id="contentTable" class="table table-striped table-bordered table-hover table-condensed dataTables-example dataTable">
+            <table id="contentTable" class="table table-striped table-bordered table-hover table-condensed dataTables-example dataTable" style="width: 5000px">
                 <thead>
-                <tr>
+               <%-- <tr>
                     <th>客户</th>
                     <c:forEach items="${alarmTypeList}" var="alarmType" varStatus="status">
                         <c:if test="${status.index < 32}">
@@ -92,13 +92,24 @@
                             <th>${alarmType}</th>
                         </c:if>
                     </c:forEach>
-                </tr>
+                </tr>--%>
+               <tr style="padding-left: 30px;">
+                   <th >客户</th>
+                   <th>客户类别</th>
+                   <c:forEach items="${alarmTypeList}" var="alarmType" >
+                           <th>${alarmType}</th>
+                   </c:forEach>
+
+               </tr>
                 </thead>
                 <tbody>
                 <c:forEach items="${page.list}" var="alarmscount">
-                    <tr>
-                        <td>
+                    <tr style="padding-left: 30px;">
+                        <td >
                                 ${alarmscount.name}
+                        </td>
+                        <td>
+                                ${alarmscount.customerTypeStr}
                         </td>
                         <td>
                                 ${alarmscount.WARNING1}
@@ -196,9 +207,7 @@
                         <td>
                                 ${alarmscount.WARNING32}
                         </td>
-                    </tr>
-                    <tr>
-                        <td></td>
+                      <%--  <td></td>--%>
                         <td>
                                 ${alarmscount.WARNING33}
                         </td>
@@ -295,11 +304,411 @@
                         <td>
                                 ${alarmscount.WARNING64}
                         </td>
+
+
                     </tr>
-                </c:forEach>
+                     </c:forEach>
+                    <tr>
+                        <td>
+                            报警总数
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING1}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING2}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING3}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING4}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING5}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING6}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING7}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING8}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING9}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING10}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING11}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING12}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING13}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING14}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING15}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING16}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING17}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING18}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING19}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING20}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING21}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING22}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING23}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING24}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING25}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING26}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING27}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING28}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING29}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING30}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING31}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING32}
+                        </td>
+                        <%--  <td></td>--%>
+                        <td>
+                            ${devidedAlarmsCount.WARNING33}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING34}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING35}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING36}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING37}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING38}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING39}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING40}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING41}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING42}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING43}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING44}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING45}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING46}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING47}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING48}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING49}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING50}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING51}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING52}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING53}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING54}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING55}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING56}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING57}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING58}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING59}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING60}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING61}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING62}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING63}
+                        </td>
+                        <td>
+                            ${devidedAlarmsCount.WARNING64}
+                        </td>
+                    </tr>
+                     <%--  <tr>
+                            <td>
+                                    报警总数
+                            </td>
+                            <td>
+                                    ${devidedAlarmsCount.s1}
+                            </td>
+                            <td>
+                                    ${devidedAlarmsCount.s2}
+                            </td>
+                            <td>
+                                    ${devidedAlarmsCount.s3}
+                            </td>
+                            <td>
+                                    ${devidedAlarmsCount.s4}
+                            </td>
+                            <td>
+                                    ${devidedAlarmsCount.s5}
+                            </td>
+                            <td>
+                                    ${devidedAlarmsCount.s6}
+                            </td>
+                            <td>
+                                    ${devidedAlarmsCount.s7}
+                            </td>
+                            <td>
+                                    ${devidedAlarmsCount.s8}
+                            </td>
+                            <td>
+                                    ${devidedAlarmsCount.s9}
+                            </td>
+                            <td>
+                                    ${devidedAlarmsCount.s10}
+                            </td>
+                            <td>
+                                    ${devidedAlarmsCount.s11}
+                            </td>
+                            <td>
+                                    ${devidedAlarmsCount.s12}
+                            </td>
+                            <td>
+                                    ${devidedAlarmsCount.s13}
+                            </td>
+                            <td>
+                                    ${devidedAlarmsCount.s14}
+                            </td>
+                            <td>
+                                    ${devidedAlarmsCount.s15}
+                            </td>
+                            <td>
+                                    ${devidedAlarmsCount.s16}
+                            </td>
+                            <td>
+                                    ${devidedAlarmsCount.s17}
+                            </td>
+                            <td>
+                                    ${devidedAlarmsCount.s18}
+                            </td>
+                            <td>
+                                    ${devidedAlarmsCount.s19}
+                            </td>
+                            <td>
+                                    ${devidedAlarmsCount.s20}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s21}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s22}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s23}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s24}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s25}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s26}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s27}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s28}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s29}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s30}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s31}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s32}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s33}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s34}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s35}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s36}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s37}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s38}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s39}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s40}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s41}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s42}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s43}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s44}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s45}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s46}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s47}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s48}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s49}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s50}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s51}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s52}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s53}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s54}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s55}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s56}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s57}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s58}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s59}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s60}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s61}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s62}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s63}
+                            </td>
+                            <td>
+                                ${devidedAlarmsCount.s64}
+                            </td>
+                        </tr>--%>
                 </tbody>
             </table>
-
+            </div>
             <!-- 分页代码 -->
             <table:page page="${page}"></table:page>
             <br/>

@@ -150,14 +150,15 @@
                 customerInfo += "</br>电话:" + phone;
                 customerInfo += "</br>地址:" + address;
                 var infoWindow = new BMap.InfoWindow(customerInfo, opts);  // 创建信息窗口对象
-                marker2.addEventListener("click", function(){
+
+                map.openInfoWindow(infoWindow,point); //开启信息窗口
+               /* marker2.addEventListener("click", function(){
                     isClick = 0;
                     clickPoint(x1,y1,addressTemp,cnameTemp,phoneTemp);
                 });
                 if(isClick == 0){
                     isClick = 1;
-                    map.openInfoWindow(infoWindow,point); //开启信息窗口
-                }
+                }*/
                 map.addOverlay(marker2);              // 将标注添加到地图中
                 map.centerAndZoom(point,15);
                 map.enableScrollWheelZoom();                 //启用滚轮放大缩小
@@ -271,6 +272,7 @@
                     }
                     html += "</td>";
                     html += "</tr>";
+
                 });
                 html += "</table>";
                 html += "<button class='layui-btn layui-btn-primary layui-btn-small' onclick=findAlarms(" + 1 + ")>首页</button>";
@@ -306,6 +308,69 @@
                 }
                 //播放报警信息
                 if (whichOne == 0 && countTemp > 0) {
+
+                    <%--$.each(alarmsInfoAcdList, function (index, alarmsInfoAcd) {
+                        var deviceid=alarmsInfoAcd.deviceid;
+                        var url2="${ctx}/lu/devices/findDevicesById?deviceid="+deviceid;
+                        if(deviceid.length==0){
+                            PlayMedia();
+                        }else{
+                            $.post(url2,function(devices){
+                                if (devices.devicetype == 8){
+                                    var begintime = devices.begintime;
+                                    var endtime = devices.endtime;
+                                    if (begintime != null && begintime.length > 0 && endtime != null && endtime.length > 0) {
+                                        var begin = begintime.substring(0, 2);
+                                        var b = parseInt(begin);
+                                        var end = endtime.substring(0, 2);
+                                        var e = parseInt(end);
+                                        var myDate = new Date();
+                                        var hours = myDate.getHours();
+                                        if (b < e) {
+                                            if (hours <= b || hours >= e) {
+                                                PlayMedia();
+                                            }
+                                        } else {
+                                            if (hours >= e && hours <= b) {
+                                                PlayMedia();
+                                            }
+                                        }
+                                    }
+                                }else{
+                                    PlayMedia();
+                                }
+                            });
+                        }
+                    });--%>
+                   <%-- var url = "${ctx}/lu/devices/findAllDevices";
+                    $.post(url,function (devicesList) {
+                        var options = "";
+                        $.each(devicesList,function (index,devices) {
+                            if (devices.devicetype == 8){
+                                var begintime = devices.begintime;
+                                var endtime = devices.endtime;
+                                if (begintime != null && begintime.length > 0 && endtime != null && endtime.length > 0) {
+                                    var begin = begintime.substring(0, 2);
+                                    var b = parseInt(begin);
+                                    var end = endtime.substring(0, 2);
+                                    var e = parseInt(end);
+                                    var myDate = new Date();
+                                    var hours = myDate.getHours();
+                                    if (b < e) {
+                                        if (hours < b || hours > e) {
+                                            PlayMedia();
+                                        }
+                                    } else {
+                                        if (hours > e && hours < b) {
+                                            PlayMedia();
+                                        }
+                                    }
+                                }
+                            }else{
+                                    PlayMedia();
+                                }
+                        });
+                    });--%>
                     PlayMedia();
                     var narrowmen = document.getElementById("extbkboxnar");
                     var narrowbox = document.getElementById("extbkboxb");
@@ -481,7 +546,21 @@
             var ck = $("#chkPlay")[0];
             if (ck.checked) {
                 var srcVal = "${ctxStatic}/lianxun/alarm/ALARM8.swf";
-                var html = "<embed src='"+srcVal+"' quality='high' pluginspage='http://www.macromedia.com/go/getflashplayer' type='application/x-shockwave-flash' width='0' height='0'></embed>";
+                var html = "<embed src='"+srcVal+"' quality='high' pluginspage='http://www.macromedia.com/go/getflashplayer' type='application/x-shockwave-flash' width='0' height='0' ></embed>";
+                $('#wav').html(html);
+                OpenAlarmLight();
+            } else {
+                $('#wav').html("");
+                CloseAlarmLight();
+            }
+        }
+
+        function changeCheckbox() {
+            var hk = $("#chkPlay")[0];
+            if (hk.checked) {
+
+                var srcVal = "${ctxStatic}/lianxun/alarm/ALARM8.swf";
+                var html = "<embed src='"+srcVal+"' quality='high' pluginspage='http://www.macromedia.com/go/getflashplayer' type='application/x-shockwave-flash' width='0' height='0' ></embed>";
                 $('#wav').html(html);
                 OpenAlarmLight();
             } else {
@@ -549,7 +628,7 @@
 <div id="extbkbox" class="extbkbox" style="display:block; width: auto;">
     <div class="extbkboxm">
         <strong style="float:left;padding-left:10px;">报警信息</strong><label>&nbsp;&nbsp;&nbsp;
-        <input id="chkPlay" name="alarm" type="checkbox" checked value="" />声音 </label>&nbsp;&nbsp;&nbsp;
+        <input id="chkPlay" name="alarm" type="checkbox" checked value="" onclick="changeCheckbox();"/>声音 </label>&nbsp;&nbsp;&nbsp;
         <div class="extmore">
             <span class="extbkboxnar" id="extbkboxnar" onclick="extbkboxnar();"></span>
         </div>

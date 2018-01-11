@@ -18,6 +18,7 @@ import net.sf.json.JSONArray;
 import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -86,6 +87,7 @@ public class MastersController extends BaseController {
 		model.addAttribute("page", page);
 		return "modules/lu/mastersList";
 	}
+
 
 	/**
 	 * 查看，增加，编辑主机信息表单页面

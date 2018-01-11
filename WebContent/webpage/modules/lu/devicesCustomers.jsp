@@ -65,6 +65,7 @@
             <table id="contentTable" class="table table-striped table-bordered table-hover table-condensed dataTables-example dataTable">
                 <thead>
                     <tr>
+                        <th>序号</th>
                         <th>设备名称</th>
                         <th>设备类型</th>
                         <th>所属客户</th>
@@ -76,8 +77,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${page.list}" var="devicescustomers">
+                <c:forEach items="${page.list}" var="devicescustomers" varStatus="s">
                     <tr>
+                        <td>
+                                ${s.count}
+                        </td>
                         <td>
                                 ${devicescustomers.devicesName}
                         </td>

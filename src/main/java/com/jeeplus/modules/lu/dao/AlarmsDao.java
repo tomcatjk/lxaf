@@ -27,4 +27,5 @@ public interface AlarmsDao extends CrudDao<Alarms> {
 
     void deleteByMasterId(Masters masters);
 
+    AlarmsCount getDevidedAlarmsCount(AlarmsCount alarmsCount);
 }

@@ -38,9 +38,11 @@
 	<div class="row">
 	<div class="col-sm-12">
 		<div class="pull-left">
+			<c:if test="${customerid !=null && customerid !=''}">
 			<shiro:hasPermission name="lu:masters:add">
 				<table:addRow url="${ctx}/lu/masters/form?customerid=${customerid}&masterFlag=1" title="主机信息"></table:addRow><!-- 增加按钮 -->
 			</shiro:hasPermission>
+			</c:if>
 			<shiro:hasPermission name="lu:masters:del">
 				<table:delRowMaster url="${ctx}/lu/masters/deleteAll" id="contentTable"></table:delRowMaster><!-- 删除按钮 -->
 			</shiro:hasPermission>

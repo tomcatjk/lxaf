@@ -66,6 +66,7 @@
             <table id="contentTable" class="table table-striped table-bordered table-hover table-condensed dataTables-example dataTable">
                 <thead>
                 <tr>
+                    <th >序号</th>
                     <th >客户名称</th>
                     <th >客户类别</th>
                     <th >质检人</th>
@@ -78,8 +79,11 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${page.list}" var="customersalarms">
+                <c:forEach items="${page.list}" var="customersalarms" varStatus="s">
                     <tr>
+                        <td>
+                                ${s.count}
+                        </td>
                         <td>
                                 ${customersalarms.name}
                         </td>

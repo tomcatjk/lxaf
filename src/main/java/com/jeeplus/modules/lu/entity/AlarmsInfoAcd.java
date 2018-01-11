@@ -31,6 +31,7 @@ public class AlarmsInfoAcd {
     private String serviceName;
     private String alarmTypeName;
     private String address;
+    private String deviceid;		//设备ID
 
     public String getAddress() {
         return address;
@@ -134,5 +135,13 @@ public class AlarmsInfoAcd {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public String getDeviceid() {
+        return deviceid;
+    }
+
+    public void setDeviceid(String deviceid) {
+        this.deviceid = deviceid;
     }
 }

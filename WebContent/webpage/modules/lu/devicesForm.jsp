@@ -65,6 +65,13 @@
 
 	<script>
 		$(document).ready(function () {
+			var devices="${devices}";
+			console.info(devices);
+			var begintime="${devices.begintime}";
+			var endtime="${devices.endtime}";
+			//document.getElementById("sel")[2].selected=true;
+			$("#beginTimeSelect").val(begintime);
+			$("#endTimeSelect").val(endtime);
 			var url = "${ctx}/lu/masters/findMastersListByCid?cid=${devices.customerid}";
 			$.post(url,function (mastersList) {
 				var options = "";
@@ -139,7 +146,20 @@
 					</td>
 					<td class="width-15 active"><label class="pull-right">设备类型：</label></td>
 					<td class="width-35">
-						<select name="devicetype" style="width: 255px; height: 33px;">
+						<script type="text/javascript">
+							function optionChange(){
+								var hk=$("#devicetypeselect").val();
+								//alert(hk);
+								if(hk==8){
+									$('#test').show();
+								}
+								else {
+									$('#test').hide();
+								}
+							}
+
+						</script>
+						<select name="devicetype" id="devicetypeselect" style="width: 255px; height: 33px;" onchange="optionChange()">
 							<c:forEach items="${deviceTypeNameMap}" var="deviceTypeName">
 								<c:choose>
 									<c:when test="${devices.devicetype == deviceTypeName.key}">
@@ -157,6 +177,10 @@
 					<td class="width-15 active"><label class="pull-right"><font color="red">*</font>所属主机：</label></td>
 					<td class="width-35">
 							<select name="masterid" id="masterSelect" style='width: 255px; height: 33px;' class="form-control requiredClass"></select>
+					</td>
+					<td class="width-15 active"><label class="pull-right">防区名称：</label></td>
+					<td class="width-35">
+						<div id="defenceName"></div>
 					</td>
 					<input type="hidden" name="customerid" value="${devices.customerid}">
 				</tr>
@@ -178,10 +202,74 @@
 						</select>
 					</td>
 				</tr>
-		   		<tr>
-					<td class="width-15 active"><label class="pull-right">防区名称：</label></td>
+				<%--<script type="text/javascript">
+					$(function () {
+						var a=${devices.begintime};
+						alert(a);
+						$("#beginTimeSelect").val(a);
+					})
+				</script>--%>
+		   		<tr id="test" class="layui-hide">
+					<td class="width-15 active"><label class="pull-right">睡眠起始时间：</label></td>
 					<td class="width-35">
-						<div id="defenceName"></div>
+						<select name="begintime" id="beginTimeSelect" style='width: 255px; height: 33px;'>
+							<option value='' disabled selected style='display:none;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请选择睡眠时间起始时间</option>
+							<%--<option value ="01" <c:if test="${'01' eq devices.begintime}">selected</c:if> >01</option>--%>
+							<option value ="01:00">01:00</option>
+							<option value ="02:00">02:00</option>
+							<option value ="03:00">03:00</option>
+							<option value ="04:00">04:00</option>
+							<option value ="05:00">05:00</option>
+							<option value ="06:00">06:00</option>
+							<option value ="07:00">07:00</option>
+							<option value ="08:00">08:00</option>
+							<option value ="09:00">09:00</option>
+							<option value ="10:00">10:00</option>
+							<option value ="11:00">11:00</option>
+							<option value ="12:00">12:00</option>
+							<option value ="13:00">13:00</option>
+							<option value ="14:00">14:00</option>
+							<option value ="15:00">15:00</option>
+							<option value ="16:00">16:00</option>
+							<option value ="17:00">17:00</option>
+							<option value ="18:00">18:00</option>
+							<option value ="19:00">19:00</option>
+							<option value ="20:00">20:00</option>
+							<option value ="21:00">21:00</option>
+							<option value ="22:00">22:00</option>
+							<option value ="23:00">23:00</option>
+							<option value ="00:00">00:00</option>
+						</select>
+					</td>
+					<td class="width-15 active"><label class="pull-right">睡眠结束时间：</label></td>
+					<td class="width-35">
+						<select name="endtime" id="endTimeSelect" style='width: 255px; height: 33px;' >
+							<option value='' disabled selected style='display:none;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请选择睡眠时间结束时间</option>
+							<option value ="01:00">01:00</option>
+							<option value ="02:00">02:00</option>
+							<option value ="03:00">03:00</option>
+							<option value ="04:00">04:00</option>
+							<option value ="05:00">05:00</option>
+							<option value ="06:00">06:00</option>
+							<option value ="07:00">07:00</option>
+							<option value ="08:00">08:00</option>
+							<option value ="09:00">09:00</option>
+							<option value ="10:00">10:00</option>
+							<option value ="11:00">11:00</option>
+							<option value ="12:00">12:00</option>
+							<option value ="13:00">13:00</option>
+							<option value ="14:00">14:00</option>
+							<option value ="15:00">15:00</option>
+							<option value ="16:00">16:00</option>
+							<option value ="17:00">17:00</option>
+							<option value ="18:00">18:00</option>
+							<option value ="19:00">19:00</option>
+							<option value ="20:00">20:00</option>
+							<option value ="21:00">21:00</option>
+							<option value ="22:00">22:00</option>
+							<option value ="23:00">23:00</option>
+							<option value ="00:00">00:00</option>
+						</select>
 					</td>
 				</tr>
 		 	</tbody>
@@ -191,6 +279,14 @@
 	<%--devicesForm表单验证--%>
 	<script>
 		$(function () {
+			if($('#devicetypeselect').val()==8){
+				$('#test').addClass('layui-show');
+			}
+			else {
+				//$('#test').addClass('layui-hide');
+				//$('#test').css('display','none');
+				$('#test').hide();
+			}
 			//文本框失去焦点后
 			$('#inputForm :input').blur(function(){
 				var $parent = $(this).parent();

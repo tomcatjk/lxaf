@@ -27,6 +27,8 @@ public class DevicesService extends CrudService<DevicesDao, Devices> {
 	@Autowired
 	DevicesDao devicesDao;
 
+	public List<Devices> findAllList(){return devicesDao.findAllList();}
+
 	public Devices get(String id) {
 		return super.get(id);
 	}

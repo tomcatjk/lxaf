@@ -207,7 +207,8 @@
 			a.RecordTime AS recordTime,
 			a.DisarmState AS disarmState,
 			a.ServiceName AS serviceName,
-            c.Address AS address
+            c.Address AS address,
+			a.DeviceId AS deviceid
 		FROM
 			`alarms` a
 		LEFT JOIN customers c ON c.CID = a.CustomerID
@@ -231,7 +232,7 @@
 
 	<!--报警统计-->
 	<select id="getAlarmsCount"  resultType="com.jeeplus.modules.lu.entity.AlarmsCount">
-		select c.name,
+		select c.name,c.customertype,
 		<foreach collection="alarmTypeNameList" index="index" item="alarmTypeName" separator=",">
 			sum(case a.AlarmType when #{alarmTypeName.alarmType} then 1 else 0 end)
 			<if test="index == 0">
@@ -438,6 +439,217 @@
 			AND CustomerType = #{customerType}
 		</if>
 		GROUP BY c.name
+		ORDER BY c.CreateTime DESC
+	</select>
+<!--报警总数-->
+	<select id="getDevidedAlarmsCount"  resultType="com.jeeplus.modules.lu.entity.AlarmsCount">
+		select c.name,
+		<foreach collection="alarmTypeNameList" index="index" item="alarmTypeName" separator=",">
+			sum(case a.AlarmType when #{alarmTypeName.alarmType} then 1 else 0 end)
+			<if test="index == 0">
+				as WARNING1
+			</if>
+			<if test="index == 1">
+				as WARNING2
+			</if>
+			<if test="index == 2">
+				as WARNING3
+			</if>
+			<if test="index == 3">
+				as WARNING4
+			</if>
+			<if test="index == 4">
+				as WARNING5
+			</if>
+			<if test="index == 5">
+				as WARNING6
+			</if>
+			<if test="index == 6">
+				as WARNING7
+			</if>
+			<if test="index == 7">
+				as WARNING8
+			</if>
+			<if test="index == 8">
+				as WARNING9
+			</if>
+			<if test="index == 9">
+				as WARNING10
+			</if>
+			<if test="index == 10">
+				as WARNING11
+			</if>
+			<if test="index == 11">
+				as WARNING12
+			</if>
+			<if test="index == 12">
+				as WARNING13
+			</if>
+			<if test="index == 13">
+				as WARNING14
+			</if>
+			<if test="index == 14">
+				as WARNING15
+			</if>
+			<if test="index == 15">
+				as WARNING16
+			</if>
+			<if test="index == 16">
+				as WARNING17
+			</if>
+			<if test="index == 17">
+				as WARNING18
+			</if>
+			<if test="index == 18">
+				as WARNING19
+			</if>
+			<if test="index == 19">
+				as WARNING20
+			</if>
+			<if test="index == 20">
+				as WARNING21
+			</if>
+			<if test="index == 21">
+				as WARNING22
+			</if>
+			<if test="index == 22">
+				as WARNING23
+			</if>
+			<if test="index == 23">
+				as WARNING24
+			</if>
+			<if test="index == 24">
+				as WARNING25
+			</if>
+			<if test="index == 25">
+				as WARNING26
+			</if>
+			<if test="index == 26">
+				as WARNING27
+			</if>
+			<if test="index == 27">
+				as WARNING28
+			</if>
+			<if test="index == 28">
+				as WARNING29
+			</if>
+			<if test="index == 29">
+				as WARNING30
+			</if>
+			<if test="index == 30">
+				as WARNING31
+			</if>
+			<if test="index == 31">
+				as WARNING32
+			</if>
+			<if test="index == 32">
+				as WARNING33
+			</if>
+			<if test="index == 33">
+				as WARNING34
+			</if>
+			<if test="index == 34">
+				as WARNING35
+			</if>
+			<if test="index == 35">
+				as WARNING36
+			</if>
+			<if test="index == 36">
+				as WARNING37
+			</if>
+			<if test="index == 37">
+				as WARNING38
+			</if>
+			<if test="index == 38">
+				as WARNING39
+			</if>
+			<if test="index == 39">
+				as WARNING40
+			</if>
+			<if test="index == 40">
+				as WARNING41
+			</if>
+			<if test="index == 41">
+				as WARNING42
+			</if>
+			<if test="index == 42">
+				as WARNING43
+			</if>
+			<if test="index == 43">
+				as WARNING44
+			</if>
+			<if test="index == 44">
+				as WARNING45
+			</if>
+			<if test="index == 45">
+				as WARNING46
+			</if>
+			<if test="index == 46">
+				as WARNING47
+			</if>
+			<if test="index == 47">
+				as WARNING48
+			</if>
+			<if test="index == 48">
+				as WARNING49
+			</if>
+			<if test="index == 49">
+				as WARNING50
+			</if>
+			<if test="index == 50">
+				as WARNING51
+			</if>
+			<if test="index == 51">
+				as WARNING52
+			</if>
+			<if test="index == 52">
+				as WARNING53
+			</if>
+			<if test="index == 53">
+				as WARNING54
+			</if>
+			<if test="index == 54">
+				as WARNING55
+			</if>
+			<if test="index == 55">
+				as WARNING56
+			</if>
+			<if test="index == 56">
+				as WARNING57
+			</if>
+			<if test="index == 57">
+				as WARNING58
+			</if>
+			<if test="index == 58">
+				as WARNING59
+			</if>
+			<if test="index == 59">
+				as WARNING60
+			</if>
+			<if test="index == 60">
+				as WARNING61
+			</if>
+			<if test="index == 61">
+				as WARNING62
+			</if>
+			<if test="index == 62">
+				as WARNING63
+			</if>
+			<if test="index == 63">
+				as WARNING64
+			</if>
+		</foreach>
+		from customers c left join alarms a
+		on c.CID=a.CustomerID
+		WHERE
+		c.ParentCid =#{customerid}
+		<if test="name != null and name !=''">
+			AND c.name LIKE CONCAT('%',#{name},'%')
+		</if>
+		<if test="customerType != null and customerType !=''">
+			AND CustomerType = #{customerType}
+		</if>
+
 		ORDER BY c.CreateTime DESC
 	</select>
 
